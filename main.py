@@ -105,7 +105,8 @@ class Trainer(object):
 
                 pred = torch.zeros_like(outputs, dtype=torch.bool)
                 pred[..., 1:] = outputs[..., 1:] > 0
-                predict_events = utils.decode(pred, self.vocab)
+                pred &= grid_mask2d.unsqueeze(-1)
+                predict_events = utils.decode(pred.cpu(), self.vocab)
 
                 gold_res.extend(golden_events)
                 pred_res.extend(predict_events)
@@ -143,7 +144,8 @@ class Trainer(object):
 
                 pred = torch.zeros_like(outputs, dtype=torch.bool)
                 pred[..., 1:] = outputs[..., 1:] > 0
-                predict_events = utils.decode(pred, self.vocab)
+                pred &= grid_mask2d.unsqueeze(-1)
+                predict_events = utils.decode(pred.cpu(), self.vocab)
 
                 gold_res.extend(golden_events)
                 pred_res.extend(predict_events)
@@ -181,7 +183,7 @@ if __name__ == '__main__':
     parser.add_argument('--output_dir', type=str, default='./outputs')
     parser.add_argument('--ckpt', type=str, default='')
     parser.add_argument('--gpu', type=int, default=0)
-    parser.add_argument('--seed', type=int, default=52)
+    parser.add_argument('--seed', type=int, default=None)
     
     args = parser.parse_args()
     

@@ -7,7 +7,7 @@ class Config:
             config = json.load(f)
 
         self.dataset = config["dataset"]
-        self.ontology = config["ontology"]
+        self.ontology = config.get("ontology", "./data/{}/ontology.json".format(self.dataset))
 
         self.dist_emb_size = config["dist_emb_size"]
         self.lstm_hid_size = config["lstm_hid_size"]
@@ -17,6 +17,7 @@ class Config:
         self.grid_refine_layers = config["grid_refine_layers"]
         self.grid_refine_dropout = config["grid_refine_dropout"]
         self.grid_refine_kernel = config["grid_refine_kernel"]
+        self.use_contextual = config.get("use_contextual", True)
 
         self.epochs = config["epochs"]
         self.batch_size = config["batch_size"]
@@ -28,7 +29,7 @@ class Config:
         self.bert_learning_rate = config["bert_learning_rate"]
         self.warm_factor = config["warm_factor"]
 
-        self.seed = config["seed"]
+        self.seed = config.get("seed", 52)
 
         for k, v in args.__dict__.items():
             if v is not None:

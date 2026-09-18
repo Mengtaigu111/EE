@@ -48,6 +48,8 @@ class GridRefiner(nn.Module):
         if mask is not None:
             # mask2d: [B, 1, L, L]
             mask2d = (mask.unsqueeze(1) & mask.unsqueeze(2)).unsqueeze(1).to(x.dtype)
+            if len(self.layers) == 0:
+                return x * mask2d
 
         for layer in self.layers:
             x = layer(x)
@@ -155,10 +157,15 @@ class EXCEEDS(nn.Module):
 
         lstm_input_size = config.bert_hid_size
         self.lstm_hid_size = config.lstm_hid_size
+        self.use_contextual = getattr(config, "use_contextual", True)
+        if not self.use_contextual and config.bert_hid_size != config.lstm_hid_size:
+            raise ValueError("use_contextual=False requires bert_hid_size == lstm_hid_size")
 
         self.bert = AutoModel.from_pretrained(config.bert_name, cache_dir="./cache/")
 
-        self.lstm = nn.LSTM(lstm_input_size, config.lstm_hid_size // 2, num_layers=1, batch_first=True,
+        self.lstm = None
+        if self.use_contextual:
+            self.lstm = nn.LSTM(lstm_input_size, config.lstm_hid_size // 2, num_layers=1, batch_first=True,
                                bidirectional=True)
 
         self.dropout = nn.Dropout(config.dropout_rate)
@@ -176,7 +183,9 @@ class EXCEEDS(nn.Module):
         )
 
         # conditional layerNorm
-        self.cln = LayerNorm(config.lstm_hid_size, config.lstm_hid_size, conditional=True)
+        self.cln = None
+        if self.use_contextual:
+            self.cln = LayerNorm(config.lstm_hid_size, config.lstm_hid_size, conditional=True)
         self.mlp0 = MLP(config.lstm_hid_size, config.label_num, config.dropout_rate)
 
         # refinement
@@ -215,14 +224,15 @@ class EXCEEDS(nn.Module):
         _bert_embs = torch.masked_fill(_bert_embs, pieces2word.eq(0).unsqueeze(-1), min_value)  # replace each token with max piece representation
         word_reps, _ = torch.max(_bert_embs, dim=2)
 
-        # Bi-LSTM
         word_reps = self.dropout(word_reps)
-        packed_embs = pack_padded_sequence(word_reps, document_length.cpu(), batch_first=True, enforce_sorted=False)
-        packed_outs, (hidden, _) = self.lstm(packed_embs)  # [B, L, H_lstm]
-        word_reps, _ = pad_packed_sequence(packed_outs, batch_first=True, total_length=document_length.max())
-        
-        # Conditional LayerNorm
-        word_reps = self.cln(word_reps, word_reps)  # self.cln: LayerNorm, cln: [B, L, H_lstm]
+        if self.use_contextual:
+            # Bi-LSTM
+            packed_embs = pack_padded_sequence(word_reps, document_length.cpu(), batch_first=True, enforce_sorted=False)
+            packed_outs, (hidden, _) = self.lstm(packed_embs)  # [B, L, H_lstm]
+            word_reps, _ = pad_packed_sequence(packed_outs, batch_first=True, total_length=document_length.max())
+
+            # Conditional LayerNorm
+            word_reps = self.cln(word_reps, word_reps)  # self.cln: LayerNorm, cln: [B, L, H_lstm]
         B, L, H = word_reps.shape
         mask = (torch.arange(L, device=word_reps.device)[None, :] < document_length[:, None])  # [B,L] bool
         word_reps = word_reps * mask.unsqueeze(-1)
@@ -249,4 +259,3 @@ class EXCEEDS(nn.Module):
         # classify to logits
         logits = self.classifier(grid_feat)        # [B, L, L, label_num]
         return logits
-
