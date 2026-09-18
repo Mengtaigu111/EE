@@ -30,6 +30,21 @@ Rules:
 - If the abstract has no events, output (ROOT).'''
 
 
+SENTENCE_TASK = '''You are an expert in scientific information extraction.
+Read the full abstract for context, but extract only the scientific events whose
+TRIGGER occurs in the TARGET SENTENCE. Arguments may appear anywhere in the
+full abstract.
+
+Each event is a tree: the event type is the root, the trigger is the first child,
+and each argument is a (Role "text") child. Nugget types are never written in
+the tree. Copy every trigger and argument text exactly as it appears in the
+abstract. Order events by trigger position in the target sentence. Inside an
+event: Trigger first, then roles in the schema order below; several arguments
+of the same role go in text order.
+
+If the target sentence has no event, output (ROOT).'''
+
+
 def schema_block(with_types, natural=False):
     lines = []
     for event in EVENT_TYPES:
@@ -74,4 +89,18 @@ def make_prompt(abstract, mode='none', hints=None):
         parts.append(guidance)
     parts.append('Abstract:\n' + abstract)
     parts.append('Event forest:')
+    return '\n\n'.join(parts)
+
+
+def make_sentence_prompt(abstract, sentences, target_index):
+    """Build C's full-context prompt with one explicitly selected target sentence."""
+    if not sentences or not 0 <= target_index < len(sentences):
+        raise ValueError('target_index must identify a sentence')
+    if ' '.join(sentences).split() != abstract.split():
+        raise ValueError('sentences must tile the abstract')
+    marked = '\n'.join(f'[S{i + 1}] {sentence}' for i, sentence in enumerate(sentences))
+    parts = [SENTENCE_TASK, schema_block(with_types=False),
+             'Full Abstract:\n' + marked,
+             f'TARGET SENTENCE [S{target_index + 1}]:\n{sentences[target_index]}',
+             'Event forest:']
     return '\n\n'.join(parts)

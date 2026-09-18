@@ -2,6 +2,38 @@
 
 输入整篇 abstract，Qwen3-8B LoRA 一次生成该 abstract 的全部事件树（event forest），程序把文本对齐回 SciEvents token offsets，用 EXCEEDS 官方 `utils.calculate_F1` 计算 TI/TC/AI/AC/EC。方法论见 `task/0 方法论.md`。
 
+## Experiment C：句子级 decoding
+
+Experiment C 保留整篇 abstract 作为 context，但每个句子单独生成一个
+target forest：只保留 trigger 位于 target sentence 的事件，argument 仍在全文
+范围内对齐，最后 deterministic merge 后调用同一个文档级 scorer。
+
+```bash
+python scripts/build_sentence_dataset.py --output-dir data/sentence-c
+python scripts/train_lora.py --data data/sentence-c/train.jsonl \
+  --output /tmp/c-train-audit.json --max-len 4096 --audit-only
+```
+
+正式队列必须在 tmux 中运行。它会对每个保存的 checkpoint 做 dev 评测，按
+`AC_f1` 选择最佳 checkpoint，再只对该 checkpoint 做 test 评测：
+
+```bash
+tmux new -s stage2-c
+python scripts/run_c_queue.py --data-dir data/sentence-c \
+  --document-data-dir data/none --max-len 4096 --epochs 5
+```
+
+用 `--max-steps` 可以把 C 控制到与 T0 相同的 optimizer-step budget；否则按
+5 epochs 完整训练。`max_new_tokens` 默认由 C 的训练集 token audit 推导，亦可
+用参数显式覆盖。训练前先做 gold roundtrip：
+
+```bash
+python scripts/merge_sentence_predictions.py --data data/sentence-c/dev.jsonl \
+  --gold --output /tmp/c-gold-dev.merged.jsonl
+python scripts/evaluate.py --data data/none/dev.jsonl \
+  --predictions /tmp/c-gold-dev.merged.jsonl --output /tmp/c-gold-dev.metrics.json
+```
+
 ## 树表示
 
 ```text

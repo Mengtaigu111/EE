@@ -44,16 +44,34 @@ def _subsequences(tokens, query, lo, hi):
     return result
 
 
-def _candidates(tokens, folded, text, lo=None, hi=None):
+def _candidates(tokens, folded, text, scope=None, subsequence_scope=None):
     query = text.split()
     if not query:
         return [], 'empty'
+    if scope is not None:
+        lo, hi = scope
+        if not (0 <= lo <= hi <= len(tokens)):
+            raise ValueError(f'invalid alignment scope: {scope}')
+        for toks, q, method in ((tokens[lo:hi], query, 'exact'),
+                                (folded[lo:hi], [w.casefold() for w in query], 'case_insensitive')):
+            found = [[position + lo for position in positions]
+                     for positions in _occurrences(toks, q)]
+            if found:
+                return found, method + '_scope'
+        for toks, q, method in ((tokens, query, 'subsequence'),
+                                (folded, [w.casefold() for w in query], 'subsequence_case_insensitive')):
+            found = _subsequences(toks, q, lo, hi)
+            if found:
+                return found, method + '_scope'
+        return [], 'unaligned_scope'
     for toks, q, method in ((tokens, query, 'exact'), (folded, [w.casefold() for w in query], 'case_insensitive')):
         found = _occurrences(toks, q)
         if found:
             return found, method
-    for toks, q, method in ((tokens, query, 'subsequence'), (folded, [w.casefold() for w in query], 'subsequence_case_insensitive')):
-        if lo is not None:
+    for toks, q, method in ((tokens, query, 'subsequence'),
+                            (folded, [w.casefold() for w in query], 'subsequence_case_insensitive')):
+        if subsequence_scope is not None:
+            lo, hi = subsequence_scope
             found = _subsequences(toks, q, lo, hi)
             if found:
                 return found, method + '_sentence'
@@ -70,16 +88,28 @@ def _sentence_of(bounds, position):
     return None
 
 
-def align_forest(tokens, sentences, events):
-    """events: [{'type','trigger','args':[{'role','text'}]}] -> SciEvents-format events + stats."""
+def align_forest(tokens, sentences, events, trigger_scopes=None, argument_sentence_preference=True):
+    """Align text events, optionally restricting each trigger to a token scope.
+
+    The optional arguments preserve the original document-level behavior used by
+    T0 while allowing Experiment C to constrain triggers to target sentences.
+    Arguments always search the full document; the sentence preference is kept
+    configurable for backward-compatible T0 scoring.
+    """
+    if trigger_scopes is not None and len(trigger_scopes) != len(events):
+        raise ValueError('trigger_scopes must have one entry per event')
     folded = [t.casefold() for t in tokens]
     bounds = sentence_bounds(sentences)
     stats = {'events': len(events), 'aligned_events': 0, 'unaligned_triggers': 0,
              'arguments': 0, 'aligned_arguments': 0, 'unaligned_arguments': 0,
              'trigger_methods': {}, 'argument_methods': {}}
     aligned, cursor, trigger_by_text = [], 0, {}
-    for event in events:
-        found, method = _candidates(tokens, folded, event['trigger'])
+    last_by_type_text = {}
+    for index, event in enumerate(events):
+        scope = trigger_scopes[index] if trigger_scopes is not None else None
+        if scope is not None:
+            cursor = max(cursor, scope[0])
+        found, method = _candidates(tokens, folded, event['trigger'], scope=scope)
         if not found:
             stats['unaligned_triggers'] += 1
             stats['arguments'] += len(event['args'])
@@ -87,11 +117,20 @@ def align_forest(tokens, sentences, events):
             continue
         contiguous = [p for p in found if p[-1] - p[0] + 1 == len(p)]
         pool = contiguous or found
-        ahead = [p for p in pool if p[0] >= cursor]
-        trigger = (ahead or pool)[0]
+        type_text = (event['type'], event['trigger'])
+        if trigger_scopes is not None and type_text in last_by_type_text:
+            ahead = [p for p in pool if p[0] > last_by_type_text[type_text][-1]]
+            trigger = (ahead or [last_by_type_text[type_text]])[0]
+        elif trigger_scopes is not None and event['trigger'] in trigger_by_text:
+            # Different event types can legitimately share one trigger nugget.
+            trigger = trigger_by_text[event['trigger']][-1]
+        else:
+            ahead = [p for p in pool if p[0] >= cursor]
+            trigger = (ahead or pool)[0]
         cursor = trigger[0]
         stats['trigger_methods'][method] = stats['trigger_methods'].get(method, 0) + 1
         trigger_by_text.setdefault(event['trigger'], []).append(trigger)
+        last_by_type_text[type_text] = trigger
         aligned.append({'event_type': event['type'],
                         'trigger': {'text': event['trigger'], 'tokens': [tokens[i] for i in trigger], 'offsets': trigger},
                         'arguments': [], '_args': event['args']})
@@ -102,14 +141,17 @@ def align_forest(tokens, sentences, events):
         lo, hi = bounds[sentence] if sentence is not None else (0, len(tokens))
         for arg in event.pop('_args'):
             stats['arguments'] += 1
-            found, method = _candidates(tokens, folded, arg['text'], lo, hi)
+            subsequence_scope = (lo, hi) if argument_sentence_preference else None
+            found, method = _candidates(tokens, folded, arg['text'],
+                                         subsequence_scope=subsequence_scope)
             if not found:
                 stats['unaligned_arguments'] += 1
                 continue
             if arg['text'] in trigger_by_text:
                 # Prefer an aligned trigger with identical text: recovers sub-event links.
                 found = [p for p in trigger_by_text[arg['text']] if p in found] or found
-            best = min(found, key=lambda p: (0 if lo <= p[0] < hi else 1, abs(p[0] - trigger[0]), p[0]))
+            best = min(found, key=lambda p: (0 if argument_sentence_preference and lo <= p[0] < hi else 1,
+                                             abs(p[0] - trigger[0]), p[0]))
             stats['argument_methods'][method] = stats['argument_methods'].get(method, 0) + 1
             stats['aligned_arguments'] += 1
             event['arguments'].append({'text': arg['text'], 'tokens': [tokens[i] for i in best],

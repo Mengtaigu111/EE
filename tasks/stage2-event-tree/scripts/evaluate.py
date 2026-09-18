@@ -60,7 +60,14 @@ def evaluate(data_rows, predictions, oracle=False):
     per_type = {t: Counter() for t in EVENT_TYPES}
     for pred in predictions:
         row = by_id[pred['id']]
-        events, stats = align_forest(row['tokens'], row['sentences'], pred['parsed_events'])
+        if 'aligned_events' in pred:
+            events = pred['aligned_events']
+            stats = pred.get('alignment', {'events': len(events), 'aligned_events': len(events),
+                                           'unaligned_triggers': 0, 'arguments': 0,
+                                           'aligned_arguments': 0, 'unaligned_arguments': 0,
+                                           'trigger_methods': {}, 'argument_methods': {}})
+        else:
+            events, stats = align_forest(row['tokens'], row['sentences'], pred['parsed_events'])
         events = strip_private(events)
         golds.append(row['gold_events'])
         preds.append(events)

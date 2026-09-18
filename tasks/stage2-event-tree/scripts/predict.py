@@ -9,7 +9,7 @@ from linearize import parse_forest
 from model_utils import (DEFAULT_MODEL, file_hash, load_model_config, prompt_tokens,
                          provenance, read_rows, write_json)
 
-MAX_NEW_TOKENS = 768
+DEFAULT_MAX_NEW_TOKENS = 768
 
 
 def main():
@@ -21,9 +21,10 @@ def main():
     parser.add_argument('--limit', type=int)
     parser.add_argument('--batch-size', type=int, default=4)
     parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--max-new-tokens', type=int, default=DEFAULT_MAX_NEW_TOKENS)
     args = parser.parse_args()
-    if args.batch_size < 1:
-        parser.error('batch-size must be positive')
+    if args.batch_size < 1 or args.max_new_tokens < 1:
+        parser.error('batch-size and max-new-tokens must be positive')
     if args.output.exists():
         raise FileExistsError(args.output)
     os.environ.setdefault('TOKENIZERS_PARALLELISM', 'false')
@@ -39,7 +40,7 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     config = {**provenance(args.model, args.data), 'seed': args.seed, 'mode': rows[0].get('mode'),
               'batch_size': args.batch_size, 'limit': args.limit, 'do_sample': False,
-              'max_new_tokens': MAX_NEW_TOKENS, 'enable_thinking': False, 'precision': 'bf16',
+              'max_new_tokens': args.max_new_tokens, 'enable_thinking': False, 'precision': 'bf16',
               'adapter': str(args.adapter.resolve()),
               'adapter_sha256': file_hash(args.adapter / 'adapter_model.safetensors')}
     write_json(Path(str(args.output) + '.config.json'), config)
@@ -53,20 +54,23 @@ def main():
         for start in range(0, len(rows), args.batch_size):
             batch = rows[start:start + args.batch_size]
             encoded = [{'input_ids': prompt_tokens(row['prompt'], tokenizer)} for row in batch]
-            if max(len(e['input_ids']) for e in encoded) + MAX_NEW_TOKENS > model.config.max_position_embeddings:
+            if max(len(e['input_ids']) for e in encoded) + args.max_new_tokens > model.config.max_position_embeddings:
                 raise ValueError('Inference prompt exceeds model context; truncation forbidden')
             inputs = tokenizer.pad(encoded, padding=True, return_tensors='pt').to('cuda')
-            generated = model.generate(**inputs, do_sample=False, max_new_tokens=MAX_NEW_TOKENS,
+            generated = model.generate(**inputs, do_sample=False, max_new_tokens=args.max_new_tokens,
                 pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id,
                 temperature=None, top_p=None, top_k=None)
             new_tokens = generated[:, inputs['input_ids'].shape[1]:]
             outputs = tokenizer.batch_decode(new_tokens, skip_special_tokens=True)
             for row, raw, ids in zip(batch, outputs, new_tokens):
-                hit_limit = bool((ids != tokenizer.pad_token_id).sum().item() >= MAX_NEW_TOKENS
+                hit_limit = bool((ids != tokenizer.pad_token_id).sum().item() >= args.max_new_tokens
                                  and tokenizer.eos_token_id not in ids.tolist())
                 truncated += hit_limit
                 events, diag = parse_forest(raw)
-                record = {k: row[k] for k in ('id', 'document_id', 'split', 'mode')}
+                record = {k: row[k] for k in ('id', 'document_id', 'split', 'mode') if k in row}
+                for key in ('sentence_index', 'target_bounds', 'target_sentence'):
+                    if key in row:
+                        record[key] = row[key]
                 record.update(raw_output=raw, parsed_events=events, parse_diagnostics=diag,
                               invalid=diag['invalid'], hit_max_new_tokens=hit_limit)
                 stream.write(json.dumps(record, ensure_ascii=False) + '\n')

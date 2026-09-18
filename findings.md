@@ -46,3 +46,11 @@ SciEvents 的原始句子 token 拼接与 document 一致；nugget 身份为 `(d
 | Stage-2 Event Tree 生成 | [README/协议](tasks/stage2-event-tree/README.md)、[完整结果报告](tasks/stage2-event-tree/report.md)；16项单元测试通过，T2 oracle 与普通 hints 的差距是当前最重要诊断，但不能等同于纯 Stage-1 因果增益 |
 
 各报告保留自己的逐例证据、冻结版本、日志与限制，指标不在本文件重复维护。更早的调研过程与当时状态见 [五份文档原件归档](tasks/archive/20260914-active-docs/manifest.json)。
+# Experiment C implementation findings (2026-09-18)
+
+- The approved design keeps the existing T0 document-level pipeline unchanged and adds a separate sentence-level path.
+- Existing `align_forest` searches triggers over the whole document; C requires per-event trigger scopes restricted to the target sentence.
+- Existing argument alignment can search the document but prefers the trigger sentence; C needs an explicit document-wide mode so cross-sentence arguments are represented deterministically.
+- Existing `predict.py` hard-codes `MAX_NEW_TOKENS = 768`; C must pass a budget derived from sentence-level token audit.
+- Existing `evaluate.py` realigns parsed events using document-level defaults; C merge output therefore needs an aligned-prediction path or it would lose target-sentence trigger restrictions.
+- Formal C training is intentionally not started during this implementation pass; the first acceptance gate is gold sentence-tree roundtrip through the official scorer.

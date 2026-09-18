@@ -47,3 +47,25 @@ Stage-2 是文档级 event-forest 生成：Qwen3-8B LoRA 先生成 S-expression 
 Experiment C 评估：方向值得做，能直接测试“文档级输入、句子级 decoding”是否缓解长 forest 的结构竞争；但正式运行前必须控制训练预算和 checkpoint 选择。C 的 train rows 会从 2,007 篇文档扩大到 12,828 个句子，固定 5 epochs 不再等价于 T0；并且 T0 当前没有触顶截断（test hit_max_new_tokens=0），所以 C 若提升，结论应是减少 autoregressive 结构竞争/错误传播，而不是解决长度截断。数据上约 15.1% 的 test events 有跨句 argument，约 16.7% 的 test sentences 无 event，必须在 gold roundtrip、merge 去重、局部 trigger/全局 argument 对齐和空句/无事件输出中逐项验收。C 与 T0 还要统一 final checkpoint vs dev-best 规则，并报告 1,627 次 sentence inference 相对 250 次 document inference 的总 token、耗时和显存成本。
 
 验证记录：一次 `jq` 核对因环境未安装 jq 失败，已改用当前 conda 环境的只读 JSON 校验完成；没有改写实验产物。
+
+---
+
+# 当前会话：Experiment C 句子级 Event Generation 实现
+
+目标：按 [task/0918-experiment-C-short.md](../task/0918-experiment-C-short.md) 实现 Full Abstract + Target Sentence 的训练、句级对齐、文档合并和官方评测入口；保持 T0 行为不变。
+
+## 计划与检查项
+
+- [ ] 写入并核对实现计划
+- [ ] 句级数据构造：每句一行、target-only events、全文 context、无事件 `(ROOT)`
+- [ ] 句级 trigger scope + 全文 argument alignment
+- [ ] deterministic merge 与预对齐评测入口
+- [ ] C 队列：长度审计、显式 step budget、dev-best checkpoint、test 评测
+- [ ] gold sentence trees → merge → official scorer
+- [ ] 最小真实数据 build/audit smoke；本轮不启动正式 8B 训练
+
+## 设计决策
+
+- C 使用独立脚本，不改变 T0 的文档级数据和默认对齐行为。
+- merge 后输出 document-level aligned predictions，再由官方 `utils.calculate_F1` 评测。
+- target sentence 只约束 trigger；argument 在全文范围内确定性对齐。
