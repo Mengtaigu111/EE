@@ -77,3 +77,32 @@ Experiment C 评估：方向值得做，能直接测试“文档级输入、句�
 - C 使用独立脚本，不改变 T0 的文档级数据和默认对齐行为。
 - merge 后输出 document-level aligned predictions，再由官方 `utils.calculate_F1` 评测。
 - target sentence 只约束 trigger；argument 在全文范围内确定性对齐。
+
+---
+
+# 当前任务：Stage-3 Structure-Aware Event Tree Refinement v1
+
+目标：按 [task/0918-stage3-tree-refinement-v1.md](../task/0918-stage3-tree-refinement-v1.md) 实现隔离的 D1/D2、reward scorer、R1/R0/R01 诊断闭环；不修改 Stage-2 行为。
+
+## 计划与检查项
+
+- [x] 读取规格、核对 Stage-2 依赖与 C 运行隔离约束
+- [x] 写入设计文档：`docs/superpowers/specs/2026-09-18-stage3-tree-refinement-design.md`
+- [x] 写入实现计划：`docs/superpowers/plans/2026-09-18-stage3-tree-refinement-plan.md`
+- [ ] Stage-3 基础模块、候选标签与诊断
+- [ ] D1 采样候选池与 support/oracle 统计
+- [ ] D2 类型竞争与前缀一致性
+- [ ] 两折 reward 数据与合成负样本
+- [ ] Qwen3-0.6B / RoBERTa reward scorer
+- [ ] R1/R0/R01 选择、阈值扫描与报告
+- [ ] 完整测试、编译、C 完成门禁和 GPU 队列
+
+## 当前约束
+
+- `tmux stage2-c` 仍在运行，Stage-3 只做 CPU 代码与测试，不启动 GPU。
+- 新代码只能放在 `tasks/stage3-tree-refinement/`；Stage-2 脚本保持不变。
+- C 完成后必须重新检查 `run.json` 为 `completed`、项目 GPU 进程为空，再启动 D1。
+
+## 结果复盘
+
+待实现和验证后填写；不得把代码完成误写成实验完成。

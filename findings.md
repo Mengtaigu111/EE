@@ -54,3 +54,11 @@ SciEvents 的原始句子 token 拼接与 document 一致；nugget 身份为 `(d
 - Existing `predict.py` hard-codes `MAX_NEW_TOKENS = 768`; C must pass a budget derived from sentence-level token audit.
 - Existing `evaluate.py` realigns parsed events using document-level defaults; C merge output therefore needs an aligned-prediction path or it would lose target-sentence trigger restrictions.
 - Formal C training is intentionally not started during this implementation pass; the first acceptance gate is gold sentence-tree roundtrip through the official scorer.
+
+## Stage-3 v1 implementation readiness (2026-09-18)
+
+- No existing `tasks/stage3-tree-refinement/` implementation was found; the new work is isolated from Stage-2.
+- The provided v1 specification is the approved design. Its required helpers map cleanly to the existing Stage-2 parser, aligner, ontology, model utilities, and official scorer.
+- Current C isolation is still active: its queue launches Stage-2 subprocesses from the shared filesystem, so Stage-2 scripts must remain unchanged until C completes.
+- Confidence check: duplicate implementation absent; architecture compliant; Transformers generation/model-output APIs and PyTorch loss APIs verified against official documentation; existing repository model-loading checks provide the local reference; root cause and acceptance boundaries are explicit. Confidence: 1.00.
+- Stage-3 initially resolved the generic module name `run_queue` to Stage-2 because the compatibility path was inserted first; appending the Stage-2 path preserves the isolated Stage-3 import namespace while keeping explicit Stage-2 helper imports available. The full Stage-3 suite then passed 38 tests.
