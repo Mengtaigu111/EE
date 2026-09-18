@@ -27,6 +27,7 @@ def test_event_and_trigger_keys_are_canonical_and_hashable():
     assert common.event_key(event) == (
         'PRP', (7, 8), frozenset({('Target', (13, 14)), ('Content', (11,))})
     )
+    assert common.event_key_string(event) == '["PRP",[7,8],[["Content",[11]],["Target",[13,14]]]]'
 
 
 def test_atomic_json_write_publishes_complete_document(tmp_path):

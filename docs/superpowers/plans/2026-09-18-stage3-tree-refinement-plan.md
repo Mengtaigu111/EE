@@ -32,10 +32,10 @@
 - Create: `tasks/stage3-tree-refinement/tests/conftest.py`
 - Create: `tasks/stage3-tree-refinement/tests/test_common.py`
 
-- [ ] Write failing tests for importing Stage-2 helpers, canonical event/trigger keys, atomic JSON writes, and script/data SHA256 provenance.
-- [ ] Run `pytest -q tasks/stage3-tree-refinement/tests/test_common.py` and verify the expected missing-symbol failures.
-- [ ] Implement the path bridge, JSONL readers/writers, stable identities, safe atomic state writes, and provenance helpers.
-- [ ] Rerun the focused test and then compile all new scripts.
+- [x] Write failing tests for importing Stage-2 helpers, canonical event/trigger keys, atomic JSON writes, and script/data SHA256 provenance.
+- [x] Run `pytest -q tasks/stage3-tree-refinement/tests/test_common.py` and verify the expected missing-symbol failures.
+- [x] Implement the path bridge, JSONL readers/writers, stable identities, safe atomic state writes, and provenance helpers.
+- [x] Rerun the focused test and then compile all new scripts.
 
 ### Task 2: Candidate labels and relative diagnostics
 
@@ -43,10 +43,10 @@
 - Create: `tasks/stage3-tree-refinement/scripts/diagnostics.py`
 - Create: `tasks/stage3-tree-refinement/tests/test_labels.py`
 
-- [ ] Add tests for exact `exists`, `type_ok`, argument P/R/F1 labels, same-trigger multiple gold events, and false-positive candidates.
-- [ ] Run the tests red.
-- [ ] Implement gold indexing, candidate labels, event score calculation, T0-relative correction/corruption/recovery counters, and per-pair counts.
-- [ ] Verify focused tests and official metric input shape on synthetic rows.
+- [x] Add tests for exact `exists`, `type_ok`, argument P/R/F1 labels, same-trigger multiple gold events, and false-positive candidates.
+- [x] Run the tests red.
+- [x] Implement gold indexing, candidate labels, event score calculation, T0-relative correction/corruption/recovery counters, and per-pair counts.
+- [x] Verify focused tests and official metric input shape on synthetic rows.
 
 ### Task 3: D1 pool merge and support accounting
 
@@ -54,14 +54,14 @@
 - Create: `tasks/stage3-tree-refinement/scripts/sample_pool.py`
 - Create: `tasks/stage3-tree-refinement/tests/test_pool_merge.py`
 
-- [ ] Test deterministic event-key deduplication, support counts across c0..c5, forest diversity, and preservation of source metadata.
-- [ ] Run the tests red.
-- [ ] Implement pool merge/labeling and a Qwen sampling CLI that reuses T0 greedy predictions and records no-truncation diagnostics.
-- [ ] Fix the protocol to c0 greedy plus c1..c5 sampled with `do_sample=True`, temperature 0.8, top-p 0.95, `num_return_sequences=5`, seed 42, `max_new_tokens=768`, and `enable_thinking=False`.
-- [ ] Write the exact per-document `pool.jsonl` layout: candidates, `event_key`, `trigger_key`, support 0..6, labels, and source sample IDs.
-- [ ] Add dev/test summary JSON generation for support thresholds, trigger/(type,trigger) recall and precision, official TI/TC/AI/AC, exists-only oracle, duplicate-forest rate, and unique-forest diversity.
+- [x] Test deterministic event-key deduplication, support counts across c0..c5, forest diversity, and preservation of source metadata.
+- [x] Run the tests red.
+- [x] Implement pool merge/labeling and a Qwen sampling CLI that reuses T0 greedy predictions and records no-truncation diagnostics.
+- [x] Fix the protocol to c0 greedy plus c1..c5 sampled with `do_sample=True`, temperature 0.8, top-p 0.95, `num_return_sequences=5`, seed 42, `max_new_tokens=768`, and `enable_thinking=False`.
+- [x] Write the exact per-document `pool.jsonl` layout: candidates, `event_key`, `trigger_key`, support 0..6, labels, and source sample IDs.
+- [x] Add dev/test summary JSON generation for support thresholds, trigger/(type,trigger) recall and precision, official TI/TC/AI/AC, exists-only oracle, duplicate-forest rate, and unique-forest diversity.
 - [ ] Enforce the +6 trigger-recall criterion and conditional dev-only `num_return_sequences=10`, temperature 1.0 fallback when support≥1 gain is below 3 points.
-- [ ] Run pure merge tests without loading a model.
+- [x] Run pure merge tests without loading a model.
 
 ### Task 4: D2 type competition and prefix safety
 
@@ -70,15 +70,15 @@
 - Create: `tasks/stage3-tree-refinement/tests/test_prefix_tokens.py`
 - Create: `tasks/stage3-tree-refinement/tests/test_type_competition.py`
 
-- [ ] Test token-prefix equality against greedy output, forced-type candidate construction, balanced-parenthesis stopping, and invalid-schema role dropping.
-- [ ] Run the tests red.
-- [ ] Implement dev-derived confusion-set construction, forced subtree generation, sum/mean token log-likelihood scoring, and D2 replacement variants.
+- [x] Test token-prefix equality against greedy output, forced-type candidate construction, balanced-parenthesis stopping, and invalid-schema role dropping.
+- [x] Run the tests red.
+- [x] Implement dev-derived confusion-set construction, forced subtree generation, sum/mean token log-likelihood scoring, and D2 replacement variants.
 - [ ] Run dev with all 10 types and the confusion-set candidate set; run test only with greedy type plus the frozen dev confusion set.
-- [ ] Require every forced prefix to contain all preceding greedy events and the fixed trigger text; log and reject an unclosed subtree at the 160-token cap.
-- [ ] Add explicit 160-token/balanced-parenthesis stopping, forced type/trigger likelihood accounting, per-event batching/timing, and prefix mismatch fallback to greedy token IDs when mismatch exceeds 1%.
-- [ ] Implement the illegal-schema “only replace type” control by dropping roles not allowed by the selected type, and record its invalid/drop rate.
+- [x] Require every forced prefix to contain all preceding greedy events and the fixed trigger text; log and reject an unclosed subtree at the 160-token cap.
+- [x] Add explicit 160-token/balanced-parenthesis stopping, forced type/trigger likelihood accounting, per-event batching/timing, and prefix mismatch fallback to greedy token IDs when mismatch exceeds 1%.
+- [x] Implement the illegal-schema “only replace type” control by dropping roles not allowed by the selected type, and record its invalid/drop rate.
 - [ ] Emit the required D2 table, confusion-pair counts, prefix consistency, and `type_corrected > type_corrupted` dev criterion.
-- [ ] Verify tests with a fake tokenizer/model fixture; do not use GPU.
+- [x] Verify tests with a fake tokenizer/model fixture; do not use GPU.
 
 ### Task 5: Leakage-safe folds and reward data
 

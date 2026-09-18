@@ -76,6 +76,14 @@ def event_key(event: dict[str, Any]) -> tuple[str, tuple[int, ...], frozenset[tu
     return _event_type(event), _trigger_offsets(event), arguments
 
 
+def event_key_string(event: dict[str, Any]) -> str:
+    """Stable JSON representation for artifact fields and manifests."""
+    event_type, trigger, arguments = event_key(event)
+    return json.dumps([event_type, list(trigger),
+                       [[role, list(offsets)] for role, offsets in sorted(arguments)]],
+                      ensure_ascii=False, separators=(',', ':'))
+
+
 def read_jsonl(path: str | Path) -> list[dict[str, Any]]:
     rows = []
     with Path(path).open(encoding='utf-8') as stream:

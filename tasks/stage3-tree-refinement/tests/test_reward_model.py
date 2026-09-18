@@ -1,4 +1,5 @@
 import torch
+import pytest
 
 
 def test_reward_input_has_exact_three_sections_and_this_marker():
@@ -10,6 +11,17 @@ def test_reward_input_has_exact_three_sections_and_this_marker():
         'Forest context:\n(PRP [THIS])\n\n'
         'Candidate event:\n(PRP (Trigger "propose"))'
     )
+
+
+def test_candidate_and_forest_context_are_canonical_sexpressions():
+    from score_candidates import build_forest_context, candidate_to_sexpr
+
+    candidate = {'type': 'PRP', 'trigger_text': 'propose', 'args': [
+        {'role': 'Content', 'text': 'method'}
+    ]}
+    context = build_forest_context([candidate, {'type': 'FAC', 'trigger_text': 'improve', 'args': []}], candidate)
+    assert context == '(PRP [THIS]) (FAC (Trigger "improve"))'
+    assert candidate_to_sexpr(candidate) == '(PRP (Trigger "propose") (Content "method"))'
 
 
 def test_multitask_loss_masks_type_and_event_heads_by_parent_labels():
@@ -51,3 +63,10 @@ def test_length_audit_rejects_qwen_overlength_without_truncation():
         assert 'exceed' in str(exc)
     else:
         raise AssertionError('expected strict length audit failure')
+
+
+def test_reward_validation_metrics_are_available_without_extra_packages():
+    from score_candidates import binary_auc, spearman_correlation
+
+    assert binary_auc([0, 1, 0, 1], [0.1, 0.9, 0.2, 0.8]) == 1.0
+    assert spearman_correlation([1, 2, 3], [2, 4, 6]) == pytest.approx(1.0)

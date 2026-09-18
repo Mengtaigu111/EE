@@ -11,7 +11,7 @@ from pathlib import Path
 import time
 from typing import Any, Iterable
 
-from common import align_forest, event_key, read_jsonl, trigger_key
+from common import align_forest, event_key, event_key_string, read_jsonl, trigger_key
 from diagnostics import label_candidate
 
 
@@ -66,7 +66,12 @@ def merge_document_candidates(sources: Iterable[dict[str, Any]]) -> list[dict[st
             row = merged.get(key)
             if row is None:
                 row = deepcopy(event)
-                row.update({'support': 0, 'sources': []})
+                row.update({
+                    'event_key': event_key_string(event),
+                    'trigger_key': list(trigger_key(event)),
+                    'support': 0,
+                    'sources': [],
+                })
                 merged[key] = row
             if source not in row['sources']:
                 row['sources'].append(source)
@@ -219,6 +224,34 @@ def _load_model(model_path: str, adapter: Path):
     return torch, tokenizer, model, set_seed
 
 
+def _sample_sources(row: dict[str, Any], greedy_prediction: dict[str, Any], model: Any,
+                    tokenizer: Any, torch: Any, prompt_tokens: Any, parse_forest: Any,
+                    sample_count: int, temperature: float, top_p: float,
+                    max_new_tokens: int) -> list[dict[str, Any]]:
+    sources = []
+    greedy_events, greedy_stats = align_text_events(row, greedy_prediction['parsed_events'])
+    sources.append({'source': 'c0', 'events': greedy_events, 'alignment': greedy_stats})
+    encoded = tokenizer.pad([{'input_ids': prompt_tokens(row['prompt'], tokenizer)}],
+                            padding=True, return_tensors='pt').to('cuda')
+    prompt_width = encoded['input_ids'].shape[1]
+    if prompt_width + max_new_tokens > model.config.max_position_embeddings:
+        raise ValueError(f"{row['id']}: inference context exceeds model limit")
+    generated = model.generate(
+        **encoded, do_sample=True, temperature=temperature, top_p=top_p,
+        num_return_sequences=sample_count, max_new_tokens=max_new_tokens,
+        pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id,
+    )
+    for sample_index, ids in enumerate(generated[:, prompt_width:]):
+        raw = tokenizer.decode(ids, skip_special_tokens=True)
+        events, diag = parse_forest(raw)
+        aligned, stats = align_text_events(row, events)
+        sources.append({'source': f'c{sample_index + 1}', 'events': aligned,
+                        'raw_output': raw, 'parse_diagnostics': diag,
+                        'alignment': stats,
+                        'hit_max_new_tokens': bool(tokenizer.eos_token_id not in ids.tolist())})
+    return sources
+
+
 def _sample_main(args: argparse.Namespace) -> None:
     from linearize import parse_forest
     from model_utils import prompt_tokens, read_rows
@@ -237,39 +270,36 @@ def _sample_main(args: argparse.Namespace) -> None:
     pool_rows = []
     with output.open('x', encoding='utf-8') as stream, torch.inference_mode():
         for row in rows:
-            sources = []
-            greedy_events, greedy_stats = align_text_events(row, greedy_rows[row['id']]['parsed_events'])
-            sources.append({'source': 'c0', 'events': greedy_events, 'alignment': greedy_stats})
-            encoded = tokenizer.pad([{'input_ids': prompt_tokens(row['prompt'], tokenizer)}],
-                                    padding=True, return_tensors='pt').to('cuda')
-            prompt_width = encoded['input_ids'].shape[1]
-            if prompt_width + args.max_new_tokens > model.config.max_position_embeddings:
-                raise ValueError(f"{row['id']}: inference context exceeds model limit")
-            generated = model.generate(
-                **encoded, do_sample=True, temperature=args.temperature, top_p=args.top_p,
-                num_return_sequences=args.sample_count, max_new_tokens=args.max_new_tokens,
-                pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id,
-            )
-            for sample_index, ids in enumerate(generated[:, prompt_width:]):
-                raw = tokenizer.decode(ids, skip_special_tokens=True)
-                events, diag = parse_forest(raw)
-                aligned, stats = align_text_events(row, events)
-                sources.append({'source': f'c{sample_index + 1}', 'events': aligned,
-                                'raw_output': raw, 'parse_diagnostics': diag,
-                                'alignment': stats,
-                                'hit_max_new_tokens': bool(tokenizer.eos_token_id not in ids.tolist())})
+            sources = _sample_sources(row, greedy_rows[row['id']], model, tokenizer, torch,
+                                      prompt_tokens, parse_forest, args.sample_count,
+                                      args.temperature, args.top_p, args.max_new_tokens)
             pool_row = build_pool_row(row['id'], sources, row['gold_events'])
             pool_row.update({'split': row.get('split'), 'sources': sources,
                              'wall_seconds': time.time() - started})
             stream.write(json.dumps(pool_row, ensure_ascii=False, allow_nan=False) + '\n')
             stream.flush()
             pool_rows.append(pool_row)
-    summary = {
-        'status': 'completed', 'documents': len(pool_rows),
-        'wall_seconds': time.time() - started,
-        'summaries': [summarize_pool(pool_rows, rows, support_min=value)
-                      for value in (1, 2, 3)],
-    }
+    summaries = [summarize_pool(pool_rows, rows, support_min=value) for value in (1, 2, 3)]
+    summary = {'status': 'completed', 'documents': len(pool_rows),
+               'wall_seconds': time.time() - started, 'summaries': summaries}
+    greedy_rows_for_summary = []
+    for pool in pool_rows:
+        greedy_rows_for_summary.append({**pool, 'candidates': [candidate for candidate in pool['candidates']
+                                    if 'c0' in candidate.get('sources', [])]})
+    greedy_summary = summarize_pool(greedy_rows_for_summary, rows, support_min=1)
+    summary['greedy_summary'] = greedy_summary
+    if (rows and rows[0].get('split') == 'dev'
+            and summaries[0]['trigger_recall'] - greedy_summary['trigger_recall'] < 0.03):
+        supplement_rows = []
+        for row in rows:
+            sources = _sample_sources(row, greedy_rows[row['id']], model, tokenizer, torch,
+                                      prompt_tokens, parse_forest, 10, 1.0, 0.95, args.max_new_tokens)
+            supplement_rows.append(build_pool_row(row['id'], sources, row['gold_events']))
+        supplement_path = output.with_name(output.stem + '.supplement-10.jsonl')
+        with supplement_path.open('x', encoding='utf-8') as stream:
+            for row in supplement_rows:
+                stream.write(json.dumps(row, ensure_ascii=False, allow_nan=False) + '\n')
+        summary['supplement_10_temp1'] = summarize_pool(supplement_rows, rows, support_min=1)
     summary_path = output.with_suffix('.summary.json')
     summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 

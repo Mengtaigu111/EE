@@ -38,3 +38,28 @@ def test_synthetic_negative_changes_type_and_removes_one_argument_deterministica
     assert result['type'] == 'FAC'
     assert result['source'] == 'synthetic'
     assert result['args'] == []
+
+
+def test_build_reward_rows_keeps_c0_context_and_labels_synthetic_source():
+    from build_reward_data import build_reward_rows
+
+    data = [{
+        'id': 'doc', 'abstract': 'we propose method',
+        'gold_events': [{'event_type': 'PRP', 'trigger': {'text': 'propose', 'offsets': [1], 'tokens': ['propose']},
+                         'arguments': [{'argument_type': 'Content', 'text': 'method',
+                                        'offsets': [2], 'tokens': ['method']}]}],
+    }]
+    pool = [{
+        'document_id': 'doc',
+        'sources': [{'source': 'c0', 'events': [{'type': 'PRP', 'trigger_text': 'propose',
+                                                 'args': [{'role': 'Content', 'text': 'method'}]}]}],
+        'candidates': [{'type': 'PRP', 'trigger_text': 'propose', 'args': [
+            {'role': 'Content', 'text': 'method'}], 'label': {
+                'exists': 1, 'type_ok': 1, 'event_score': 1.0}}],
+    }]
+    pool[0]['candidates'] = [dict(pool[0]['candidates'][0], id=f'candidate-{index}')
+                             for index in range(10)]
+    rows, manifest = build_reward_rows(pool, data, {'PRP': ['FAC']}, {'FAC': set()})
+    assert rows[0]['document_id'] == 'doc'
+    assert 'Forest context:' in rows[0]['text']
+    assert manifest['synthetic_rows_used'] == 2

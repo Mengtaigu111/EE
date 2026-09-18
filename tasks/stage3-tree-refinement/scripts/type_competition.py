@@ -2,11 +2,16 @@
 
 from __future__ import annotations
 
+import argparse
+import json
 import math
+import os
+from pathlib import Path
 import re
+import time
 from typing import Any, Iterable
 
-from common import parse_forest
+from common import parse_forest, read_jsonl
 
 
 _TOKEN = re.compile(r'\(|\)|"(?:[^"\\]|\\.)*"|[^\s()"]+')
@@ -129,3 +134,138 @@ def sequence_token_logprobs(model: Any, input_ids: Any, score_start: int,
     values = log_probs[0, score_start - 1:score_end - 1].gather(
         -1, targets[0, score_start - 1:score_end - 1].unsqueeze(-1)).squeeze(-1)
     return [float(value) for value in values.detach().cpu()]
+
+
+def _prompt_ids(prompt: str, tokenizer: Any) -> list[int]:
+    return tokenizer.apply_chat_template(
+        [{'role': 'user', 'content': prompt}], tokenize=True,
+        add_generation_prompt=True, enable_thinking=False)
+
+
+def _find_suffix(sequence: list[int], suffix: list[int]) -> int:
+    for index in range(len(sequence) - len(suffix), -1, -1):
+        if sequence[index:index + len(suffix)] == suffix:
+            return index
+    raise ValueError('forced candidate token suffix is not present in prefix')
+
+
+def _event_candidate_types(event: dict[str, Any], confusion_sets: dict[str, list[str]],
+                           split: str, all_types: bool) -> list[str]:
+    from ontology import EVENT_TYPES
+
+    if all_types:
+        return list(EVENT_TYPES)
+    return list(dict.fromkeys([event['type'], *confusion_sets.get(event['type'], [])]))
+
+
+def generate_type_competitors(row: dict[str, Any], greedy_events: list[dict[str, Any]],
+                              candidate_types: list[list[str]], model: Any, tokenizer: Any,
+                              device: str = 'cuda', max_new_tokens: int = 160) -> list[dict[str, Any]]:
+    """Generate and score D2 subtrees; one batch is used per greedy event."""
+    import torch
+
+    results = []
+    for event_index, (event, types) in enumerate(zip(greedy_events, candidate_types)):
+        prior = greedy_events[:event_index]
+        prefixes = [forced_event_prefix(prior, event_type, event['trigger']) for event_type in types]
+        encoded = []
+        suffixes = []
+        for prefix, event_type in zip(prefixes, types):
+            ids = _prompt_ids(prefix, tokenizer)
+            # The leading space is part of the forced suffix. Qwen's BPE token
+            # boundaries differ for `(` versus ` (`; using the exact contextual
+            # form is required for prefix verification and likelihood scoring.
+            suffix = f' ({event_type} (Trigger "{_escape(event["trigger"])}")'
+            suffix_ids = tokenizer(suffix, add_special_tokens=False)['input_ids']
+            if suffix_ids and isinstance(suffix_ids[0], list):
+                suffix_ids = suffix_ids[0]
+            _find_suffix(ids, list(suffix_ids))
+            encoded.append({'input_ids': ids})
+            suffixes.append(list(suffix_ids))
+        batch = tokenizer.pad(encoded, padding=True, return_tensors='pt').to(device)
+        with torch.inference_mode():
+            generated = model.generate(
+                **batch, do_sample=False, max_new_tokens=max_new_tokens,
+                pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id,
+                return_dict_in_generate=False,
+            )
+        input_width = batch['input_ids'].shape[1]
+        for item_index, (event_type, prefix, suffix_ids) in enumerate(zip(types, prefixes, suffixes)):
+            generated_ids = generated[item_index, input_width:]
+            cutoff = None
+            for count in range(1, len(generated_ids) + 1):
+                continuation = tokenizer.decode(generated_ids[:count], skip_special_tokens=True)
+                _, closed = take_event_subtree(continuation, max_tokens=max_new_tokens)
+                if closed:
+                    cutoff = count
+                    break
+            if cutoff is None:
+                results.append({'event_index': event_index, 'type': event_type,
+                                'closed': False, 'invalid': True})
+                continue
+            continuation = tokenizer.decode(generated_ids[:cutoff], skip_special_tokens=True)
+            candidate, diagnostics = parse_forced_candidate(prior, event_type, event['trigger'], continuation)
+            full_ids = torch.cat([
+                batch['input_ids'][item_index, -len(encoded[item_index]['input_ids']):],
+                generated_ids[:cutoff],
+            ]).unsqueeze(0)
+            start = _find_suffix(full_ids[0].tolist(), suffix_ids)
+            logprobs = sequence_token_logprobs(model, full_ids, start, full_ids.shape[1])
+            scores = candidate_score(logprobs, forced_prefix_length=len(suffix_ids))
+            results.append({'event_index': event_index, 'type': event_type,
+                            'candidate': candidate, 'continuation': continuation,
+                            'diagnostics': diagnostics, 'closed': True,
+                            **scores})
+    return results
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--data', type=Path, required=True)
+    parser.add_argument('--predictions', type=Path, required=True)
+    parser.add_argument('--confusion-sets', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--model', required=True)
+    parser.add_argument('--adapter', type=Path, required=True)
+    parser.add_argument('--mode', choices=('all', 'confusion'), required=True)
+    parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--max-new-tokens', type=int, default=160)
+    args = parser.parse_args()
+    if 'TMUX' not in os.environ:
+        raise RuntimeError('GPU execution must run in tmux')
+    if args.output.exists():
+        raise FileExistsError(args.output)
+    import torch
+    from peft import PeftModel
+    from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
+    from model_utils import load_model_config
+
+    rows = {row['id']: row for row in read_jsonl(args.data)}
+    predictions = {row['id']: row for row in read_jsonl(args.predictions)}
+    confusion_sets = json.loads(args.confusion_sets.read_text(encoding='utf-8'))
+    tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
+    tokenizer.padding_side = 'left'
+    model = AutoModelForCausalLM.from_pretrained(
+        args.model, config=load_model_config(args.model), local_files_only=True,
+        torch_dtype=torch.bfloat16, attn_implementation='sdpa').to('cuda')
+    model = PeftModel.from_pretrained(model, args.adapter, is_trainable=False).eval()
+    set_seed(args.seed)
+    started = time.time()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    with args.output.open('x', encoding='utf-8') as stream:
+        for document_id, prediction in predictions.items():
+            row = rows[document_id]
+            events = prediction['parsed_events']
+            candidate_types = [_event_candidate_types(event, confusion_sets, row.get('split', ''), args.mode == 'all')
+                               for event in events]
+            outputs = generate_type_competitors(row, events, candidate_types, model, tokenizer,
+                                                max_new_tokens=args.max_new_tokens)
+            stream.write(json.dumps({'id': document_id, 'split': row.get('split'),
+                                     'candidates': outputs}, ensure_ascii=False, allow_nan=False) + '\n')
+            stream.flush()
+    print(json.dumps({'status': 'completed', 'wall_seconds': time.time() - started,
+                      'output': str(args.output)}, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()

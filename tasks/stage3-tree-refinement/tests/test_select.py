@@ -34,3 +34,15 @@ def test_tau_grid_is_dev_only_and_has_inclusive_step():
     from select_r0 import tau_grid
 
     assert tau_grid() == [round(0.1 + 0.05 * index, 2) for index in range(17)]
+
+
+def test_r1_document_replaces_only_event_slots_and_preserves_other_events():
+    from select_r1 import select_document_events
+
+    base = [scored('PRP', [2], 0.0), scored('FAC', [9], 0.0)]
+    competitors = [
+        {'event_index': 0, 'candidate': scored('CMP', [2], 0.9), 'score_sum': -1.0},
+        {'event_index': 0, 'candidate': scored('PRP', [2], 0.8), 'score_sum': -2.0},
+    ]
+    result = select_document_events(base, competitors)
+    assert [event['type'] for event in result] == ['CMP', 'FAC']

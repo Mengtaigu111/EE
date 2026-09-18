@@ -36,6 +36,27 @@ def c_gate(run_json: str | Path, project_gpu_processes: Iterable[str]) -> bool:
     return state.get('status') == 'completed' and not list(project_gpu_processes)
 
 
+def current_project_gpu_processes(project_root: str | Path) -> list[str]:
+    """Return command lines for project processes currently using the GPU."""
+    project_root = str(Path(project_root).resolve())
+    try:
+        result = subprocess.run(
+            ['nvidia-smi', '--query-compute-apps=pid', '--format=csv,noheader,nounits'],
+            capture_output=True, text=True, check=True)
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        return []
+    commands = []
+    for value in result.stdout.splitlines():
+        value = value.strip()
+        if not value.isdigit():
+            continue
+        ps = subprocess.run(['ps', '-p', value, '-o', 'args='], capture_output=True, text=True)
+        command = ps.stdout.strip()
+        if project_root in command:
+            commands.append(command)
+    return commands
+
+
 def assert_test_once(run_dir: str | Path) -> None:
     marker = Path(run_dir) / 'test.completed.json'
     if marker.exists():
@@ -75,17 +96,58 @@ def run_stage(command: list[str], log_path: str | Path, exit_path: str | Path) -
     return result.returncode
 
 
+def run_d1_phase(phase: str, run_dir: Path, model: str, adapter: Path,
+                 data: Path, greedy: Path) -> None:
+    require_tmux()
+    require_fixed_python()
+    project_root = Path(__file__).resolve().parents[3]
+    processes = current_project_gpu_processes(project_root)
+    if not c_gate(project_root / C_RUN_JSON, processes):
+        raise RuntimeError('Experiment C must be completed and GPU idle before D1')
+    run_dir.mkdir(parents=True, exist_ok=False)
+    state = start_run(run_dir, phase, {'model': model, 'adapter': str(adapter),
+                                      'data': str(data), 'greedy': str(greedy)})
+    output = run_dir / f'{phase}.pool.jsonl'
+    command = [FIXED_PYTHON, str(Path(__file__).with_name('sample_pool.py')),
+               '--data', str(data), '--greedy', str(greedy), '--output', str(output),
+               '--model', model, '--adapter', str(adapter)]
+    try:
+        run_stage(command, run_dir / f'{phase}.log', run_dir / f'{phase}.exit.json')
+    except Exception as exc:
+        state.update({'status': 'failed', 'error': repr(exc)})
+        atomic_write_json(run_dir / f'{phase}.run.json', state)
+        raise
+    state.update({'status': 'completed', 'finished_at': datetime.now(timezone.utc).isoformat(),
+                  'output': str(output)})
+    atomic_write_json(run_dir / f'{phase}.run.json', state)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--phase', choices=('gate',), default='gate')
+    parser.add_argument('--phase', choices=('gate', 'd1-dev', 'd1-test'), default='gate')
     parser.add_argument('--c-run-json', type=Path, default=C_RUN_JSON)
+    parser.add_argument('--run-dir', type=Path)
+    parser.add_argument('--model', default='/opt/models/Qwen3-8B')
+    parser.add_argument('--adapter', type=Path,
+                        default=Path('tasks/stage2-event-tree/runs/T0-42-20260917-144424/training/adapter'))
     args = parser.parse_args()
     require_tmux()
     require_fixed_python()
     if args.phase == 'gate':
-        if not c_gate(args.c_run_json, []):
+        project_root = Path(__file__).resolve().parents[3]
+        processes = current_project_gpu_processes(project_root)
+        if not c_gate(args.c_run_json, processes):
             raise RuntimeError('Experiment C is not complete or GPU process list was not empty')
-        print(json.dumps({'status': 'ready', 'c_run_json': str(args.c_run_json)}))
+        print(json.dumps({'status': 'ready', 'c_run_json': str(args.c_run_json),
+                          'gpu_processes': processes}))
+        return
+    if args.run_dir is None:
+        parser.error('--run-dir is required for D1 phases')
+    split = 'dev' if args.phase == 'd1-dev' else 'test'
+    root = Path(__file__).resolve().parents[1]
+    data = root.parent / 'stage2-event-tree' / 'data' / 'none' / f'{split}.jsonl'
+    greedy = root.parent / 'stage2-event-tree' / 'runs' / 'T0-42-20260917-144424' / f'{split}.predictions.jsonl'
+    run_d1_phase(args.phase, args.run_dir, args.model, args.adapter, data, greedy)
 
 
 if __name__ == '__main__':

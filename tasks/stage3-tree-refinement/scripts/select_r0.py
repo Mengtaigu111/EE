@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
+import argparse
+import json
+from pathlib import Path
 from typing import Any, Iterable
 
-from common import event_key, trigger_key
+from common import event_key, read_jsonl, trigger_key
+from sample_pool import candidate_to_aligned_event
 
 
 def tau_grid() -> list[float]:
@@ -27,3 +31,30 @@ def filter_candidates(candidates: Iterable[dict[str, Any]], tau: float) -> list[
 def _rank(row: dict[str, Any]) -> tuple[Any, ...]:
     return (trigger_key(row), -float(row.get('reward_score', row.get('score', 0.0))),
             row['type'], repr(event_key(row)))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--data', type=Path, required=True)
+    parser.add_argument('--pool', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--tau', type=float, required=True)
+    args = parser.parse_args()
+    if args.output.exists():
+        raise FileExistsError(args.output)
+    data = {row['id']: row for row in read_jsonl(args.data)}
+    pools = {row['document_id']: row for row in read_jsonl(args.pool)}
+    if set(data) != set(pools):
+        raise ValueError('data/pool IDs do not match')
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    with args.output.open('x', encoding='utf-8') as stream:
+        for document_id, row in data.items():
+            selected = filter_candidates(pools[document_id]['candidates'], args.tau)
+            aligned = [candidate_to_aligned_event(candidate, row['tokens']) for candidate in selected]
+            stream.write(json.dumps({'id': document_id, 'split': row.get('split'),
+                                     'aligned_events': aligned, 'tau': args.tau,
+                                     'mode': 'R0'}, ensure_ascii=False, allow_nan=False) + '\n')
+
+
+if __name__ == '__main__':
+    main()
