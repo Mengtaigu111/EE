@@ -56,13 +56,21 @@ Experiment C 评估：方向值得做，能直接测试“文档级输入、句�
 
 ## 计划与检查项
 
-- [ ] 写入并核对实现计划
-- [ ] 句级数据构造：每句一行、target-only events、全文 context、无事件 `(ROOT)`
-- [ ] 句级 trigger scope + 全文 argument alignment
-- [ ] deterministic merge 与预对齐评测入口
-- [ ] C 队列：长度审计、显式 step budget、dev-best checkpoint、test 评测
-- [ ] gold sentence trees → merge → official scorer
-- [ ] 最小真实数据 build/audit smoke；本轮不启动正式 8B 训练
+- [x] 写入并核对实现计划
+- [x] 句级数据构造：每句一行、target-only events、全文 context、无事件 `(ROOT)`
+- [x] 句级 trigger scope + 全文 argument alignment
+- [x] deterministic merge 与预对齐评测入口
+- [x] C 队列：长度审计、显式 step budget、dev-best checkpoint、test 评测
+- [x] gold sentence trees → merge → official scorer：dev TI 99.26 / TC 98.18 / AI 94.30 / AC 94.26 / EC 95.72
+- [x] 最小真实数据 build/audit smoke：train 12,828 rows，max total tokens 1,051，max assistant tokens 243，未截断
+- [ ] 正式 8B 队列：tmux `stage2-c` 已启动，run `C-42-20260918`，等待训练/选优/test 完成
+
+## 实现提交与运行记录
+
+- commit：`ea01b45`，已推送到远端 `main`。
+- Stage-2 测试：22 项通过；`git diff --check` 和 Python 编译检查通过。
+- C 数据目录：`tasks/stage2-event-tree/data/sentence-c/`；统计 train/dev/test 句子数为 12,828 / 1,593 / 1,627。
+- 队列日志：`tasks/stage2-event-tree/C-console.log`；预计总耗时约 7–8 小时，训练 5 epochs、seed 42、默认不限制 optimizer steps。
 
 ## 设计决策
 
