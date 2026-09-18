@@ -89,7 +89,7 @@ Experiment C 评估：方向值得做，能直接测试“文档级输入、句�
 - [x] 读取规格、核对 Stage-2 依赖与 C 运行隔离约束
 - [x] 写入设计文档：`docs/superpowers/specs/2026-09-18-stage3-tree-refinement-design.md`
 - [x] 写入实现计划：`docs/superpowers/plans/2026-09-18-stage3-tree-refinement-plan.md`
-- [ ] Stage-3 基础模块、候选标签与诊断
+- [x] Stage-3 基础模块、候选标签与诊断：隔离脚本、D1/D2 核心纯逻辑、reward 输入/损失/选择原语已实现；Stage-3 测试 43 项通过
 - [ ] D1 采样候选池与 support/oracle 统计
 - [ ] D2 类型竞争与前缀一致性
 - [ ] 两折 reward 数据与合成负样本
