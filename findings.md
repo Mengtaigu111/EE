@@ -62,3 +62,11 @@ SciEvents 的原始句子 token 拼接与 document 一致；nugget 身份为 `(d
 - Current C isolation is still active: its queue launches Stage-2 subprocesses from the shared filesystem, so Stage-2 scripts must remain unchanged until C completes.
 - Confidence check: duplicate implementation absent; architecture compliant; Transformers generation/model-output APIs and PyTorch loss APIs verified against official documentation; existing repository model-loading checks provide the local reference; root cause and acceptance boundaries are explicit. Confidence: 1.00.
 - Stage-3 initially resolved the generic module name `run_queue` to Stage-2 because the compatibility path was inserted first; appending the Stage-2 path preserves the isolated Stage-3 import namespace while keeping explicit Stage-2 helper imports available. The full Stage-3 suite then passed 38 tests.
+
+## Stage-3 v1 explanation findings (2026-09-19)
+
+- Stage-3 v1 is a wrapper around the frozen Stage-2 T0 generator: it expands alternative event candidates, delays/competes event types, and learns a whole-tree candidate scorer. It does not alter Stage-2 scripts and explicitly excludes the generative R2 tree refiner.
+- D1 dev completed with 251 documents. Greedy trigger recall was 73.96%; the support≥1 pool reached 85.69% (+11.73 points), with 5.97 unique forests per document on average. The raw pool's AC was only 19.69%, so recall expansion alone is not a result; R0 filtering is necessary. The candidate oracle reached AC 62.13%.
+- Experiment C is now completed according to `tasks/stage2-event-tree/runs/C-42-20260918/run.json`, despite the older results summary saying it was still running. Its recorded test metrics are TI 74.09 / TC 62.55 / AI 43.03 / AC 40.75 / EC 45.37.
+- D2 all-mode dev is still running in tmux. An earlier attempt hit CUDA OOM during teacher-forced scoring; the current rerun had completed 69/251 documents when checked. No D2/R1/R0 conclusion is valid yet.
+- The fixed qwen3meld-run environment passes all 78 Stage-3 tests. The current implementation specifically audits assistant-side forced prefixes, disallows silent truncation, records provenance/attempt state, and keeps reward training's fp32 master weights under bf16 autocast.

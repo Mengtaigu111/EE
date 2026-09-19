@@ -1,4 +1,15 @@
-"""D2 forced-type continuation helpers and scoring primitives."""
+"""D2 forced-type continuation helpers and scoring primitives.
+
+The forced prefix is placed on the ASSISTANT side of the chat template:
+
+    <chat template of the T0 prompt, with generation prompt>
+    (ROOT <greedy events before i> (T (Trigger "t_i")
+
+The model continues from there, so the candidate subtree for type T is
+conditioned on exactly the same context the greedy decode saw, plus the forced
+type/trigger tokens.  Putting the tree inside the user turn would make the
+model start a fresh forest and is not equivalent.
+"""
 
 from __future__ import annotations
 
@@ -33,13 +44,32 @@ def _escape(text: str) -> str:
     return text.replace('\\', '\\\\').replace('"', '\\"')
 
 
-def build_forced_prefix(prompt: str, prior_events: Iterable[str], event_type: str,
-                        trigger: str) -> str:
+def event_to_sexpr(event: dict[str, Any]) -> str:
+    args = ' '.join(f'({argument["role"]} "{_escape(argument["text"])}")'
+                    for argument in event.get('args', []))
+    trigger = f'(Trigger "{_escape(event["trigger"])}")'
+    return f'({event["type"]} {trigger}' + (f' {args}' if args else '') + ')'
+
+
+def forced_suffix(event_type: str, trigger: str) -> str:
+    """The forced tokens that open the competing event; leading space included."""
+    return f' ({event_type} (Trigger "{_escape(trigger)}")'
+
+
+def build_prior_text(prior_events: Iterable[str]) -> str:
+    """Assistant-side text up to (not including) the competing event."""
     prior = ' '.join(prior_events)
-    root_prefix = f'{prompt} (ROOT'
-    if prior:
-        root_prefix += f' {prior}'
-    return f'{root_prefix} ({event_type} (Trigger "{_escape(trigger)}")'
+    return '(ROOT' + (f' {prior}' if prior else '')
+
+
+def build_forced_prefix(prior_events: Iterable[str], event_type: str, trigger: str) -> str:
+    """Assistant-side forced prefix text (no prompt, no chat template)."""
+    return build_prior_text(prior_events) + forced_suffix(event_type, trigger)
+
+
+def forced_event_prefix(prior_events: Iterable[dict[str, Any]], event_type: str,
+                        trigger: str) -> str:
+    return build_forced_prefix([event_to_sexpr(event) for event in prior_events], event_type, trigger)
 
 
 def take_event_subtree(generated: str, max_tokens: int = 160) -> tuple[str, bool]:
@@ -63,9 +93,6 @@ def take_event_subtree(generated: str, max_tokens: int = 160) -> tuple[str, bool
         end = match.end()
         if depth == 0:
             return generated[:end], True
-        # Do not cut through a lexical child. Once the budget is reached, keep
-        # reading until the current child closes so the caller receives an
-        # explicitly incomplete but syntactically inspectable continuation.
         if token_index + 1 >= max_tokens and token == ')':
             return generated[:end], False
     return generated[:end], False
@@ -96,19 +123,6 @@ def candidate_score(logprobs: Iterable[float], forced_prefix_length: int = 0) ->
             'token_count': len(values)}
 
 
-def event_to_sexpr(event: dict[str, Any]) -> str:
-    args = ' '.join(f'({argument["role"]} "{_escape(argument["text"])}")'
-                    for argument in event.get('args', []))
-    trigger = f'(Trigger "{_escape(event["trigger"])}")'
-    return f'({event["type"]} {trigger}' + (f' {args}' if args else '') + ')'
-
-
-def forced_event_prefix(prior_events: Iterable[dict[str, Any]], event_type: str,
-                        trigger: str) -> str:
-    prior = ' '.join(event_to_sexpr(event) for event in prior_events)
-    return f'(ROOT{(" " + prior) if prior else ""} ({event_type} (Trigger "{_escape(trigger)}")'
-
-
 def parse_forced_candidate(prior_events: Iterable[dict[str, Any]], event_type: str,
                            trigger: str, continuation: str) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     subtree, closed = take_event_subtree(continuation, max_tokens=160)
@@ -136,10 +150,73 @@ def sequence_token_logprobs(model: Any, input_ids: Any, score_start: int,
     return [float(value) for value in values.detach().cpu()]
 
 
+def batch_token_logprobs(model: Any, sequences: list[list[int]], starts: list[int],
+                         pad_token_id: int, device: str = 'cuda',
+                         batch_size: int = 1) -> list[list[float]]:
+    """Teacher-force several right-padded sequences; return per-sequence target log-probs."""
+    import torch
+
+    if len(sequences) != len(starts):
+        raise ValueError('sequences and starts must have the same length')
+    if batch_size < 1:
+        raise ValueError('batch_size must be positive')
+    result = []
+    for offset in range(0, len(sequences), batch_size):
+        sequence_chunk = sequences[offset:offset + batch_size]
+        start_chunk = starts[offset:offset + batch_size]
+        width = max(len(sequence) for sequence in sequence_chunk)
+        input_ids = torch.full((len(sequence_chunk), width), pad_token_id, dtype=torch.long)
+        attention = torch.zeros((len(sequence_chunk), width), dtype=torch.long)
+        for row, sequence in enumerate(sequence_chunk):
+            input_ids[row, :len(sequence)] = torch.tensor(sequence, dtype=torch.long)
+            attention[row, :len(sequence)] = 1
+        input_ids, attention = input_ids.to(device), attention.to(device)
+        with torch.inference_mode():
+            logits = model(input_ids=input_ids, attention_mask=attention).logits[:, :-1, :].float()
+            log_probs = logits.log_softmax(dim=-1)
+            gathered = log_probs.gather(-1, input_ids[:, 1:].unsqueeze(-1)).squeeze(-1).cpu()
+        for row, (sequence, start) in enumerate(zip(sequence_chunk, start_chunk)):
+            if start < 1 or start >= len(sequence):
+                raise ValueError('invalid score start')
+            result.append([float(value) for value in gathered[row, start - 1:len(sequence) - 1]])
+        del input_ids, attention, logits, log_probs, gathered
+        if device.startswith('cuda'):
+            torch.cuda.empty_cache()
+    return result
+
+
 def _prompt_ids(prompt: str, tokenizer: Any) -> list[int]:
     return tokenizer.apply_chat_template(
         [{'role': 'user', 'content': prompt}], tokenize=True,
         add_generation_prompt=True, enable_thinking=False)
+
+
+def _text_ids(text: str, tokenizer: Any) -> list[int]:
+    ids = tokenizer(text, add_special_tokens=False)['input_ids']
+    if ids and isinstance(ids[0], list):
+        ids = ids[0]
+    return list(ids)
+
+
+def forced_prefix_ids(prompt: str, prior_text: str, event_type: str, trigger: str,
+                      tokenizer: Any) -> tuple[list[int], int, int]:
+    """Return (token ids, score_start, forced token count) for one forced prefix.
+
+    ``score_start`` is the index of the first forced token (the ` (T` opening),
+    so the forced type and trigger tokens are included in the score span.
+    """
+    prompt_ids = _prompt_ids(prompt, tokenizer)
+    prefix_text = prior_text + forced_suffix(event_type, trigger)
+    prefix_ids = _text_ids(prefix_text, tokenizer)
+    prior_ids = _text_ids(prior_text, tokenizer)
+    if prefix_ids[:len(prior_ids)] == prior_ids:
+        forced_count = len(prefix_ids) - len(prior_ids)
+    else:
+        # BPE merged across the boundary; scoring the whole assistant side is
+        # the conservative fallback (constant across candidate types of one event).
+        forced_count = len(prefix_ids)
+    ids = prompt_ids + prefix_ids
+    return ids, len(ids) - forced_count, forced_count
 
 
 def _find_suffix(sequence: list[int], suffix: list[int]) -> int:
@@ -147,6 +224,61 @@ def _find_suffix(sequence: list[int], suffix: list[int]) -> int:
         if sequence[index:index + len(suffix)] == suffix:
             return index
     raise ValueError('forced candidate token suffix is not present in prefix')
+
+
+def greedy_prior_text(raw_output: str, greedy_events: list[dict[str, Any]], index: int) -> tuple[str, bool]:
+    """Assistant-side text preceding greedy event ``index``.
+
+    Prefer slicing the stored greedy output so the prior context is exactly what
+    the model generated; fall back to re-linearizing parsed events when the
+    canonical marker cannot be located in the raw text.
+    """
+    event = greedy_events[index]
+    marker = forced_suffix(event['type'], event['trigger'])
+    cursor, hits = 0, 0
+    while True:
+        position = raw_output.find(marker, cursor)
+        if position < 0:
+            break
+        if hits == sum(1 for prior in greedy_events[:index]
+                       if prior['type'] == event['type'] and prior['trigger'] == event['trigger']):
+            return raw_output[:position].rstrip(), True
+        hits += 1
+        cursor = position + 1
+    return build_prior_text([event_to_sexpr(item) for item in greedy_events[:index]]), False
+
+
+def prefix_consistency(row: dict[str, Any], prediction: dict[str, Any],
+                       greedy_events: list[dict[str, Any]], tokenizer: Any) -> dict[str, Any]:
+    """Compare constructed assistant-side prefixes with the stored greedy tokens.
+
+    For each greedy event, the reconstructed prefix (prior events re-linearized
+    plus the forced type/trigger) is tokenized and compared with the tokens of
+    the raw greedy output cut at the same point.  A mismatch above one percent
+    of the events is reported; the generator then uses the raw-output slice.
+    """
+    raw = str(prediction.get('raw_output', ''))
+    raw_ids = _text_ids(raw, tokenizer)
+    checks = []
+    for index, event in enumerate(greedy_events):
+        marker = forced_suffix(event['type'], event['trigger'])
+        prior_text, from_raw = greedy_prior_text(raw, greedy_events, index)
+        if not from_raw:
+            checks.append({'event_index': index, 'mismatches': 1, 'rate': 1.0,
+                           'use_token_slice': True, 'missing_marker': True})
+            continue
+        greedy_prefix_ids = _text_ids(raw[:len(prior_text)] + marker, tokenizer)
+        constructed_ids = _text_ids(
+            build_forced_prefix([event_to_sexpr(item) for item in greedy_events[:index]],
+                                event['type'], event['trigger']), tokenizer)
+        check = prefix_token_check(greedy_prefix_ids, constructed_ids,
+                                   max(1, len(greedy_prefix_ids)))
+        check['slice_is_prefix_of_greedy_tokens'] = raw_ids[:len(greedy_prefix_ids)] == greedy_prefix_ids
+        checks.append({'event_index': index, **check})
+    mismatch_count = sum(item['use_token_slice'] for item in checks)
+    return {'events': len(checks), 'mismatched_events': mismatch_count,
+            'mismatch_rate': mismatch_count / len(checks) if checks else 0.0,
+            'checks': checks, 'fallback_required': mismatch_count / len(checks) > 0.01 if checks else False}
 
 
 def _event_candidate_types(event: dict[str, Any], confusion_sets: dict[str, list[str]],
@@ -160,38 +292,43 @@ def _event_candidate_types(event: dict[str, Any], confusion_sets: dict[str, list
 
 def generate_type_competitors(row: dict[str, Any], greedy_events: list[dict[str, Any]],
                               candidate_types: list[list[str]], model: Any, tokenizer: Any,
-                              device: str = 'cuda', max_new_tokens: int = 160) -> list[dict[str, Any]]:
-    """Generate and score D2 subtrees; one batch is used per greedy event."""
+                              device: str = 'cuda', max_new_tokens: int = 160,
+                              raw_output: str | None = None,
+                              score_batch_size: int = 2) -> list[dict[str, Any]]:
+    """Generate and score D2 subtrees; one generation batch per greedy event."""
     import torch
 
     results = []
     for event_index, (event, types) in enumerate(zip(greedy_events, candidate_types)):
         prior = greedy_events[:event_index]
-        prefixes = [forced_event_prefix(prior, event_type, event['trigger']) for event_type in types]
-        encoded = []
-        suffixes = []
-        for prefix, event_type in zip(prefixes, types):
-            ids = _prompt_ids(prefix, tokenizer)
-            # The leading space is part of the forced suffix. Qwen's BPE token
-            # boundaries differ for `(` versus ` (`; using the exact contextual
-            # form is required for prefix verification and likelihood scoring.
-            suffix = f' ({event_type} (Trigger "{_escape(event["trigger"])}")'
-            suffix_ids = tokenizer(suffix, add_special_tokens=False)['input_ids']
-            if suffix_ids and isinstance(suffix_ids[0], list):
-                suffix_ids = suffix_ids[0]
-            _find_suffix(ids, list(suffix_ids))
+        if raw_output is not None:
+            prior_text, from_raw = greedy_prior_text(raw_output, greedy_events, event_index)
+        else:
+            prior_text, from_raw = build_prior_text([event_to_sexpr(item) for item in prior]), False
+        encoded, starts, forced_counts = [], [], []
+        for event_type in types:
+            ids, start, forced_count = forced_prefix_ids(row['prompt'], prior_text, event_type,
+                                                         event['trigger'], tokenizer)
             encoded.append({'input_ids': ids})
-            suffixes.append(list(suffix_ids))
+            starts.append(start)
+            forced_counts.append(forced_count)
+        if max(len(item['input_ids']) for item in encoded) + max_new_tokens > model.config.max_position_embeddings:
+            raise ValueError(f"{row['id']}: forced prefix plus budget exceeds model context")
         batch = tokenizer.pad(encoded, padding=True, return_tensors='pt').to(device)
         with torch.inference_mode():
             generated = model.generate(
                 **batch, do_sample=False, max_new_tokens=max_new_tokens,
                 pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id,
-                return_dict_in_generate=False,
+                temperature=None, top_p=None, top_k=None,
             )
         input_width = batch['input_ids'].shape[1]
-        for item_index, (event_type, prefix, suffix_ids) in enumerate(zip(types, prefixes, suffixes)):
-            generated_ids = generated[item_index, input_width:]
+        sequences, sequence_starts, pending = [], [], []
+        for item_index, event_type in enumerate(types):
+            generated_ids = generated[item_index, input_width:].tolist()
+            # Stop at EOS/pad; then find the shortest token cut that closes the event.
+            for stop in (tokenizer.eos_token_id, tokenizer.pad_token_id):
+                if stop in generated_ids:
+                    generated_ids = generated_ids[:generated_ids.index(stop)]
             cutoff = None
             for count in range(1, len(generated_ids) + 1):
                 continuation = tokenizer.decode(generated_ids[:count], skip_special_tokens=True)
@@ -201,20 +338,24 @@ def generate_type_competitors(row: dict[str, Any], greedy_events: list[dict[str,
                     break
             if cutoff is None:
                 results.append({'event_index': event_index, 'type': event_type,
-                                'closed': False, 'invalid': True})
+                                'closed': False, 'invalid': True, 'prior_from_raw': from_raw})
                 continue
             continuation = tokenizer.decode(generated_ids[:cutoff], skip_special_tokens=True)
             candidate, diagnostics = parse_forced_candidate(prior, event_type, event['trigger'], continuation)
-            full_ids = torch.cat([
-                batch['input_ids'][item_index, -len(encoded[item_index]['input_ids']):],
-                generated_ids[:cutoff],
-            ]).unsqueeze(0)
-            start = _find_suffix(full_ids[0].tolist(), suffix_ids)
-            logprobs = sequence_token_logprobs(model, full_ids, start, full_ids.shape[1])
-            scores = candidate_score(logprobs, forced_prefix_length=len(suffix_ids))
+            sequences.append(encoded[item_index]['input_ids'] + generated_ids[:cutoff])
+            sequence_starts.append(starts[item_index])
+            pending.append((event_type, candidate, continuation, diagnostics, forced_counts[item_index]))
+        if not pending:
+            continue
+        logprob_rows = batch_token_logprobs(model, sequences, sequence_starts,
+                                            tokenizer.pad_token_id, device=device,
+                                            batch_size=score_batch_size)
+        for (event_type, candidate, continuation, diagnostics, forced_count), logprobs in zip(pending, logprob_rows):
+            scores = candidate_score(logprobs, forced_prefix_length=forced_count)
             results.append({'event_index': event_index, 'type': event_type,
                             'candidate': candidate, 'continuation': continuation,
                             'diagnostics': diagnostics, 'closed': True,
+                            'prior_from_raw': from_raw, 'forced_tokens': forced_count,
                             **scores})
     return results
 
@@ -230,11 +371,16 @@ def main() -> None:
     parser.add_argument('--mode', choices=('all', 'confusion'), required=True)
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--max-new-tokens', type=int, default=160)
+    parser.add_argument('--score-batch-size', type=int, default=2,
+                        help='teacher-forcing score batch; generation still batches all types per event')
+    parser.add_argument('--limit', type=int)
     args = parser.parse_args()
     if 'TMUX' not in os.environ:
         raise RuntimeError('GPU execution must run in tmux')
     if args.output.exists():
         raise FileExistsError(args.output)
+    if args.score_batch_size < 1:
+        parser.error('--score-batch-size must be positive')
     import torch
     from peft import PeftModel
     from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
@@ -242,6 +388,10 @@ def main() -> None:
 
     rows = {row['id']: row for row in read_jsonl(args.data)}
     predictions = {row['id']: row for row in read_jsonl(args.predictions)}
+    if set(rows) != set(predictions):
+        raise ValueError('data/prediction IDs do not match')
+    if args.limit is not None:
+        predictions = dict(list(predictions.items())[:args.limit])
     confusion_sets = json.loads(args.confusion_sets.read_text(encoding='utf-8'))
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
     tokenizer.padding_side = 'left'
@@ -249,22 +399,39 @@ def main() -> None:
         args.model, config=load_model_config(args.model), local_files_only=True,
         torch_dtype=torch.bfloat16, attn_implementation='sdpa').to('cuda')
     model = PeftModel.from_pretrained(model, args.adapter, is_trainable=False).eval()
+    model.config.use_cache = True
     set_seed(args.seed)
     started = time.time()
+    prefix_audits = []
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open('x', encoding='utf-8') as stream:
-        for document_id, prediction in predictions.items():
+        for done, (document_id, prediction) in enumerate(predictions.items(), 1):
             row = rows[document_id]
             events = prediction['parsed_events']
+            audit = prefix_consistency(row, prediction, events, tokenizer)
+            prefix_audits.append({k: v for k, v in audit.items() if k != 'checks'})
             candidate_types = [_event_candidate_types(event, confusion_sets, row.get('split', ''), args.mode == 'all')
                                for event in events]
             outputs = generate_type_competitors(row, events, candidate_types, model, tokenizer,
-                                                max_new_tokens=args.max_new_tokens)
-            stream.write(json.dumps({'id': document_id, 'split': row.get('split'),
-                                     'candidates': outputs}, ensure_ascii=False, allow_nan=False) + '\n')
+                                                max_new_tokens=args.max_new_tokens,
+                                                raw_output=prediction.get('raw_output'),
+                                                score_batch_size=args.score_batch_size)
+            stream.write(json.dumps({'id': document_id, 'split': row.get('split'), 'mode': args.mode,
+                                     'prefix_audit': audit, 'candidates': outputs},
+                                    ensure_ascii=False, allow_nan=False) + '\n')
             stream.flush()
-    print(json.dumps({'status': 'completed', 'wall_seconds': time.time() - started,
-                      'output': str(args.output)}, ensure_ascii=False))
+            print(json.dumps({'completed': done, 'total': len(predictions),
+                              'seconds': round(time.time() - started, 1)}), flush=True)
+    summary = {'status': 'completed', 'wall_seconds': time.time() - started,
+               'documents': len(predictions), 'mode': args.mode,
+               'prefix': {
+                   'events': sum(item['events'] for item in prefix_audits),
+                   'mismatched_events': sum(item['mismatched_events'] for item in prefix_audits),
+                   'fallback_documents': sum(item['fallback_required'] for item in prefix_audits),
+               }, 'prefix_audits': prefix_audits}
+    print(json.dumps({k: summary[k] for k in ('status', 'wall_seconds', 'prefix')}, ensure_ascii=False))
+    args.output.with_suffix('.summary.json').write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
 if __name__ == '__main__':

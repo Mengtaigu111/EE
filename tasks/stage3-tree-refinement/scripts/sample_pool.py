@@ -94,6 +94,42 @@ def build_pool_row(document_id: str, sources: Iterable[dict[str, Any]],
     }
 
 
+def aligned_type_competition_candidates(row: dict[str, Any], competitor_row: dict[str, Any]) -> list[dict[str, Any]]:
+    """Convert closed D2/F-type text candidates into labelled pool candidates."""
+    outputs = [item for item in competitor_row.get('candidates', [])
+               if item.get('closed') and item.get('candidate') is not None]
+    if not outputs:
+        return []
+    text_events = [item['candidate'] for item in outputs]
+    aligned, alignment = align_text_events(row, text_events)
+    result = []
+    for item, candidate in zip(outputs, aligned):
+        candidate = deepcopy(candidate)
+        candidate.update({
+            'source': 'type_competition',
+            'event_index': item.get('event_index'),
+            'score_sum': item.get('score_sum'),
+            'score_mean': item.get('score_mean'),
+            'candidate_alignment': alignment,
+        })
+        result.append(candidate)
+    return result
+
+
+def augment_pool_with_competitors(pool_row: dict[str, Any], data_row: dict[str, Any],
+                                  competitor_row: dict[str, Any]) -> dict[str, Any]:
+    """Merge closed D2/F-type candidates into an existing document pool."""
+    candidates = aligned_type_competition_candidates(data_row, competitor_row)
+    sources = list(pool_row.get('sources', []))
+    if candidates:
+        sources.append({'source': 'type_competition', 'events': candidates,
+                        'competitor_count': len(candidates)})
+    result = build_pool_row(pool_row['document_id'], sources, data_row.get('gold_events', []))
+    result['sources'] = sources
+    result['type_competition_count'] = len(candidates)
+    return result
+
+
 def oracle_candidates(candidates: Iterable[dict[str, Any]],
                       gold_events: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
     """Keep the highest-event-score candidate for each gold type/trigger pair."""

@@ -31,15 +31,26 @@ def split_rows(rows: Iterable[dict[str, Any]]) -> dict[int, list[dict[str, Any]]
 
 
 def manifest(rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    rows = list(rows)
     folds = split_rows(rows)
+    assignments = {
+        str(row.get('document_id', row.get('id'))): assign_fold(str(row.get('document_id', row.get('id'))))
+        for row in rows
+    }
     return {
         'folds': {
             str(index): {
                 'documents': sorted({row.get('document_id', row.get('id')) for row in values}),
+                'documents_count': len({row.get('document_id', row.get('id')) for row in values}),
                 'rows': len(values),
+                'events': sum(len(row.get('gold_events', [])) for row in values),
             }
             for index, values in folds.items()
-        }
+        },
+        'assignments': dict(sorted(assignments.items())),
+        'algorithm': 'sha256(document_id)[:8] interpreted as hex modulo 2',
+        'document_count': len({row.get('document_id', row.get('id')) for row in rows}),
+        'row_count': sum(len(values) for values in folds.values()),
     }
 
 
@@ -47,12 +58,24 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--fold-output-dir', type=Path,
+                        help='also write fold-0.jsonl and fold-1.jsonl for training')
     args = parser.parse_args()
     rows = [json.loads(line) for line in args.data.read_text(encoding='utf-8').splitlines() if line.strip()]
     if args.output.exists():
         raise FileExistsError(args.output)
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    folds = split_rows(rows)
     args.output.write_text(json.dumps(manifest(rows), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    if args.fold_output_dir:
+        args.fold_output_dir.mkdir(parents=True, exist_ok=True)
+        for fold, values in folds.items():
+            path = args.fold_output_dir / f'fold-{fold}.jsonl'
+            if path.exists():
+                raise FileExistsError(path)
+            with path.open('x', encoding='utf-8') as stream:
+                for row in values:
+                    stream.write(json.dumps(row, ensure_ascii=False) + '\n')
 
 
 if __name__ == '__main__':

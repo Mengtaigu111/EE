@@ -75,3 +75,19 @@ def test_exists_oracle_keeps_max_event_score_per_gold_type_trigger():
     oracle = oracle_candidates(row['candidates'], gold)
     assert len(oracle) == 1
     assert oracle[0]['args'][-1]['offsets'] == [5]
+
+
+def test_type_competition_candidates_are_aligned_and_tagged():
+    from sample_pool import aligned_type_competition_candidates
+
+    row = {'tokens': ['we', 'propose', 'method'], 'sentences': ['we propose method']}
+    competitor = {'candidates': [{
+        'event_index': 0, 'type': 'FAC', 'closed': True, 'score_sum': -2.0,
+        'candidate': {'type': 'FAC', 'trigger': 'propose',
+                      'args': [{'role': 'Subject', 'text': 'we'}]},
+    }]}
+    result = aligned_type_competition_candidates(row, competitor)
+    assert result[0]['type'] == 'FAC'
+    assert result[0]['trigger_offsets'] == [1]
+    assert result[0]['source'] == 'type_competition'
+    assert result[0]['score_sum'] == -2.0

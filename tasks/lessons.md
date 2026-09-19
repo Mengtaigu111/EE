@@ -1,5 +1,11 @@
 # 项目教训
 
+## 2026-09-19：强制前缀必须放在 assistant 侧，单测要用真实 tokenizer
+
+- Stage-3 D2 初版把 `(ROOT ... (T (Trigger "t")` 拼在 user prompt 后面再套 chat template，模型在 `<|im_start|>assistant` 之后从头生成新森林，74 项单测全绿但实验无效。原因是测试用 FakeTokenizer，不经过 chat template。
+- 凡是"续写模型自己的输出"，前缀 token 必须是 `prompt_tokens(prompt) + tokenizer(生成文本前缀)`，并用真实 tokenizer 解码核对末尾恰好是 `</think>\n\n(ROOT ...`。涉及 chat template 的测试至少要有一条用 `/opt/models` 里的真实 tokenizer。
+- 全参微调小模型不要用纯 bf16 参数配 AdamW（lr 2e-5 量级的更新会被舍入掉），保留 fp32 主权重、bf16 autocast。
+
 ## 2026-09-18：推送前必须核对 origin 目标
 
 - 用户指定的 GitHub 目标仓库为 `Mengtaigu111/EE`；发现本地 `origin` 仍指向旧的 `HammerScholar/EXCEEDS` 后，先移除旧远端，再设置目标仓库为新的 `origin`，提交和推送前不得仅根据远端名称猜测目标。

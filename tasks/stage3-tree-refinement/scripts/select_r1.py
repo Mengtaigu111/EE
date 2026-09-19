@@ -21,6 +21,19 @@ def select_type_competitor(candidates: Iterable[dict[str, Any]]) -> dict[str, An
     ))[0]
 
 
+def select_oracle_competitor(candidates: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    """Gold-labelled upper bound for a competitor set; never use at test time."""
+    candidates = list(candidates)
+    if not candidates:
+        raise ValueError('cannot select from an empty competitor set')
+    return sorted(candidates, key=lambda row: (
+        -int(row.get('label', {}).get('type_ok', 0)),
+        -float(row.get('label', {}).get('event_score', 0.0)),
+        -float(row.get('label', {}).get('arg_r', 0.0)),
+        repr(event_key(row)),
+    ))[0]
+
+
 def replace_by_trigger(base_events: Iterable[dict[str, Any]],
                        competitors_by_trigger: dict[tuple[int, ...], list[dict[str, Any]]]) -> list[dict[str, Any]]:
     result = []
@@ -39,7 +52,7 @@ def select_document_events(base_events: Iterable[dict[str, Any]],
             by_index.setdefault(int(row['event_index']), []).append(candidate)
     selected = [select_type_competitor(by_index[index]) if index in by_index else event
                 for index, event in enumerate(base_events)]
-    return sorted(selected, key=lambda row: (trigger_key(row), row['type'], repr(event_key(row))))
+    return selected
 
 
 def select_text_document_events(base_events: Iterable[dict[str, Any]],

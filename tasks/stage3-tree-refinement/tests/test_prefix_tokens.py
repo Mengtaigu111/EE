@@ -26,9 +26,42 @@ def test_forced_prefix_uses_prior_events_and_fixed_trigger():
     from type_competition import build_forced_prefix
 
     result = build_forced_prefix(
-        'PROMPT',
         ['(PRP (Trigger "propose"))', '(PUR (Trigger "induce"))'],
         'CMP',
         'improve',
     )
-    assert result == 'PROMPT (ROOT (PRP (Trigger "propose")) (PUR (Trigger "induce")) (CMP (Trigger "improve")'
+    assert result == '(ROOT (PRP (Trigger "propose")) (PUR (Trigger "induce")) (CMP (Trigger "improve")'
+
+
+def test_forced_prefix_ids_sit_on_the_assistant_side_of_the_chat_template():
+    """The forced tree must follow the generation prompt, not sit inside the user turn."""
+    import os
+    import pytest
+    from transformers import AutoTokenizer
+    from type_competition import forced_prefix_ids, forced_suffix
+
+    model_path = '/opt/models/Qwen3-8B'
+    if not os.path.isdir(model_path):
+        pytest.skip('Qwen3-8B tokenizer not available')
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+    prior_text = '(ROOT (PRP (Trigger "propose") (Proposer "we"))'
+    ids, start, forced = forced_prefix_ids('Abstract text.\n\nEvent forest:', prior_text, 'CMP', 'improve', tokenizer)
+    decoded = tokenizer.decode(ids)
+    assert decoded.endswith('<|im_start|>assistant\n<think>\n\n</think>\n\n' + prior_text + forced_suffix('CMP', 'improve'))
+    assert '(ROOT' not in decoded.split('<|im_end|>')[0]
+    assert tokenizer.decode(ids[start:]) == forced_suffix('CMP', 'improve')
+    assert forced == len(ids) - start
+
+
+def test_greedy_prior_text_slices_raw_output_at_the_right_occurrence():
+    from type_competition import greedy_prior_text
+
+    raw = '(ROOT (PRP (Trigger "use") (Content "a")) (WKS (Trigger "use") (Content "b")))'
+    events = [{'type': 'PRP', 'trigger': 'use', 'args': []}, {'type': 'WKS', 'trigger': 'use', 'args': []}]
+    prior, from_raw = greedy_prior_text(raw, events, 1)
+    assert from_raw is True
+    assert prior == '(ROOT (PRP (Trigger "use") (Content "a"))'
+    prior, from_raw = greedy_prior_text(raw, events, 0)
+    assert prior == '(ROOT'
+    prior, from_raw = greedy_prior_text('(ROOT (PRP (Trigger "made up")))', events, 1)
+    assert from_raw is False

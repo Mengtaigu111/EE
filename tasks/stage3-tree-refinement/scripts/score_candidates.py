@@ -9,6 +9,14 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
+class LengthAuditError(ValueError):
+    """Raised when strict no-truncation validation finds an overlength input."""
+
+    def __init__(self, message: str, audit: dict[str, Any]):
+        super().__init__(message)
+        self.audit = audit
+
+
 def _escape(text: str) -> str:
     return str(text).replace('\\', '\\\\').replace('"', '\\"')
 
@@ -48,6 +56,21 @@ def build_reward_input(abstract: str, forest_context: str, candidate_event: str)
             f'Candidate event:\n{candidate_event}')
 
 
+def format_reward_text(text: str, backend: str = 'qwen') -> str:
+    """Apply the backend-specific input contract without truncating tokens."""
+    if backend == 'qwen':
+        return text
+    if backend != 'roberta':
+        raise ValueError("backend must be 'qwen' or 'roberta'")
+    forest_marker = '\n\nForest context:\n'
+    candidate_marker = '\n\nCandidate event:\n'
+    forest_start = text.find(forest_marker)
+    candidate_start = text.find(candidate_marker)
+    if forest_start < 0 or candidate_start <= forest_start:
+        raise ValueError('reward text must contain Abstract, Forest context, and Candidate event sections')
+    return text[:forest_start] + text[candidate_start:]
+
+
 def build_reward_row(data_row: dict[str, Any], greedy_forest: Iterable[dict[str, Any]],
                     candidate: dict[str, Any]) -> dict[str, Any]:
     label = candidate.get('label', {})
@@ -56,7 +79,8 @@ def build_reward_row(data_row: dict[str, Any], greedy_forest: Iterable[dict[str,
         candidate_to_sexpr(candidate),
     )
     return {
-        'id': f'{data_row["id"]}:{repr(candidate.get("event_key", candidate.get("type")))}',
+        'id': str(candidate.get('id',
+                               f'{data_row["id"]}:{repr(candidate.get("event_key", candidate.get("type")))}')),
         'document_id': data_row['id'], 'text': text,
         'exists': int(label.get('exists', 0)), 'type_ok': int(label.get('type_ok', 0)),
         'event_score': float(label.get('event_score', 0.0)),
@@ -74,7 +98,11 @@ def audit_lengths(tokenizer: Any, texts: Iterable[str], max_len: int,
     if max_len < 1:
         raise ValueError('max_len must be positive')
     encoded = tokenizer(texts, add_special_tokens=True, truncation=False)
-    lengths = [len(ids) for ids in encoded['input_ids']]
+    try:
+        input_ids = encoded['input_ids']
+    except (KeyError, TypeError) as exc:
+        raise ValueError('tokenizer output must contain input_ids') from exc
+    lengths = [len(ids) for ids in input_ids]
     overlength = [{'index': index, 'tokens': length}
                   for index, length in enumerate(lengths) if length > max_len]
     result = {'count': len(lengths), 'max_tokens': max(lengths, default=0),
@@ -82,32 +110,56 @@ def audit_lengths(tokenizer: Any, texts: Iterable[str], max_len: int,
               'max_len': max_len, 'overlength_count': len(overlength),
               'overlength': overlength, 'truncation': False}
     if strict and overlength:
-        raise ValueError(f'{len(overlength)} inputs exceed max_len={max_len}; truncation forbidden')
+        raise LengthAuditError(
+            f'{len(overlength)} inputs exceed max_len={max_len}; truncation forbidden', result)
     return result
 
 
 def score_model_outputs(outputs: dict[str, Any]) -> list[float]:
     import torch
 
-    exists = torch.sigmoid(outputs['exists_logits']).detach().cpu().tolist()
-    type_ok = torch.sigmoid(outputs['type_logits']).detach().cpu().tolist()
-    event_score = outputs['event_score'].detach().cpu().tolist()
+    try:
+        exists_logits = outputs['exists_logits']
+        type_logits = outputs['type_logits']
+        event_scores = outputs['event_score']
+    except KeyError as exc:
+        raise ValueError(f'model outputs are missing {exc.args[0]!r}') from exc
+    exists = torch.sigmoid(exists_logits).detach().cpu().tolist()
+    type_ok = torch.sigmoid(type_logits).detach().cpu().tolist()
+    event_score = event_scores.detach().cpu().tolist()
+    if len({len(exists), len(type_ok), len(event_score)}) != 1:
+        raise ValueError('model output heads must have the same length')
     return [reward_score(a, b, c) for a, b, c in zip(exists, type_ok, event_score)]
 
 
 def binary_auc(labels: Iterable[float], scores: Iterable[float]) -> float:
+    labels, scores = list(labels), list(scores)
+    if len(labels) != len(scores):
+        raise ValueError('labels and scores must have the same length')
+    if any(not math.isfinite(float(score)) for score in scores):
+        raise ValueError('scores must be finite')
     pairs = sorted(zip(scores, labels), key=lambda pair: pair[0])
     positives = sum(label > 0.5 for _, label in pairs)
     negatives = len(pairs) - positives
     if not positives or not negatives:
         return float('nan')
-    rank_sum = sum(index for index, (_, label) in enumerate(pairs, 1) if label > 0.5)
+    rank_sum = 0.0
+    position = 0
+    while position < len(pairs):
+        end = position + 1
+        while end < len(pairs) and pairs[end][0] == pairs[position][0]:
+            end += 1
+        average_rank = (position + 1 + end) / 2
+        rank_sum += sum(average_rank for _, label in pairs[position:end] if label > 0.5)
+        position = end
     return (rank_sum - positives * (positives + 1) / 2) / (positives * negatives)
 
 
 def spearman_correlation(left: Iterable[float], right: Iterable[float]) -> float:
     left, right = list(left), list(right)
-    if len(left) != len(right) or len(left) < 2:
+    if len(left) != len(right):
+        raise ValueError('left and right must have the same length')
+    if len(left) < 2:
         return float('nan')
 
     def ranks(values: list[float]) -> list[float]:
@@ -141,6 +193,7 @@ def main() -> None:
     parser.add_argument('--data', type=Path, required=True)
     parser.add_argument('--model-dir', type=Path, required=True)
     parser.add_argument('--backbone', required=True)
+    parser.add_argument('--backend', choices=('qwen', 'roberta'))
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--max-len', type=int, required=True)
     parser.add_argument('--batch-size', type=int, default=8)
@@ -148,22 +201,41 @@ def main() -> None:
     import torch
     from transformers import AutoTokenizer
     from train_reward import MultiHeadRewardModel, collate_reward_rows, load_backbone, tokenize_reward_rows
-    from common import read_jsonl
+    from common import atomic_write_json, read_jsonl
 
     if not torch.cuda.is_available():
         raise RuntimeError('reward scoring requires CUDA')
+    if args.max_len < 1:
+        raise ValueError('--max-len must be positive')
+    if args.batch_size < 1:
+        raise ValueError('--batch-size must be positive')
+    if args.output.exists():
+        raise FileExistsError(args.output)
+    if not args.model_dir.is_dir():
+        raise FileNotFoundError(f'model directory does not exist: {args.model_dir}')
     source_rows = read_jsonl(args.data)
+    if not source_rows:
+        raise ValueError(f'no scoring rows found in {args.data}')
+    config_path = args.model_dir / 'config.json'
+    saved_config = json.loads(config_path.read_text(encoding='utf-8')) if config_path.exists() else {}
+    backend = args.backend or saved_config.get('backend', 'qwen')
     tokenizer_path = args.model_dir / 'tokenizer'
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_path if tokenizer_path.exists() else args.backbone,
                                               local_files_only=True)
-    token_rows, audit = tokenize_reward_rows(source_rows, tokenizer, args.max_len, strict=True)
-    _, backbone = load_backbone(args.backbone)
-    model = MultiHeadRewardModel(backbone)
+    try:
+        token_rows, audit = tokenize_reward_rows(source_rows, tokenizer, args.max_len,
+                                                 strict=True, backend=backend)
+    except ValueError as exc:
+        audit = getattr(exc, 'audit', None)
+        if audit is not None:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            atomic_write_json(args.output.with_suffix('.audit.json'), audit)
+        raise
+    _, backbone = load_backbone(args.backbone, dtype=torch.bfloat16)
+    model = MultiHeadRewardModel(backbone, pooling=backend)
     model.load_state_dict(torch.load(args.model_dir / 'model.pt', map_location='cpu'))
     model.to('cuda').eval()
     output = args.output
-    if output.exists():
-        raise FileExistsError(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     all_exists, all_exists_scores = [], []
     all_type, all_type_scores = [], []

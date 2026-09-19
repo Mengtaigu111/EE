@@ -1,5 +1,5 @@
 def test_fold_assignment_is_sha256_parity_and_document_disjoint():
-    from build_folds import assign_fold, split_rows
+    from build_folds import assign_fold, manifest, split_rows
 
     rows = [
         {'document_id': 'doc-a', 'value': 1},
@@ -12,6 +12,10 @@ def test_fold_assignment_is_sha256_parity_and_document_disjoint():
         {row['document_id'] for row in folds[1]}
     )
     assert sum(len(value) for value in folds.values()) == 3
+    summary = manifest(rows)
+    assert set(summary['folds']) == {'0', '1'}
+    assert sum(summary['folds'][str(i)]['documents_count'] for i in (0, 1)) == 2
+    assert sum(summary['folds'][str(i)]['rows'] for i in (0, 1)) == 3
 
 
 def test_synthetic_rows_are_capped_at_thirty_percent_of_real_rows():
@@ -63,3 +67,23 @@ def test_build_reward_rows_keeps_c0_context_and_labels_synthetic_source():
     assert rows[0]['document_id'] == 'doc'
     assert 'Forest context:' in rows[0]['text']
     assert manifest['synthetic_rows_used'] == 2
+
+
+def test_synthetic_examples_have_distinct_type_and_argument_deletion_variants():
+    from build_reward_data import build_synthetic_negatives
+
+    gold = {
+        'event_type': 'PRP', 'trigger': {'offsets': [1], 'text': 'propose'},
+        'arguments': [
+            {'argument_type': 'Content', 'offsets': [2], 'text': 'method'},
+            {'argument_type': 'Target', 'offsets': [3], 'text': 'field'},
+        ],
+    }
+    result = build_synthetic_negatives(
+        gold, ['FAC'], {'FAC': {'Content', 'Target'}, 'PRP': {'Content', 'Target'}}, seed=42)
+    assert len(result) == 2
+    assert all(item['source'] == 'synthetic' for item in result)
+    assert result[0]['type'] == 'FAC'
+    assert len(result[0]['args']) == 2
+    assert result[1]['type'] == 'PRP'
+    assert len(result[1]['args']) == 1

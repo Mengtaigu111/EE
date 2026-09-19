@@ -63,7 +63,7 @@ Experiment C 评估：方向值得做，能直接测试“文档级输入、句�
 - [x] C 队列：长度审计、显式 step budget、dev-best checkpoint、test 评测
 - [x] gold sentence trees → merge → official scorer：dev TI 99.26 / TC 98.18 / AI 94.30 / AC 94.26 / EC 95.72
 - [x] 最小真实数据 build/audit smoke：train 12,828 rows，max total tokens 1,051，max assistant tokens 243，未截断
-- [ ] 正式 8B 队列：tmux `stage2-c` 已启动，run `C-42-20260918`，等待训练/选优/test 完成
+- [x] 正式 8B 队列：tmux `stage2-c` 已完成，run `C-42-20260918` 状态为 `completed`，GPU 已空闲
 
 ## 实现提交与运行记录
 
@@ -89,19 +89,20 @@ Experiment C 评估：方向值得做，能直接测试“文档级输入、句�
 - [x] 读取规格、核对 Stage-2 依赖与 C 运行隔离约束
 - [x] 写入设计文档：`docs/superpowers/specs/2026-09-18-stage3-tree-refinement-design.md`
 - [x] 写入实现计划：`docs/superpowers/plans/2026-09-18-stage3-tree-refinement-plan.md`
-- [x] Stage-3 基础模块、候选标签与诊断：隔离脚本、D1/D2 核心纯逻辑、reward 输入/损失/选择原语已实现；Stage-3 测试 43 项通过
-- [ ] D1 采样候选池与 support/oracle 统计
+- [x] Stage-3 基础模块、候选标签与诊断：隔离脚本、D1/D2 核心纯逻辑、reward 输入/损失/选择原语已实现；Stage-3 测试 74 项通过
+- [ ] D1 采样候选池与 support/oracle 统计（tmux `stage3-d1-dev` 已启动，`runs/D1-dev-42-20260919`）
 - [ ] D2 类型竞争与前缀一致性
-- [ ] 两折 reward 数据与合成负样本
-- [ ] Qwen3-0.6B / RoBERTa reward scorer
+- [x] 两折 reward 数据与合成负样本：`data/folds.json`、`data/folds/fold-{0,1}.jsonl`、`data/confusion_sets.json` 已生成；GPU held-out F0/F1 尚未运行
+- [x] Qwen3-0.6B / RoBERTa reward scorer：训练、评分、长度审计与 CPU 测试入口已实现；实际 GPU 训练尚未运行
 - [ ] R1/R0/R01 选择、阈值扫描与报告
-- [ ] 完整测试、编译、C 完成门禁和 GPU 队列
+- [ ] R1/R0/R01 选择、阈值扫描与报告
+- [ ] 完整测试、编译、C 完成门禁和 GPU 队列（CPU 74 项通过；D1 GPU 正在运行）
 
 ## 当前约束
 
-- `tmux stage2-c` 仍在运行，Stage-3 只做 CPU 代码与测试，不启动 GPU。
+- `tmux stage2-c` 已完成；D1/D2 现在通过具名 tmux 启动，并由 C 完成/GPU 空闲门禁保护。
 - 新代码只能放在 `tasks/stage3-tree-refinement/`；Stage-2 脚本保持不变。
-- C 完成后必须重新检查 `run.json` 为 `completed`、项目 GPU 进程为空，再启动 D1。
+- D1 启动前已重新检查 `run.json` 为 `completed`、项目 GPU 进程为空；当前 tmux 为 `stage3-d1-dev`。
 
 ## 结果复盘
 

@@ -124,7 +124,7 @@ def relative_diagnostics(initial: Iterable[dict[str, Any]], result: Iterable[dic
         trigger_key(event) not in initial_trigger_keys and not label_candidate(event, gold_events)['exists']
         for event in result
     )
-    removed_tp = sum(not is_type_ok(event) or label_candidate(event, gold_events)['exists']
+    removed_tp = sum(label_candidate(event, gold_events)['exists']
                      for key, event in initial_by_key.items() if key not in result_keys)
     removed_fp = sum(not label_candidate(event, gold_events)['exists']
                      for key, event in initial_by_key.items() if key not in result_keys)

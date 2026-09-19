@@ -31,15 +31,45 @@ def synthetic_negative(event: dict[str, Any], event_type: str,
     """Swap to a confusable type and optionally remove one argument branch."""
     result = deepcopy(event)
     result['type'] = event_type
+    raw_args = result.get('args', result.get('arguments', []))
+    normalized = []
+    for argument in raw_args:
+        role = argument.get('role', argument.get('argument_type'))
+        if role is None:
+            continue
+        normalized.append({
+            'role': role,
+            'offsets': list(argument.get('offsets', [])),
+            'text': argument.get('text', ' '.join(argument.get('tokens', []))),
+        })
     allowed = schema.get(event_type, set())
-    result['args'] = [argument for argument in result.get('args', [])
-                      if argument.get('role') in allowed]
+    result['args'] = [argument for argument in normalized if argument['role'] in allowed]
+    result.pop('arguments', None)
     if drop_argument and result['args']:
         random.Random(seed).shuffle(result['args'])
         result['args'].pop()
     result['source'] = 'synthetic'
     result['synthetic'] = True
     return result
+
+
+def build_synthetic_negatives(event: dict[str, Any], confusable_types: list[str],
+                              schema: dict[str, set[str]], seed: int = 42) -> list[dict[str, Any]]:
+    """Create the two spec-defined negatives for one gold event.
+
+    1. Wrong type: swap to the first frozen confusable type, keep every
+       schema-compatible argument (teaches the type head).
+    2. Missing branch: keep the GOLD type and drop one argument branch
+       (teaches the event-score head that an incomplete tree scores < 1).
+    """
+    if not confusable_types:
+        return []
+    target = confusable_types[0]
+    gold_type = event.get('type', event.get('event_type'))
+    return [
+        synthetic_negative(event, target, schema, seed=seed, drop_argument=False),
+        synthetic_negative(event, gold_type, schema, seed=seed + 1, drop_argument=True),
+    ]
 
 
 def build_reward_rows(pool_rows: Iterable[dict[str, Any]], data_rows: Iterable[dict[str, Any]],
@@ -62,10 +92,9 @@ def build_reward_rows(pool_rows: Iterable[dict[str, Any]], data_rows: Iterable[d
             options = confusion_sets.get(gold['event_type'], [])
             if not options:
                 continue
-            for negative_index, target_type in enumerate(options[:1] * 2):
-                negative = synthetic_negative(
-                    gold_candidate, target_type, schema, seed=seed + event_index * 2 + negative_index,
-                    drop_argument=negative_index == 1)
+            for negative_index, negative in enumerate(build_synthetic_negatives(
+                    gold_candidate, options, schema, seed=seed + event_index * 2)):
+                negative['id'] = f'{pool["document_id"]}:synthetic:{event_index}:{negative_index}'
                 negative['label'] = label_candidate(negative, data_row.get('gold_events', []))
                 synthetic_rows.append(build_reward_row(data_row, forest, negative))
     rows = cap_synthetic_rows(real_rows, synthetic_rows)
