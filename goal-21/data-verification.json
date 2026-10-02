@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "environment": "qwen3meld-run",
+  "tests": 2,
+  "test_log": "/home/myluo/EE/EXCEEDS/goal-21/data-tests.log",
+  "builder_log": "/home/myluo/EE/EXCEEDS/goal-21/data-builder.log",
+  "manifest": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-20261002/mean_curriculum_manifest.json",
+  "manifest_sha256": "b6b3b7050c29400e74122ae6b7e28cd3c1a5e932c33c2f60e75faeed0f2cd804",
+  "counts": {
+    "train": 12828,
+    "dev": 1593,
+    "test": 1627
+  },
+  "stage1_count": 6504,
+  "root_stage1_count": 1077,
+  "budgets": [
+    2005,
+    2005
+  ],
+  "prompt_sha256": "8e6d508af5e9de15e001a8dba1da979d45353f334ef365d94edd87aa5254f7a2",
+  "checks": {
+    "source_and_output_hashes": true,
+    "immutable_nonprompt_payload": true,
+    "stage2_equals_new_fulltrain": true,
+    "exact_prompt_snapshot": true,
+    "all_tests_passed": true
+  }
+}

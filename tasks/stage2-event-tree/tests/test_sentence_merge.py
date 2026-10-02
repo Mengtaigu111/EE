@@ -83,6 +83,27 @@ class SentenceMergeTests(unittest.TestCase):
         self.assertGreater(scores[3], 0.94)
         self.assertGreater(scores[5], 0.90)
 
+    def test_semantic_gold_dev_sentence_roundtrip_uses_official_metric(self):
+        project = Path(__file__).resolve().parents[3]
+        docs = json.loads((project / 'data/SciEvents/dev.json').read_text(encoding='utf-8'))
+        rows, predictions = [], []
+        for doc in docs:
+            doc_rows, _ = build_rows_for_document(doc, 'dev', semantic_path=True)
+            rows.extend(doc_rows)
+            for row in doc_rows:
+                parsed, diagnostics = parse_forest(row['completion'])
+                self.assertFalse(diagnostics['invalid'])
+                self.assertEqual(diagnostics['path_inconsistent'], 0)
+                predictions.append({'id': row['id'], 'parsed_events': parsed})
+        merged = merge_sentence_rows(rows, predictions, deduplicate=False)
+        gold_by_id = {doc['doc_id']: doc['events'] for doc in docs}
+        golds = [gold_by_id[row['id']] for row in merged]
+        preds = [row['aligned_events'] for row in merged]
+        scores = utils.calculate_F1(golds, preds, 'offset')
+        self.assertGreater(scores[0], 0.98)
+        self.assertGreater(scores[3], 0.94)
+        self.assertGreater(scores[5], 0.90)
+
 
 if __name__ == '__main__':
     unittest.main()

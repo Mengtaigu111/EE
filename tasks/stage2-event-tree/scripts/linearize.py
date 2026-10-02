@@ -12,6 +12,21 @@ import re
 
 from ontology import EVENT_TYPES, NAME_TO_CODE, ROLE_ORDER, event_label, role_index
 
+TYPE_PATH = {
+    'ITT': ('Background', 'ITT'),
+    'RWS': ('RelatedWork', 'PriorWorkProcedure', 'RWS'),
+    'RWF': ('RelatedWork', 'PriorWorkLimitation', 'RWF'),
+    'PRP': ('Methodology', 'ProposerIntroducesContent', 'PRP'),
+    'WKS': ('Methodology', 'ResearcherPerformsWork', 'WKS'),
+    'MDS': ('Methodology', 'ComponentAssistedOperation', 'MDS'),
+    'FIN': ('Results', 'FinderReport', 'FIN'),
+    'CMP': ('Results', 'ExplicitComparison', 'CMP'),
+    'FAC': ('Results', 'SubjectOutcome', 'FAC'),
+    'PUR': ('Purpose', 'PUR'),
+}
+
+SEMANTIC_LABELS = {label for path in TYPE_PATH.values() for label in path[:-1]}
+
 
 def span_text(tokens, offsets):
     return ' '.join(tokens[i] for i in sorted(set(offsets)))
@@ -44,6 +59,19 @@ def linearize(events, natural=False):
         body = [f'(Trigger "{escape(event["trigger"])}")']
         body += [f'({a["role"]} "{escape(a["text"])}")' for a in event['args']]
         parts.append(f'({event_label(event["type"], natural)} ' + ' '.join(body) + ')')
+    return '(ROOT ' + ' '.join(parts) + ')' if parts else '(ROOT)'
+
+
+def linearize_semantic(events):
+    parts = []
+    for event in events:
+        path = TYPE_PATH[event['type']]
+        body = [f'(Trigger "{escape(event["trigger"])}")']
+        body += [f'({a["role"]} "{escape(a["text"])}")' for a in event['args']]
+        event_tree = f'({event["type"]} ' + ' '.join(body) + ')'
+        for label in reversed(path[:-1]):
+            event_tree = f'({label} {event_tree})'
+        parts.append(event_tree)
     return '(ROOT ' + ' '.join(parts) + ')' if parts else '(ROOT)'
 
 
@@ -94,7 +122,7 @@ def _parse_sexpr(tokens):
 def parse_forest(raw):
     """Model text -> (events, diagnostics). Never raises; drops malformed pieces and counts them."""
     diag = {'invalid': False, 'dropped_events': 0, 'dropped_args': 0, 'unknown_event_types': 0,
-            'unknown_roles': 0, 'missing_trigger': 0}
+            'unknown_roles': 0, 'missing_trigger': 0, 'semantic_events': 0, 'path_inconsistent': 0}
     if not isinstance(raw, str) or '(' not in raw:
         diag['invalid'] = True
         return [], diag
@@ -111,15 +139,39 @@ def parse_forest(raw):
             diag['invalid'] = True
             return [], diag
     events = []
+    def unwrap_event(node):
+        path = []
+        current = node
+        while isinstance(current, list) and current and current[0][0] == 'sym':
+            label = current[0][1]
+            if (label in SEMANTIC_LABELS and len(current) >= 2
+                    and isinstance(current[1], list) and current[1] and current[1][0][0] == 'sym'
+                    and current[1][0][1] != 'Trigger'):
+                path.append(label)
+                current = current[1]
+                continue
+            event_type = NAME_TO_CODE.get(label, label)
+            if event_type in EVENT_TYPES:
+                return current, tuple(path), event_type
+            if label not in SEMANTIC_LABELS or len(current) < 2:
+                return current, tuple(path), event_type
+            path.append(label)
+            current = current[1]
+        return current, tuple(path), None
+
     for node in root[1:]:
         if not isinstance(node, list) or not node or node[0][0] != 'sym':
             diag['dropped_events'] += 1
             continue
-        event_type = NAME_TO_CODE.get(node[0][1], node[0][1])
+        node, semantic_path, event_type = unwrap_event(node)
+        if semantic_path:
+            diag['semantic_events'] += 1
         if event_type not in EVENT_TYPES:
             diag['unknown_event_types'] += 1
             diag['dropped_events'] += 1
             continue
+        if semantic_path and semantic_path != TYPE_PATH[event_type][:-1]:
+            diag['path_inconsistent'] += 1
         trigger, args = None, []
         for child in node[1:]:
             if (not isinstance(child, list) or len(child) < 2 or child[0][0] != 'sym'

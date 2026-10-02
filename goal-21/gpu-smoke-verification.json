@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "run_dir": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-UserV2-42-20261002-smoke1",
+  "smoke": true,
+  "total_updates": 4,
+  "phase_updates": [
+    2,
+    2
+  ],
+  "checkpoint_steps": [
+    2,
+    4
+  ],
+  "checkpoint_integrity_verified": true,
+  "resume_equality_verified": true,
+  "input_hashes_verified": true,
+  "phases": [
+    {
+      "phase": 1,
+      "updates": 2,
+      "global_step": 2,
+      "phase_train_loss": 1.501420795917511
+    },
+    {
+      "phase": 2,
+      "updates": 2,
+      "global_step": 4,
+      "phase_train_loss": 1.0833013951778412
+    }
+  ],
+  "evaluation": "not run (smoke)"
+}

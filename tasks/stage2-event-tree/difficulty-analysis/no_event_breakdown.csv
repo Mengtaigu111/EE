@@ -1,0 +1,4 @@
+trigger_like_bin,samples,false_positive_samples,false_positive_rate,predicted_events,predicted_event_count_distribution,predicted_type_counts
+N1:0,3,0,0.0,0,"{""0"": 3}",{}
+N2:1,9,0,0.0,0,"{""0"": 9}",{}
+N3:2+,259,60,0.23166023166023167,92,"{""0"": 199, ""1"": 37, ""2"": 14, ""3"": 9}","{""CMP"": 2, ""FAC"": 9, ""FIN"": 1, ""ITT"": 11, ""MDS"": 13, ""PRP"": 4, ""PUR"": 12, ""RWF"": 23, ""RWS"": 1, ""WKS"": 16}"

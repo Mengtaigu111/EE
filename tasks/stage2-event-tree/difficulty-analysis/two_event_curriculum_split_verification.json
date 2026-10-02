@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": {
+    "two_event_rows_match_sentence_count": true,
+    "percentiles_in_range": true,
+    "min_le_mean_le_max": true,
+    "d1_plus_d2_equals_positive": true,
+    "root_plus_d1_plus_d2_equals_all": true,
+    "bins_sum_to_two_event_total": true,
+    "existing_percentiles_match_midrank_recomputation": true
+  },
+  "counts": {
+    "total_train_sentences": 12828,
+    "root_sentences": 2124,
+    "positive_sentences": 10704,
+    "one_event_sentences": 4749,
+    "two_event_sentences": 3916,
+    "three_plus_event_sentences": 2039
+  },
+  "threshold": 0.3687631027253669,
+  "assignment_counts": {
+    "D1": 6883,
+    "ROOT": 2124,
+    "D2": 3821
+  }
+}

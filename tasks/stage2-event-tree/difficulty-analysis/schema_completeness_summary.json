@@ -1,0 +1,750 @@
+{
+  "train_samples": 12828,
+  "zero_event_sentences": 2124,
+  "positive_sentences": 10704,
+  "total_gold_events": 19488,
+  "per_event_type_counts": {
+    "ITT": 1400,
+    "RWF": 1549,
+    "PRP": 2094,
+    "MDS": 2385,
+    "PUR": 3320,
+    "WKS": 2733,
+    "FIN": 1480,
+    "CMP": 1536,
+    "FAC": 2528,
+    "RWS": 463
+  },
+  "event_count_sentence_distribution": {
+    "1": 4749,
+    "0": 2124,
+    "3+": 2039,
+    "2": 3916
+  },
+  "overall": {
+    "mean": 0.48938883024474156,
+    "median": 0.4,
+    "std": 0.21704885875263902,
+    "min": 0.0,
+    "max": 1.0,
+    "p10": 0.2857142857142857,
+    "p25": 0.3333333333333333,
+    "p50": 0.4,
+    "p75": 0.6,
+    "p90": 0.8,
+    "total_events": 19488,
+    "full_schema_count": 1795,
+    "full_schema_percent": 0.09210796387520526
+  },
+  "per_type": [
+    {
+      "event_type": "PUR",
+      "events": 3320,
+      "mean": 0.39467871485943773,
+      "median": 0.3333333333333333,
+      "std": 0.132748959823011,
+      "min": 0.0,
+      "max": 1.0,
+      "p10": 0.3333333333333333,
+      "p25": 0.3333333333333333,
+      "p50": 0.3333333333333333,
+      "p75": 0.3333333333333333,
+      "p90": 0.6666666666666666,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 4,
+      "full_schema_percent": 0.0012048192771084338
+    },
+    {
+      "event_type": "PRP",
+      "events": 2094,
+      "mean": 0.8268067494428526,
+      "median": 1.0,
+      "std": 0.19144069568682975,
+      "min": 0.3333333333333333,
+      "max": 1.0,
+      "p10": 0.6666666666666666,
+      "p25": 0.6666666666666666,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p90": 1.0,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 1090,
+      "full_schema_percent": 0.5205348615090736
+    },
+    {
+      "event_type": "WKS",
+      "events": 2733,
+      "mean": 0.514892060007318,
+      "median": 0.6,
+      "std": 0.14837070142463277,
+      "min": 0.0,
+      "max": 1.0,
+      "p10": 0.4,
+      "p25": 0.4,
+      "p50": 0.6,
+      "p75": 0.6,
+      "p90": 0.6,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 3,
+      "full_schema_percent": 0.0010976948408342481
+    },
+    {
+      "event_type": "ITT",
+      "events": 1400,
+      "mean": 0.35,
+      "median": 0.3333333333333333,
+      "std": 0.07689407267597687,
+      "min": 0.0,
+      "max": 0.6666666666666666,
+      "p10": 0.3333333333333333,
+      "p25": 0.3333333333333333,
+      "p50": 0.3333333333333333,
+      "p75": 0.3333333333333333,
+      "p90": 0.3333333333333333,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 0,
+      "full_schema_percent": 0.0
+    },
+    {
+      "event_type": "RWS",
+      "events": 463,
+      "mean": 0.44600431965442766,
+      "median": 0.5,
+      "std": 0.13357696596671204,
+      "min": 0.0,
+      "max": 0.8333333333333334,
+      "p10": 0.3333333333333333,
+      "p25": 0.3333333333333333,
+      "p50": 0.5,
+      "p75": 0.5,
+      "p90": 0.6666666666666666,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 0,
+      "full_schema_percent": 0.0
+    },
+    {
+      "event_type": "RWF",
+      "events": 1549,
+      "mean": 0.3218205293737895,
+      "median": 0.3333333333333333,
+      "std": 0.1277174863818654,
+      "min": 0.0,
+      "max": 0.8333333333333334,
+      "p10": 0.16666666666666666,
+      "p25": 0.16666666666666666,
+      "p50": 0.3333333333333333,
+      "p75": 0.3333333333333333,
+      "p90": 0.5,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 0,
+      "full_schema_percent": 0.0
+    },
+    {
+      "event_type": "MDS",
+      "events": 2385,
+      "mean": 0.45920335429769393,
+      "median": 0.4,
+      "std": 0.13327119050776373,
+      "min": 0.0,
+      "max": 0.8,
+      "p10": 0.4,
+      "p25": 0.4,
+      "p50": 0.4,
+      "p75": 0.6,
+      "p90": 0.6,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 0,
+      "full_schema_percent": 0.0
+    },
+    {
+      "event_type": "FIN",
+      "events": 1480,
+      "mean": 0.7344594594594595,
+      "median": 0.5,
+      "std": 0.2495165156852504,
+      "min": 0.5,
+      "max": 1.0,
+      "p10": 0.5,
+      "p25": 0.5,
+      "p50": 0.5,
+      "p75": 1.0,
+      "p90": 1.0,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 694,
+      "full_schema_percent": 0.4689189189189189
+    },
+    {
+      "event_type": "CMP",
+      "events": 1536,
+      "mean": 0.5119977678571428,
+      "median": 0.5714285714285714,
+      "std": 0.15443959751544234,
+      "min": 0.0,
+      "max": 1.0,
+      "p10": 0.2857142857142857,
+      "p25": 0.42857142857142855,
+      "p50": 0.5714285714285714,
+      "p75": 0.5714285714285714,
+      "p90": 0.7142857142857143,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 4,
+      "full_schema_percent": 0.0026041666666666665
+    },
+    {
+      "event_type": "FAC",
+      "events": 2528,
+      "mean": 0.3657888788426763,
+      "median": 0.2857142857142857,
+      "std": 0.1221662820945895,
+      "min": 0.14285714285714285,
+      "max": 0.8571428571428571,
+      "p10": 0.2857142857142857,
+      "p25": 0.2857142857142857,
+      "p50": 0.2857142857142857,
+      "p75": 0.42857142857142855,
+      "p90": 0.5714285714285714,
+      "mean_within_type_percentile": 0.5,
+      "full_schema_count": 0,
+      "full_schema_percent": 0.0
+    }
+  ],
+  "exact_completeness_distribution": [
+    {
+      "completeness": 0.0,
+      "events": 50,
+      "percent": 0.0025656814449917897
+    },
+    {
+      "completeness": 0.14285714285714285,
+      "events": 219,
+      "percent": 0.01123768472906404
+    },
+    {
+      "completeness": 0.16666666666666666,
+      "events": 409,
+      "percent": 0.02098727422003284
+    },
+    {
+      "completeness": 0.2,
+      "events": 364,
+      "percent": 0.01867816091954023
+    },
+    {
+      "completeness": 0.2857142857142857,
+      "events": 1287,
+      "percent": 0.06604064039408868
+    },
+    {
+      "completeness": 0.3333333333333333,
+      "events": 5086,
+      "percent": 0.26098111658456485
+    },
+    {
+      "completeness": 0.4,
+      "events": 2434,
+      "percent": 0.12489737274220032
+    },
+    {
+      "completeness": 0.42857142857142855,
+      "events": 1459,
+      "percent": 0.07486658456486042
+    },
+    {
+      "completeness": 0.5,
+      "events": 1275,
+      "percent": 0.06542487684729065
+    },
+    {
+      "completeness": 0.5714285714285714,
+      "events": 747,
+      "percent": 0.03833128078817734
+    },
+    {
+      "completeness": 0.6,
+      "events": 1995,
+      "percent": 0.10237068965517242
+    },
+    {
+      "completeness": 0.6666666666666666,
+      "events": 1697,
+      "percent": 0.08707922824302135
+    },
+    {
+      "completeness": 0.7142857142857143,
+      "events": 290,
+      "percent": 0.01488095238095238
+    },
+    {
+      "completeness": 0.8,
+      "events": 320,
+      "percent": 0.016420361247947456
+    },
+    {
+      "completeness": 0.8333333333333334,
+      "events": 4,
+      "percent": 0.00020525451559934318
+    },
+    {
+      "completeness": 0.8571428571428571,
+      "events": 57,
+      "percent": 0.0029248768472906403
+    },
+    {
+      "completeness": 1.0,
+      "events": 1795,
+      "percent": 0.09210796387520526
+    }
+  ],
+  "sentence_min_distribution": [
+    {
+      "min_completeness": 0.0,
+      "sentences": 43,
+      "percent": 0.0040171898355754855
+    },
+    {
+      "min_completeness": 0.14285714285714285,
+      "sentences": 210,
+      "percent": 0.01961883408071749
+    },
+    {
+      "min_completeness": 0.16666666666666666,
+      "sentences": 365,
+      "percent": 0.03409940209267563
+    },
+    {
+      "min_completeness": 0.2,
+      "sentences": 322,
+      "percent": 0.03008221225710015
+    },
+    {
+      "min_completeness": 0.2857142857142857,
+      "sentences": 1032,
+      "percent": 0.09641255605381166
+    },
+    {
+      "min_completeness": 0.3333333333333333,
+      "sentences": 4104,
+      "percent": 0.3834080717488789
+    },
+    {
+      "min_completeness": 0.4,
+      "sentences": 1245,
+      "percent": 0.11631165919282511
+    },
+    {
+      "min_completeness": 0.42857142857142855,
+      "sentences": 891,
+      "percent": 0.08323991031390135
+    },
+    {
+      "min_completeness": 0.5,
+      "sentences": 405,
+      "percent": 0.037836322869955155
+    },
+    {
+      "min_completeness": 0.5714285714285714,
+      "sentences": 297,
+      "percent": 0.02774663677130045
+    },
+    {
+      "min_completeness": 0.6,
+      "sentences": 716,
+      "percent": 0.06689088191330343
+    },
+    {
+      "min_completeness": 0.6666666666666666,
+      "sentences": 660,
+      "percent": 0.061659192825112105
+    },
+    {
+      "min_completeness": 0.7142857142857143,
+      "sentences": 127,
+      "percent": 0.011864723467862482
+    },
+    {
+      "min_completeness": 0.8,
+      "sentences": 79,
+      "percent": 0.007380418535127055
+    },
+    {
+      "min_completeness": 0.8333333333333334,
+      "sentences": 1,
+      "percent": 9.342301943198804e-05
+    },
+    {
+      "min_completeness": 0.8571428571428571,
+      "sentences": 25,
+      "percent": 0.002335575485799701
+    },
+    {
+      "min_completeness": 1.0,
+      "sentences": 182,
+      "percent": 0.017002989536621823
+    }
+  ],
+  "sentence_min_distribution_by_event_count": {
+    "1": [
+      {
+        "min_completeness": 0.0,
+        "sentences": 22,
+        "percent_within_group": 0.004632554221941461
+      },
+      {
+        "min_completeness": 0.14285714285714285,
+        "sentences": 47,
+        "percent_within_group": 0.009896820383238577
+      },
+      {
+        "min_completeness": 0.16666666666666666,
+        "sentences": 153,
+        "percent_within_group": 0.032217308907138344
+      },
+      {
+        "min_completeness": 0.2,
+        "sentences": 89,
+        "percent_within_group": 0.01874078753421773
+      },
+      {
+        "min_completeness": 0.2857142857142857,
+        "sentences": 251,
+        "percent_within_group": 0.05285323225942304
+      },
+      {
+        "min_completeness": 0.3333333333333333,
+        "sentences": 1681,
+        "percent_within_group": 0.353969256685618
+      },
+      {
+        "min_completeness": 0.4,
+        "sentences": 590,
+        "percent_within_group": 0.12423668140661191
+      },
+      {
+        "min_completeness": 0.42857142857142855,
+        "sentences": 290,
+        "percent_within_group": 0.06106548747104654
+      },
+      {
+        "min_completeness": 0.5,
+        "sentences": 186,
+        "percent_within_group": 0.03916614024005054
+      },
+      {
+        "min_completeness": 0.5714285714285714,
+        "sentences": 162,
+        "percent_within_group": 0.034112444725205304
+      },
+      {
+        "min_completeness": 0.6,
+        "sentences": 472,
+        "percent_within_group": 0.09938934512528953
+      },
+      {
+        "min_completeness": 0.6666666666666666,
+        "sentences": 436,
+        "percent_within_group": 0.09180880185302169
+      },
+      {
+        "min_completeness": 0.7142857142857143,
+        "sentences": 94,
+        "percent_within_group": 0.019793640766477154
+      },
+      {
+        "min_completeness": 0.8,
+        "sentences": 77,
+        "percent_within_group": 0.016213939776795114
+      },
+      {
+        "min_completeness": 0.8333333333333334,
+        "sentences": 1,
+        "percent_within_group": 0.0002105706464518846
+      },
+      {
+        "min_completeness": 0.8571428571428571,
+        "sentences": 18,
+        "percent_within_group": 0.003790271636133923
+      },
+      {
+        "min_completeness": 1.0,
+        "sentences": 180,
+        "percent_within_group": 0.03790271636133923
+      }
+    ],
+    "2": [
+      {
+        "min_completeness": 0.0,
+        "sentences": 11,
+        "percent_within_group": 0.0028089887640449437
+      },
+      {
+        "min_completeness": 0.14285714285714285,
+        "sentences": 81,
+        "percent_within_group": 0.020684371807967315
+      },
+      {
+        "min_completeness": 0.16666666666666666,
+        "sentences": 150,
+        "percent_within_group": 0.03830439223697651
+      },
+      {
+        "min_completeness": 0.2,
+        "sentences": 117,
+        "percent_within_group": 0.029877425944841676
+      },
+      {
+        "min_completeness": 0.2857142857142857,
+        "sentences": 409,
+        "percent_within_group": 0.10444330949948928
+      },
+      {
+        "min_completeness": 0.3333333333333333,
+        "sentences": 1463,
+        "percent_within_group": 0.37359550561797755
+      },
+      {
+        "min_completeness": 0.4,
+        "sentences": 506,
+        "percent_within_group": 0.12921348314606743
+      },
+      {
+        "min_completeness": 0.42857142857142855,
+        "sentences": 431,
+        "percent_within_group": 0.11006128702757917
+      },
+      {
+        "min_completeness": 0.5,
+        "sentences": 187,
+        "percent_within_group": 0.047752808988764044
+      },
+      {
+        "min_completeness": 0.5714285714285714,
+        "sentences": 101,
+        "percent_within_group": 0.025791624106230846
+      },
+      {
+        "min_completeness": 0.6,
+        "sentences": 203,
+        "percent_within_group": 0.05183861082737487
+      },
+      {
+        "min_completeness": 0.6666666666666666,
+        "sentences": 218,
+        "percent_within_group": 0.055669050051072526
+      },
+      {
+        "min_completeness": 0.7142857142857143,
+        "sentences": 30,
+        "percent_within_group": 0.007660878447395302
+      },
+      {
+        "min_completeness": 0.8,
+        "sentences": 2,
+        "percent_within_group": 0.0005107252298263534
+      },
+      {
+        "min_completeness": 0.8571428571428571,
+        "sentences": 6,
+        "percent_within_group": 0.0015321756894790602
+      },
+      {
+        "min_completeness": 1.0,
+        "sentences": 1,
+        "percent_within_group": 0.0002553626149131767
+      }
+    ],
+    "3+": [
+      {
+        "min_completeness": 0.0,
+        "sentences": 10,
+        "percent_within_group": 0.004904364884747425
+      },
+      {
+        "min_completeness": 0.14285714285714285,
+        "sentences": 82,
+        "percent_within_group": 0.04021579205492889
+      },
+      {
+        "min_completeness": 0.16666666666666666,
+        "sentences": 62,
+        "percent_within_group": 0.030407062285434036
+      },
+      {
+        "min_completeness": 0.2,
+        "sentences": 116,
+        "percent_within_group": 0.05689063266307013
+      },
+      {
+        "min_completeness": 0.2857142857142857,
+        "sentences": 372,
+        "percent_within_group": 0.18244237371260422
+      },
+      {
+        "min_completeness": 0.3333333333333333,
+        "sentences": 960,
+        "percent_within_group": 0.47081902893575284
+      },
+      {
+        "min_completeness": 0.4,
+        "sentences": 149,
+        "percent_within_group": 0.07307503678273664
+      },
+      {
+        "min_completeness": 0.42857142857142855,
+        "sentences": 170,
+        "percent_within_group": 0.08337420304070622
+      },
+      {
+        "min_completeness": 0.5,
+        "sentences": 32,
+        "percent_within_group": 0.01569396763119176
+      },
+      {
+        "min_completeness": 0.5714285714285714,
+        "sentences": 34,
+        "percent_within_group": 0.016674840608141245
+      },
+      {
+        "min_completeness": 0.6,
+        "sentences": 41,
+        "percent_within_group": 0.020107896027464444
+      },
+      {
+        "min_completeness": 0.6666666666666666,
+        "sentences": 6,
+        "percent_within_group": 0.0029426189308484553
+      },
+      {
+        "min_completeness": 0.7142857142857143,
+        "sentences": 3,
+        "percent_within_group": 0.0014713094654242277
+      },
+      {
+        "min_completeness": 0.8571428571428571,
+        "sentences": 1,
+        "percent_within_group": 0.0004904364884747426
+      },
+      {
+        "min_completeness": 1.0,
+        "sentences": 1,
+        "percent_within_group": 0.0004904364884747426
+      }
+    ]
+  },
+  "quantile_cuts": {
+    "q1": 0.3333333333333333,
+    "q2": 0.4
+  },
+  "event_count_x_min_completeness": {
+    "1": {
+      "High": {
+        "count": 1916,
+        "percent": 0.4034533586018109
+      },
+      "Medium": {
+        "count": 590,
+        "percent": 0.12423668140661191
+      },
+      "Low": {
+        "count": 2243,
+        "percent": 0.47230995999157716
+      }
+    },
+    "2": {
+      "High": {
+        "count": 1179,
+        "percent": 0.3010725229826353
+      },
+      "Medium": {
+        "count": 506,
+        "percent": 0.12921348314606743
+      },
+      "Low": {
+        "count": 2231,
+        "percent": 0.5697139938712973
+      }
+    },
+    "3+": {
+      "High": {
+        "count": 288,
+        "percent": 0.14124570868072583
+      },
+      "Medium": {
+        "count": 149,
+        "percent": 0.07307503678273664
+      },
+      "Low": {
+        "count": 1602,
+        "percent": 0.7856792545365375
+      }
+    }
+  },
+  "schemas": {
+    "PUR": [
+      "Aim",
+      "Condition",
+      "Dataset"
+    ],
+    "PRP": [
+      "Proposer",
+      "Content",
+      "Target"
+    ],
+    "WKS": [
+      "Researcher",
+      "Content",
+      "Condition",
+      "Dataset",
+      "Target"
+    ],
+    "ITT": [
+      "Target",
+      "Condition",
+      "Dataset"
+    ],
+    "RWS": [
+      "Subject",
+      "Target",
+      "BaseComponent",
+      "TriedComponent",
+      "Condition",
+      "Dataset"
+    ],
+    "RWF": [
+      "Target",
+      "Extent",
+      "Concern",
+      "Fault",
+      "Condition",
+      "Dataset"
+    ],
+    "MDS": [
+      "BaseComponent",
+      "TriedComponent",
+      "Condition",
+      "Dataset",
+      "Target"
+    ],
+    "FIN": [
+      "Finder",
+      "Content"
+    ],
+    "CMP": [
+      "Metrics",
+      "Arg1",
+      "Extent",
+      "Result",
+      "Arg2",
+      "Condition",
+      "Dataset"
+    ],
+    "FAC": [
+      "Subject",
+      "Extent",
+      "Object",
+      "Target",
+      "Condition",
+      "Dataset",
+      "Reason"
+    ]
+  }
+}

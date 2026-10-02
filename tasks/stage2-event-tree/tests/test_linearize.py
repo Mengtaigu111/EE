@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from linearize import canonical_events, linearize, linearize_substructures, parse_forest
+from linearize import canonical_events, linearize, linearize_semantic, linearize_substructures, parse_forest
 
 PROJECT = Path(__file__).resolve().parents[3]
 
@@ -45,7 +45,8 @@ class LinearizeTests(unittest.TestCase):
         self.assertEqual(diag['missing_trigger'], 1)
         self.assertTrue(parse_forest('garbage')[1]['invalid'])
         self.assertEqual(parse_forest('(ROOT)'), ([], {'invalid': False, 'dropped_events': 0, 'dropped_args': 0,
-                                                    'unknown_event_types': 0, 'unknown_roles': 0, 'missing_trigger': 0}))
+                                                    'unknown_event_types': 0, 'unknown_roles': 0, 'missing_trigger': 0,
+                                                    'semantic_events': 0, 'path_inconsistent': 0}))
 
     def test_full_dev_roundtrip(self):
         docs = json.loads((PROJECT / 'data/SciEvents/dev.json').read_text())
@@ -67,6 +68,35 @@ class LinearizeTests(unittest.TestCase):
         self.assertEqual(events[0]['type'], 'PRP')
         self.assertEqual(linearize_substructures(ev), '(PRP "propose") (Proposer "we")')
         self.assertEqual(linearize_substructures([]), '()')
+
+    def test_semantic_tree_roundtrip_and_path_diagnostics(self):
+        d = doc('we propose x and it outperforms y on z',
+                [{'event_type': 'PRP', 'trigger': {'offsets': [1]},
+                  'arguments': [{'offsets': [0], 'argument_type': 'Proposer', 'nugget_type': 'OG'},
+                                {'offsets': [2], 'argument_type': 'Content', 'nugget_type': 'APP'}]},
+                 {'event_type': 'CMP', 'trigger': {'offsets': [5]},
+                  'arguments': [{'offsets': [2], 'argument_type': 'Arg1', 'nugget_type': 'APP'},
+                                {'offsets': [8], 'argument_type': 'Dataset', 'nugget_type': 'DST'}]}])
+        tree = linearize_semantic(canonical_events(d))
+        self.assertEqual(
+            tree,
+            '(ROOT (Methodology (ProposerIntroducesContent (PRP (Trigger "propose") '
+            '(Proposer "we") (Content "x")))) (Results (ExplicitComparison '
+            '(CMP (Trigger "outperforms") (Arg1 "x") (Dataset "z")))))')
+        events, diag = parse_forest(tree)
+        self.assertFalse(diag['invalid'])
+        self.assertEqual(diag['semantic_events'], 2)
+        self.assertEqual(diag['path_inconsistent'], 0)
+        self.assertEqual([event['type'] for event in events], ['PRP', 'CMP'])
+        self.assertEqual(events[0]['args'], [{'role': 'Proposer', 'text': 'we'}, {'role': 'Content', 'text': 'x'}])
+
+    def test_semantic_parser_recovers_wrong_path_without_retyping_event(self):
+        raw = '(ROOT (Results (SubjectOutcome (CMP (Trigger "beats") (Arg1 "a") (Arg2 "b")))))'
+        events, diag = parse_forest(raw)
+
+        self.assertEqual(events[0]['type'], 'CMP')
+        self.assertEqual(diag['semantic_events'], 1)
+        self.assertEqual(diag['path_inconsistent'], 1)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,15 @@
+{
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_user_v2_curriculum.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_user_v2_phase.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/curriculum_trainer.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_c_queue.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/model_utils.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/predict.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/linearize.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/ontology.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/align_events.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/merge_sentence_predictions.py": true,
+  "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/evaluate.py": true,
+  "/home/myluo/EE/EXCEEDS/utils.py": true,
+  "/home/myluo/EE/EXCEEDS/eval_complex_quick_f1.py": true
+}

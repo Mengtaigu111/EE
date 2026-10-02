@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": {
+    "root_plus_positive_equals_total": true,
+    "b1_plus_b2_equals_positive": true,
+    "buckets_exactly_equal": true,
+    "all_positive_scores_nonnegative": true,
+    "formula_matches": true,
+    "event_count_intervals_hold": true,
+    "sentence_event_counts_match_event_rows": true,
+    "histogram_sums_to_positive": true,
+    "event_type_composition_reconciles": true,
+    "previous_labels_complete": true
+  },
+  "counts": {
+    "B1": 5352,
+    "ROOT": 2124,
+    "B2": 5352
+  },
+  "boundary_tie": {
+    "boundary_score": 1.3548177083333335,
+    "num_samples_equal_boundary_score": 69,
+    "num_equal_boundary_assigned_B1": 26,
+    "num_equal_boundary_assigned_B2": 43,
+    "tie_preserving_alternative": {
+      "below_easy": 5326,
+      "equal_tie_group": 69,
+      "above_hard": 5309
+    }
+  },
+  "previous_rule_agreement": 0.8569693572496263
+}

@@ -1,0 +1,14 @@
+{
+  "status": "suspended_for_short_stage1_plan",
+  "time": "2026-10-02 17:56:27",
+  "last_observed_step": 822,
+  "retained_checkpoint": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-UserV2-42-20261002/stage1/checkpoints/checkpoint-802",
+  "checkpoint_step": 802,
+  "checkpoint_epoch": 1.9717097170971711,
+  "verified_horizon": 4010,
+  "processes": [
+    3433949,
+    3433958
+  ],
+  "reason": "User agreed shorten Stage1 while keeping total budget, then explicitly requested planning. Existing old boundary2005 is superseded; pause prevents more obsolete updates. No new training launched."
+}

@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "source_counts": {
+    "train_sentence_rows": 12828,
+    "dev_sentence_rows": 1593,
+    "dev_prediction_rows": 1593,
+    "dev_documents": 251,
+    "gold_events": 2445,
+    "predicted_events": 2328,
+    "invalid_predictions": 0,
+    "best_checkpoint": "checkpoint-2406",
+    "duplicate_gold_trigger_samples": [
+      "68d4b389ff7cc1762d839b88be4dcbf1::sentence-5",
+      "ac6ad8fa7bb20a4df1517cde88496985::sentence-1",
+      "665bbb46803fc37b5761efc84e5d5c96::sentence-3",
+      "e0f13560519a4416cdf6b551a3f885d7::sentence-3",
+      "1abc2b8815f3288702b641e7c9b4f03e::sentence-7",
+      "c63df2992a3f61e2d619368b41826418::sentence-4",
+      "548ed968041db09172c543bacd9295e4::sentence-3",
+      "e748d087cbf4b8adddc1fd277ae245d6::sentence-3",
+      "9f0c70217e24a5146fc256ae31695fa3::sentence-5",
+      "e7815e553e49295a238856f2f27022ec::sentence-3",
+      "a9502661987ff9decb135c877b556e4c::sentence-1",
+      "b964ec47972539b3f5fb378030233a07::sentence-4",
+      "6353b8a9b8a4d09a9b9c9c05f2707351::sentence-5",
+      "eeae43e4c7b0eb71b4e8fc9f00affe61::sentence-4",
+      "f7bac977fdf2a33e399f4f90d3c6b2bc::sentence-1",
+      "a1405739c41b525f9fd26a7a69d505e7::sentence-1",
+      "fe623f87beffcd0b82a5e8a1c4210d16::sentence-0",
+      "d7a5cf63d07e76dad98c526d4a044d91::sentence-5",
+      "3d38f8ea0e9a267292caf03f8e77388d::sentence-7",
+      "ed8032b7de87ab8c731debdce68da16c::sentence-4",
+      "896eb601d85f56b5a70d426bc55b2b49::sentence-6",
+      "fcb9915b031851caf926ec4bb1420fa2::sentence-3",
+      "12a484547f3d406a8063ead310670cca::sentence-6",
+      "c43cbfe9be56c8c6e627076dbb7798a2::sentence-7",
+      "7c4f66288724b1d9ce1295c187b5e1f4::sentence-5",
+      "7c4f66288724b1d9ce1295c187b5e1f4::sentence-6",
+      "4536d956f8b2a1263abc569f5ff88b62::sentence-3",
+      "4536d956f8b2a1263abc569f5ff88b62::sentence-4",
+      "672b264340445985697afe4a34a2c39c::sentence-1",
+      "d35bb7ae293ae6ec646e166441cf474c::sentence-2",
+      "d35bb7ae293ae6ec646e166441cf474c::sentence-4"
+    ]
+  },
+  "official_metric_abs_diff": {
+    "TI_f1": 0.0,
+    "TC_f1": 0.0,
+    "AI_f1": 0.0,
+    "AC_f1": 0.0
+  },
+  "gold_accounting": {
+    "confusion_row_total": 2445,
+    "gold_events": 2445
+  },
+  "prediction_accounting": {
+    "matched": 1937,
+    "spurious": 391,
+    "matched_plus_spurious": 2328,
+    "predicted_events": 2328
+  },
+  "files": {
+    "analysis_summary.json": "aadb252a130e8c4f27a3d34228f6d7c4339f2201b759e446dfde6882002edbe8",
+    "analyze_difficulty.py": "078d286c10867d98277992949d0f44eba22739db3edd8a7d87a9a96215d20845",
+    "argument_complexity.csv": "06e25e9acf8e475cba4890f5ecb900454e5b5d6b2143275422157e20f9c58e80",
+    "difficulty_analysis_report.md": "39e2df47077cc6804a2fd5d748ec713abeb98c3f92535bc420eda5e0404649ff",
+    "difficulty_slices.csv": "2ef76b53849aab41f7d9145489fdee8b826b8dcec7c8fdac08e21e79aa367422",
+    "event_alignment.csv": "09444bcc604d291e9833f11ce96ad504217064ad6f42a4bc2b97003ff5ca459a",
+    "event_level_features.csv": "35fc0d7a0d22894bad7923b4b643400c3fee491d9c21853d06006326d6d122fe",
+    "event_type_confusion.csv": "d14b2a8e7d5b4f1c04dab1599e46a1e1af306fd637f0e0a954e5b17fe21df716",
+    "no_event_breakdown.csv": "eb18cfc8ebe96de8feb56a0bc8cb3bf061e367e1e45977380973a760f55986ed",
+    "no_event_examples.csv": "6be10119b167fbdf7ea4a996fd8e3528355860fe2b2540cc7263b0933642c3e8",
+    "sample_level_features.csv": "22db588ec207ecf765e831b89213ed882b176cd80763d9086343022d0df632c8",
+    "schema_similarity.csv": "dbeb6a7f5124030b75934b1ab69c5eeb4e4bdac119342f9a6e69879358c8d1e4",
+    "schema_similarity_pairs.csv": "f73766edcdacafcb230709a97b75f28823a37819f8c0f8199225799fd81a5435",
+    "test_analyze_difficulty.py": "4494d223db8ef6a6678cf518e7a34c93a3e02393efdc4a9693a3edd65c312d16"
+  }
+}

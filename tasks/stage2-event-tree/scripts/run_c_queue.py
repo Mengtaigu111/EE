@@ -93,6 +93,7 @@ def main():
     parser.add_argument('--max-new-tokens', type=int,
                         help='override the C sentence-level audit-derived generation budget')
     parser.add_argument('--batch-size', type=int, default=4)
+    parser.add_argument('--experiment-name', default='C')
     args = parser.parse_args()
     if 'TMUX' not in os.environ:
         raise RuntimeError('GPU execution must run in tmux')
@@ -100,10 +101,10 @@ def main():
         parser.error('epochs/max-len must be positive and max-steps must be -1 or positive')
     if args.run_dir is None:
         stamp = datetime.now().strftime('%Y%m%d-%H%M%S')
-        args.run_dir = ROOT / 'runs' / f'C-{args.seed}-{stamp}'
+        args.run_dir = ROOT / 'runs' / f'{args.experiment_name}-{args.seed}-{stamp}'
     args.run_dir = args.run_dir.resolve()
     args.run_dir.mkdir(parents=True, exist_ok=False)
-    state = {'experiment': 'C', 'seed': args.seed, 'status': 'running', 'started_at': now(),
+    state = {'experiment': args.experiment_name, 'seed': args.seed, 'status': 'running', 'started_at': now(),
              'data_dir': str(args.data_dir.resolve()), 'document_data_dir': str(args.document_data_dir.resolve()),
              'epochs': args.epochs, 'max_steps': args.max_steps, 'max_len': args.max_len,
              'model': args.model}

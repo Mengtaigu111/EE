@@ -1,0 +1,79 @@
+{
+  "schedule": {
+    "stage1_epoch_target": 2,
+    "effective_batch_size": 16,
+    "stage1_steps_per_epoch": 407,
+    "stage1_optimizer_steps": 814,
+    "stage2_optimizer_steps": 3196,
+    "baseline_total_optimizer_steps": 4010,
+    "initialization": "fresh_base_model",
+    "init_adapter": null,
+    "resume_from_checkpoint": null
+  },
+  "files": {
+    "stage1_data": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-20261002/mean_curriculum_stage1.jsonl",
+      "sha256": "fe6c53ecbc90a99ed52eef7021b90799c4140cb7ffecdcdcc9e6234b9cb522cf",
+      "rows": 6504,
+      "same_path_as_parent": true
+    },
+    "stage2_data": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-20261002/mean_curriculum_stage2.jsonl",
+      "sha256": "18b3aa1baeee56f5c706034b30538181ff121d2fe5cd76fff0b4e0710b5ff61b",
+      "rows": 12828,
+      "same_path_as_parent": true
+    },
+    "source_train_file": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-user-v2-20261002/train.jsonl",
+      "sha256": "18b3aa1baeee56f5c706034b30538181ff121d2fe5cd76fff0b4e0710b5ff61b",
+      "rows": 12828,
+      "same_path_as_parent": true
+    },
+    "dev_data": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-user-v2-20261002/dev.jsonl",
+      "sha256": "8ba54d4d0eb556987dbbd3a385531d8b991f48bc278e3743e280a35fb2a354b0",
+      "rows": 1593,
+      "same_path_as_parent": true
+    },
+    "test_data": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-user-v2-20261002/test.jsonl",
+      "sha256": "23e2f9e5a31bca4da378a8b73890b371cc3fcb3ca5787ae7f250ea99584f248a",
+      "rows": 1627,
+      "same_path_as_parent": true
+    },
+    "stage1_ids": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-20261002/mean_curriculum_stage1_ids.txt",
+      "sha256": "d6043b5ae07125150289292f94d0965a7bb10980d1ce470609f4eeb4a21a0912",
+      "count": 6504
+    },
+    "stage2_ids": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-20261002/mean_curriculum_stage2_ids.txt",
+      "sha256": "19d240e101feb0601460748fa4323120600165f4de12778eaf3acad03139a2c1",
+      "count": 12828
+    },
+    "root_stage1_ids": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-20261002/mean_curriculum_root_stage1_ids.txt",
+      "sha256": "f4344060a574955ae95de69fbb4ee73ebf3ef2a241d193f4a7bbb96ce3458f9e",
+      "count": 1077
+    },
+    "prompt": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-easy2-20261002/prompt.md",
+      "sha256": "8e6d508af5e9de15e001a8dba1da979d45353f334ef365d94edd87aa5254f7a2"
+    },
+    "parent_manifest": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/user-v2-20261002/mean_curriculum_manifest.json",
+      "sha256": "b6b3b7050c29400e74122ae6b7e28cd3c1a5e932c33c2f60e75faeed0f2cd804"
+    }
+  },
+  "checks": {
+    "byte_identical_data_references": true,
+    "same_gold_metadata_and_completions": true,
+    "exact_stage1_source_rows": true,
+    "stage2_equals_full_train": true,
+    "frozen_stage_and_root_id_order": true,
+    "exact_approved_prompt_all_splits": true,
+    "parent_manifest_snapshot_byte_identical": true,
+    "fresh_initialization": true,
+    "814_plus_3196_equals_4010": true
+  }
+}

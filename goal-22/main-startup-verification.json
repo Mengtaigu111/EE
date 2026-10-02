@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-10-02T10:09:45.898758+00:00",
+  "status": "running",
+  "initialization": "/opt/models/Qwen3-8B",
+  "resume_from_checkpoint": null,
+  "budget": [
+    814,
+    3196,
+    4010
+  ],
+  "tmux": "goal-22-user-v2-easy2-main",
+  "actual_optimizer_steps_observed": 7,
+  "estimated_total_hours": [
+    13,
+    15
+  ]
+}

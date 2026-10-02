@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "checks": {
+    "root_plus_positive_equals_total": true,
+    "b1_plus_b2_equals_positive": true,
+    "equal_bucket_sizes": true,
+    "event_and_schema_components_in_range": true,
+    "normalized_score_in_range": true,
+    "formula_exact": true,
+    "pmin_matches_event_percentiles": true,
+    "all_sentence_event_joins_match": true,
+    "histogram_reconciles": true,
+    "type_event_counts_reconcile": true
+  },
+  "counts": {
+    "total": 12828,
+    "root": 2124,
+    "positive": 10704,
+    "b1": 5352,
+    "b2": 5352
+  },
+  "boundary_tie": {
+    "score": 0.4827307940606843,
+    "n_equal": 112,
+    "b1_equal": 40,
+    "b2_equal": 72,
+    "tie_preserving": {
+      "below": 5312,
+      "equal": 112,
+      "above": 5280
+    }
+  },
+  "old_new_agreement": 0.9777653213751868,
+  "manual_agreement": 0.8528587443946188
+}

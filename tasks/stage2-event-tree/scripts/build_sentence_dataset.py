@@ -8,8 +8,8 @@ import json
 from pathlib import Path
 
 from align_events import sentence_bounds
-from linearize import canonical_events, linearize, parse_forest
-from prompts import make_sentence_prompt
+from linearize import canonical_events, linearize, linearize_semantic, parse_forest
+from prompts import make_appendix_sentence_prompt, make_semantic_sentence_prompt, make_sentence_prompt
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
@@ -19,7 +19,27 @@ def _event_in_sentence(event, lo, hi):
     return bool(offsets) and all(lo <= offset < hi for offset in offsets)
 
 
-def build_rows_for_document(doc, split):
+def _mode_name(semantic_path=False, appendix_schema=False):
+    if semantic_path and appendix_schema:
+        raise ValueError('semantic_path and appendix_schema are mutually exclusive')
+    if semantic_path:
+        return 'sentence-semantic-path'
+    if appendix_schema:
+        return 'sentence-appendix-schema'
+    return 'sentence'
+
+
+def _prompt_builder(semantic_path=False, appendix_schema=False):
+    if semantic_path and appendix_schema:
+        raise ValueError('semantic_path and appendix_schema are mutually exclusive')
+    if semantic_path:
+        return make_semantic_sentence_prompt
+    if appendix_schema:
+        return make_appendix_sentence_prompt
+    return make_sentence_prompt
+
+
+def build_rows_for_document(doc, split, semantic_path=False, appendix_schema=False):
     tokens = doc['document']
     if ' '.join(doc['sentences']).split() != tokens:
         raise ValueError(f'{doc["doc_id"]}: sentences do not tile document tokens')
@@ -36,7 +56,7 @@ def build_rows_for_document(doc, split):
                                   for arg in event['args'])
             cross_sentence_arguments += cross_arguments
             cross_sentence_events += bool(cross_arguments)
-        completion = linearize(target_events)
+        completion = linearize_semantic(target_events) if semantic_path else linearize(target_events)
         parsed, diagnostics = parse_forest(completion)
         if diagnostics['invalid'] or diagnostics['dropped_events'] or diagnostics['dropped_args']:
             raise ValueError(f'{doc["doc_id"]} sentence {sentence_index}: tree did not roundtrip: {diagnostics}')
@@ -52,14 +72,15 @@ def build_rows_for_document(doc, split):
             'id': f'{doc["doc_id"]}::sentence-{sentence_index}',
             'document_id': doc['doc_id'],
             'split': split,
-            'mode': 'sentence',
+            'mode': _mode_name(semantic_path=semantic_path, appendix_schema=appendix_schema),
             'sentence_index': sentence_index,
             'target_bounds': [lo, hi],
             'target_sentence': sentence,
             'tokens': tokens,
             'sentences': doc['sentences'],
             'abstract': ' '.join(tokens),
-            'prompt': make_sentence_prompt(' '.join(tokens), doc['sentences'], sentence_index),
+            'prompt': _prompt_builder(semantic_path=semantic_path, appendix_schema=appendix_schema)(
+                ' '.join(tokens), doc['sentences'], sentence_index),
             'completion': completion,
             'target_events': target_gold_events,
             'n_events': len(target_events),
@@ -77,13 +98,14 @@ def build_rows_for_document(doc, split):
     }
 
 
-def build_split(project_root, split, output_dir):
+def build_split(project_root, split, output_dir, semantic_path=False, appendix_schema=False):
     source = project_root / f'data/SciEvents/{split}.json'
     docs = json.loads(source.read_text(encoding='utf-8'))
     all_rows, totals = [], Counter()
     max_events_per_sentence = 0
     for doc in docs:
-        rows, stats = build_rows_for_document(doc, split)
+        rows, stats = build_rows_for_document(
+            doc, split, semantic_path=semantic_path, appendix_schema=appendix_schema)
         all_rows.extend(rows)
         max_events_per_sentence = max(max_events_per_sentence, stats['max_events_per_sentence'])
         totals.update({key: value for key, value in stats.items() if key != 'max_events_per_sentence'})
@@ -96,15 +118,20 @@ def build_split(project_root, split, output_dir):
     return output, dict(totals)
 
 
-def build_all(project_root, output_dir):
-    manifest = {'created_at': datetime.now(timezone.utc).isoformat(), 'mode': 'sentence',
+def build_all(project_root, output_dir, semantic_path=False, appendix_schema=False):
+    manifest = {'created_at': datetime.now(timezone.utc).isoformat(),
+                'mode': _mode_name(semantic_path=semantic_path, appendix_schema=appendix_schema),
                 'rules': {'context': 'full abstract', 'trigger_scope': 'target sentence',
                           'argument_scope': 'full abstract', 'hints': 'none',
+                          'tree': 'semantic path' if semantic_path else 'event type root',
+                          'schema': 'Appendix F.2 exact' if appendix_schema else (
+                              'semantic prototypes' if semantic_path else 'ontology.py gloss'),
                           'empty_target': '(ROOT)'}, 'sources': {}, 'splits': {}}
     for split in ('train', 'dev', 'test'):
         source = project_root / f'data/SciEvents/{split}.json'
         manifest['sources'][str(source.relative_to(project_root))] = hashlib.sha256(source.read_bytes()).hexdigest()
-        output, stats = build_split(project_root, split, output_dir)
+        output, stats = build_split(
+            project_root, split, output_dir, semantic_path=semantic_path, appendix_schema=appendix_schema)
         manifest['splits'][split] = stats
         with output.open(encoding='utf-8') as stream:
             manifest['splits'][split]['rows'] = sum(1 for _ in stream)
@@ -120,8 +147,13 @@ def main():
     parser.add_argument('--project-root', type=Path, default=PROJECT_ROOT)
     parser.add_argument('--output-dir', type=Path,
                         default=Path(__file__).resolve().parents[1] / 'data/sentence-c')
+    parser.add_argument('--semantic-path', action='store_true',
+                        help='build Region/SemanticDecision/EventType targets with the semantic prompt')
+    parser.add_argument('--appendix-schema', action='store_true',
+                        help='use Appendix F.2 exact schema text while keeping the C tree target')
     args = parser.parse_args()
-    print(json.dumps(build_all(args.project_root, args.output_dir), ensure_ascii=False, indent=2))
+    print(json.dumps(build_all(args.project_root, args.output_dir, semantic_path=args.semantic_path,
+                               appendix_schema=args.appendix_schema), ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':

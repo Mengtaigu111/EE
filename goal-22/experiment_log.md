@@ -1,0 +1,4 @@
+# Planning evidence
+2026-10-02 Asia/Shanghai, cwd /home/myluo/EE/EXCEEDS. Read actual UserV2 stage log and checkpoint802. Installed safe validate_resume_checkpoint verified model/optimizer/scheduler/RNG/trainer hashes, global_step802/horizon4010. Existing process crossed814; SIGSTOP parent3433949+child3433958 reversibly suspends obsolete2005-stepStage1 while plan is reviewed, avoids continued redundant updates. No source/data/weights overwritten; full stopped-state metadata in preserved-state.json. New continuation not launched. This is a plan-only turn as requested.
+
+User overrides checkpoint continuation: freshrawQwen start, sameprompt/data, shortStage1twoepochs and unchanged4010budget. Obsolete suspendedparent/child TERM then CONT deliverspendingTERM; run/checkpoint802/logs preserved with superseded.json; no802 model/optimizer transferred. Newplan finalized and config/code review delegated.
