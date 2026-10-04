@@ -1,0 +1,4678 @@
+{
+  "status": "completed",
+  "source_hashes": {
+    "/home/myluo/EE/EXCEEDS/utils.py": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/instance_scorer.py": "1b6e012df5e8e29aa66f927ef683d6702b7e957ae57ec71c17481cc5cfe0adf3",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/run_evaluation_audit.py": "42e036d005c525a66a0cc4e03186d10a4cf18c34a465fa80725ba74bebf7c29e",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/run.json": "8bb96dea33168364c253932f871d022624011605c8d1033ea2e2b22a4aa6c1c5",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/dev.json": "aef95bbda483f90d7516ee0395e0d0ad9c584446c51af308477fa58fc46c4bb9",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/dev.jsonl": "2acc33d6ef60abcbc821818d03b89cbca1cb8a76dc7042f733feced70c0aab30",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/checkpoint-eval/dev-checkpoint-802.predictions.jsonl": "1bc49f622e68046b66d7b4bf225fe2621276077d5af05b5fb7d45d57c51683b7",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-802.metrics.json": "9b7c0d82cce2a8dd319fbfa69a2261843c2790360a58e8c43a74dd1336ae3ba7",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/checkpoint-eval/dev-checkpoint-1604.predictions.jsonl": "382a48154c66a32987e1aa48ce79a38140a4e8d4066302f0ae49a8ee26cafef8",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-1604.metrics.json": "18eb8a6aae7db054e45dfd3e4fe6eb1c92c7f9767dea5fa4dad545025ae6372f",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/checkpoint-eval/dev-checkpoint-2406.predictions.jsonl": "c10734775ae40700e0ca87053a4d8a03e253e9c567500ba44fb957dccbd3a163",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-2406.metrics.json": "8b128c69ad8d9bb133a630af0c10f06777c6225d4b3f14a8b4f84f5f23e8f4e9",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/checkpoint-eval/dev-checkpoint-3208.predictions.jsonl": "eac8b50fdf19b5b6a4e160f799cd25f468b9bf82abed743bb17b28578c2c8542",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-3208.metrics.json": "5d5d38c4f94cd0fb9c3fbf616062bbee1b23164dcf690ae2a433577051ff6815",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/checkpoint-eval/dev-checkpoint-4010.predictions.jsonl": "df598416be85e6d7e87f00864a553d6c43f04f87eed8e5c8e83970b2a2e07165",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-4010.metrics.json": "aae7e55565f274227a7b1c2371324ca0cd5dbb1f1a275b0df510696d785f1319",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/test.json": "6f5ed861c147d5da197a21eaf0802e4399a2529a438d4861510b7780556dba71",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/test.jsonl": "2d3be766af7e144bfac03f66b82713911c87b8886d6f17b8c4b4c23055dfd1e6",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/checkpoint-eval/test-checkpoint-2406.predictions.jsonl": "fa48361a44745cdcfdd76658dac666eb24497bc3fdbb800661a9365ded875a66",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/test-checkpoint-2406.metrics.json": "361bc7ad206144d10a07557f5c4dc70afa0ee0b9a41640f3a40a6bf2b41e027b",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/run.json": "f2d2bbd07379420ba9c6b4d4478b013f2a11837f43a7175322691d2fa247fd6b",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-802.predictions.jsonl": "b45ada9cd19482ac7e7e5ae68ed85fac92102a284c55f997bf596d2079265a7e",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-802.metrics.json": "0b695d8e24e4bbe599b912a7f7a728f91534d1b17442880f2e0f9274fc129c5c",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-814.predictions.jsonl": "70c1f7793781c8f82a3208e9e1a33b9e87bc17f514dd405e92e1864e1b380cef",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-814.metrics.json": "8ee1f91f857d1e120dffbf873ae4ee61010581f2ccdf58f80fb3a35cc8cd72ba",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-1604.predictions.jsonl": "af49785ba196aa2a14ef85bf4a9c8c7f8e5137a0afe29b1e7cf06845fd312172",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-1604.metrics.json": "7979bf3b5edd7722a01e028529dbc7256e8fcf8c4390077960580742099abf4f",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-2406.predictions.jsonl": "e28d9ca8137e77b6c164408ee7fbad89418376ca112396ab05e2d5d97b2945e9",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-2406.metrics.json": "f85a457f97a6a6d6111b6dd5b61433a6b23881b6e94cb6443811f0db2e7623d8",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-3208.predictions.jsonl": "49d648d72d6eba6c3e9d2db6fa9a9354c97f5c01448ec967367dbec9fd2793b2",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-3208.metrics.json": "7e89227372b588afc9b6fc6c66d1022aef127a9d366f05f18ebca74365a85c88",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-4010.predictions.jsonl": "35eed78c877c291b34227e89cce3db9265b1cb23c74b17f9bfd1c80690bde319",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/dev-checkpoint-4010.metrics.json": "82bcf8c20f3a14524f067762d2b9999d08a61fed4cd69de1e4dcc2af9f8627a4",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/test-checkpoint-2406.predictions.jsonl": "586bc9938fefca39bfd04f31d73e1fc89180ef37288fb849df02b68694272360",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/test-checkpoint-2406.metrics.json": "798545bdd4d95ede29e876fd0b784599ed8f82ee4e5239cf5dfd3f9023d8435d",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/run.json": "e23b67c7cc2d6af2d44e4a752a0895a9cc16366d3a24588388451f2ad9796c67",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-802.predictions.jsonl": "2a500f01abc86f55f51e3b1fa9f32c1ba33b04c095a1903a04089dd37c96ac29",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-802.metrics.json": "f2d1d1abae0d068837febf44903d4e0d5ca522158dc47ed0266f33dc12fb3da8",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-1604.predictions.jsonl": "708fe9443f1c6a7ebc8f4ff2ffef83ed44b2392df6121f3171013fdda20e1dca",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-1604.metrics.json": "9b6b1000cef895ee133a7ceded473316afbfd371a3624309218261f628d5019f",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-2406.predictions.jsonl": "b92b8227f0a9204532a2f02aa56d787643211decb3d3e082332852dc272684f1",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-2406.metrics.json": "12d0d217c9dba84a01f4f7cf7f8c2d943585165827a7cc67fb8c8dbda2308db3",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-3208.predictions.jsonl": "913ff1948c511faa4be5264c3b4b6509b0e674a292449e41072fa01e4d2311e3",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-3208.metrics.json": "b855c0b826548ed38b6d573557bd5535c83f82237a7f1ac8077be88a66f94728",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-4010.predictions.jsonl": "4d764ccb07d8e1b03ab9be496ab035f2ac989cd6f22e257c3c1fe524e3674d25",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-4010.metrics.json": "295d56fc9a1eee7bf53a6b8d87f399987ce9c2b2bfd5e328582f5d0cfd4a5ca9",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/test-checkpoint-2406.predictions.jsonl": "d16bb90daddc612405fd1e493f966b0bd5152ad3e819dba22c636f2751b8e7a6",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/test-checkpoint-2406.metrics.json": "c9a362aff868e9aa8e51e2911f4f80756fcb155a608e239a1b5dc4f171d9b7d2"
+  },
+  "historical_sources_unchanged": true,
+  "variants": {
+    "baseline": {
+      "dev": {
+        "802": {
+          "official_offset": {
+            "TI_f1": 0.7332038834951458,
+            "TC_f1": 0.5901575568955456,
+            "AI_f1": 0.40598006644518275,
+            "AC_f1": 0.3847878435605746,
+            "EC_I_f1": 0.4353348729792148,
+            "EC_C_f1": 0.4353348729792148,
+            "TI_p": 0.6979667282809612,
+            "TC_p": 0.5626854599406528,
+            "AI_p": 0.3805668016194332,
+            "AC_p": 0.3606225680933852,
+            "EC_I_p": 0.40191897654584224,
+            "EC_C_p": 0.40191897654584224,
+            "TI_r": 0.7721881390593047,
+            "TC_r": 0.6204498977505113,
+            "AI_r": 0.4350302598789605,
+            "AC_r": 0.4124243503025988,
+            "EC_I_r": 0.4748110831234257,
+            "EC_C_r": 0.4748110831234257
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7418351477449455,
+            "TC_f1": 0.58816660179058,
+            "AI_f1": 0.3971089141812744,
+            "AC_f1": 0.3762770994268627,
+            "EC_I_f1": 0.4135944700460829,
+            "EC_C_f1": 0.4135944700460829,
+            "TI_p": 0.7069284920340867,
+            "TC_p": 0.5610842926104715,
+            "AI_p": 0.3723321389624552,
+            "AC_p": 0.35274879302289364,
+            "EC_I_p": 0.3819148936170213,
+            "EC_C_p": 0.3819148936170213,
+            "TI_r": 0.7803680981595092,
+            "TC_r": 0.6179959100204498,
+            "AI_r": 0.42541829832680667,
+            "AC_r": 0.4031683873264507,
+            "EC_I_r": 0.4510050251256281,
+            "EC_C_r": 0.4510050251256281
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7416909620991253,
+            "TC_f1": 0.5877773452705333,
+            "AI_f1": 0.3964786977825762,
+            "AC_f1": 0.37565390683384536,
+            "EC_I_f1": 0.4126436781609195,
+            "EC_C_f1": 0.4126436781609195,
+            "TI_p": 0.7066666666666667,
+            "TC_p": 0.5607129595246937,
+            "AI_p": 0.37163319321189475,
+            "AC_p": 0.3520622568093385,
+            "EC_I_p": 0.3802966101694915,
+            "EC_C_p": 0.3802966101694915,
+            "TI_r": 0.7803680981595092,
+            "TC_r": 0.6175869120654397,
+            "AI_r": 0.4248843004627981,
+            "AC_r": 0.4026343894624422,
+            "EC_I_r": 0.4510050251256281,
+            "EC_C_r": 0.4510050251256281
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7235121951219512,
+              "TC_f1": 0.5849756097560976,
+              "AI_f1": 0.40475992344179085,
+              "AC_f1": 0.3836232004660065,
+              "EC_I_f1": 0.4341265235055136,
+              "EC_C_f1": 0.4341265235055136,
+              "TI_p": 0.6917910447761194,
+              "TC_p": 0.5593283582089552,
+              "AI_p": 0.38005938427879354,
+              "AC_p": 0.3602125332083138,
+              "EC_I_p": 0.4025834230355221,
+              "EC_C_p": 0.4025834230355221,
+              "TI_r": 0.758282208588957,
+              "TC_r": 0.6130879345603272,
+              "AI_r": 0.43289426842292633,
+              "AC_r": 0.4102883588465646,
+              "EC_I_r": 0.47103274559193953,
+              "EC_C_r": 0.47103274559193953
+            },
+            "counts": {
+              "TI": {
+                "tp": 1854,
+                "fp": 826,
+                "fn": 591
+              },
+              "TC": {
+                "tp": 1499,
+                "fp": 1181,
+                "fn": 946
+              },
+              "AI": {
+                "tp": 2432,
+                "fp": 3967,
+                "fn": 3186
+              },
+              "AC": {
+                "tp": 2305,
+                "fp": 4094,
+                "fn": 3313
+              },
+              "EC_I": {
+                "tp": 374,
+                "fp": 555,
+                "fn": 420
+              },
+              "EC_C": {
+                "tp": 374,
+                "fp": 555,
+                "fn": 420
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7281951219512195,
+              "TC_f1": 0.5884878048780487,
+              "AI_f1": 0.41041857368727636,
+              "AC_f1": 0.389115419821919,
+              "EC_I_f1": 0.4382608695652173,
+              "EC_C_f1": 0.4382608695652173,
+              "TI_p": 0.6962686567164179,
+              "TC_p": 0.5626865671641791,
+              "AI_p": 0.3853727144866385,
+              "AC_p": 0.365369588998281,
+              "EC_I_p": 0.4068891280947255,
+              "EC_C_p": 0.4068891280947255,
+              "TI_r": 0.7631901840490798,
+              "TC_r": 0.6167689161554192,
+              "AI_r": 0.43894624421502315,
+              "AC_r": 0.4161623353506586,
+              "EC_I_r": 0.4748743718592965,
+              "EC_C_r": 0.4748743718592965
+            },
+            "counts": {
+              "TI": {
+                "tp": 1866,
+                "fp": 814,
+                "fn": 579
+              },
+              "TC": {
+                "tp": 1508,
+                "fp": 1172,
+                "fn": 937
+              },
+              "AI": {
+                "tp": 2466,
+                "fp": 3933,
+                "fn": 3152
+              },
+              "AC": {
+                "tp": 2338,
+                "fp": 4061,
+                "fn": 3280
+              },
+              "EC_I": {
+                "tp": 378,
+                "fp": 551,
+                "fn": 418
+              },
+              "EC_C": {
+                "tp": 378,
+                "fp": 551,
+                "fn": 418
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7279110590988883,
+              "TC_f1": 0.5882582406865613,
+              "AI_f1": 0.4101455301455301,
+              "AC_f1": 0.38885654885654886,
+              "EC_I_f1": 0.43699421965317925,
+              "EC_C_f1": 0.43699421965317925,
+              "TI_p": 0.6957494407158836,
+              "TC_p": 0.5622669649515287,
+              "AI_p": 0.38489152489464645,
+              "AC_p": 0.36491337599500545,
+              "EC_I_p": 0.40471092077087795,
+              "EC_C_p": 0.40471092077087795,
+              "TI_r": 0.7631901840490798,
+              "TC_r": 0.6167689161554192,
+              "AI_r": 0.43894624421502315,
+              "AC_r": 0.4161623353506586,
+              "EC_I_r": 0.4748743718592965,
+              "EC_C_r": 0.4748743718592965
+            },
+            "counts": {
+              "TI": {
+                "tp": 1866,
+                "fp": 816,
+                "fn": 579
+              },
+              "TC": {
+                "tp": 1508,
+                "fp": 1174,
+                "fn": 937
+              },
+              "AI": {
+                "tp": 2466,
+                "fp": 3941,
+                "fn": 3152
+              },
+              "AC": {
+                "tp": 2338,
+                "fp": 4069,
+                "fn": 3280
+              },
+              "EC_I": {
+                "tp": 378,
+                "fp": 556,
+                "fn": 418
+              },
+              "EC_C": {
+                "tp": 378,
+                "fp": 556,
+                "fn": 418
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2680,
+          "raw_events": 2682
+        },
+        "1604": {
+          "official_offset": {
+            "TI_f1": 0.7456828885400313,
+            "TC_f1": 0.6101828189502654,
+            "AI_f1": 0.4225256551607158,
+            "AC_f1": 0.39881255301102625,
+            "EC_I_f1": 0.46635182998819363,
+            "EC_C_f1": 0.46635182998819363,
+            "TI_p": 0.7167106752168992,
+            "TC_p": 0.5874337623012869,
+            "AI_p": 0.4035315081807873,
+            "AC_p": 0.38091380427738175,
+            "EC_I_p": 0.4388888888888889,
+            "EC_C_p": 0.4388888888888889,
+            "TI_r": 0.7770961145194274,
+            "TC_r": 0.6347648261758692,
+            "AI_r": 0.44339622641509435,
+            "AC_r": 0.4184763260946956,
+            "EC_I_r": 0.49748110831234255,
+            "EC_C_r": 0.49748110831234255
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.755686274509804,
+            "TC_f1": 0.6084905660377359,
+            "AI_f1": 0.4170270499448826,
+            "AC_f1": 0.39365671641791045,
+            "EC_I_f1": 0.4464075382803298,
+            "EC_C_f1": 0.4464075382803298,
+            "TI_p": 0.7258003766478343,
+            "TC_p": 0.5856980703745743,
+            "AI_p": 0.3982186234817814,
+            "AC_p": 0.37593132491091674,
+            "EC_I_p": 0.42017738359201773,
+            "EC_C_p": 0.42017738359201773,
+            "TI_r": 0.7881390593047035,
+            "TC_r": 0.6331288343558282,
+            "AI_r": 0.4377002491990032,
+            "AC_r": 0.4131363474546102,
+            "EC_I_r": 0.47613065326633164,
+            "EC_C_r": 0.47613065326633164
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7555381297784748,
+            "TC_f1": 0.6085248477705756,
+            "AI_f1": 0.41670903236739537,
+            "AC_f1": 0.3933564952122701,
+            "EC_I_f1": 0.4458823529411764,
+            "EC_C_f1": 0.4458823529411764,
+            "TI_p": 0.7255271084337349,
+            "TC_p": 0.5854119425547997,
+            "AI_p": 0.39763906856403625,
+            "AC_p": 0.3753841177421963,
+            "EC_I_p": 0.4192477876106195,
+            "EC_C_p": 0.4192477876106195,
+            "TI_r": 0.7881390593047035,
+            "TC_r": 0.6335378323108385,
+            "AI_r": 0.4377002491990032,
+            "AC_r": 0.4131363474546102,
+            "EC_I_r": 0.47613065326633164,
+            "EC_C_r": 0.47613065326633164
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7354507792463998,
+              "TC_f1": 0.6044584730716118,
+              "AI_f1": 0.42044391529892,
+              "AC_f1": 0.3969725316778638,
+              "EC_I_f1": 0.46345811051693403,
+              "EC_C_f1": 0.46345811051693403,
+              "TI_p": 0.7103658536585366,
+              "TC_p": 0.5838414634146342,
+              "AI_p": 0.4025403028822667,
+              "AC_p": 0.38006839276990717,
+              "EC_I_p": 0.43869516310461193,
+              "EC_C_p": 0.43869516310461193,
+              "TI_r": 0.7623721881390593,
+              "TC_r": 0.6265848670756646,
+              "AI_r": 0.44001423994304023,
+              "AC_r": 0.4154503381986472,
+              "EC_I_r": 0.491183879093199,
+              "EC_C_r": 0.491183879093199
+            },
+            "counts": {
+              "TI": {
+                "tp": 1864,
+                "fp": 760,
+                "fn": 581
+              },
+              "TC": {
+                "tp": 1532,
+                "fp": 1092,
+                "fn": 913
+              },
+              "AI": {
+                "tp": 2472,
+                "fp": 3669,
+                "fn": 3146
+              },
+              "AC": {
+                "tp": 2334,
+                "fp": 3807,
+                "fn": 3284
+              },
+              "EC_I": {
+                "tp": 390,
+                "fp": 499,
+                "fn": 404
+              },
+              "EC_C": {
+                "tp": 390,
+                "fp": 499,
+                "fn": 404
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.740185440915368,
+              "TC_f1": 0.6072203590451766,
+              "AI_f1": 0.42775746236924905,
+              "AC_f1": 0.4041159962581853,
+              "EC_I_f1": 0.46646884272997036,
+              "EC_C_f1": 0.46646884272997036,
+              "TI_p": 0.7149390243902439,
+              "TC_p": 0.5865091463414634,
+              "AI_p": 0.40954241980133527,
+              "AC_p": 0.3869076697606253,
+              "EC_I_p": 0.4420697412823397,
+              "EC_C_p": 0.4420697412823397,
+              "TI_r": 0.767280163599182,
+              "TC_r": 0.6294478527607362,
+              "AI_r": 0.44766820932716267,
+              "AC_r": 0.4229263082947668,
+              "EC_I_r": 0.4937185929648241,
+              "EC_C_r": 0.4937185929648241
+            },
+            "counts": {
+              "TI": {
+                "tp": 1876,
+                "fp": 748,
+                "fn": 569
+              },
+              "TC": {
+                "tp": 1539,
+                "fp": 1085,
+                "fn": 906
+              },
+              "AI": {
+                "tp": 2515,
+                "fp": 3626,
+                "fn": 3103
+              },
+              "AC": {
+                "tp": 2376,
+                "fp": 3765,
+                "fn": 3242
+              },
+              "EC_I": {
+                "tp": 393,
+                "fp": 496,
+                "fn": 403
+              },
+              "EC_C": {
+                "tp": 393,
+                "fp": 496,
+                "fn": 403
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7397476340694007,
+              "TC_f1": 0.6068611987381703,
+              "AI_f1": 0.42739400118956583,
+              "AC_f1": 0.40377262299260774,
+              "EC_I_f1": 0.4659158269116775,
+              "EC_C_f1": 0.4659158269116775,
+              "TI_p": 0.7141225732775028,
+              "TC_p": 0.5858393604872478,
+              "AI_p": 0.40887660543001136,
+              "AC_p": 0.38627865387741833,
+              "EC_I_p": 0.44107744107744107,
+              "EC_C_p": 0.44107744107744107,
+              "TI_r": 0.767280163599182,
+              "TC_r": 0.6294478527607362,
+              "AI_r": 0.44766820932716267,
+              "AC_r": 0.4229263082947668,
+              "EC_I_r": 0.4937185929648241,
+              "EC_C_r": 0.4937185929648241
+            },
+            "counts": {
+              "TI": {
+                "tp": 1876,
+                "fp": 751,
+                "fn": 569
+              },
+              "TC": {
+                "tp": 1539,
+                "fp": 1088,
+                "fn": 906
+              },
+              "AI": {
+                "tp": 2515,
+                "fp": 3636,
+                "fn": 3103
+              },
+              "AC": {
+                "tp": 2376,
+                "fp": 3775,
+                "fn": 3242
+              },
+              "EC_I": {
+                "tp": 393,
+                "fp": 498,
+                "fn": 403
+              },
+              "EC_C": {
+                "tp": 393,
+                "fp": 498,
+                "fn": 403
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2624,
+          "raw_events": 2627
+        },
+        "2406": {
+          "official_offset": {
+            "TI_f1": 0.7471745500209294,
+            "TC_f1": 0.6233221476510067,
+            "AI_f1": 0.4355311355311356,
+            "AC_f1": 0.4126373626373626,
+            "EC_I_f1": 0.4941176470588235,
+            "EC_C_f1": 0.4941176470588235,
+            "TI_p": 0.7651093013287612,
+            "TC_p": 0.6396900559621179,
+            "AI_p": 0.44850999622783855,
+            "AC_p": 0.4249339871746511,
+            "EC_I_p": 0.48599269183922045,
+            "EC_C_p": 0.48599269183922045,
+            "TI_r": 0.7300613496932515,
+            "TC_r": 0.6077709611451942,
+            "AI_r": 0.4232823068707725,
+            "AC_r": 0.4010323958704165,
+            "EC_I_r": 0.5025188916876574,
+            "EC_C_r": 0.5025188916876574
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7582463465553235,
+            "TC_f1": 0.6233766233766235,
+            "AI_f1": 0.42932991578176494,
+            "AC_f1": 0.40648173578687175,
+            "EC_I_f1": 0.4746600741656366,
+            "EC_C_f1": 0.4746600741656366,
+            "TI_p": 0.774413646055437,
+            "TC_p": 0.6389008158007728,
+            "AI_p": 0.4419525065963061,
+            "AC_p": 0.4184731385485391,
+            "EC_I_p": 0.46715328467153283,
+            "EC_C_p": 0.46715328467153283,
+            "TI_r": 0.7427402862985685,
+            "TC_r": 0.6085889570552148,
+            "AI_r": 0.4174083303666785,
+            "AC_r": 0.3951584193663225,
+            "EC_I_r": 0.4824120603015075,
+            "EC_C_r": 0.4824120603015075
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7582463465553235,
+            "TC_f1": 0.6233766233766235,
+            "AI_f1": 0.4290157336260519,
+            "AC_f1": 0.406184246638002,
+            "EC_I_f1": 0.4746600741656366,
+            "EC_C_f1": 0.4746600741656366,
+            "TI_p": 0.774413646055437,
+            "TC_p": 0.6389008158007728,
+            "AI_p": 0.4412871659766654,
+            "AC_p": 0.4178430265386787,
+            "EC_I_p": 0.46715328467153283,
+            "EC_C_p": 0.46715328467153283,
+            "TI_r": 0.7427402862985685,
+            "TC_r": 0.6085889570552148,
+            "AI_r": 0.4174083303666785,
+            "AC_r": 0.3951584193663225,
+            "EC_I_r": 0.4824120603015075,
+            "EC_C_r": 0.4824120603015075
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7369972625815963,
+              "TC_f1": 0.6173931353969256,
+              "AI_f1": 0.4331373989713446,
+              "AC_f1": 0.4103600293901543,
+              "EC_I_f1": 0.4903306300686213,
+              "EC_C_f1": 0.4903306300686213,
+              "TI_p": 0.7595486111111112,
+              "TC_p": 0.6362847222222222,
+              "AI_p": 0.447438330170778,
+              "AC_p": 0.4239089184060721,
+              "EC_I_p": 0.4857849196538937,
+              "EC_C_p": 0.4857849196538937,
+              "TI_r": 0.7157464212678937,
+              "TC_r": 0.5995910020449898,
+              "AI_r": 0.41972232111071556,
+              "AC_r": 0.3976504093983624,
+              "EC_I_r": 0.49496221662468515,
+              "EC_C_r": 0.49496221662468515
+            },
+            "counts": {
+              "TI": {
+                "tp": 1750,
+                "fp": 554,
+                "fn": 695
+              },
+              "TC": {
+                "tp": 1466,
+                "fp": 838,
+                "fn": 979
+              },
+              "AI": {
+                "tp": 2358,
+                "fp": 2912,
+                "fn": 3260
+              },
+              "AC": {
+                "tp": 2234,
+                "fp": 3036,
+                "fn": 3384
+              },
+              "EC_I": {
+                "tp": 393,
+                "fp": 416,
+                "fn": 401
+              },
+              "EC_C": {
+                "tp": 393,
+                "fp": 416,
+                "fn": 401
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7420509580964413,
+              "TC_f1": 0.6194988418614445,
+              "AI_f1": 0.43883174136664216,
+              "AC_f1": 0.4158706833210874,
+              "EC_I_f1": 0.4934579439252336,
+              "EC_C_f1": 0.4934579439252336,
+              "TI_p": 0.7647569444444444,
+              "TC_p": 0.6384548611111112,
+              "AI_p": 0.45332068311195445,
+              "AC_p": 0.4296015180265655,
+              "EC_I_p": 0.4894932014833127,
+              "EC_C_p": 0.4894932014833127,
+              "TI_r": 0.7206543967280163,
+              "TC_r": 0.6016359918200409,
+              "AI_r": 0.42524029903880384,
+              "AC_r": 0.40299038803844783,
+              "EC_I_r": 0.49748743718592964,
+              "EC_C_r": 0.49748743718592964
+            },
+            "counts": {
+              "TI": {
+                "tp": 1762,
+                "fp": 542,
+                "fn": 683
+              },
+              "TC": {
+                "tp": 1471,
+                "fp": 833,
+                "fn": 974
+              },
+              "AI": {
+                "tp": 2389,
+                "fp": 2881,
+                "fn": 3229
+              },
+              "AC": {
+                "tp": 2264,
+                "fp": 3006,
+                "fn": 3354
+              },
+              "EC_I": {
+                "tp": 396,
+                "fp": 413,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 396,
+                "fp": 413,
+                "fn": 400
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7420509580964413,
+              "TC_f1": 0.6194988418614445,
+              "AI_f1": 0.4385095447870779,
+              "AC_f1": 0.4155653450807636,
+              "EC_I_f1": 0.4934579439252336,
+              "EC_C_f1": 0.4934579439252336,
+              "TI_p": 0.7647569444444444,
+              "TC_p": 0.6384548611111112,
+              "AI_p": 0.4526335733232285,
+              "AC_p": 0.42895035998484277,
+              "EC_I_p": 0.4894932014833127,
+              "EC_C_p": 0.4894932014833127,
+              "TI_r": 0.7206543967280163,
+              "TC_r": 0.6016359918200409,
+              "AI_r": 0.42524029903880384,
+              "AC_r": 0.40299038803844783,
+              "EC_I_r": 0.49748743718592964,
+              "EC_C_r": 0.49748743718592964
+            },
+            "counts": {
+              "TI": {
+                "tp": 1762,
+                "fp": 542,
+                "fn": 683
+              },
+              "TC": {
+                "tp": 1471,
+                "fp": 833,
+                "fn": 974
+              },
+              "AI": {
+                "tp": 2389,
+                "fp": 2889,
+                "fn": 3229
+              },
+              "AC": {
+                "tp": 2264,
+                "fp": 3014,
+                "fn": 3354
+              },
+              "EC_I": {
+                "tp": 396,
+                "fp": 413,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 396,
+                "fp": 413,
+                "fn": 400
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2304,
+          "raw_events": 2304
+        },
+        "3208": {
+          "official_offset": {
+            "TI_f1": 0.7434343434343434,
+            "TC_f1": 0.6120550161812297,
+            "AI_f1": 0.41486285163438785,
+            "AC_f1": 0.39169295478443744,
+            "EC_I_f1": 0.47387173396674587,
+            "EC_C_f1": 0.47387173396674587,
+            "TI_p": 0.7345309381237525,
+            "TC_p": 0.6054421768707483,
+            "AI_p": 0.40859658208182287,
+            "AC_p": 0.38574387297204005,
+            "EC_I_p": 0.44831460674157303,
+            "EC_C_p": 0.44831460674157303,
+            "TI_r": 0.7525562372188139,
+            "TC_r": 0.6188139059304704,
+            "AI_r": 0.4213243147027412,
+            "AC_r": 0.39782840868636526,
+            "EC_I_r": 0.5025188916876574,
+            "EC_C_r": 0.5025188916876574
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7552419354838711,
+            "TC_f1": 0.6124015350434255,
+            "AI_f1": 0.40914265697521673,
+            "AC_f1": 0.3860571028201086,
+            "EC_I_f1": 0.45470692717584366,
+            "EC_C_f1": 0.45470692717584366,
+            "TI_p": 0.7447316103379722,
+            "TC_p": 0.6049481245011972,
+            "AI_p": 0.4026891915187037,
+            "AC_p": 0.38,
+            "EC_I_p": 0.43001119820828665,
+            "EC_C_p": 0.43001119820828665,
+            "TI_r": 0.7660531697341514,
+            "TC_r": 0.620040899795501,
+            "AI_r": 0.4158063367746529,
+            "AC_r": 0.392310430758277,
+            "EC_I_r": 0.4824120603015075,
+            "EC_C_r": 0.4824120603015075
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7550896996573272,
+            "TC_f1": 0.6122778675282714,
+            "AI_f1": 0.4086773967809657,
+            "AC_f1": 0.3856180561630654,
+            "EC_I_f1": 0.45443786982248524,
+            "EC_C_f1": 0.45443786982248524,
+            "TI_p": 0.744435612082671,
+            "TC_p": 0.6047068209014759,
+            "AI_p": 0.4017887856897145,
+            "AC_p": 0.37915018062962325,
+            "EC_I_p": 0.42953020134228187,
+            "EC_C_p": 0.42953020134228187,
+            "TI_r": 0.7660531697341514,
+            "TC_r": 0.620040899795501,
+            "AI_r": 0.4158063367746529,
+            "AC_r": 0.392310430758277,
+            "EC_I_r": 0.4824120603015075,
+            "EC_C_r": 0.4824120603015075
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7356461756948671,
+              "TC_f1": 0.607019679448164,
+              "AI_f1": 0.41307212509883157,
+              "AC_f1": 0.3898796450847755,
+              "EC_I_f1": 0.46714456391875747,
+              "EC_C_f1": 0.46714456391875747,
+              "TI_p": 0.7298711755233495,
+              "TC_p": 0.6022544283413849,
+              "AI_p": 0.407805724197745,
+              "AC_p": 0.384908933217693,
+              "EC_I_p": 0.44431818181818183,
+              "EC_C_p": 0.44431818181818183,
+              "TI_r": 0.7415132924335378,
+              "TC_r": 0.6118609406952965,
+              "AI_r": 0.4184763260946956,
+              "AC_r": 0.3949804200783197,
+              "EC_I_r": 0.4924433249370277,
+              "EC_C_r": 0.4924433249370277
+            },
+            "counts": {
+              "TI": {
+                "tp": 1813,
+                "fp": 671,
+                "fn": 632
+              },
+              "TC": {
+                "tp": 1496,
+                "fp": 988,
+                "fn": 949
+              },
+              "AI": {
+                "tp": 2351,
+                "fp": 3414,
+                "fn": 3267
+              },
+              "AC": {
+                "tp": 2219,
+                "fp": 3546,
+                "fn": 3399
+              },
+              "EC_I": {
+                "tp": 391,
+                "fp": 489,
+                "fn": 403
+              },
+              "EC_C": {
+                "tp": 391,
+                "fp": 489,
+                "fn": 403
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7409210793264354,
+              "TC_f1": 0.6098600121728546,
+              "AI_f1": 0.4185188438900115,
+              "AC_f1": 0.3951506632697883,
+              "EC_I_f1": 0.4689737470167064,
+              "EC_C_f1": 0.4689737470167064,
+              "TI_p": 0.7351046698872786,
+              "TC_p": 0.605072463768116,
+              "AI_p": 0.4131830008673027,
+              "AC_p": 0.390112749349523,
+              "EC_I_p": 0.4465909090909091,
+              "EC_C_p": 0.4465909090909091,
+              "TI_r": 0.7468302658486707,
+              "TC_r": 0.6147239263803681,
+              "AI_r": 0.42399430402278393,
+              "AC_r": 0.40032039871840513,
+              "EC_I_r": 0.4937185929648241,
+              "EC_C_r": 0.4937185929648241
+            },
+            "counts": {
+              "TI": {
+                "tp": 1826,
+                "fp": 658,
+                "fn": 619
+              },
+              "TC": {
+                "tp": 1503,
+                "fp": 981,
+                "fn": 942
+              },
+              "AI": {
+                "tp": 2382,
+                "fp": 3383,
+                "fn": 3236
+              },
+              "AC": {
+                "tp": 2249,
+                "fp": 3516,
+                "fn": 3369
+              },
+              "EC_I": {
+                "tp": 393,
+                "fp": 487,
+                "fn": 403
+              },
+              "EC_C": {
+                "tp": 393,
+                "fp": 487,
+                "fn": 403
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7406205637801663,
+              "TC_f1": 0.6096126546339484,
+              "AI_f1": 0.41800473808897076,
+              "AC_f1": 0.39466526278845315,
+              "EC_I_f1": 0.468414779499404,
+              "EC_C_f1": 0.468414779499404,
+              "TI_p": 0.7345132743362832,
+              "TC_p": 0.6045856798069188,
+              "AI_p": 0.41218203841495066,
+              "AC_p": 0.389167676068524,
+              "EC_I_p": 0.445578231292517,
+              "EC_C_p": 0.445578231292517,
+              "TI_r": 0.7468302658486707,
+              "TC_r": 0.6147239263803681,
+              "AI_r": 0.42399430402278393,
+              "AC_r": 0.40032039871840513,
+              "EC_I_r": 0.4937185929648241,
+              "EC_C_r": 0.4937185929648241
+            },
+            "counts": {
+              "TI": {
+                "tp": 1826,
+                "fp": 660,
+                "fn": 619
+              },
+              "TC": {
+                "tp": 1503,
+                "fp": 983,
+                "fn": 942
+              },
+              "AI": {
+                "tp": 2382,
+                "fp": 3397,
+                "fn": 3236
+              },
+              "AC": {
+                "tp": 2249,
+                "fp": 3530,
+                "fn": 3369
+              },
+              "EC_I": {
+                "tp": 393,
+                "fp": 489,
+                "fn": 403
+              },
+              "EC_C": {
+                "tp": 393,
+                "fp": 489,
+                "fn": 403
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2484,
+          "raw_events": 2486
+        },
+        "4010": {
+          "official_offset": {
+            "TI_f1": 0.7380373073803731,
+            "TC_f1": 0.60503860219423,
+            "AI_f1": 0.4100433206613031,
+            "AC_f1": 0.38560820367751064,
+            "EC_I_f1": 0.45758661887694146,
+            "EC_C_f1": 0.45758661887694146,
+            "TI_p": 0.731805388017692,
+            "TC_p": 0.6011303996770286,
+            "AI_p": 0.4073423502546987,
+            "AC_p": 0.38303477344573233,
+            "EC_I_p": 0.43522727272727274,
+            "EC_C_p": 0.43522727272727274,
+            "TI_r": 0.7443762781186094,
+            "TC_r": 0.6089979550102249,
+            "AI_r": 0.4127803488786045,
+            "AC_r": 0.38821644713421144,
+            "EC_I_r": 0.482367758186398,
+            "EC_C_r": 0.482367758186398
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7495954692556634,
+            "TC_f1": 0.6052738336713995,
+            "AI_f1": 0.40441891294741494,
+            "AC_f1": 0.3800601025278416,
+            "EC_I_f1": 0.4383561643835617,
+            "EC_C_f1": 0.4383561643835617,
+            "TI_p": 0.7414965986394558,
+            "TC_p": 0.6004024144869216,
+            "AI_p": 0.4016148850272073,
+            "AC_p": 0.37745786516853935,
+            "EC_I_p": 0.41676104190260477,
+            "EC_C_p": 0.41676104190260477,
+            "TI_r": 0.7578732106339469,
+            "TC_r": 0.6102249488752556,
+            "AI_r": 0.4072623709505162,
+            "AC_r": 0.38269846920612316,
+            "EC_I_r": 0.4623115577889447,
+            "EC_C_r": 0.4623115577889447
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7494438827098079,
+            "TC_f1": 0.6051510849726222,
+            "AI_f1": 0.4038478510281529,
+            "AC_f1": 0.37952338923212714,
+            "EC_I_f1": 0.4380952380952381,
+            "EC_C_f1": 0.4380952380952381,
+            "TI_p": 0.7412,
+            "TC_p": 0.6001609010458568,
+            "AI_p": 0.40049011027481185,
+            "AC_p": 0.37640056022408963,
+            "EC_I_p": 0.416289592760181,
+            "EC_C_p": 0.416289592760181,
+            "TI_r": 0.7578732106339469,
+            "TC_r": 0.6102249488752556,
+            "AI_r": 0.4072623709505162,
+            "AC_r": 0.38269846920612316,
+            "EC_I_r": 0.4623115577889447,
+            "EC_C_r": 0.4623115577889447
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7290519877675841,
+              "TC_f1": 0.5997961264016312,
+              "AI_f1": 0.40892983699503893,
+              "AC_f1": 0.3846562721474131,
+              "EC_I_f1": 0.454326923076923,
+              "EC_C_f1": 0.454326923076923,
+              "TI_p": 0.7268292682926829,
+              "TC_p": 0.5979674796747968,
+              "AI_p": 0.4070546737213404,
+              "AC_p": 0.38289241622574954,
+              "EC_I_p": 0.43448275862068964,
+              "EC_C_p": 0.43448275862068964,
+              "TI_r": 0.7312883435582822,
+              "TC_r": 0.6016359918200409,
+              "AI_r": 0.41082235671057316,
+              "AC_r": 0.386436454254183,
+              "EC_I_r": 0.4760705289672544,
+              "EC_C_r": 0.4760705289672544
+            },
+            "counts": {
+              "TI": {
+                "tp": 1788,
+                "fp": 672,
+                "fn": 657
+              },
+              "TC": {
+                "tp": 1471,
+                "fp": 989,
+                "fn": 974
+              },
+              "AI": {
+                "tp": 2308,
+                "fp": 3362,
+                "fn": 3310
+              },
+              "AC": {
+                "tp": 2171,
+                "fp": 3499,
+                "fn": 3447
+              },
+              "EC_I": {
+                "tp": 378,
+                "fp": 492,
+                "fn": 416
+              },
+              "EC_C": {
+                "tp": 378,
+                "fp": 492,
+                "fn": 416
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7335372069317023,
+              "TC_f1": 0.6022426095820591,
+              "AI_f1": 0.4142452161587526,
+              "AC_f1": 0.3899716513111268,
+              "EC_I_f1": 0.4561824729891957,
+              "EC_C_f1": 0.4561824729891957,
+              "TI_p": 0.7313008130081301,
+              "TC_p": 0.6004065040650407,
+              "AI_p": 0.4123456790123457,
+              "AC_p": 0.38818342151675483,
+              "EC_I_p": 0.4367816091954023,
+              "EC_C_p": 0.4367816091954023,
+              "TI_r": 0.7357873210633947,
+              "TC_r": 0.6040899795501022,
+              "AI_r": 0.4161623353506586,
+              "AC_r": 0.39177643289426844,
+              "EC_I_r": 0.47738693467336685,
+              "EC_C_r": 0.47738693467336685
+            },
+            "counts": {
+              "TI": {
+                "tp": 1799,
+                "fp": 661,
+                "fn": 646
+              },
+              "TC": {
+                "tp": 1477,
+                "fp": 983,
+                "fn": 968
+              },
+              "AI": {
+                "tp": 2338,
+                "fp": 3332,
+                "fn": 3280
+              },
+              "AC": {
+                "tp": 2201,
+                "fp": 3469,
+                "fn": 3417
+              },
+              "EC_I": {
+                "tp": 380,
+                "fp": 490,
+                "fn": 416
+              },
+              "EC_C": {
+                "tp": 380,
+                "fp": 490,
+                "fn": 416
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7332382310984309,
+              "TC_f1": 0.6019971469329529,
+              "AI_f1": 0.4136222910216718,
+              "AC_f1": 0.38938522777532064,
+              "EC_I_f1": 0.4556354916067146,
+              "EC_C_f1": 0.4556354916067146,
+              "TI_p": 0.7307067424857839,
+              "TC_p": 0.5999187652315191,
+              "AI_p": 0.411113064884825,
+              "AC_p": 0.38702303499208723,
+              "EC_I_p": 0.43577981651376146,
+              "EC_C_p": 0.43577981651376146,
+              "TI_r": 0.7357873210633947,
+              "TC_r": 0.6040899795501022,
+              "AI_r": 0.4161623353506586,
+              "AC_r": 0.39177643289426844,
+              "EC_I_r": 0.47738693467336685,
+              "EC_C_r": 0.47738693467336685
+            },
+            "counts": {
+              "TI": {
+                "tp": 1799,
+                "fp": 663,
+                "fn": 646
+              },
+              "TC": {
+                "tp": 1477,
+                "fp": 985,
+                "fn": 968
+              },
+              "AI": {
+                "tp": 2338,
+                "fp": 3349,
+                "fn": 3280
+              },
+              "AC": {
+                "tp": 2201,
+                "fp": 3486,
+                "fn": 3417
+              },
+              "EC_I": {
+                "tp": 380,
+                "fp": 492,
+                "fn": 416
+              },
+              "EC_C": {
+                "tp": 380,
+                "fp": 492,
+                "fn": 416
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2460,
+          "raw_events": 2462
+        }
+      },
+      "test": {
+        "2406": {
+          "official_offset": {
+            "TI_f1": 0.7541390728476821,
+            "TC_f1": 0.6354791968536535,
+            "AI_f1": 0.44203353357840935,
+            "AC_f1": 0.41879652049143573,
+            "EC_I_f1": 0.48068669527896996,
+            "EC_C_f1": 0.48068669527896996,
+            "TI_p": 0.764261744966443,
+            "TC_p": 0.6441460344104071,
+            "AI_p": 0.45345842531272995,
+            "AC_p": 0.4297018770702981,
+            "EC_I_p": 0.47058823529411764,
+            "EC_C_p": 0.47058823529411764,
+            "TI_r": 0.744281045751634,
+            "TC_r": 0.6270424836601307,
+            "AI_r": 0.4311701941577751,
+            "AC_r": 0.4084309952772433,
+            "EC_I_r": 0.49122807017543857,
+            "EC_C_r": 0.49122807017543857
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7611168562564632,
+            "TC_f1": 0.6332988624612202,
+            "AI_f1": 0.43968453127800683,
+            "AC_f1": 0.4165994442950614,
+            "EC_I_f1": 0.46886446886446886,
+            "EC_C_f1": 0.46886446886446886,
+            "TI_p": 0.7708420611646418,
+            "TC_p": 0.6413908671973189,
+            "AI_p": 0.45083624333762173,
+            "AC_p": 0.42720588235294116,
+            "EC_I_p": 0.460431654676259,
+            "EC_C_p": 0.460431654676259,
+            "TI_r": 0.7516339869281046,
+            "TC_r": 0.6254084967320261,
+            "AI_r": 0.4290711911841875,
+            "AC_r": 0.4065069092181214,
+            "EC_I_r": 0.47761194029850745,
+            "EC_C_r": 0.47761194029850745
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7609594706368902,
+            "TC_f1": 0.6331679073614557,
+            "AI_f1": 0.4391728582937965,
+            "AC_f1": 0.4161145926589078,
+            "EC_I_f1": 0.46829268292682924,
+            "EC_C_f1": 0.46829268292682924,
+            "TI_p": 0.7705192629815746,
+            "TC_p": 0.6411222780569514,
+            "AI_p": 0.44976164283094977,
+            "AC_p": 0.42618741976893454,
+            "EC_I_p": 0.45933014354066987,
+            "EC_C_p": 0.45933014354066987,
+            "TI_r": 0.7516339869281046,
+            "TC_r": 0.6254084967320261,
+            "AI_r": 0.4290711911841875,
+            "AC_r": 0.4065069092181214,
+            "EC_I_r": 0.47761194029850745,
+            "EC_C_r": 0.47761194029850745
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7480282274802824,
+              "TC_f1": 0.6313823163138231,
+              "AI_f1": 0.44167264895908115,
+              "AC_f1": 0.41870064608758073,
+              "EC_I_f1": 0.4760147601476015,
+              "EC_C_f1": 0.4760147601476015,
+              "TI_p": 0.760337552742616,
+              "TC_p": 0.6417721518987342,
+              "AI_p": 0.4534733738713838,
+              "AC_p": 0.4298875990418279,
+              "EC_I_p": 0.4673913043478261,
+              "EC_C_p": 0.4673913043478261,
+              "TI_r": 0.7361111111111112,
+              "TC_r": 0.6213235294117647,
+              "AI_r": 0.4304705264999125,
+              "AC_r": 0.408081161448312,
+              "EC_I_r": 0.4849624060150376,
+              "EC_C_r": 0.4849624060150376
+            },
+            "counts": {
+              "TI": {
+                "tp": 1802,
+                "fp": 568,
+                "fn": 646
+              },
+              "TC": {
+                "tp": 1521,
+                "fp": 849,
+                "fn": 927
+              },
+              "AI": {
+                "tp": 2461,
+                "fp": 2966,
+                "fn": 3256
+              },
+              "AC": {
+                "tp": 2333,
+                "fp": 3094,
+                "fn": 3384
+              },
+              "EC_I": {
+                "tp": 387,
+                "fp": 441,
+                "fn": 411
+              },
+              "EC_C": {
+                "tp": 387,
+                "fp": 441,
+                "fn": 411
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7492735574927356,
+              "TC_f1": 0.6330427563304276,
+              "AI_f1": 0.44813352476669055,
+              "AC_f1": 0.42498205312275666,
+              "EC_I_f1": 0.4779411764705882,
+              "EC_C_f1": 0.4779411764705882,
+              "TI_p": 0.7616033755274262,
+              "TC_p": 0.6434599156118144,
+              "AI_p": 0.46010687304219644,
+              "AC_p": 0.4363368343467846,
+              "EC_I_p": 0.47101449275362317,
+              "EC_C_p": 0.47101449275362317,
+              "TI_r": 0.7373366013071896,
+              "TC_r": 0.6229575163398693,
+              "AI_r": 0.4367675354206752,
+              "AC_r": 0.41420325345460907,
+              "EC_I_r": 0.48507462686567165,
+              "EC_C_r": 0.48507462686567165
+            },
+            "counts": {
+              "TI": {
+                "tp": 1805,
+                "fp": 565,
+                "fn": 643
+              },
+              "TC": {
+                "tp": 1525,
+                "fp": 845,
+                "fn": 923
+              },
+              "AI": {
+                "tp": 2497,
+                "fp": 2930,
+                "fn": 3220
+              },
+              "AC": {
+                "tp": 2368,
+                "fp": 3059,
+                "fn": 3349
+              },
+              "EC_I": {
+                "tp": 390,
+                "fp": 438,
+                "fn": 414
+              },
+              "EC_C": {
+                "tp": 390,
+                "fp": 438,
+                "fn": 414
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7491180742892716,
+              "TC_f1": 0.6329113924050632,
+              "AI_f1": 0.4476113650622927,
+              "AC_f1": 0.4244868692300798,
+              "EC_I_f1": 0.4773561811505508,
+              "EC_C_f1": 0.4773561811505508,
+              "TI_p": 0.7612821594264023,
+              "TC_p": 0.6431885280472375,
+              "AI_p": 0.45900735294117645,
+              "AC_p": 0.43529411764705883,
+              "EC_I_p": 0.46987951807228917,
+              "EC_C_p": 0.46987951807228917,
+              "TI_r": 0.7373366013071896,
+              "TC_r": 0.6229575163398693,
+              "AI_r": 0.4367675354206752,
+              "AC_r": 0.41420325345460907,
+              "EC_I_r": 0.48507462686567165,
+              "EC_C_r": 0.48507462686567165
+            },
+            "counts": {
+              "TI": {
+                "tp": 1805,
+                "fp": 566,
+                "fn": 643
+              },
+              "TC": {
+                "tp": 1525,
+                "fp": 846,
+                "fn": 923
+              },
+              "AI": {
+                "tp": 2497,
+                "fp": 2943,
+                "fn": 3220
+              },
+              "AC": {
+                "tp": 2368,
+                "fp": 3072,
+                "fn": 3349
+              },
+              "EC_I": {
+                "tp": 390,
+                "fp": 440,
+                "fn": 414
+              },
+              "EC_C": {
+                "tp": 390,
+                "fp": 440,
+                "fn": 414
+              }
+            }
+          },
+          "gold_events": 2448,
+          "aligned_events": 2370,
+          "raw_events": 2371
+        }
+      }
+    },
+    "Easy2": {
+      "dev": {
+        "802": {
+          "official_offset": {
+            "TI_f1": 0.6345733041575492,
+            "TC_f1": 0.5144945188794153,
+            "AI_f1": 0.3595240436621104,
+            "AC_f1": 0.3407392843098702,
+            "EC_I_f1": 0.3569078947368421,
+            "EC_C_f1": 0.3569078947368421,
+            "TI_p": 0.7823741007194245,
+            "TC_p": 0.636144578313253,
+            "AI_p": 0.4016699626455724,
+            "AC_p": 0.3805445761967501,
+            "EC_I_p": 0.514218009478673,
+            "EC_C_p": 0.514218009478673,
+            "TI_r": 0.5337423312883436,
+            "TC_r": 0.43190184049079755,
+            "AI_r": 0.32538269846920614,
+            "AC_r": 0.30847276610893554,
+            "EC_I_r": 0.27329974811083124,
+            "EC_C_r": 0.27329974811083124
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.6510164569215876,
+            "TC_f1": 0.5171324422843256,
+            "AI_f1": 0.3545820646301935,
+            "AC_f1": 0.33595284872298625,
+            "EC_I_f1": 0.34234234234234234,
+            "EC_C_f1": 0.34234234234234234,
+            "TI_p": 0.7972732661529343,
+            "TC_p": 0.637125748502994,
+            "AI_p": 0.39557308788078016,
+            "AC_p": 0.37483559842174485,
+            "EC_I_p": 0.49176470588235294,
+            "EC_C_p": 0.49176470588235294,
+            "TI_r": 0.5501022494887525,
+            "TC_r": 0.43517382413087935,
+            "AI_r": 0.3212887148451406,
+            "AC_r": 0.30437878248487005,
+            "EC_I_r": 0.26256281407035176,
+            "EC_C_r": 0.26256281407035176
+          },
+          "official_raw_token": {
+            "TI_f1": 0.6510164569215876,
+            "TC_f1": 0.5171324422843256,
+            "AI_f1": 0.3544428080510555,
+            "AC_f1": 0.3358208955223881,
+            "EC_I_f1": 0.34234234234234234,
+            "EC_C_f1": 0.34234234234234234,
+            "TI_p": 0.7972732661529343,
+            "TC_p": 0.637125748502994,
+            "AI_p": 0.3952266257937377,
+            "AC_p": 0.3745072273324573,
+            "EC_I_p": 0.49176470588235294,
+            "EC_C_p": 0.49176470588235294,
+            "TI_r": 0.5501022494887525,
+            "TC_r": 0.43517382413087935,
+            "AI_r": 0.3212887148451406,
+            "AC_r": 0.30437878248487005,
+            "EC_I_r": 0.26256281407035176,
+            "EC_C_r": 0.26256281407035176
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.6257638719139574,
+              "TC_f1": 0.5108775360547544,
+              "AI_f1": 0.3580648339737905,
+              "AC_f1": 0.33934377771208984,
+              "EC_I_f1": 0.3564356435643564,
+              "EC_C_f1": 0.3564356435643564,
+              "TI_p": 0.7776427703523694,
+              "TC_p": 0.6348724179829891,
+              "AI_p": 0.4010152284263959,
+              "AC_p": 0.38004855440300156,
+              "EC_I_p": 0.5167464114832536,
+              "EC_C_p": 0.5167464114832536,
+              "TI_r": 0.523517382413088,
+              "TC_r": 0.4274028629856851,
+              "AI_r": 0.3234247063011748,
+              "AC_r": 0.30651477394090426,
+              "EC_I_r": 0.27204030226700254,
+              "EC_C_r": 0.27204030226700254
+            },
+            "counts": {
+              "TI": {
+                "tp": 1280,
+                "fp": 366,
+                "fn": 1165
+              },
+              "TC": {
+                "tp": 1045,
+                "fp": 601,
+                "fn": 1400
+              },
+              "AI": {
+                "tp": 1817,
+                "fp": 2714,
+                "fn": 3801
+              },
+              "AC": {
+                "tp": 1722,
+                "fp": 2809,
+                "fn": 3896
+              },
+              "EC_I": {
+                "tp": 216,
+                "fp": 202,
+                "fn": 578
+              },
+              "EC_C": {
+                "tp": 216,
+                "fp": 202,
+                "fn": 578
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.6316304082131509,
+              "TC_f1": 0.5133219261794182,
+              "AI_f1": 0.36259730022662323,
+              "AC_f1": 0.3434821164646763,
+              "EC_I_f1": 0.3574958813838551,
+              "EC_C_f1": 0.3574958813838551,
+              "TI_p": 0.7849331713244229,
+              "TC_p": 0.637910085054678,
+              "AI_p": 0.40609137055837563,
+              "AC_p": 0.38468329287133085,
+              "EC_I_p": 0.5191387559808612,
+              "EC_C_p": 0.5191387559808612,
+              "TI_r": 0.5284253578732107,
+              "TC_r": 0.4294478527607362,
+              "AI_r": 0.3275186899252403,
+              "AC_r": 0.31025275898896404,
+              "EC_I_r": 0.27261306532663315,
+              "EC_C_r": 0.27261306532663315
+            },
+            "counts": {
+              "TI": {
+                "tp": 1292,
+                "fp": 354,
+                "fn": 1153
+              },
+              "TC": {
+                "tp": 1050,
+                "fp": 596,
+                "fn": 1395
+              },
+              "AI": {
+                "tp": 1840,
+                "fp": 2691,
+                "fn": 3778
+              },
+              "AC": {
+                "tp": 1743,
+                "fp": 2788,
+                "fn": 3875
+              },
+              "EC_I": {
+                "tp": 217,
+                "fp": 201,
+                "fn": 579
+              },
+              "EC_C": {
+                "tp": 217,
+                "fp": 201,
+                "fn": 579
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.6316304082131509,
+              "TC_f1": 0.5133219261794182,
+              "AI_f1": 0.36245444696148926,
+              "AC_f1": 0.3433467940510194,
+              "EC_I_f1": 0.3574958813838551,
+              "EC_C_f1": 0.3574958813838551,
+              "TI_p": 0.7849331713244229,
+              "TC_p": 0.637910085054678,
+              "AI_p": 0.40573318632855565,
+              "AC_p": 0.38434399117971335,
+              "EC_I_p": 0.5191387559808612,
+              "EC_C_p": 0.5191387559808612,
+              "TI_r": 0.5284253578732107,
+              "TC_r": 0.4294478527607362,
+              "AI_r": 0.3275186899252403,
+              "AC_r": 0.31025275898896404,
+              "EC_I_r": 0.27261306532663315,
+              "EC_C_r": 0.27261306532663315
+            },
+            "counts": {
+              "TI": {
+                "tp": 1292,
+                "fp": 354,
+                "fn": 1153
+              },
+              "TC": {
+                "tp": 1050,
+                "fp": 596,
+                "fn": 1395
+              },
+              "AI": {
+                "tp": 1840,
+                "fp": 2695,
+                "fn": 3778
+              },
+              "AC": {
+                "tp": 1743,
+                "fp": 2792,
+                "fn": 3875
+              },
+              "EC_I": {
+                "tp": 217,
+                "fp": 201,
+                "fn": 579
+              },
+              "EC_C": {
+                "tp": 217,
+                "fp": 201,
+                "fn": 579
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 1646,
+          "raw_events": 1646
+        },
+        "814": {
+          "official_offset": {
+            "TI_f1": 0.6733439562941042,
+            "TC_f1": 0.5396536007292616,
+            "AI_f1": 0.37303664921465973,
+            "AC_f1": 0.35268817204301073,
+            "EC_I_f1": 0.3663220088626293,
+            "EC_C_f1": 0.3663220088626293,
+            "TI_p": 0.7592402464065708,
+            "TC_p": 0.6093669583118888,
+            "AI_p": 0.3928712091374557,
+            "AC_p": 0.371479220011818,
+            "EC_I_p": 0.44285714285714284,
+            "EC_C_p": 0.44285714285714284,
+            "TI_r": 0.6049079754601226,
+            "TC_r": 0.48425357873210634,
+            "AI_r": 0.35510857956568176,
+            "AC_r": 0.3357066571733713,
+            "EC_I_r": 0.3123425692695214,
+            "EC_C_r": 0.3123425692695214
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.6885915173508731,
+            "TC_f1": 0.5408604598224449,
+            "AI_f1": 0.367152466367713,
+            "AC_f1": 0.34707036725539675,
+            "EC_I_f1": 0.35172921265636503,
+            "EC_C_f1": 0.35172921265636503,
+            "TI_p": 0.7729124236252546,
+            "TC_p": 0.6098562628336756,
+            "AI_p": 0.3863546991742037,
+            "AC_p": 0.3653354318315955,
+            "EC_I_p": 0.42451154529307283,
+            "EC_C_p": 0.42451154529307283,
+            "TI_r": 0.6208588957055214,
+            "TC_r": 0.48588957055214727,
+            "AI_r": 0.3497686009255963,
+            "AC_r": 0.3305446778212887,
+            "EC_I_r": 0.30025125628140703,
+            "EC_C_r": 0.30025125628140703
+          },
+          "official_raw_token": {
+            "TI_f1": 0.6882793017456359,
+            "TC_f1": 0.5402822030040965,
+            "AI_f1": 0.36669156086631816,
+            "AC_f1": 0.34662433467177145,
+            "EC_I_f1": 0.3512123438648052,
+            "EC_C_f1": 0.3512123438648052,
+            "TI_p": 0.7721261444557477,
+            "TC_p": 0.6090302719343252,
+            "AI_p": 0.3855516293678838,
+            "AC_p": 0.3645649184835985,
+            "EC_I_p": 0.4230088495575221,
+            "EC_C_p": 0.4230088495575221,
+            "TI_r": 0.6208588957055214,
+            "TC_r": 0.485480572597137,
+            "AI_r": 0.3495906016375934,
+            "AC_r": 0.3303666785332859,
+            "EC_I_r": 0.30025125628140703,
+            "EC_C_r": 0.30025125628140703
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.6645308924485126,
+              "TC_f1": 0.5359267734553775,
+              "AI_f1": 0.37198837536326984,
+              "AC_f1": 0.3517390081559951,
+              "EC_I_f1": 0.3661971830985916,
+              "EC_C_f1": 0.3661971830985916,
+              "TI_p": 0.7542857142857143,
+              "TC_p": 0.6083116883116884,
+              "AI_p": 0.3929490988314518,
+              "AC_p": 0.37155872449990096,
+              "EC_I_p": 0.44504504504504505,
+              "EC_C_p": 0.44504504504504505,
+              "TI_r": 0.5938650306748466,
+              "TC_r": 0.4789366053169734,
+              "AI_r": 0.35315058739765043,
+              "AC_r": 0.33392666429334283,
+              "EC_I_r": 0.3110831234256927,
+              "EC_C_r": 0.3110831234256927
+            },
+            "counts": {
+              "TI": {
+                "tp": 1452,
+                "fp": 473,
+                "fn": 993
+              },
+              "TC": {
+                "tp": 1171,
+                "fp": 754,
+                "fn": 1274
+              },
+              "AI": {
+                "tp": 1984,
+                "fp": 3065,
+                "fn": 3634
+              },
+              "AC": {
+                "tp": 1876,
+                "fp": 3173,
+                "fn": 3742
+              },
+              "EC_I": {
+                "tp": 247,
+                "fp": 308,
+                "fn": 547
+              },
+              "EC_C": {
+                "tp": 247,
+                "fp": 308,
+                "fn": 547
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.6709382151029748,
+              "TC_f1": 0.5395881006864989,
+              "AI_f1": 0.3778006937283209,
+              "AC_f1": 0.3573638323802381,
+              "EC_I_f1": 0.36861584011843074,
+              "EC_C_f1": 0.36861584011843074,
+              "TI_p": 0.7615584415584415,
+              "TC_p": 0.6124675324675325,
+              "AI_p": 0.3990889285006932,
+              "AC_p": 0.37750049514755396,
+              "EC_I_p": 0.4486486486486487,
+              "EC_C_p": 0.4486486486486487,
+              "TI_r": 0.5995910020449898,
+              "TC_r": 0.4822085889570552,
+              "AI_r": 0.3586685653257387,
+              "AC_r": 0.3392666429334283,
+              "EC_I_r": 0.3128140703517588,
+              "EC_C_r": 0.3128140703517588
+            },
+            "counts": {
+              "TI": {
+                "tp": 1466,
+                "fp": 459,
+                "fn": 979
+              },
+              "TC": {
+                "tp": 1179,
+                "fp": 746,
+                "fn": 1266
+              },
+              "AI": {
+                "tp": 2015,
+                "fp": 3034,
+                "fn": 3603
+              },
+              "AC": {
+                "tp": 1906,
+                "fp": 3143,
+                "fn": 3712
+              },
+              "EC_I": {
+                "tp": 249,
+                "fp": 306,
+                "fn": 547
+              },
+              "EC_C": {
+                "tp": 249,
+                "fp": 306,
+                "fn": 547
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.6706312900274474,
+              "TC_f1": 0.539341262580055,
+              "AI_f1": 0.37748220307231173,
+              "AC_f1": 0.3570625702510304,
+              "EC_I_f1": 0.3680709534368071,
+              "EC_C_f1": 0.3680709534368071,
+              "TI_p": 0.7607680332122471,
+              "TC_p": 0.6118318629994811,
+              "AI_p": 0.39837880585211544,
+              "AC_p": 0.37682878608145515,
+              "EC_I_p": 0.44703770197486536,
+              "EC_C_p": 0.44703770197486536,
+              "TI_r": 0.5995910020449898,
+              "TC_r": 0.4822085889570552,
+              "AI_r": 0.3586685653257387,
+              "AC_r": 0.3392666429334283,
+              "EC_I_r": 0.3128140703517588,
+              "EC_C_r": 0.3128140703517588
+            },
+            "counts": {
+              "TI": {
+                "tp": 1466,
+                "fp": 461,
+                "fn": 979
+              },
+              "TC": {
+                "tp": 1179,
+                "fp": 748,
+                "fn": 1266
+              },
+              "AI": {
+                "tp": 2015,
+                "fp": 3043,
+                "fn": 3603
+              },
+              "AC": {
+                "tp": 1906,
+                "fp": 3152,
+                "fn": 3712
+              },
+              "EC_I": {
+                "tp": 249,
+                "fp": 308,
+                "fn": 547
+              },
+              "EC_C": {
+                "tp": 249,
+                "fp": 308,
+                "fn": 547
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 1925,
+          "raw_events": 1927
+        },
+        "1604": {
+          "official_offset": {
+            "TI_f1": 0.7464398734177216,
+            "TC_f1": 0.6133122028526149,
+            "AI_f1": 0.42237928978966194,
+            "AC_f1": 0.3968659512859819,
+            "EC_I_f1": 0.46029919447640966,
+            "EC_C_f1": 0.46029919447640966,
+            "TI_p": 0.7227116047491383,
+            "TC_p": 0.5946984248943527,
+            "AI_p": 0.4048979591836735,
+            "AC_p": 0.3804702808621816,
+            "EC_I_p": 0.423728813559322,
+            "EC_C_p": 0.423728813559322,
+            "TI_r": 0.7717791411042945,
+            "TC_r": 0.6331288343558282,
+            "AI_r": 0.441438234247063,
+            "AC_r": 0.4147383410466358,
+            "EC_I_r": 0.5037783375314862,
+            "EC_C_r": 0.5037783375314862
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7562759438624234,
+            "TC_f1": 0.6123095190975658,
+            "AI_f1": 0.41559547118413215,
+            "AC_f1": 0.39032697547683926,
+            "EC_I_f1": 0.4362801377726751,
+            "EC_C_f1": 0.4362801377726751,
+            "TI_p": 0.7318286151491966,
+            "TC_p": 0.5931748466257669,
+            "AI_p": 0.39827051721324847,
+            "AC_p": 0.37414299706170423,
+            "EC_I_p": 0.40169133192389006,
+            "EC_C_p": 0.40169133192389006,
+            "TI_r": 0.7824130879345603,
+            "TC_r": 0.632719836400818,
+            "AI_r": 0.43449626201495195,
+            "AC_r": 0.4079743681025276,
+            "EC_I_r": 0.47738693467336685,
+            "EC_C_r": 0.47738693467336685
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7559770796285319,
+            "TC_f1": 0.6123417721518987,
+            "AI_f1": 0.41541865214431584,
+            "AC_f1": 0.39016086475444717,
+            "EC_I_f1": 0.4357798165137615,
+            "EC_C_f1": 0.4357798165137615,
+            "TI_p": 0.7312691131498471,
+            "TC_p": 0.5928762926081961,
+            "AI_p": 0.39794587544832083,
+            "AC_p": 0.3738378731038982,
+            "EC_I_p": 0.4008438818565401,
+            "EC_C_p": 0.4008438818565401,
+            "TI_r": 0.7824130879345603,
+            "TC_r": 0.6331288343558282,
+            "AI_r": 0.43449626201495195,
+            "AC_r": 0.4079743681025276,
+            "EC_I_r": 0.47738693467336685,
+            "EC_C_r": 0.47738693467336685
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7370723945902945,
+              "TC_f1": 0.6081941129673827,
+              "AI_f1": 0.4205224517671163,
+              "AC_f1": 0.39508280689772923,
+              "EC_I_f1": 0.45628257093225244,
+              "EC_C_f1": 0.45628257093225244,
+              "TI_p": 0.7173828881145954,
+              "TC_p": 0.591947348044909,
+              "AI_p": 0.40403543307086615,
+              "AC_p": 0.3795931758530184,
+              "EC_I_p": 0.42229367631296894,
+              "EC_C_p": 0.42229367631296894,
+              "TI_r": 0.7578732106339469,
+              "TC_r": 0.625357873210634,
+              "AI_r": 0.4384122463510146,
+              "AC_r": 0.41189035243859023,
+              "EC_I_r": 0.49622166246851385,
+              "EC_C_r": 0.49622166246851385
+            },
+            "counts": {
+              "TI": {
+                "tp": 1853,
+                "fp": 730,
+                "fn": 592
+              },
+              "TC": {
+                "tp": 1529,
+                "fp": 1054,
+                "fn": 916
+              },
+              "AI": {
+                "tp": 2463,
+                "fp": 3633,
+                "fn": 3155
+              },
+              "AC": {
+                "tp": 2314,
+                "fp": 3782,
+                "fn": 3304
+              },
+              "EC_I": {
+                "tp": 394,
+                "fp": 539,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 394,
+                "fp": 539,
+                "fn": 400
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7410501193317421,
+              "TC_f1": 0.6105807478122515,
+              "AI_f1": 0.42649820727334814,
+              "AC_f1": 0.40088782653235444,
+              "EC_I_f1": 0.4580682475419317,
+              "EC_C_f1": 0.4580682475419317,
+              "TI_p": 0.7212543554006968,
+              "TC_p": 0.5942702284165698,
+              "AI_p": 0.4097769028871391,
+              "AC_p": 0.3851706036745407,
+              "EC_I_p": 0.42443729903536975,
+              "EC_C_p": 0.42443729903536975,
+              "TI_r": 0.7619631901840491,
+              "TC_r": 0.6278118609406953,
+              "AI_r": 0.44464222143111426,
+              "AC_r": 0.41794232823068705,
+              "EC_I_r": 0.49748743718592964,
+              "EC_C_r": 0.49748743718592964
+            },
+            "counts": {
+              "TI": {
+                "tp": 1863,
+                "fp": 720,
+                "fn": 582
+              },
+              "TC": {
+                "tp": 1535,
+                "fp": 1048,
+                "fn": 910
+              },
+              "AI": {
+                "tp": 2498,
+                "fp": 3598,
+                "fn": 3120
+              },
+              "AC": {
+                "tp": 2348,
+                "fp": 3748,
+                "fn": 3270
+              },
+              "EC_I": {
+                "tp": 396,
+                "fp": 537,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 396,
+                "fp": 537,
+                "fn": 400
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.740608228980322,
+              "TC_f1": 0.6102166567282846,
+              "AI_f1": 0.42627986348122865,
+              "AC_f1": 0.4006825938566553,
+              "EC_I_f1": 0.45753899480069327,
+              "EC_C_f1": 0.45753899480069327,
+              "TI_p": 0.7204176334106729,
+              "TC_p": 0.5935808197989172,
+              "AI_p": 0.40937397574565715,
+              "AC_p": 0.38479187151753524,
+              "EC_I_p": 0.4235294117647059,
+              "EC_C_p": 0.4235294117647059,
+              "TI_r": 0.7619631901840491,
+              "TC_r": 0.6278118609406953,
+              "AI_r": 0.44464222143111426,
+              "AC_r": 0.41794232823068705,
+              "EC_I_r": 0.49748743718592964,
+              "EC_C_r": 0.49748743718592964
+            },
+            "counts": {
+              "TI": {
+                "tp": 1863,
+                "fp": 723,
+                "fn": 582
+              },
+              "TC": {
+                "tp": 1535,
+                "fp": 1051,
+                "fn": 910
+              },
+              "AI": {
+                "tp": 2498,
+                "fp": 3604,
+                "fn": 3120
+              },
+              "AC": {
+                "tp": 2348,
+                "fp": 3754,
+                "fn": 3270
+              },
+              "EC_I": {
+                "tp": 396,
+                "fp": 539,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 396,
+                "fp": 539,
+                "fn": 400
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2583,
+          "raw_events": 2586
+        },
+        "2406": {
+          "official_offset": {
+            "TI_f1": 0.7461835945450845,
+            "TC_f1": 0.6177070583435332,
+            "AI_f1": 0.4310686610200036,
+            "AC_f1": 0.405298251937286,
+            "EC_I_f1": 0.48608534322820035,
+            "EC_C_f1": 0.48608534322820035,
+            "TI_p": 0.7427066450567261,
+            "TC_p": 0.6161986161986162,
+            "AI_p": 0.4364963503649635,
+            "AC_p": 0.4104014598540146,
+            "EC_I_p": 0.4775212636695018,
+            "EC_C_p": 0.4775212636695018,
+            "TI_r": 0.7496932515337423,
+            "TC_r": 0.6192229038854806,
+            "AI_r": 0.4257742969028124,
+            "AC_r": 0.40032039871840513,
+            "EC_I_r": 0.49496221662468515,
+            "EC_C_r": 0.49496221662468515
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7565588773642465,
+            "TC_f1": 0.6171731592902304,
+            "AI_f1": 0.42271293375394325,
+            "AC_f1": 0.3969713358572201,
+            "EC_I_f1": 0.4607782581840642,
+            "EC_C_f1": 0.4595429277331686,
+            "TI_p": 0.7524271844660194,
+            "TC_p": 0.6155410903173312,
+            "AI_p": 0.4281540989592843,
+            "AC_p": 0.402118334550767,
+            "EC_I_p": 0.4532199270959903,
+            "EC_C_p": 0.4520048602673147,
+            "TI_r": 0.7607361963190185,
+            "TC_r": 0.6188139059304704,
+            "AI_r": 0.4174083303666785,
+            "AC_r": 0.3919544321822713,
+            "EC_I_r": 0.4685929648241206,
+            "EC_C_r": 0.46733668341708545
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7545638945233265,
+            "TC_f1": 0.6161041073607157,
+            "AI_f1": 0.42138364779874216,
+            "AC_f1": 0.39572288615329326,
+            "EC_I_f1": 0.4602097470697101,
+            "EC_C_f1": 0.458975940777298,
+            "TI_p": 0.7484909456740443,
+            "TC_p": 0.6126162555600485,
+            "AI_p": 0.42543541364296084,
+            "AC_p": 0.3995645073489385,
+            "EC_I_p": 0.45212121212121215,
+            "EC_C_p": 0.4509090909090909,
+            "TI_r": 0.7607361963190185,
+            "TC_r": 0.6196319018404908,
+            "AI_r": 0.4174083303666785,
+            "AC_r": 0.3919544321822713,
+            "EC_I_r": 0.4685929648241206,
+            "EC_C_r": 0.46733668341708545
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7359378195950093,
+              "TC_f1": 0.612395172836981,
+              "AI_f1": 0.4292418772563177,
+              "AC_f1": 0.40342960288808666,
+              "EC_I_f1": 0.4822429906542056,
+              "EC_C_f1": 0.4822429906542056,
+              "TI_p": 0.736088379705401,
+              "TC_p": 0.6125204582651391,
+              "AI_p": 0.4353716587330648,
+              "AC_p": 0.4091907726107653,
+              "EC_I_p": 0.47718865598027127,
+              "EC_C_p": 0.47718865598027127,
+              "TI_r": 0.7357873210633947,
+              "TC_r": 0.6122699386503068,
+              "AI_r": 0.4232823068707725,
+              "AC_r": 0.39782840868636526,
+              "EC_I_r": 0.48740554156171284,
+              "EC_C_r": 0.48740554156171284
+            },
+            "counts": {
+              "TI": {
+                "tp": 1799,
+                "fp": 645,
+                "fn": 646
+              },
+              "TC": {
+                "tp": 1497,
+                "fp": 947,
+                "fn": 948
+              },
+              "AI": {
+                "tp": 2378,
+                "fp": 3084,
+                "fn": 3240
+              },
+              "AC": {
+                "tp": 2235,
+                "fp": 3227,
+                "fn": 3383
+              },
+              "EC_I": {
+                "tp": 387,
+                "fp": 424,
+                "fn": 407
+              },
+              "EC_C": {
+                "tp": 387,
+                "fp": 424,
+                "fn": 407
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7404377173246063,
+              "TC_f1": 0.6156678257312334,
+              "AI_f1": 0.43574007220216604,
+              "AC_f1": 0.4095667870036101,
+              "EC_I_f1": 0.48537647790914745,
+              "EC_C_f1": 0.4841319228375855,
+              "TI_p": 0.7405891980360065,
+              "TC_p": 0.6157937806873978,
+              "AI_p": 0.4419626510435738,
+              "AC_p": 0.41541559868180156,
+              "EC_I_p": 0.4808877928483354,
+              "EC_C_p": 0.4796547472256473,
+              "TI_r": 0.7402862985685071,
+              "TC_r": 0.6155419222903885,
+              "AI_r": 0.42969028123887504,
+              "AC_r": 0.4038803844784621,
+              "EC_I_r": 0.4899497487437186,
+              "EC_C_r": 0.4886934673366834
+            },
+            "counts": {
+              "TI": {
+                "tp": 1810,
+                "fp": 634,
+                "fn": 635
+              },
+              "TC": {
+                "tp": 1505,
+                "fp": 939,
+                "fn": 940
+              },
+              "AI": {
+                "tp": 2414,
+                "fp": 3048,
+                "fn": 3204
+              },
+              "AC": {
+                "tp": 2269,
+                "fp": 3193,
+                "fn": 3349
+              },
+              "EC_I": {
+                "tp": 390,
+                "fp": 421,
+                "fn": 406
+              },
+              "EC_C": {
+                "tp": 389,
+                "fp": 422,
+                "fn": 407
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7383234754232102,
+              "TC_f1": 0.6139098511115644,
+              "AI_f1": 0.43432889528607405,
+              "AC_f1": 0.40824037423533643,
+              "EC_I_f1": 0.4847731510254817,
+              "EC_C_f1": 0.48353014294592916,
+              "TI_p": 0.7363710333604556,
+              "TC_p": 0.612286411716843,
+              "AI_p": 0.439068752273554,
+              "AC_p": 0.41269552564568934,
+              "EC_I_p": 0.4797047970479705,
+              "EC_C_p": 0.4784747847478475,
+              "TI_r": 0.7402862985685071,
+              "TC_r": 0.6155419222903885,
+              "AI_r": 0.42969028123887504,
+              "AC_r": 0.4038803844784621,
+              "EC_I_r": 0.4899497487437186,
+              "EC_C_r": 0.4886934673366834
+            },
+            "counts": {
+              "TI": {
+                "tp": 1810,
+                "fp": 648,
+                "fn": 635
+              },
+              "TC": {
+                "tp": 1505,
+                "fp": 953,
+                "fn": 940
+              },
+              "AI": {
+                "tp": 2414,
+                "fp": 3084,
+                "fn": 3204
+              },
+              "AC": {
+                "tp": 2269,
+                "fp": 3229,
+                "fn": 3349
+              },
+              "EC_I": {
+                "tp": 390,
+                "fp": 423,
+                "fn": 406
+              },
+              "EC_C": {
+                "tp": 389,
+                "fp": 424,
+                "fn": 407
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2444,
+          "raw_events": 2458
+        },
+        "3208": {
+          "official_offset": {
+            "TI_f1": 0.7378048780487806,
+            "TC_f1": 0.6098107062894361,
+            "AI_f1": 0.41827303934512805,
+            "AC_f1": 0.39419014084507037,
+            "EC_I_f1": 0.48612786489746684,
+            "EC_C_f1": 0.48612786489746684,
+            "TI_p": 0.7333333333333333,
+            "TC_p": 0.606969205834684,
+            "AI_p": 0.41372105171513146,
+            "AC_p": 0.3899338209683037,
+            "EC_I_p": 0.4664351851851852,
+            "EC_C_p": 0.4664351851851852,
+            "TI_r": 0.7423312883435583,
+            "TC_r": 0.612678936605317,
+            "AI_r": 0.4229263082947668,
+            "AC_r": 0.39854040583837663,
+            "EC_I_r": 0.5075566750629723,
+            "EC_C_r": 0.5075566750629723
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7479707792207791,
+            "TC_f1": 0.6090317331163548,
+            "AI_f1": 0.4108793240031688,
+            "AC_f1": 0.3870058984065499,
+            "EC_I_f1": 0.4590361445783132,
+            "EC_C_f1": 0.4590361445783132,
+            "TI_p": 0.7422472815142972,
+            "TC_p": 0.6058276001618778,
+            "AI_p": 0.4064078008009751,
+            "AC_p": 0.3828601288974046,
+            "EC_I_p": 0.4409722222222222,
+            "EC_C_p": 0.4409722222222222,
+            "TI_r": 0.7537832310838446,
+            "TC_r": 0.6122699386503068,
+            "AI_r": 0.4154503381986472,
+            "AC_r": 0.3912424350302599,
+            "EC_I_r": 0.478643216080402,
+            "EC_C_r": 0.478643216080402
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7479213141350639,
+            "TC_f1": 0.6086602968082945,
+            "AI_f1": 0.41072056239015814,
+            "AC_f1": 0.38688697486377216,
+            "EC_I_f1": 0.4587597832630945,
+            "EC_C_f1": 0.4587597832630945,
+            "TI_p": 0.7417538213998391,
+            "TC_p": 0.6050929668552951,
+            "AI_p": 0.40558833738285316,
+            "AC_p": 0.38211805555555556,
+            "EC_I_p": 0.44046242774566474,
+            "EC_C_p": 0.44046242774566474,
+            "TI_r": 0.7541922290388549,
+            "TC_r": 0.6122699386503068,
+            "AI_r": 0.4159843360626557,
+            "AC_r": 0.39177643289426844,
+            "EC_I_r": 0.478643216080402,
+            "EC_C_r": 0.478643216080402
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7280898876404494,
+              "TC_f1": 0.6042900919305414,
+              "AI_f1": 0.41616660783621606,
+              "AC_f1": 0.39216378397458523,
+              "EC_I_f1": 0.4842233009708738,
+              "EC_C_f1": 0.4842233009708738,
+              "TI_p": 0.7273469387755102,
+              "TC_p": 0.6036734693877551,
+              "AI_p": 0.4126706335316766,
+              "AC_p": 0.3888694434721736,
+              "EC_I_p": 0.4672131147540984,
+              "EC_C_p": 0.4672131147540984,
+              "TI_r": 0.7288343558282209,
+              "TC_r": 0.6049079754601226,
+              "AI_r": 0.41972232111071556,
+              "AC_r": 0.3955144179423282,
+              "EC_I_r": 0.5025188916876574,
+              "EC_C_r": 0.5025188916876574
+            },
+            "counts": {
+              "TI": {
+                "tp": 1782,
+                "fp": 668,
+                "fn": 663
+              },
+              "TC": {
+                "tp": 1479,
+                "fp": 971,
+                "fn": 966
+              },
+              "AI": {
+                "tp": 2358,
+                "fp": 3356,
+                "fn": 3260
+              },
+              "AC": {
+                "tp": 2222,
+                "fp": 3492,
+                "fn": 3396
+              },
+              "EC_I": {
+                "tp": 399,
+                "fp": 455,
+                "fn": 395
+              },
+              "EC_C": {
+                "tp": 399,
+                "fp": 455,
+                "fn": 395
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7325842696629213,
+              "TC_f1": 0.6075587334014301,
+              "AI_f1": 0.42234380515354747,
+              "AC_f1": 0.3983409812919167,
+              "EC_I_f1": 0.4860606060606061,
+              "EC_C_f1": 0.4860606060606061,
+              "TI_p": 0.7318367346938776,
+              "TC_p": 0.606938775510204,
+              "AI_p": 0.41879593979698987,
+              "AC_p": 0.3949947497374869,
+              "EC_I_p": 0.46955503512880564,
+              "EC_C_p": 0.46955503512880564,
+              "TI_r": 0.7333333333333333,
+              "TC_r": 0.6081799591002045,
+              "AI_r": 0.42595229619081526,
+              "AC_r": 0.4017443930224279,
+              "EC_I_r": 0.5037688442211056,
+              "EC_C_r": 0.5037688442211056
+            },
+            "counts": {
+              "TI": {
+                "tp": 1793,
+                "fp": 657,
+                "fn": 652
+              },
+              "TC": {
+                "tp": 1487,
+                "fp": 963,
+                "fn": 958
+              },
+              "AI": {
+                "tp": 2393,
+                "fp": 3321,
+                "fn": 3225
+              },
+              "AC": {
+                "tp": 2257,
+                "fp": 3457,
+                "fn": 3361
+              },
+              "EC_I": {
+                "tp": 401,
+                "fp": 453,
+                "fn": 395
+              },
+              "EC_C": {
+                "tp": 401,
+                "fp": 453,
+                "fn": 395
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.732394366197183,
+              "TC_f1": 0.6070626658501735,
+              "AI_f1": 0.4217111639792052,
+              "AC_f1": 0.3977442946515111,
+              "EC_I_f1": 0.4857662023016354,
+              "EC_C_f1": 0.4857662023016354,
+              "TI_p": 0.7310513447432763,
+              "TC_p": 0.6059494702526488,
+              "AI_p": 0.41755365555749435,
+              "AC_p": 0.39382306752748214,
+              "EC_I_p": 0.46900584795321637,
+              "EC_C_p": 0.46900584795321637,
+              "TI_r": 0.7337423312883435,
+              "TC_r": 0.6081799591002045,
+              "AI_r": 0.42595229619081526,
+              "AC_r": 0.4017443930224279,
+              "EC_I_r": 0.5037688442211056,
+              "EC_C_r": 0.5037688442211056
+            },
+            "counts": {
+              "TI": {
+                "tp": 1794,
+                "fp": 660,
+                "fn": 651
+              },
+              "TC": {
+                "tp": 1487,
+                "fp": 967,
+                "fn": 958
+              },
+              "AI": {
+                "tp": 2393,
+                "fp": 3338,
+                "fn": 3225
+              },
+              "AC": {
+                "tp": 2257,
+                "fp": 3474,
+                "fn": 3361
+              },
+              "EC_I": {
+                "tp": 401,
+                "fp": 454,
+                "fn": 395
+              },
+              "EC_C": {
+                "tp": 401,
+                "fp": 454,
+                "fn": 395
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2450,
+          "raw_events": 2454
+        },
+        "4010": {
+          "official_offset": {
+            "TI_f1": 0.7323026851098455,
+            "TC_f1": 0.6065173116089613,
+            "AI_f1": 0.40934017335927825,
+            "AC_f1": 0.38425475453339225,
+            "EC_I_f1": 0.47648136835675015,
+            "EC_C_f1": 0.47648136835675015,
+            "TI_p": 0.7284500202347228,
+            "TC_p": 0.6040567951318458,
+            "AI_p": 0.4068213783403657,
+            "AC_p": 0.38192368559873396,
+            "EC_I_p": 0.4626334519572954,
+            "EC_C_p": 0.4626334519572954,
+            "TI_r": 0.7361963190184049,
+            "TC_r": 0.6089979550102249,
+            "AI_r": 0.41189035243859023,
+            "AC_r": 0.3866144535421858,
+            "EC_I_r": 0.491183879093199,
+            "EC_C_r": 0.491183879093199
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7422764227642277,
+            "TC_f1": 0.6058631921824104,
+            "AI_f1": 0.4030075187969925,
+            "AC_f1": 0.37830664425373794,
+            "EC_I_f1": 0.4548780487804878,
+            "EC_C_f1": 0.4548780487804878,
+            "TI_p": 0.7377777777777778,
+            "TC_p": 0.6031617349006891,
+            "AI_p": 0.4005626868296114,
+            "AC_p": 0.3760773966578716,
+            "EC_I_p": 0.4419431279620853,
+            "EC_C_p": 0.4419431279620853,
+            "TI_r": 0.7468302658486707,
+            "TC_r": 0.6085889570552148,
+            "AI_r": 0.4054823780704877,
+            "AC_r": 0.380562477750089,
+            "EC_I_r": 0.4685929648241206,
+            "EC_C_r": 0.4685929648241206
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7422303473491774,
+            "TC_f1": 0.6052096052096051,
+            "AI_f1": 0.4028611797951254,
+            "AC_f1": 0.3782017311429076,
+            "EC_I_f1": 0.45432399512789284,
+            "EC_C_f1": 0.45432399512789284,
+            "TI_p": 0.7372881355932204,
+            "TC_p": 0.6022681247468611,
+            "AI_p": 0.3997546442341395,
+            "AC_p": 0.3753506311360449,
+            "EC_I_p": 0.44089834515366433,
+            "EC_C_p": 0.44089834515366433,
+            "TI_r": 0.747239263803681,
+            "TC_r": 0.6081799591002045,
+            "AI_r": 0.40601637593449624,
+            "AC_r": 0.38109647561409754,
+            "EC_I_r": 0.4685929648241206,
+            "EC_C_r": 0.4685929648241206
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7220747396365121,
+              "TC_f1": 0.6003675719828466,
+              "AI_f1": 0.4077257021351999,
+              "AC_f1": 0.3827412066979712,
+              "EC_I_f1": 0.4757817290006131,
+              "EC_C_f1": 0.4757817290006131,
+              "TI_p": 0.7210440456769984,
+              "TC_p": 0.5995106035889071,
+              "AI_p": 0.4058916916563768,
+              "AC_p": 0.38101958017287,
+              "EC_I_p": 0.4635603345280765,
+              "EC_C_p": 0.4635603345280765,
+              "TI_r": 0.7231083844580777,
+              "TC_r": 0.6012269938650306,
+              "AI_r": 0.40957636169455325,
+              "AC_r": 0.38447846208615166,
+              "EC_I_r": 0.48866498740554154,
+              "EC_C_r": 0.48866498740554154
+            },
+            "counts": {
+              "TI": {
+                "tp": 1768,
+                "fp": 684,
+                "fn": 677
+              },
+              "TC": {
+                "tp": 1470,
+                "fp": 982,
+                "fn": 975
+              },
+              "AI": {
+                "tp": 2301,
+                "fp": 3368,
+                "fn": 3317
+              },
+              "AC": {
+                "tp": 2160,
+                "fp": 3509,
+                "fn": 3458
+              },
+              "EC_I": {
+                "tp": 388,
+                "fp": 449,
+                "fn": 406
+              },
+              "EC_C": {
+                "tp": 388,
+                "fp": 449,
+                "fn": 406
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7265672860935266,
+              "TC_f1": 0.603226465182765,
+              "AI_f1": 0.4139275272437317,
+              "AC_f1": 0.388943031806503,
+              "EC_I_f1": 0.47887323943661975,
+              "EC_C_f1": 0.47887323943661975,
+              "TI_p": 0.7255301794453507,
+              "TC_p": 0.6023654159869495,
+              "AI_p": 0.41206562003880753,
+              "AC_p": 0.38719350855530077,
+              "EC_I_p": 0.46714456391875747,
+              "EC_C_p": 0.46714456391875747,
+              "TI_r": 0.7276073619631902,
+              "TC_r": 0.6040899795501022,
+              "AI_r": 0.4158063367746529,
+              "AC_r": 0.3907084371662513,
+              "EC_I_r": 0.49120603015075376,
+              "EC_C_r": 0.49120603015075376
+            },
+            "counts": {
+              "TI": {
+                "tp": 1779,
+                "fp": 673,
+                "fn": 666
+              },
+              "TC": {
+                "tp": 1477,
+                "fp": 975,
+                "fn": 968
+              },
+              "AI": {
+                "tp": 2336,
+                "fp": 3333,
+                "fn": 3282
+              },
+              "AC": {
+                "tp": 2195,
+                "fp": 3474,
+                "fn": 3423
+              },
+              "EC_I": {
+                "tp": 391,
+                "fp": 446,
+                "fn": 405
+              },
+              "EC_C": {
+                "tp": 391,
+                "fp": 446,
+                "fn": 405
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7263823709447051,
+              "TC_f1": 0.6027341358906345,
+              "AI_f1": 0.413305024769993,
+              "AC_f1": 0.38835810332625614,
+              "EC_I_f1": 0.47828746177370035,
+              "EC_C_f1": 0.47828746177370035,
+              "TI_p": 0.7247557003257329,
+              "TC_p": 0.6013843648208469,
+              "AI_p": 0.41083362645093213,
+              "AC_p": 0.38603587759409075,
+              "EC_I_p": 0.466030989272944,
+              "EC_C_p": 0.466030989272944,
+              "TI_r": 0.7280163599182005,
+              "TC_r": 0.6040899795501022,
+              "AI_r": 0.4158063367746529,
+              "AC_r": 0.3907084371662513,
+              "EC_I_r": 0.49120603015075376,
+              "EC_C_r": 0.49120603015075376
+            },
+            "counts": {
+              "TI": {
+                "tp": 1780,
+                "fp": 676,
+                "fn": 665
+              },
+              "TC": {
+                "tp": 1477,
+                "fp": 979,
+                "fn": 968
+              },
+              "AI": {
+                "tp": 2336,
+                "fp": 3350,
+                "fn": 3282
+              },
+              "AC": {
+                "tp": 2195,
+                "fp": 3491,
+                "fn": 3423
+              },
+              "EC_I": {
+                "tp": 391,
+                "fp": 448,
+                "fn": 405
+              },
+              "EC_C": {
+                "tp": 391,
+                "fp": 448,
+                "fn": 405
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2452,
+          "raw_events": 2456
+        }
+      },
+      "test": {
+        "2406": {
+          "official_offset": {
+            "TI_f1": 0.746178600160901,
+            "TC_f1": 0.6261813794490247,
+            "AI_f1": 0.4343523590740414,
+            "AC_f1": 0.41141645312361935,
+            "EC_I_f1": 0.4792682926829268,
+            "EC_C_f1": 0.4792682926829268,
+            "TI_p": 0.7349445324881141,
+            "TC_p": 0.6166336633663366,
+            "AI_p": 0.43885020532047847,
+            "AC_p": 0.4157142857142857,
+            "EC_I_p": 0.4667458432304038,
+            "EC_C_p": 0.4667458432304038,
+            "TI_r": 0.7577614379084967,
+            "TC_r": 0.6360294117647058,
+            "AI_r": 0.42994577575651566,
+            "AC_r": 0.4072065768759839,
+            "EC_I_r": 0.4924812030075188,
+            "EC_C_r": 0.4924812030075188
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7540257648953301,
+            "TC_f1": 0.6245472837022132,
+            "AI_f1": 0.43131018641222724,
+            "AC_f1": 0.40833995936036754,
+            "EC_I_f1": 0.4650880388585307,
+            "EC_C_f1": 0.4650880388585307,
+            "TI_p": 0.7432539682539683,
+            "TC_p": 0.6153846153846154,
+            "AI_p": 0.43573723670117814,
+            "AC_p": 0.41253123884327025,
+            "EC_I_p": 0.4543297746144721,
+            "EC_C_p": 0.4543297746144721,
+            "TI_r": 0.7651143790849673,
+            "TC_r": 0.6339869281045751,
+            "AI_r": 0.42697218821059996,
+            "AC_r": 0.40423298933006824,
+            "EC_I_r": 0.4763681592039801,
+            "EC_C_r": 0.4763681592039801
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7538740189172871,
+            "TC_f1": 0.6244216455441561,
+            "AI_f1": 0.4309675141242938,
+            "AC_f1": 0.4080155367231639,
+            "EC_I_f1": 0.4650880388585307,
+            "EC_C_f1": 0.4650880388585307,
+            "TI_p": 0.742959143197144,
+            "TC_p": 0.6151407055093143,
+            "AI_p": 0.4350383175904473,
+            "AC_p": 0.41186954197112813,
+            "EC_I_p": 0.4543297746144721,
+            "EC_C_p": 0.4543297746144721,
+            "TI_r": 0.7651143790849673,
+            "TC_r": 0.6339869281045751,
+            "AI_r": 0.42697218821059996,
+            "AC_r": 0.40423298933006824,
+            "EC_I_r": 0.4763681592039801,
+            "EC_C_r": 0.4763681592039801
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.740531829170024,
+              "TC_f1": 0.6216760676873488,
+              "AI_f1": 0.4338755304101839,
+              "AC_f1": 0.41071428571428575,
+              "EC_I_f1": 0.47403787416004883,
+              "EC_C_f1": 0.47403787416004883,
+              "TI_p": 0.7305246422893482,
+              "TC_p": 0.613275039745628,
+              "AI_p": 0.4386058981233244,
+              "AC_p": 0.41519213583556747,
+              "EC_I_p": 0.46245530393325385,
+              "EC_C_p": 0.46245530393325385,
+              "TI_r": 0.7508169934640523,
+              "TC_r": 0.6303104575163399,
+              "AI_r": 0.42924610809865316,
+              "AC_r": 0.40633199230365574,
+              "EC_I_r": 0.48621553884711777,
+              "EC_C_r": 0.48621553884711777
+            },
+            "counts": {
+              "TI": {
+                "tp": 1838,
+                "fp": 678,
+                "fn": 610
+              },
+              "TC": {
+                "tp": 1543,
+                "fp": 973,
+                "fn": 905
+              },
+              "AI": {
+                "tp": 2454,
+                "fp": 3141,
+                "fn": 3263
+              },
+              "AC": {
+                "tp": 2323,
+                "fp": 3272,
+                "fn": 3394
+              },
+              "EC_I": {
+                "tp": 388,
+                "fp": 451,
+                "fn": 410
+              },
+              "EC_C": {
+                "tp": 388,
+                "fp": 451,
+                "fn": 410
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.742546333601934,
+              "TC_f1": 0.6240934730056407,
+              "AI_f1": 0.44041725601131543,
+              "AC_f1": 0.41707920792079206,
+              "EC_I_f1": 0.4771758977480219,
+              "EC_C_f1": 0.4771758977480219,
+              "TI_p": 0.7325119236883942,
+              "TC_p": 0.6156597774244833,
+              "AI_p": 0.445218945487042,
+              "AC_p": 0.4216264521894549,
+              "EC_I_p": 0.46722288438617404,
+              "EC_C_p": 0.46722288438617404,
+              "TI_r": 0.752859477124183,
+              "TC_r": 0.6327614379084967,
+              "AI_r": 0.4357180339338814,
+              "AC_r": 0.4126290012244184,
+              "EC_I_r": 0.48756218905472637,
+              "EC_C_r": 0.48756218905472637
+            },
+            "counts": {
+              "TI": {
+                "tp": 1843,
+                "fp": 673,
+                "fn": 605
+              },
+              "TC": {
+                "tp": 1549,
+                "fp": 967,
+                "fn": 899
+              },
+              "AI": {
+                "tp": 2491,
+                "fp": 3104,
+                "fn": 3226
+              },
+              "AC": {
+                "tp": 2359,
+                "fp": 3236,
+                "fn": 3358
+              },
+              "EC_I": {
+                "tp": 392,
+                "fp": 447,
+                "fn": 412
+              },
+              "EC_C": {
+                "tp": 392,
+                "fp": 447,
+                "fn": 412
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7423967774420948,
+              "TC_f1": 0.6239677744209466,
+              "AI_f1": 0.44006713187880936,
+              "AC_f1": 0.41674763713452884,
+              "EC_I_f1": 0.4771758977480219,
+              "EC_C_f1": 0.4771758977480219,
+              "TI_p": 0.7322208978943187,
+              "TC_p": 0.6154151767977751,
+              "AI_p": 0.44450392576730907,
+              "AC_p": 0.42094932191291934,
+              "EC_I_p": 0.46722288438617404,
+              "EC_C_p": 0.46722288438617404,
+              "TI_r": 0.752859477124183,
+              "TC_r": 0.6327614379084967,
+              "AI_r": 0.4357180339338814,
+              "AC_r": 0.4126290012244184,
+              "EC_I_r": 0.48756218905472637,
+              "EC_C_r": 0.48756218905472637
+            },
+            "counts": {
+              "TI": {
+                "tp": 1843,
+                "fp": 674,
+                "fn": 605
+              },
+              "TC": {
+                "tp": 1549,
+                "fp": 968,
+                "fn": 899
+              },
+              "AI": {
+                "tp": 2491,
+                "fp": 3113,
+                "fn": 3226
+              },
+              "AC": {
+                "tp": 2359,
+                "fp": 3245,
+                "fn": 3358
+              },
+              "EC_I": {
+                "tp": 392,
+                "fp": 447,
+                "fn": 412
+              },
+              "EC_C": {
+                "tp": 392,
+                "fp": 447,
+                "fn": 412
+              }
+            }
+          },
+          "gold_events": 2448,
+          "aligned_events": 2516,
+          "raw_events": 2517
+        }
+      }
+    },
+    "Sorted1": {
+      "dev": {
+        "802": {
+          "official_offset": {
+            "TI_f1": 0.683402023229674,
+            "TC_f1": 0.5173442745244312,
+            "AI_f1": 0.3434212954419635,
+            "AC_f1": 0.3199926226484692,
+            "EC_I_f1": 0.3599763173475429,
+            "EC_C_f1": 0.35879218472468916,
+            "TI_p": 0.6304873833390944,
+            "TC_p": 0.47548851559821737,
+            "AI_p": 0.35651340996168585,
+            "AC_p": 0.3319938767699962,
+            "EC_I_p": 0.3396648044692737,
+            "EC_C_p": 0.33854748603351953,
+            "TI_r": 0.7460122699386503,
+            "TC_r": 0.567280163599182,
+            "AI_r": 0.3312566749733001,
+            "AC_r": 0.30882876468494125,
+            "EC_I_r": 0.38287153652392947,
+            "EC_C_r": 0.38161209068010077
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.695456252346977,
+            "TC_f1": 0.5174537987679672,
+            "AI_f1": 0.33628645256552236,
+            "AC_f1": 0.31356635617449047,
+            "EC_I_f1": 0.3455188679245283,
+            "EC_C_f1": 0.3443396226415094,
+            "TI_p": 0.6428323498785145,
+            "TC_p": 0.47596153846153844,
+            "AI_p": 0.3491759294748946,
+            "AC_p": 0.3253588516746411,
+            "EC_I_p": 0.32555555555555554,
+            "EC_C_p": 0.3244444444444444,
+            "TI_r": 0.7574642126789366,
+            "TC_r": 0.5668711656441717,
+            "AI_r": 0.324314702741189,
+            "AC_r": 0.3025987896048416,
+            "EC_I_r": 0.36809045226130654,
+            "EC_C_r": 0.36683417085427134
+          },
+          "official_raw_token": {
+            "TI_f1": 0.6931137724550899,
+            "TC_f1": 0.5123628927309909,
+            "AI_f1": 0.3311113140352479,
+            "AC_f1": 0.3084922010398613,
+            "EC_I_f1": 0.3339130434782609,
+            "EC_C_f1": 0.3327536231884058,
+            "TI_p": 0.6388409796481546,
+            "TC_p": 0.46966598500340834,
+            "AI_p": 0.33995874742171384,
+            "AC_p": 0.3163704396632367,
+            "EC_I_p": 0.310010764262648,
+            "EC_C_p": 0.30893433799784714,
+            "TI_r": 0.7574642126789366,
+            "TC_r": 0.56359918200409,
+            "AI_r": 0.3227127091491634,
+            "AC_r": 0.3009967960128159,
+            "EC_I_r": 0.36180904522613067,
+            "EC_C_r": 0.36055276381909546
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.6626061277224069,
+              "TC_f1": 0.5156884459210042,
+              "AI_f1": 0.3488372093023256,
+              "AC_f1": 0.3252151620582311,
+              "EC_I_f1": 0.36845203060623893,
+              "EC_C_f1": 0.3672748675691584,
+              "TI_p": 0.6037672384796502,
+              "TC_p": 0.46989572822065256,
+              "AI_p": 0.3591628959276018,
+              "AC_p": 0.334841628959276,
+              "EC_I_p": 0.34585635359116024,
+              "EC_C_p": 0.3447513812154696,
+              "TI_r": 0.7341513292433538,
+              "TC_r": 0.5713701431492842,
+              "AI_r": 0.3390886436454254,
+              "AC_r": 0.31612673549305803,
+              "EC_I_r": 0.39420654911838793,
+              "EC_C_r": 0.3929471032745592
+            },
+            "counts": {
+              "TI": {
+                "tp": 1795,
+                "fp": 1178,
+                "fn": 650
+              },
+              "TC": {
+                "tp": 1397,
+                "fp": 1576,
+                "fn": 1048
+              },
+              "AI": {
+                "tp": 1905,
+                "fp": 3399,
+                "fn": 3713
+              },
+              "AC": {
+                "tp": 1776,
+                "fp": 3528,
+                "fn": 3842
+              },
+              "EC_I": {
+                "tp": 313,
+                "fp": 592,
+                "fn": 481
+              },
+              "EC_C": {
+                "tp": 312,
+                "fp": 593,
+                "fn": 482
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.6692506459948321,
+              "TC_f1": 0.519748984865264,
+              "AI_f1": 0.35323200878959893,
+              "AC_f1": 0.32960996154550454,
+              "EC_I_f1": 0.36919459141681366,
+              "EC_C_f1": 0.3680188124632569,
+              "TI_p": 0.6098217288933737,
+              "TC_p": 0.47359569458459466,
+              "AI_p": 0.36368778280542985,
+              "AC_p": 0.3393665158371041,
+              "EC_I_p": 0.3469613259668508,
+              "EC_C_p": 0.34585635359116024,
+              "TI_r": 0.7415132924335378,
+              "TC_r": 0.5758691206543968,
+              "AI_r": 0.3433606265574938,
+              "AC_r": 0.3203987184051264,
+              "EC_I_r": 0.3944723618090452,
+              "EC_C_r": 0.39321608040201006
+            },
+            "counts": {
+              "TI": {
+                "tp": 1813,
+                "fp": 1160,
+                "fn": 632
+              },
+              "TC": {
+                "tp": 1408,
+                "fp": 1565,
+                "fn": 1037
+              },
+              "AI": {
+                "tp": 1929,
+                "fp": 3375,
+                "fn": 3689
+              },
+              "AC": {
+                "tp": 1800,
+                "fp": 3504,
+                "fn": 3818
+              },
+              "EC_I": {
+                "tp": 314,
+                "fp": 591,
+                "fn": 482
+              },
+              "EC_C": {
+                "tp": 313,
+                "fp": 592,
+                "fn": 483
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.6458481192334988,
+              "TC_f1": 0.5,
+              "AI_f1": 0.34409561184445236,
+              "AC_f1": 0.3210845522654299,
+              "EC_I_f1": 0.3343982960596379,
+              "EC_C_f1": 0.33333333333333337,
+              "TI_p": 0.5703541209652147,
+              "TC_p": 0.4415543716703228,
+              "AI_p": 0.3448337504469074,
+              "AC_p": 0.32177332856632107,
+              "EC_I_p": 0.2902033271719039,
+              "EC_C_p": 0.28927911275415896,
+              "TI_r": 0.7443762781186094,
+              "TC_r": 0.5762781186094069,
+              "AI_r": 0.3433606265574938,
+              "AC_r": 0.3203987184051264,
+              "EC_I_r": 0.3944723618090452,
+              "EC_C_r": 0.39321608040201006
+            },
+            "counts": {
+              "TI": {
+                "tp": 1820,
+                "fp": 1371,
+                "fn": 625
+              },
+              "TC": {
+                "tp": 1409,
+                "fp": 1782,
+                "fn": 1036
+              },
+              "AI": {
+                "tp": 1929,
+                "fp": 3665,
+                "fn": 3689
+              },
+              "AC": {
+                "tp": 1800,
+                "fp": 3794,
+                "fn": 3818
+              },
+              "EC_I": {
+                "tp": 314,
+                "fp": 768,
+                "fn": 482
+              },
+              "EC_C": {
+                "tp": 313,
+                "fp": 769,
+                "fn": 483
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2973,
+          "raw_events": 3191
+        },
+        "1604": {
+          "official_offset": {
+            "TI_f1": 0.7521025230276333,
+            "TC_f1": 0.6177296430004011,
+            "AI_f1": 0.4299947561615102,
+            "AC_f1": 0.4032159398759067,
+            "EC_I_f1": 0.4647887323943662,
+            "EC_C_f1": 0.4647887323943662,
+            "TI_p": 0.7367595135347195,
+            "TC_p": 0.6060606060606061,
+            "AI_p": 0.4223901098901099,
+            "AC_p": 0.3960515021459228,
+            "EC_I_p": 0.4351648351648352,
+            "EC_C_p": 0.4351648351648352,
+            "TI_r": 0.7680981595092025,
+            "TC_r": 0.6298568507157464,
+            "AI_r": 0.43787824848700607,
+            "AC_r": 0.4106443574225703,
+            "EC_I_r": 0.4987405541561713,
+            "EC_C_r": 0.4987405541561713
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7627050820328131,
+            "TC_f1": 0.6165564241330928,
+            "AI_f1": 0.4228920926168633,
+            "AC_f1": 0.3963649073750437,
+            "EC_I_f1": 0.4449648711943794,
+            "EC_C_f1": 0.4437939110070257,
+            "TI_p": 0.7465726596161378,
+            "TC_p": 0.6045597484276729,
+            "AI_p": 0.41530804873863053,
+            "AC_p": 0.38928939237899074,
+            "EC_I_p": 0.4166666666666667,
+            "EC_C_p": 0.4155701754385965,
+            "TI_r": 0.7795501022494887,
+            "TC_r": 0.629038854805726,
+            "AI_r": 0.4307582769668921,
+            "AC_r": 0.40370238519045926,
+            "EC_I_r": 0.47738693467336685,
+            "EC_C_r": 0.47613065326633164
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7625525105021003,
+            "TC_f1": 0.6167100781406532,
+            "AI_f1": 0.4228451663610165,
+            "AC_f1": 0.3963318777292576,
+            "EC_I_f1": 0.44470450555880636,
+            "EC_C_f1": 0.4435342305441779,
+            "TI_p": 0.7462803445575568,
+            "TC_p": 0.6044776119402985,
+            "AI_p": 0.41505228870221156,
+            "AC_p": 0.38906035665294925,
+            "EC_I_p": 0.41621029572836804,
+            "EC_C_p": 0.41511500547645125,
+            "TI_r": 0.7795501022494887,
+            "TC_r": 0.6294478527607362,
+            "AI_r": 0.430936276254895,
+            "AC_r": 0.4038803844784621,
+            "EC_I_r": 0.47738693467336685,
+            "EC_C_r": 0.47613065326633164
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7422016502314349,
+              "TC_f1": 0.612598108271282,
+              "AI_f1": 0.4285839390489535,
+              "AC_f1": 0.4017864961905596,
+              "EC_I_f1": 0.461629279811098,
+              "EC_C_f1": 0.461629279811098,
+              "TI_p": 0.7305863708399366,
+              "TC_p": 0.6030110935023771,
+              "AI_p": 0.42182382347871056,
+              "AC_p": 0.39544906050680917,
+              "EC_I_p": 0.43444444444444447,
+              "EC_C_p": 0.43444444444444447,
+              "TI_r": 0.7541922290388549,
+              "TC_r": 0.6224948875255624,
+              "AI_r": 0.43556425774296903,
+              "AC_r": 0.4083303666785333,
+              "EC_I_r": 0.4924433249370277,
+              "EC_C_r": 0.4924433249370277
+            },
+            "counts": {
+              "TI": {
+                "tp": 1844,
+                "fp": 680,
+                "fn": 601
+              },
+              "TC": {
+                "tp": 1522,
+                "fp": 1002,
+                "fn": 923
+              },
+              "AI": {
+                "tp": 2447,
+                "fp": 3354,
+                "fn": 3171
+              },
+              "AC": {
+                "tp": 2294,
+                "fp": 3507,
+                "fn": 3324
+              },
+              "EC_I": {
+                "tp": 391,
+                "fp": 509,
+                "fn": 403
+              },
+              "EC_C": {
+                "tp": 391,
+                "fp": 509,
+                "fn": 403
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.747434091366472,
+              "TC_f1": 0.6150130811028376,
+              "AI_f1": 0.43436377966546985,
+              "AC_f1": 0.4073911901217269,
+              "EC_I_f1": 0.46580188679245277,
+              "EC_C_f1": 0.464622641509434,
+              "TI_p": 0.7357369255150554,
+              "TC_p": 0.6053882725832013,
+              "AI_p": 0.4275124978451991,
+              "AC_p": 0.4009653508015859,
+              "EC_I_p": 0.4388888888888889,
+              "EC_C_p": 0.43777777777777777,
+              "TI_r": 0.7595092024539877,
+              "TC_r": 0.6249488752556237,
+              "AI_r": 0.441438234247063,
+              "AC_r": 0.41402634389462445,
+              "EC_I_r": 0.4962311557788945,
+              "EC_C_r": 0.4949748743718593
+            },
+            "counts": {
+              "TI": {
+                "tp": 1857,
+                "fp": 667,
+                "fn": 588
+              },
+              "TC": {
+                "tp": 1528,
+                "fp": 996,
+                "fn": 917
+              },
+              "AI": {
+                "tp": 2480,
+                "fp": 3321,
+                "fn": 3138
+              },
+              "AC": {
+                "tp": 2326,
+                "fp": 3475,
+                "fn": 3292
+              },
+              "EC_I": {
+                "tp": 395,
+                "fp": 505,
+                "fn": 401
+              },
+              "EC_C": {
+                "tp": 394,
+                "fp": 506,
+                "fn": 402
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7472837022132798,
+              "TC_f1": 0.6148893360160966,
+              "AI_f1": 0.43417366946778707,
+              "AC_f1": 0.4072128851540617,
+              "EC_I_f1": 0.4655274012964054,
+              "EC_C_f1": 0.46434885091337647,
+              "TI_p": 0.7354455445544554,
+              "TC_p": 0.6051485148514851,
+              "AI_p": 0.42714433344815705,
+              "AC_p": 0.40062004822597314,
+              "EC_I_p": 0.4384017758046615,
+              "EC_C_p": 0.43729189789123196,
+              "TI_r": 0.7595092024539877,
+              "TC_r": 0.6249488752556237,
+              "AI_r": 0.441438234247063,
+              "AC_r": 0.41402634389462445,
+              "EC_I_r": 0.4962311557788945,
+              "EC_C_r": 0.4949748743718593
+            },
+            "counts": {
+              "TI": {
+                "tp": 1857,
+                "fp": 668,
+                "fn": 588
+              },
+              "TC": {
+                "tp": 1528,
+                "fp": 997,
+                "fn": 917
+              },
+              "AI": {
+                "tp": 2480,
+                "fp": 3326,
+                "fn": 3138
+              },
+              "AC": {
+                "tp": 2326,
+                "fp": 3480,
+                "fn": 3292
+              },
+              "EC_I": {
+                "tp": 395,
+                "fp": 506,
+                "fn": 401
+              },
+              "EC_C": {
+                "tp": 394,
+                "fp": 507,
+                "fn": 402
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2524,
+          "raw_events": 2525
+        },
+        "2406": {
+          "official_offset": {
+            "TI_f1": 0.7448030093050882,
+            "TC_f1": 0.619746233148295,
+            "AI_f1": 0.4315458485595309,
+            "AC_f1": 0.4055064581917063,
+            "EC_I_f1": 0.47759500850822467,
+            "EC_C_f1": 0.47759500850822467,
+            "TI_p": 0.7217958557175749,
+            "TC_p": 0.6013851481338977,
+            "AI_p": 0.4129126687266222,
+            "AC_p": 0.3879674796747967,
+            "EC_I_p": 0.434468524251806,
+            "EC_C_p": 0.434468524251806,
+            "TI_r": 0.7693251533742331,
+            "TC_r": 0.6392638036809816,
+            "AI_r": 0.45194019223923104,
+            "AC_r": 0.4247063011747953,
+            "EC_I_r": 0.5302267002518891,
+            "EC_C_r": 0.5302267002518891
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7545526524148852,
+            "TC_f1": 0.6190759468570295,
+            "AI_f1": 0.4254270417268632,
+            "AC_f1": 0.39921821889870834,
+            "EC_I_f1": 0.4558823529411764,
+            "EC_C_f1": 0.4547511312217195,
+            "TI_p": 0.731108553893364,
+            "TC_p": 0.6008468052347959,
+            "AI_p": 0.4070580582208489,
+            "AC_p": 0.38195121951219513,
+            "EC_I_p": 0.41460905349794236,
+            "EC_C_p": 0.41358024691358025,
+            "TI_r": 0.7795501022494887,
+            "TC_r": 0.6384458077709612,
+            "AI_r": 0.4455322178711285,
+            "AC_r": 0.41812032751868994,
+            "EC_I_r": 0.5062814070351759,
+            "EC_C_r": 0.5050251256281407
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7542540561931144,
+            "TC_f1": 0.6188305252725471,
+            "AI_f1": 0.42492148374501315,
+            "AC_f1": 0.398743846545578,
+            "EC_I_f1": 0.4553672316384181,
+            "EC_C_f1": 0.4542372881355933,
+            "TI_p": 0.7305481027213492,
+            "TC_p": 0.6003846153846154,
+            "AI_p": 0.4061333766023041,
+            "AC_p": 0.3810837118754056,
+            "EC_I_p": 0.4137577002053388,
+            "EC_C_p": 0.4127310061601643,
+            "TI_r": 0.7795501022494887,
+            "TC_r": 0.6384458077709612,
+            "AI_r": 0.4455322178711285,
+            "AC_r": 0.41812032751868994,
+            "EC_I_r": 0.5062814070351759,
+            "EC_C_r": 0.5050251256281407
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7350427350427349,
+              "TC_f1": 0.614589544822103,
+              "AI_f1": 0.42992085779933614,
+              "AC_f1": 0.4040507190877372,
+              "EC_I_f1": 0.47494305239179957,
+              "EC_C_f1": 0.47494305239179957,
+              "TI_p": 0.7150038669760247,
+              "TC_p": 0.5978344934261408,
+              "AI_p": 0.41187021033751836,
+              "AC_p": 0.38708625468775476,
+              "EC_I_p": 0.43347193347193347,
+              "EC_C_p": 0.43347193347193347,
+              "TI_r": 0.7562372188139059,
+              "TC_r": 0.6323108384458078,
+              "AI_r": 0.449626201495194,
+              "AC_r": 0.42257030971876114,
+              "EC_I_r": 0.5251889168765743,
+              "EC_C_r": 0.5251889168765743
+            },
+            "counts": {
+              "TI": {
+                "tp": 1849,
+                "fp": 737,
+                "fn": 596
+              },
+              "TC": {
+                "tp": 1546,
+                "fp": 1040,
+                "fn": 899
+              },
+              "AI": {
+                "tp": 2526,
+                "fp": 3607,
+                "fn": 3092
+              },
+              "AC": {
+                "tp": 2374,
+                "fp": 3759,
+                "fn": 3244
+              },
+              "EC_I": {
+                "tp": 417,
+                "fp": 545,
+                "fn": 377
+              },
+              "EC_C": {
+                "tp": 417,
+                "fp": 545,
+                "fn": 377
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7394156231365534,
+              "TC_f1": 0.6173722917908964,
+              "AI_f1": 0.43655859075823333,
+              "AC_f1": 0.4101778572036422,
+              "EC_I_f1": 0.4789533560864619,
+              "EC_C_f1": 0.477815699658703,
+              "TI_p": 0.7192575406032483,
+              "TC_p": 0.6005413766434649,
+              "AI_p": 0.4182292515897603,
+              "AC_p": 0.3929561389205935,
+              "EC_I_p": 0.4376299376299376,
+              "EC_C_p": 0.4365904365904366,
+              "TI_r": 0.7607361963190185,
+              "TC_r": 0.6351738241308793,
+              "AI_r": 0.45656817372730507,
+              "AC_r": 0.42897828408686367,
+              "EC_I_r": 0.5288944723618091,
+              "EC_C_r": 0.5276381909547738
+            },
+            "counts": {
+              "TI": {
+                "tp": 1860,
+                "fp": 726,
+                "fn": 585
+              },
+              "TC": {
+                "tp": 1553,
+                "fp": 1033,
+                "fn": 892
+              },
+              "AI": {
+                "tp": 2565,
+                "fp": 3568,
+                "fn": 3053
+              },
+              "AC": {
+                "tp": 2410,
+                "fp": 3723,
+                "fn": 3208
+              },
+              "EC_I": {
+                "tp": 421,
+                "fp": 541,
+                "fn": 375
+              },
+              "EC_C": {
+                "tp": 420,
+                "fp": 542,
+                "fn": 376
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7389749702026222,
+              "TC_f1": 0.6170043702820819,
+              "AI_f1": 0.4360020397756247,
+              "AC_f1": 0.4096549379568247,
+              "EC_I_f1": 0.4784090909090909,
+              "EC_C_f1": 0.47727272727272724,
+              "TI_p": 0.7184241019698725,
+              "TC_p": 0.5998455001931248,
+              "AI_p": 0.4172088484059857,
+              "AC_p": 0.3919973975276513,
+              "EC_I_p": 0.4367219917012448,
+              "EC_C_p": 0.43568464730290457,
+              "TI_r": 0.7607361963190185,
+              "TC_r": 0.6351738241308793,
+              "AI_r": 0.45656817372730507,
+              "AC_r": 0.42897828408686367,
+              "EC_I_r": 0.5288944723618091,
+              "EC_C_r": 0.5276381909547738
+            },
+            "counts": {
+              "TI": {
+                "tp": 1860,
+                "fp": 729,
+                "fn": 585
+              },
+              "TC": {
+                "tp": 1553,
+                "fp": 1036,
+                "fn": 892
+              },
+              "AI": {
+                "tp": 2565,
+                "fp": 3583,
+                "fn": 3053
+              },
+              "AC": {
+                "tp": 2410,
+                "fp": 3738,
+                "fn": 3208
+              },
+              "EC_I": {
+                "tp": 421,
+                "fp": 543,
+                "fn": 375
+              },
+              "EC_C": {
+                "tp": 420,
+                "fp": 544,
+                "fn": 376
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2586,
+          "raw_events": 2589
+        },
+        "3208": {
+          "official_offset": {
+            "TI_f1": 0.7389720760825577,
+            "TC_f1": 0.6127659574468084,
+            "AI_f1": 0.4220585656671927,
+            "AC_f1": 0.3982820580243667,
+            "EC_I_f1": 0.47664670658682634,
+            "EC_C_f1": 0.47664670658682634,
+            "TI_p": 0.7312775330396476,
+            "TC_p": 0.6072289156626506,
+            "AI_p": 0.415860400829302,
+            "AC_p": 0.39233293040925576,
+            "EC_I_p": 0.454337899543379,
+            "EC_C_p": 0.454337899543379,
+            "TI_r": 0.7468302658486707,
+            "TC_r": 0.6184049079754601,
+            "AI_r": 0.42844428622285513,
+            "AC_r": 0.4044143823424706,
+            "EC_I_r": 0.5012594458438288,
+            "EC_C_r": 0.5012594458438288
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7494949494949495,
+            "TC_f1": 0.6118314424635333,
+            "AI_f1": 0.41606031384237746,
+            "AC_f1": 0.3922874671340929,
+            "EC_I_f1": 0.45611940298507464,
+            "EC_C_f1": 0.45611940298507464,
+            "TI_p": 0.7405189620758483,
+            "TC_p": 0.6061822561220394,
+            "AI_p": 0.40991535671100365,
+            "AC_p": 0.3863950276243094,
+            "EC_I_p": 0.43458475540386804,
+            "EC_C_p": 0.43458475540386804,
+            "TI_r": 0.7586912065439673,
+            "TC_r": 0.6175869120654397,
+            "AI_r": 0.42239231043075826,
+            "AC_r": 0.3983624065503738,
+            "EC_I_r": 0.4798994974874372,
+            "EC_C_r": 0.4798994974874372
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7491922455573505,
+            "TC_f1": 0.6118647499493826,
+            "AI_f1": 0.4156821562964907,
+            "AC_f1": 0.39166958347917397,
+            "EC_I_f1": 0.45557543231961833,
+            "EC_C_f1": 0.45557543231961833,
+            "TI_p": 0.7399282010370961,
+            "TC_p": 0.6058540497193264,
+            "AI_p": 0.4088483387846445,
+            "AC_p": 0.385197934595525,
+            "EC_I_p": 0.4335981838819523,
+            "EC_C_p": 0.4335981838819523,
+            "TI_r": 0.7586912065439673,
+            "TC_r": 0.6179959100204498,
+            "AI_r": 0.42274830900676397,
+            "AC_r": 0.3983624065503738,
+            "EC_I_r": 0.4798994974874372,
+            "EC_C_r": 0.4798994974874372
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7301199918649582,
+              "TC_f1": 0.6072808623144194,
+              "AI_f1": 0.41982251120288194,
+              "AC_f1": 0.3959230296107547,
+              "EC_I_f1": 0.47441300421432875,
+              "EC_C_f1": 0.47441300421432875,
+              "TI_p": 0.7261326860841424,
+              "TC_p": 0.6039644012944984,
+              "AI_p": 0.41454103765399963,
+              "AC_p": 0.3909422175950026,
+              "EC_I_p": 0.4544405997693195,
+              "EC_C_p": 0.4544405997693195,
+              "TI_r": 0.7341513292433538,
+              "TC_r": 0.6106339468302658,
+              "AI_r": 0.42524029903880384,
+              "AC_r": 0.4010323958704165,
+              "EC_I_r": 0.49622166246851385,
+              "EC_C_r": 0.49622166246851385
+            },
+            "counts": {
+              "TI": {
+                "tp": 1795,
+                "fp": 677,
+                "fn": 650
+              },
+              "TC": {
+                "tp": 1493,
+                "fp": 979,
+                "fn": 952
+              },
+              "AI": {
+                "tp": 2389,
+                "fp": 3374,
+                "fn": 3229
+              },
+              "AC": {
+                "tp": 2253,
+                "fp": 3510,
+                "fn": 3365
+              },
+              "EC_I": {
+                "tp": 394,
+                "fp": 473,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 394,
+                "fp": 473,
+                "fn": 400
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7345942647956071,
+              "TC_f1": 0.609721374822046,
+              "AI_f1": 0.4256216501186188,
+              "AC_f1": 0.4015464370441965,
+              "EC_I_f1": 0.476247745039086,
+              "EC_C_f1": 0.476247745039086,
+              "TI_p": 0.7305825242718447,
+              "TC_p": 0.6063915857605178,
+              "AI_p": 0.420267221933021,
+              "AC_p": 0.396494881138296,
+              "EC_I_p": 0.45674740484429066,
+              "EC_C_p": 0.45674740484429066,
+              "TI_r": 0.7386503067484662,
+              "TC_r": 0.6130879345603272,
+              "AI_r": 0.43111427554289783,
+              "AC_r": 0.40672837308650767,
+              "EC_I_r": 0.49748743718592964,
+              "EC_C_r": 0.49748743718592964
+            },
+            "counts": {
+              "TI": {
+                "tp": 1806,
+                "fp": 666,
+                "fn": 639
+              },
+              "TC": {
+                "tp": 1499,
+                "fp": 973,
+                "fn": 946
+              },
+              "AI": {
+                "tp": 2422,
+                "fp": 3341,
+                "fn": 3196
+              },
+              "AC": {
+                "tp": 2285,
+                "fp": 3478,
+                "fn": 3333
+              },
+              "EC_I": {
+                "tp": 396,
+                "fp": 471,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 396,
+                "fp": 471,
+                "fn": 400
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7342955885342549,
+              "TC_f1": 0.6094734702175238,
+              "AI_f1": 0.42494955697868236,
+              "AC_f1": 0.40091236073339775,
+              "EC_I_f1": 0.4756756756756756,
+              "EC_C_f1": 0.4756756756756756,
+              "TI_p": 0.7299919159256265,
+              "TC_p": 0.6059013742926435,
+              "AI_p": 0.4189586576716831,
+              "AC_p": 0.39526033558207924,
+              "EC_I_p": 0.45569620253164556,
+              "EC_C_p": 0.45569620253164556,
+              "TI_r": 0.7386503067484662,
+              "TC_r": 0.6130879345603272,
+              "AI_r": 0.43111427554289783,
+              "AC_r": 0.40672837308650767,
+              "EC_I_r": 0.49748743718592964,
+              "EC_C_r": 0.49748743718592964
+            },
+            "counts": {
+              "TI": {
+                "tp": 1806,
+                "fp": 668,
+                "fn": 639
+              },
+              "TC": {
+                "tp": 1499,
+                "fp": 975,
+                "fn": 946
+              },
+              "AI": {
+                "tp": 2422,
+                "fp": 3359,
+                "fn": 3196
+              },
+              "AC": {
+                "tp": 2285,
+                "fp": 3496,
+                "fn": 3333
+              },
+              "EC_I": {
+                "tp": 396,
+                "fp": 473,
+                "fn": 400
+              },
+              "EC_C": {
+                "tp": 396,
+                "fp": 473,
+                "fn": 400
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2472,
+          "raw_events": 2474
+        },
+        "4010": {
+          "official_offset": {
+            "TI_f1": 0.7291666666666666,
+            "TC_f1": 0.6131805157593124,
+            "AI_f1": 0.4172355705293022,
+            "AC_f1": 0.38971631205673757,
+            "EC_I_f1": 0.4671532846715329,
+            "EC_C_f1": 0.4671532846715329,
+            "TI_p": 0.7282741738066095,
+            "TC_p": 0.6136829168373618,
+            "AI_p": 0.4156509450627098,
+            "AC_p": 0.38820204874602615,
+            "EC_I_p": 0.45176470588235296,
+            "EC_C_p": 0.45176470588235296,
+            "TI_r": 0.7300613496932515,
+            "TC_r": 0.612678936605317,
+            "AI_r": 0.4188323246707013,
+            "AC_r": 0.3912424350302599,
+            "EC_I_r": 0.4836272040302267,
+            "EC_C_r": 0.4836272040302267
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7395026498165511,
+            "TC_f1": 0.6121112929623568,
+            "AI_f1": 0.41131105398457585,
+            "AC_f1": 0.3842949570149783,
+            "EC_I_f1": 0.44633110976349305,
+            "EC_C_f1": 0.44633110976349305,
+            "TI_p": 0.7370987403494514,
+            "TC_p": 0.6123618501841998,
+            "AI_p": 0.4096768497262935,
+            "AC_p": 0.3827007943512798,
+            "EC_I_p": 0.43141852286049237,
+            "EC_C_p": 0.43141852286049237,
+            "TI_r": 0.7419222903885481,
+            "TC_r": 0.6118609406952965,
+            "AI_r": 0.4129583481666073,
+            "AC_r": 0.38590245639017445,
+            "EC_I_r": 0.4623115577889447,
+            "EC_C_r": 0.4623115577889447
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7392013039934799,
+            "TC_f1": 0.6118609406952965,
+            "AI_f1": 0.4106558102486945,
+            "AC_f1": 0.38368285992390055,
+            "EC_I_f1": 0.4457904300423986,
+            "EC_C_f1": 0.4457904300423986,
+            "TI_p": 0.7365002030044661,
+            "TC_p": 0.6118609406952965,
+            "AI_p": 0.40837880654814296,
+            "AC_p": 0.381488650360725,
+            "EC_I_p": 0.4304093567251462,
+            "EC_C_p": 0.4304093567251462,
+            "TI_r": 0.7419222903885481,
+            "TC_r": 0.6118609406952965,
+            "AI_r": 0.4129583481666073,
+            "AC_r": 0.38590245639017445,
+            "EC_I_r": 0.4623115577889447,
+            "EC_C_r": 0.4623115577889447
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7195897435897436,
+              "TC_f1": 0.6071794871794871,
+              "AI_f1": 0.4148832252908267,
+              "AC_f1": 0.3875321907468253,
+              "EC_I_f1": 0.46454767726161367,
+              "EC_C_f1": 0.46454767726161367,
+              "TI_p": 0.7218106995884773,
+              "TC_p": 0.6090534979423868,
+              "AI_p": 0.41396420343788765,
+              "AC_p": 0.3866737550948077,
+              "EC_I_p": 0.4513064133016627,
+              "EC_C_p": 0.4513064133016627,
+              "TI_r": 0.7173824130879346,
+              "TC_r": 0.6053169734151329,
+              "AI_r": 0.4158063367746529,
+              "AC_r": 0.3883944464222143,
+              "EC_I_r": 0.47858942065491183,
+              "EC_C_r": 0.47858942065491183
+            },
+            "counts": {
+              "TI": {
+                "tp": 1754,
+                "fp": 676,
+                "fn": 691
+              },
+              "TC": {
+                "tp": 1480,
+                "fp": 950,
+                "fn": 965
+              },
+              "AI": {
+                "tp": 2336,
+                "fp": 3307,
+                "fn": 3282
+              },
+              "AC": {
+                "tp": 2182,
+                "fp": 3461,
+                "fn": 3436
+              },
+              "EC_I": {
+                "tp": 380,
+                "fp": 462,
+                "fn": 414
+              },
+              "EC_C": {
+                "tp": 380,
+                "fp": 462,
+                "fn": 414
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7241025641025641,
+              "TC_f1": 0.6096410256410257,
+              "AI_f1": 0.42074416126454134,
+              "AC_f1": 0.39339312672053994,
+              "EC_I_f1": 0.46642246642246643,
+              "EC_C_f1": 0.46642246642246643,
+              "TI_p": 0.7263374485596708,
+              "TC_p": 0.6115226337448559,
+              "AI_p": 0.4198121566542619,
+              "AC_p": 0.392521708311182,
+              "EC_I_p": 0.45368171021377673,
+              "EC_C_p": 0.45368171021377673,
+              "TI_r": 0.721881390593047,
+              "TC_r": 0.6077709611451942,
+              "AI_r": 0.4216803132787469,
+              "AC_r": 0.3942684229263083,
+              "EC_I_r": 0.4798994974874372,
+              "EC_C_r": 0.4798994974874372
+            },
+            "counts": {
+              "TI": {
+                "tp": 1765,
+                "fp": 665,
+                "fn": 680
+              },
+              "TC": {
+                "tp": 1486,
+                "fp": 944,
+                "fn": 959
+              },
+              "AI": {
+                "tp": 2369,
+                "fp": 3274,
+                "fn": 3249
+              },
+              "AC": {
+                "tp": 2215,
+                "fp": 3428,
+                "fn": 3403
+              },
+              "EC_I": {
+                "tp": 382,
+                "fp": 460,
+                "fn": 414
+              },
+              "EC_C": {
+                "tp": 382,
+                "fp": 460,
+                "fn": 414
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7238056182079147,
+              "TC_f1": 0.6093910190690999,
+              "AI_f1": 0.42007270148062775,
+              "AC_f1": 0.3927653160741201,
+              "EC_I_f1": 0.46585365853658534,
+              "EC_C_f1": 0.46585365853658534,
+              "TI_p": 0.7257401315789473,
+              "TC_p": 0.6110197368421053,
+              "AI_p": 0.418477300830242,
+              "AC_p": 0.3912736265677442,
+              "EC_I_p": 0.45260663507109006,
+              "EC_C_p": 0.45260663507109006,
+              "TI_r": 0.721881390593047,
+              "TC_r": 0.6077709611451942,
+              "AI_r": 0.4216803132787469,
+              "AC_r": 0.3942684229263083,
+              "EC_I_r": 0.4798994974874372,
+              "EC_C_r": 0.4798994974874372
+            },
+            "counts": {
+              "TI": {
+                "tp": 1765,
+                "fp": 667,
+                "fn": 680
+              },
+              "TC": {
+                "tp": 1486,
+                "fp": 946,
+                "fn": 959
+              },
+              "AI": {
+                "tp": 2369,
+                "fp": 3292,
+                "fn": 3249
+              },
+              "AC": {
+                "tp": 2215,
+                "fp": 3446,
+                "fn": 3403
+              },
+              "EC_I": {
+                "tp": 382,
+                "fp": 462,
+                "fn": 414
+              },
+              "EC_C": {
+                "tp": 382,
+                "fp": 462,
+                "fn": 414
+              }
+            }
+          },
+          "gold_events": 2445,
+          "aligned_events": 2430,
+          "raw_events": 2432
+        }
+      },
+      "test": {
+        "2406": {
+          "official_offset": {
+            "TI_f1": 0.7519031817294552,
+            "TC_f1": 0.6310035142522452,
+            "AI_f1": 0.44158218381253117,
+            "AC_f1": 0.419810536812365,
+            "EC_I_f1": 0.4819004524886878,
+            "EC_C_f1": 0.4819004524886878,
+            "TI_p": 0.72,
+            "TC_p": 0.6043380703066566,
+            "AI_p": 0.4206110495488365,
+            "AC_p": 0.39987335760645876,
+            "EC_I_p": 0.43917525773195876,
+            "EC_C_p": 0.43917525773195876,
+            "TI_r": 0.7867647058823529,
+            "TC_r": 0.6601307189542484,
+            "AI_r": 0.46475424173517577,
+            "AC_r": 0.4418401259401784,
+            "EC_I_r": 0.5338345864661654,
+            "EC_C_r": 0.5338345864661654
+          },
+          "official_aligned_token": {
+            "TI_f1": 0.7597962382445141,
+            "TC_f1": 0.6289849403481321,
+            "AI_f1": 0.4383630011645317,
+            "AC_f1": 0.41666666666666663,
+            "EC_I_f1": 0.4695945945945946,
+            "EC_C_f1": 0.4695945945945946,
+            "TI_p": 0.7300451807228916,
+            "TC_p": 0.6033771106941839,
+            "AI_p": 0.41792228390166536,
+            "AC_p": 0.39717773902013637,
+            "EC_I_p": 0.42901234567901236,
+            "EC_C_p": 0.42901234567901236,
+            "TI_r": 0.7920751633986928,
+            "TC_r": 0.6568627450980392,
+            "AI_r": 0.460906069616932,
+            "AC_r": 0.4381668707364002,
+            "EC_I_r": 0.5186567164179104,
+            "EC_C_r": 0.5186567164179104
+          },
+          "official_raw_token": {
+            "TI_f1": 0.7590526521824232,
+            "TC_f1": 0.6283704572098476,
+            "AI_f1": 0.43683687002652516,
+            "AC_f1": 0.41521631029338635,
+            "EC_I_f1": 0.4688026981450253,
+            "EC_C_f1": 0.4688026981450253,
+            "TI_p": 0.728673431040962,
+            "TC_p": 0.6022471910112359,
+            "AI_p": 0.4151567669765243,
+            "AC_p": 0.3945503228854938,
+            "EC_I_p": 0.4276923076923077,
+            "EC_C_p": 0.4276923076923077,
+            "TI_r": 0.7920751633986928,
+            "TC_r": 0.6568627450980392,
+            "AI_r": 0.460906069616932,
+            "AC_r": 0.4381668707364002,
+            "EC_I_r": 0.5186567164179104,
+            "EC_C_r": 0.5186567164179104
+          },
+          "instance_offset": {
+            "metrics": {
+              "TI_f1": 0.7446226046147829,
+              "TC_f1": 0.6257332811888932,
+              "AI_f1": 0.4395074055583292,
+              "AC_f1": 0.417540356132468,
+              "EC_I_f1": 0.47732426303854875,
+              "EC_C_f1": 0.47732426303854875,
+              "TI_p": 0.714178544636159,
+              "TC_p": 0.6001500375093773,
+              "AI_p": 0.4191398190763371,
+              "AC_p": 0.3981907633708935,
+              "EC_I_p": 0.4358178053830228,
+              "EC_C_p": 0.4358178053830228,
+              "TI_r": 0.7777777777777778,
+              "TC_r": 0.6535947712418301,
+              "AI_r": 0.4619555711037257,
+              "AC_r": 0.4388665383942627,
+              "EC_I_r": 0.5275689223057645,
+              "EC_C_r": 0.5275689223057645
+            },
+            "counts": {
+              "TI": {
+                "tp": 1904,
+                "fp": 762,
+                "fn": 544
+              },
+              "TC": {
+                "tp": 1600,
+                "fp": 1066,
+                "fn": 848
+              },
+              "AI": {
+                "tp": 2641,
+                "fp": 3660,
+                "fn": 3076
+              },
+              "AC": {
+                "tp": 2509,
+                "fp": 3792,
+                "fn": 3208
+              },
+              "EC_I": {
+                "tp": 421,
+                "fp": 545,
+                "fn": 377
+              },
+              "EC_C": {
+                "tp": 421,
+                "fp": 545,
+                "fn": 377
+              }
+            }
+          },
+          "instance_aligned_token": {
+            "metrics": {
+              "TI_f1": 0.7469691044192412,
+              "TC_f1": 0.6284708642940946,
+              "AI_f1": 0.4468297553669496,
+              "AC_f1": 0.4248627059410883,
+              "EC_I_f1": 0.48248587570621465,
+              "EC_C_f1": 0.48248587570621465,
+              "TI_p": 0.7164291072768192,
+              "TC_p": 0.6027756939234808,
+              "AI_p": 0.4261228376448183,
+              "AC_p": 0.4051737819393747,
+              "EC_I_p": 0.4420289855072464,
+              "EC_C_p": 0.4420289855072464,
+              "TI_r": 0.7802287581699346,
+              "TC_r": 0.6564542483660131,
+              "AI_r": 0.4696519153402134,
+              "AC_r": 0.4465628826307504,
+              "EC_I_r": 0.5310945273631841,
+              "EC_C_r": 0.5310945273631841
+            },
+            "counts": {
+              "TI": {
+                "tp": 1910,
+                "fp": 756,
+                "fn": 538
+              },
+              "TC": {
+                "tp": 1607,
+                "fp": 1059,
+                "fn": 841
+              },
+              "AI": {
+                "tp": 2685,
+                "fp": 3616,
+                "fn": 3032
+              },
+              "AC": {
+                "tp": 2553,
+                "fp": 3748,
+                "fn": 3164
+              },
+              "EC_I": {
+                "tp": 427,
+                "fp": 539,
+                "fn": 377
+              },
+              "EC_C": {
+                "tp": 427,
+                "fp": 539,
+                "fn": 377
+              }
+            }
+          },
+          "instance_raw_token": {
+            "metrics": {
+              "TI_f1": 0.7462394999023247,
+              "TC_f1": 0.6278570033209611,
+              "AI_f1": 0.445273631840796,
+              "AC_f1": 0.4233830845771144,
+              "EC_I_f1": 0.48166948674562887,
+              "EC_C_f1": 0.48166948674562887,
+              "TI_p": 0.7150879820292025,
+              "TC_p": 0.6016473230999626,
+              "AI_p": 0.4233012769982658,
+              "AC_p": 0.40249093488885385,
+              "EC_I_p": 0.4406604747162023,
+              "EC_C_p": 0.4406604747162023,
+              "TI_r": 0.7802287581699346,
+              "TC_r": 0.6564542483660131,
+              "AI_r": 0.4696519153402134,
+              "AC_r": 0.4465628826307504,
+              "EC_I_r": 0.5310945273631841,
+              "EC_C_r": 0.5310945273631841
+            },
+            "counts": {
+              "TI": {
+                "tp": 1910,
+                "fp": 761,
+                "fn": 538
+              },
+              "TC": {
+                "tp": 1607,
+                "fp": 1064,
+                "fn": 841
+              },
+              "AI": {
+                "tp": 2685,
+                "fp": 3658,
+                "fn": 3032
+              },
+              "AC": {
+                "tp": 2553,
+                "fp": 3790,
+                "fn": 3164
+              },
+              "EC_I": {
+                "tp": 427,
+                "fp": 542,
+                "fn": 377
+              },
+              "EC_C": {
+                "tp": 427,
+                "fp": 542,
+                "fn": 377
+              }
+            }
+          },
+          "gold_events": 2448,
+          "aligned_events": 2666,
+          "raw_events": 2671
+        }
+      }
+    }
+  },
+  "TI_mode_decomposition": {
+    "baseline": {
+      "same_prediction_set_instance_TI_offset_tp": 1802,
+      "token_tp": 1805,
+      "extra_same_text_different_position_matches": 3,
+      "affected_documents": 3,
+      "cross_sentence_matches": 1,
+      "matches": [
+        {
+          "gold_index": 4,
+          "prediction_index": 4,
+          "gold_offsets": [
+            94,
+            95,
+            96
+          ],
+          "prediction_offsets": [
+            79,
+            80,
+            81
+          ],
+          "text": "fine - tuning",
+          "gold_type": "PUR",
+          "prediction_type": "PUR",
+          "doc_id": "fd4526d8ccd6b35ae6a285c2e34721f3",
+          "gold_sentence": 2,
+          "prediction_sentence": 2
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1,
+          "gold_offsets": [
+            18
+          ],
+          "prediction_offsets": [
+            8
+          ],
+          "text": "model",
+          "gold_type": "PUR",
+          "prediction_type": "PUR",
+          "doc_id": "c3c8a2d1551a95cb1294169a94abc3cf",
+          "gold_sentence": 0,
+          "prediction_sentence": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 6,
+          "gold_offsets": [
+            48
+          ],
+          "prediction_offsets": [
+            112
+          ],
+          "text": "train",
+          "gold_type": "RWF",
+          "prediction_type": "FAC",
+          "doc_id": "8fb81ecb040bc192cdaae50be829d7e6",
+          "gold_sentence": 3,
+          "prediction_sentence": 5
+        }
+      ]
+    },
+    "Easy2": {
+      "same_prediction_set_instance_TI_offset_tp": 1838,
+      "token_tp": 1843,
+      "extra_same_text_different_position_matches": 5,
+      "affected_documents": 5,
+      "cross_sentence_matches": 3,
+      "matches": [
+        {
+          "gold_index": 4,
+          "prediction_index": 4,
+          "gold_offsets": [
+            94,
+            95,
+            96
+          ],
+          "prediction_offsets": [
+            79,
+            80,
+            81
+          ],
+          "text": "fine - tuning",
+          "gold_type": "PUR",
+          "prediction_type": "PUR",
+          "doc_id": "fd4526d8ccd6b35ae6a285c2e34721f3",
+          "gold_sentence": 2,
+          "prediction_sentence": 2
+        },
+        {
+          "gold_index": 4,
+          "prediction_index": 0,
+          "gold_offsets": [
+            102
+          ],
+          "prediction_offsets": [
+            16
+          ],
+          "text": "learn",
+          "gold_type": "PUR",
+          "prediction_type": "ITT",
+          "doc_id": "c230114c489135157e9484b5ab5fa59f",
+          "gold_sentence": 3,
+          "prediction_sentence": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 4,
+          "gold_offsets": [
+            105
+          ],
+          "prediction_offsets": [
+            121
+          ],
+          "text": "estimating",
+          "gold_type": "RWF",
+          "prediction_type": "PUR",
+          "doc_id": "620d132c9aa19d58a4aa47369c9905a4",
+          "gold_sentence": 3,
+          "prediction_sentence": 4
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1,
+          "gold_offsets": [
+            18
+          ],
+          "prediction_offsets": [
+            8
+          ],
+          "text": "model",
+          "gold_type": "PUR",
+          "prediction_type": "PUR",
+          "doc_id": "c3c8a2d1551a95cb1294169a94abc3cf",
+          "gold_sentence": 0,
+          "prediction_sentence": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 6,
+          "gold_offsets": [
+            48
+          ],
+          "prediction_offsets": [
+            112
+          ],
+          "text": "train",
+          "gold_type": "RWF",
+          "prediction_type": "FAC",
+          "doc_id": "8fb81ecb040bc192cdaae50be829d7e6",
+          "gold_sentence": 3,
+          "prediction_sentence": 5
+        }
+      ]
+    },
+    "Sorted1": {
+      "same_prediction_set_instance_TI_offset_tp": 1904,
+      "token_tp": 1910,
+      "extra_same_text_different_position_matches": 6,
+      "affected_documents": 6,
+      "cross_sentence_matches": 3,
+      "matches": [
+        {
+          "gold_index": 4,
+          "prediction_index": 4,
+          "gold_offsets": [
+            94,
+            95,
+            96
+          ],
+          "prediction_offsets": [
+            79,
+            80,
+            81
+          ],
+          "text": "fine - tuning",
+          "gold_type": "PUR",
+          "prediction_type": "PUR",
+          "doc_id": "fd4526d8ccd6b35ae6a285c2e34721f3",
+          "gold_sentence": 2,
+          "prediction_sentence": 2
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 4,
+          "gold_offsets": [
+            105
+          ],
+          "prediction_offsets": [
+            121
+          ],
+          "text": "estimating",
+          "gold_type": "RWF",
+          "prediction_type": "PUR",
+          "doc_id": "620d132c9aa19d58a4aa47369c9905a4",
+          "gold_sentence": 3,
+          "prediction_sentence": 4
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1,
+          "gold_offsets": [
+            18
+          ],
+          "prediction_offsets": [
+            8
+          ],
+          "text": "model",
+          "gold_type": "PUR",
+          "prediction_type": "PUR",
+          "doc_id": "c3c8a2d1551a95cb1294169a94abc3cf",
+          "gold_sentence": 0,
+          "prediction_sentence": 0
+        },
+        {
+          "gold_index": 8,
+          "prediction_index": 7,
+          "gold_offsets": [
+            177
+          ],
+          "prediction_offsets": [
+            115
+          ],
+          "text": "using",
+          "gold_type": "WKS",
+          "prediction_type": "WKS",
+          "doc_id": "f77e2f1a711f5545b43b227ec7eee1c7",
+          "gold_sentence": 5,
+          "prediction_sentence": 3
+        },
+        {
+          "gold_index": 5,
+          "prediction_index": 7,
+          "gold_offsets": [
+            110
+          ],
+          "prediction_offsets": [
+            100
+          ],
+          "text": "better",
+          "gold_type": "CMP",
+          "prediction_type": "CMP",
+          "doc_id": "be50c5d1339dabd34855cd1eeca4a35c",
+          "gold_sentence": 3,
+          "prediction_sentence": 3
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 7,
+          "gold_offsets": [
+            48
+          ],
+          "prediction_offsets": [
+            112
+          ],
+          "text": "train",
+          "gold_type": "RWF",
+          "prediction_type": "FAC",
+          "doc_id": "8fb81ecb040bc192cdaae50be829d7e6",
+          "gold_sentence": 3,
+          "prediction_sentence": 5
+        }
+      ]
+    }
+  },
+  "dev_selections": {
+    "baseline": {
+      "official_offset": 2406,
+      "instance_offset": 2406,
+      "instance_aligned_token": 2406,
+      "instance_raw_token": 2406
+    },
+    "Easy2": {
+      "official_offset": 2406,
+      "instance_offset": 2406,
+      "instance_aligned_token": 2406,
+      "instance_raw_token": 2406
+    },
+    "Sorted1": {
+      "official_offset": 2406,
+      "instance_offset": 2406,
+      "instance_aligned_token": 2406,
+      "instance_raw_token": 2406
+    }
+  },
+  "policy": "instance one-to-one scorer; alternate diagnostic metric, not official benchmark",
+  "limitations": [
+    "Token exact text does not identify mention position.",
+    "No gold used to realign actual predictions.",
+    "Historical dev-best test checkpoints remain2406; new dev choices recorded separately."
+  ]
+}

@@ -1,0 +1,1593 @@
+[
+  {
+    "variant": "baseline",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 4,
+      "prediction_index": 4,
+      "gold_offsets": [
+        94,
+        95,
+        96
+      ],
+      "prediction_offsets": [
+        79,
+        80,
+        81
+      ],
+      "text": "fine - tuning",
+      "gold_type": "PUR",
+      "prediction_type": "PUR",
+      "doc_id": "fd4526d8ccd6b35ae6a285c2e34721f3",
+      "gold_sentence": 2,
+      "prediction_sentence": 2
+    },
+    "title": "Making Pre-trained Language Models Better Few-shot Learners",
+    "abstract": "The recent GPT-3 model (Brown et al., 2020) achieves remarkable few-shot performance solely by leveraging a natural-language prompt and a few task demonstrations as input context. Inspired by their findings, we study few-shot learning in a more practical scenario, where we use smaller language models for which fine-tuning is computationally efficient. We present LM-BFF—better few-shot fine-tuning of language models—a suite of simple and complementary techniques for fine-tuning language models on a small number of annotated examples. Our approach includes (1) prompt-based fine-tuning together with a novel pipeline for automating prompt generation; and (2) a refined strategy for dynamically and selectively incorporating demonstrations into each context. Finally, we present a systematic evaluation for analyzing few-shot performance on a range of NLP tasks, including classification and regression. Our experiments demonstrate that our methods combine to dramatically outperform standard fine-tuning procedures in this low resource setting, achieving up to 30% absolute improvement, and 11% on average across all tasks. Our approach makes minimal assumptions on task resources and domain expertise, and hence constitutes a strong task-agnostic method for few-shot learning.",
+    "gold_event": {
+      "event_type": "PUR",
+      "arguments": [
+        {
+          "text": "language models",
+          "nugget_type": "APP",
+          "argument_type": "Aim",
+          "tokens": [
+            "language",
+            "models"
+          ],
+          "offsets": [
+            97,
+            98
+          ]
+        },
+        {
+          "text": "on a small number of annotated examples",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "on",
+            "a",
+            "small",
+            "number",
+            "of",
+            "annotated",
+            "examples"
+          ],
+          "offsets": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "fine - tuning",
+        "tokens": [
+          "fine",
+          "-",
+          "tuning"
+        ],
+        "offsets": [
+          94,
+          95,
+          96
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "fine - tuning",
+        "tokens": [
+          "fine",
+          "-",
+          "tuning"
+        ],
+        "offsets": [
+          79,
+          80,
+          81
+        ]
+      },
+      "arguments": [
+        {
+          "text": "language models",
+          "tokens": [
+            "language",
+            "models"
+          ],
+          "offsets": [
+            83,
+            84
+          ],
+          "argument_type": "Aim"
+        },
+        {
+          "text": "on a small number of annotated examples",
+          "tokens": [
+            "on",
+            "a",
+            "small",
+            "number",
+            "of",
+            "annotated",
+            "examples"
+          ],
+          "offsets": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "baseline",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 1,
+      "prediction_index": 1,
+      "gold_offsets": [
+        18
+      ],
+      "prediction_offsets": [
+        8
+      ],
+      "text": "model",
+      "gold_type": "PUR",
+      "prediction_type": "PUR",
+      "doc_id": "c3c8a2d1551a95cb1294169a94abc3cf",
+      "gold_sentence": 0,
+      "prediction_sentence": 0
+    },
+    "title": "Modeling Syntactic-Semantic Dependency Correlations in Semantic Role Labeling Using Mixture Models",
+    "abstract": "In this paper, we propose a mixture model-based end-to-end method to model the syntactic-semantic dependency correlation in Semantic Role Labeling (SRL). Semantic dependencies in SRL are modeled as a distribution over semantic dependency labels conditioned on a predicate and an argument word.The semantic label distribution varies depending on Shortest Syntactic Dependency Path (SSDP) hop patterns.We target the variation of semantic label distributions using a mixture model, separately estimating semantic label distributions for different hop patterns and probabilistically clustering hop patterns with similar semantic label distributions.Experiments show that the proposed method successfully learns a cluster assignment reflecting the variation of semantic label distributions.Modeling the variation improves performance in predicting short distance semantic dependencies, in addition to the improvement on long distance semantic dependencies that previous syntax-aware methods have achieved.The proposed method achieves a small but statistically significant improvement over baseline methods in English, German, and Spanish and obtains competitive performance with state-of-the-art methods in English.",
+    "gold_event": {
+      "event_type": "PUR",
+      "arguments": [
+        {
+          "text": "syntactic - semantic dependency correlation",
+          "nugget_type": "TAK",
+          "argument_type": "Aim",
+          "tokens": [
+            "syntactic",
+            "-",
+            "semantic",
+            "dependency",
+            "correlation"
+          ],
+          "offsets": [
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "text": "in semantic role labeling",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "in",
+            "semantic",
+            "role",
+            "labeling"
+          ],
+          "offsets": [
+            25,
+            26,
+            27,
+            28
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "model",
+        "tokens": [
+          "model"
+        ],
+        "offsets": [
+          18
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "model",
+        "tokens": [
+          "model"
+        ],
+        "offsets": [
+          8
+        ]
+      },
+      "arguments": [
+        {
+          "text": "syntactic - semantic dependency correlation",
+          "tokens": [
+            "syntactic",
+            "-",
+            "semantic",
+            "dependency",
+            "correlation"
+          ],
+          "offsets": [
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "argument_type": "Aim"
+        },
+        {
+          "text": "in semantic role labeling",
+          "tokens": [
+            "in",
+            "semantic",
+            "role",
+            "labeling"
+          ],
+          "offsets": [
+            25,
+            26,
+            27,
+            28
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "baseline",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 1,
+      "prediction_index": 6,
+      "gold_offsets": [
+        48
+      ],
+      "prediction_offsets": [
+        112
+      ],
+      "text": "train",
+      "gold_type": "RWF",
+      "prediction_type": "FAC",
+      "doc_id": "8fb81ecb040bc192cdaae50be829d7e6",
+      "gold_sentence": 3,
+      "prediction_sentence": 5
+    },
+    "title": "Unsupervised Information Extraction: Regularizing Discriminative Approaches with Relation Distribution Losses",
+    "abstract": "Unsupervised relation extraction aims at extracting relations between entities in text. Previous unsupervised approaches are either generative or discriminative. In a supervised setting, discriminative approaches, such as deep neural network classifiers, have demonstrated substantial improvement. However, these models are hard to train without supervision, and the currently proposed solutions are unstable. To overcome this limitation, we introduce a skewness loss which encourages the classifier to predict a relation with confidence given a sentence, and a distribution distance loss enforcing that all relations are predicted in average. These losses improve the performance of discriminative based models, and enable us to train deep neural networks satisfactorily, surpassing current state of the art on three different datasets.",
+    "gold_event": {
+      "event_type": "RWF",
+      "arguments": [
+        {
+          "text": "discriminative approaches",
+          "nugget_type": "APP",
+          "argument_type": "Concern",
+          "tokens": [
+            "discriminative",
+            "approaches"
+          ],
+          "offsets": [
+            26,
+            27
+          ]
+        },
+        {
+          "text": "hard",
+          "nugget_type": "WEA",
+          "argument_type": "Fault",
+          "tokens": [
+            "hard"
+          ],
+          "offsets": [
+            46
+          ]
+        },
+        {
+          "text": "without supervision",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "without",
+            "supervision"
+          ],
+          "offsets": [
+            49,
+            50
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "train",
+        "tokens": [
+          "train"
+        ],
+        "offsets": [
+          48
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "FAC",
+      "trigger": {
+        "text": "train",
+        "tokens": [
+          "train"
+        ],
+        "offsets": [
+          112
+        ]
+      },
+      "arguments": [
+        {
+          "text": "losses",
+          "tokens": [
+            "losses"
+          ],
+          "offsets": [
+            99
+          ],
+          "argument_type": "Subject"
+        },
+        {
+          "text": "deep neural networks",
+          "tokens": [
+            "deep",
+            "neural",
+            "networks"
+          ],
+          "offsets": [
+            113,
+            114,
+            115
+          ],
+          "argument_type": "Object"
+        },
+        {
+          "text": "satisfactorily",
+          "tokens": [
+            "satisfactorily"
+          ],
+          "offsets": [
+            116
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Easy2",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 4,
+      "prediction_index": 4,
+      "gold_offsets": [
+        94,
+        95,
+        96
+      ],
+      "prediction_offsets": [
+        79,
+        80,
+        81
+      ],
+      "text": "fine - tuning",
+      "gold_type": "PUR",
+      "prediction_type": "PUR",
+      "doc_id": "fd4526d8ccd6b35ae6a285c2e34721f3",
+      "gold_sentence": 2,
+      "prediction_sentence": 2
+    },
+    "title": "Making Pre-trained Language Models Better Few-shot Learners",
+    "abstract": "The recent GPT-3 model (Brown et al., 2020) achieves remarkable few-shot performance solely by leveraging a natural-language prompt and a few task demonstrations as input context. Inspired by their findings, we study few-shot learning in a more practical scenario, where we use smaller language models for which fine-tuning is computationally efficient. We present LM-BFF—better few-shot fine-tuning of language models—a suite of simple and complementary techniques for fine-tuning language models on a small number of annotated examples. Our approach includes (1) prompt-based fine-tuning together with a novel pipeline for automating prompt generation; and (2) a refined strategy for dynamically and selectively incorporating demonstrations into each context. Finally, we present a systematic evaluation for analyzing few-shot performance on a range of NLP tasks, including classification and regression. Our experiments demonstrate that our methods combine to dramatically outperform standard fine-tuning procedures in this low resource setting, achieving up to 30% absolute improvement, and 11% on average across all tasks. Our approach makes minimal assumptions on task resources and domain expertise, and hence constitutes a strong task-agnostic method for few-shot learning.",
+    "gold_event": {
+      "event_type": "PUR",
+      "arguments": [
+        {
+          "text": "language models",
+          "nugget_type": "APP",
+          "argument_type": "Aim",
+          "tokens": [
+            "language",
+            "models"
+          ],
+          "offsets": [
+            97,
+            98
+          ]
+        },
+        {
+          "text": "on a small number of annotated examples",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "on",
+            "a",
+            "small",
+            "number",
+            "of",
+            "annotated",
+            "examples"
+          ],
+          "offsets": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "fine - tuning",
+        "tokens": [
+          "fine",
+          "-",
+          "tuning"
+        ],
+        "offsets": [
+          94,
+          95,
+          96
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "fine - tuning",
+        "tokens": [
+          "fine",
+          "-",
+          "tuning"
+        ],
+        "offsets": [
+          79,
+          80,
+          81
+        ]
+      },
+      "arguments": [
+        {
+          "text": "language models",
+          "tokens": [
+            "language",
+            "models"
+          ],
+          "offsets": [
+            83,
+            84
+          ],
+          "argument_type": "Aim"
+        },
+        {
+          "text": "on a small number of annotated examples",
+          "tokens": [
+            "on",
+            "a",
+            "small",
+            "number",
+            "of",
+            "annotated",
+            "examples"
+          ],
+          "offsets": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Easy2",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 4,
+      "prediction_index": 0,
+      "gold_offsets": [
+        102
+      ],
+      "prediction_offsets": [
+        16
+      ],
+      "text": "learn",
+      "gold_type": "PUR",
+      "prediction_type": "ITT",
+      "doc_id": "c230114c489135157e9484b5ab5fa59f",
+      "gold_sentence": 3,
+      "prediction_sentence": 0
+    },
+    "title": "Analyzing Wrap-Up Effects through an Information-Theoretic Lens",
+    "abstract": "Numerous analyses of reading time (RT) data have been undertaken in the effort to learn more about the internal processes that occur during reading comprehension. However, data measured on words at the end of a sentence–or even clause–is often omitted due to the confounding factors introduced by so-called “wrap-up effects,” which manifests as a skewed distribution of RTs for these words. Consequently, the understanding of the cognitive processes that might be involved in these effects is limited. In this work, we attempt to learn more about these processes by looking for the existence–or absence–of a link between wrap-up effects and information theoretic quantities, such as word and context information content. We find that the information distribution of prior context is often predictive of sentence- and clause-final RTs (while not of sentence-medial RTs), which lends support to several prior hypotheses about the processes involved in wrap-up effects.",
+    "gold_event": {
+      "event_type": "PUR",
+      "arguments": [
+        {
+          "text": "more about these processes",
+          "nugget_type": "FEA",
+          "argument_type": "Aim",
+          "tokens": [
+            "more",
+            "about",
+            "these",
+            "processes"
+          ],
+          "offsets": [
+            103,
+            104,
+            105,
+            106
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "learn",
+        "tokens": [
+          "learn"
+        ],
+        "offsets": [
+          102
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "ITT",
+      "trigger": {
+        "text": "learn",
+        "tokens": [
+          "learn"
+        ],
+        "offsets": [
+          16
+        ]
+      },
+      "arguments": [
+        {
+          "text": "internal processes",
+          "tokens": [
+            "internal",
+            "processes"
+          ],
+          "offsets": [
+            20,
+            21
+          ],
+          "argument_type": "Target"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Easy2",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 1,
+      "prediction_index": 4,
+      "gold_offsets": [
+        105
+      ],
+      "prediction_offsets": [
+        121
+      ],
+      "text": "estimating",
+      "gold_type": "RWF",
+      "prediction_type": "PUR",
+      "doc_id": "620d132c9aa19d58a4aa47369c9905a4",
+      "gold_sentence": 3,
+      "prediction_sentence": 4
+    },
+    "title": "Estimating Mutual Information Between Dense Word Embeddings",
+    "abstract": "Word embedding-based similarity measures are currently among the top-performing methods on unsupervised semantic textual similarity (STS) tasks. Recent work has increasingly adopted a statistical view on these embeddings, with some of the top approaches being essentially various correlations (which include the famous cosine similarity). Another excellent candidate for a similarity measure is mutual information (MI), which can capture arbitrary dependencies between the variables and has a simple and intuitive expression. Unfortunately, its use in the context of dense word embeddings has so far been avoided due to difficulties with estimating MI for continuous data. In this work we go through a vast literature on estimating MI in such cases and single out the most promising methods, yielding a simple and elegant similarity measure for word embeddings. We show that mutual information is a viable alternative to correlations, gives an excellent signal that correlates well with human judgements of similarity and rivals existing state-of-the-art unsupervised methods.",
+    "gold_event": {
+      "event_type": "RWF",
+      "arguments": [
+        {
+          "text": "continuous data",
+          "nugget_type": "DST",
+          "argument_type": "Dataset",
+          "tokens": [
+            "continuous",
+            "data"
+          ],
+          "offsets": [
+            108,
+            109
+          ]
+        },
+        {
+          "text": "difficulties",
+          "nugget_type": "WEA",
+          "argument_type": "Fault",
+          "tokens": [
+            "difficulties"
+          ],
+          "offsets": [
+            103
+          ]
+        },
+        {
+          "text": "mutual information",
+          "nugget_type": "FEA",
+          "argument_type": "Concern",
+          "tokens": [
+            "mutual",
+            "information"
+          ],
+          "offsets": [
+            63,
+            64
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "estimating",
+        "tokens": [
+          "estimating"
+        ],
+        "offsets": [
+          105
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "estimating",
+        "tokens": [
+          "estimating"
+        ],
+        "offsets": [
+          121
+        ]
+      },
+      "arguments": [
+        {
+          "text": "mutual information",
+          "tokens": [
+            "mutual",
+            "information"
+          ],
+          "offsets": [
+            148,
+            149
+          ],
+          "argument_type": "Aim"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Easy2",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 1,
+      "prediction_index": 1,
+      "gold_offsets": [
+        18
+      ],
+      "prediction_offsets": [
+        8
+      ],
+      "text": "model",
+      "gold_type": "PUR",
+      "prediction_type": "PUR",
+      "doc_id": "c3c8a2d1551a95cb1294169a94abc3cf",
+      "gold_sentence": 0,
+      "prediction_sentence": 0
+    },
+    "title": "Modeling Syntactic-Semantic Dependency Correlations in Semantic Role Labeling Using Mixture Models",
+    "abstract": "In this paper, we propose a mixture model-based end-to-end method to model the syntactic-semantic dependency correlation in Semantic Role Labeling (SRL). Semantic dependencies in SRL are modeled as a distribution over semantic dependency labels conditioned on a predicate and an argument word.The semantic label distribution varies depending on Shortest Syntactic Dependency Path (SSDP) hop patterns.We target the variation of semantic label distributions using a mixture model, separately estimating semantic label distributions for different hop patterns and probabilistically clustering hop patterns with similar semantic label distributions.Experiments show that the proposed method successfully learns a cluster assignment reflecting the variation of semantic label distributions.Modeling the variation improves performance in predicting short distance semantic dependencies, in addition to the improvement on long distance semantic dependencies that previous syntax-aware methods have achieved.The proposed method achieves a small but statistically significant improvement over baseline methods in English, German, and Spanish and obtains competitive performance with state-of-the-art methods in English.",
+    "gold_event": {
+      "event_type": "PUR",
+      "arguments": [
+        {
+          "text": "syntactic - semantic dependency correlation",
+          "nugget_type": "TAK",
+          "argument_type": "Aim",
+          "tokens": [
+            "syntactic",
+            "-",
+            "semantic",
+            "dependency",
+            "correlation"
+          ],
+          "offsets": [
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "text": "in semantic role labeling",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "in",
+            "semantic",
+            "role",
+            "labeling"
+          ],
+          "offsets": [
+            25,
+            26,
+            27,
+            28
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "model",
+        "tokens": [
+          "model"
+        ],
+        "offsets": [
+          18
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "model",
+        "tokens": [
+          "model"
+        ],
+        "offsets": [
+          8
+        ]
+      },
+      "arguments": [
+        {
+          "text": "syntactic - semantic dependency correlation",
+          "tokens": [
+            "syntactic",
+            "-",
+            "semantic",
+            "dependency",
+            "correlation"
+          ],
+          "offsets": [
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "argument_type": "Aim"
+        },
+        {
+          "text": "in semantic role labeling",
+          "tokens": [
+            "in",
+            "semantic",
+            "role",
+            "labeling"
+          ],
+          "offsets": [
+            25,
+            26,
+            27,
+            28
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Easy2",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 1,
+      "prediction_index": 6,
+      "gold_offsets": [
+        48
+      ],
+      "prediction_offsets": [
+        112
+      ],
+      "text": "train",
+      "gold_type": "RWF",
+      "prediction_type": "FAC",
+      "doc_id": "8fb81ecb040bc192cdaae50be829d7e6",
+      "gold_sentence": 3,
+      "prediction_sentence": 5
+    },
+    "title": "Unsupervised Information Extraction: Regularizing Discriminative Approaches with Relation Distribution Losses",
+    "abstract": "Unsupervised relation extraction aims at extracting relations between entities in text. Previous unsupervised approaches are either generative or discriminative. In a supervised setting, discriminative approaches, such as deep neural network classifiers, have demonstrated substantial improvement. However, these models are hard to train without supervision, and the currently proposed solutions are unstable. To overcome this limitation, we introduce a skewness loss which encourages the classifier to predict a relation with confidence given a sentence, and a distribution distance loss enforcing that all relations are predicted in average. These losses improve the performance of discriminative based models, and enable us to train deep neural networks satisfactorily, surpassing current state of the art on three different datasets.",
+    "gold_event": {
+      "event_type": "RWF",
+      "arguments": [
+        {
+          "text": "discriminative approaches",
+          "nugget_type": "APP",
+          "argument_type": "Concern",
+          "tokens": [
+            "discriminative",
+            "approaches"
+          ],
+          "offsets": [
+            26,
+            27
+          ]
+        },
+        {
+          "text": "hard",
+          "nugget_type": "WEA",
+          "argument_type": "Fault",
+          "tokens": [
+            "hard"
+          ],
+          "offsets": [
+            46
+          ]
+        },
+        {
+          "text": "without supervision",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "without",
+            "supervision"
+          ],
+          "offsets": [
+            49,
+            50
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "train",
+        "tokens": [
+          "train"
+        ],
+        "offsets": [
+          48
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "FAC",
+      "trigger": {
+        "text": "train",
+        "tokens": [
+          "train"
+        ],
+        "offsets": [
+          112
+        ]
+      },
+      "arguments": [
+        {
+          "text": "skewness loss",
+          "tokens": [
+            "skewness",
+            "loss"
+          ],
+          "offsets": [
+            68,
+            69
+          ],
+          "argument_type": "Subject"
+        },
+        {
+          "text": "distribution distance loss",
+          "tokens": [
+            "distribution",
+            "distance",
+            "loss"
+          ],
+          "offsets": [
+            86,
+            87,
+            88
+          ],
+          "argument_type": "Subject"
+        },
+        {
+          "text": "deep neural networks",
+          "tokens": [
+            "deep",
+            "neural",
+            "networks"
+          ],
+          "offsets": [
+            113,
+            114,
+            115
+          ],
+          "argument_type": "Object"
+        },
+        {
+          "text": "satisfactorily",
+          "tokens": [
+            "satisfactorily"
+          ],
+          "offsets": [
+            116
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Sorted1",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 4,
+      "prediction_index": 4,
+      "gold_offsets": [
+        94,
+        95,
+        96
+      ],
+      "prediction_offsets": [
+        79,
+        80,
+        81
+      ],
+      "text": "fine - tuning",
+      "gold_type": "PUR",
+      "prediction_type": "PUR",
+      "doc_id": "fd4526d8ccd6b35ae6a285c2e34721f3",
+      "gold_sentence": 2,
+      "prediction_sentence": 2
+    },
+    "title": "Making Pre-trained Language Models Better Few-shot Learners",
+    "abstract": "The recent GPT-3 model (Brown et al., 2020) achieves remarkable few-shot performance solely by leveraging a natural-language prompt and a few task demonstrations as input context. Inspired by their findings, we study few-shot learning in a more practical scenario, where we use smaller language models for which fine-tuning is computationally efficient. We present LM-BFF—better few-shot fine-tuning of language models—a suite of simple and complementary techniques for fine-tuning language models on a small number of annotated examples. Our approach includes (1) prompt-based fine-tuning together with a novel pipeline for automating prompt generation; and (2) a refined strategy for dynamically and selectively incorporating demonstrations into each context. Finally, we present a systematic evaluation for analyzing few-shot performance on a range of NLP tasks, including classification and regression. Our experiments demonstrate that our methods combine to dramatically outperform standard fine-tuning procedures in this low resource setting, achieving up to 30% absolute improvement, and 11% on average across all tasks. Our approach makes minimal assumptions on task resources and domain expertise, and hence constitutes a strong task-agnostic method for few-shot learning.",
+    "gold_event": {
+      "event_type": "PUR",
+      "arguments": [
+        {
+          "text": "language models",
+          "nugget_type": "APP",
+          "argument_type": "Aim",
+          "tokens": [
+            "language",
+            "models"
+          ],
+          "offsets": [
+            97,
+            98
+          ]
+        },
+        {
+          "text": "on a small number of annotated examples",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "on",
+            "a",
+            "small",
+            "number",
+            "of",
+            "annotated",
+            "examples"
+          ],
+          "offsets": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "fine - tuning",
+        "tokens": [
+          "fine",
+          "-",
+          "tuning"
+        ],
+        "offsets": [
+          94,
+          95,
+          96
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "fine - tuning",
+        "tokens": [
+          "fine",
+          "-",
+          "tuning"
+        ],
+        "offsets": [
+          79,
+          80,
+          81
+        ]
+      },
+      "arguments": [
+        {
+          "text": "language models",
+          "tokens": [
+            "language",
+            "models"
+          ],
+          "offsets": [
+            83,
+            84
+          ],
+          "argument_type": "Aim"
+        },
+        {
+          "text": "on a small number of annotated examples",
+          "tokens": [
+            "on",
+            "a",
+            "small",
+            "number",
+            "of",
+            "annotated",
+            "examples"
+          ],
+          "offsets": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Sorted1",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 1,
+      "prediction_index": 4,
+      "gold_offsets": [
+        105
+      ],
+      "prediction_offsets": [
+        121
+      ],
+      "text": "estimating",
+      "gold_type": "RWF",
+      "prediction_type": "PUR",
+      "doc_id": "620d132c9aa19d58a4aa47369c9905a4",
+      "gold_sentence": 3,
+      "prediction_sentence": 4
+    },
+    "title": "Estimating Mutual Information Between Dense Word Embeddings",
+    "abstract": "Word embedding-based similarity measures are currently among the top-performing methods on unsupervised semantic textual similarity (STS) tasks. Recent work has increasingly adopted a statistical view on these embeddings, with some of the top approaches being essentially various correlations (which include the famous cosine similarity). Another excellent candidate for a similarity measure is mutual information (MI), which can capture arbitrary dependencies between the variables and has a simple and intuitive expression. Unfortunately, its use in the context of dense word embeddings has so far been avoided due to difficulties with estimating MI for continuous data. In this work we go through a vast literature on estimating MI in such cases and single out the most promising methods, yielding a simple and elegant similarity measure for word embeddings. We show that mutual information is a viable alternative to correlations, gives an excellent signal that correlates well with human judgements of similarity and rivals existing state-of-the-art unsupervised methods.",
+    "gold_event": {
+      "event_type": "RWF",
+      "arguments": [
+        {
+          "text": "continuous data",
+          "nugget_type": "DST",
+          "argument_type": "Dataset",
+          "tokens": [
+            "continuous",
+            "data"
+          ],
+          "offsets": [
+            108,
+            109
+          ]
+        },
+        {
+          "text": "difficulties",
+          "nugget_type": "WEA",
+          "argument_type": "Fault",
+          "tokens": [
+            "difficulties"
+          ],
+          "offsets": [
+            103
+          ]
+        },
+        {
+          "text": "mutual information",
+          "nugget_type": "FEA",
+          "argument_type": "Concern",
+          "tokens": [
+            "mutual",
+            "information"
+          ],
+          "offsets": [
+            63,
+            64
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "estimating",
+        "tokens": [
+          "estimating"
+        ],
+        "offsets": [
+          105
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "estimating",
+        "tokens": [
+          "estimating"
+        ],
+        "offsets": [
+          121
+        ]
+      },
+      "arguments": [
+        {
+          "text": "mutual information",
+          "tokens": [
+            "mutual",
+            "information"
+          ],
+          "offsets": [
+            148,
+            149
+          ],
+          "argument_type": "Aim"
+        },
+        {
+          "text": "in such cases",
+          "tokens": [
+            "in",
+            "such",
+            "cases"
+          ],
+          "offsets": [
+            123,
+            124,
+            125
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Sorted1",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 1,
+      "prediction_index": 1,
+      "gold_offsets": [
+        18
+      ],
+      "prediction_offsets": [
+        8
+      ],
+      "text": "model",
+      "gold_type": "PUR",
+      "prediction_type": "PUR",
+      "doc_id": "c3c8a2d1551a95cb1294169a94abc3cf",
+      "gold_sentence": 0,
+      "prediction_sentence": 0
+    },
+    "title": "Modeling Syntactic-Semantic Dependency Correlations in Semantic Role Labeling Using Mixture Models",
+    "abstract": "In this paper, we propose a mixture model-based end-to-end method to model the syntactic-semantic dependency correlation in Semantic Role Labeling (SRL). Semantic dependencies in SRL are modeled as a distribution over semantic dependency labels conditioned on a predicate and an argument word.The semantic label distribution varies depending on Shortest Syntactic Dependency Path (SSDP) hop patterns.We target the variation of semantic label distributions using a mixture model, separately estimating semantic label distributions for different hop patterns and probabilistically clustering hop patterns with similar semantic label distributions.Experiments show that the proposed method successfully learns a cluster assignment reflecting the variation of semantic label distributions.Modeling the variation improves performance in predicting short distance semantic dependencies, in addition to the improvement on long distance semantic dependencies that previous syntax-aware methods have achieved.The proposed method achieves a small but statistically significant improvement over baseline methods in English, German, and Spanish and obtains competitive performance with state-of-the-art methods in English.",
+    "gold_event": {
+      "event_type": "PUR",
+      "arguments": [
+        {
+          "text": "syntactic - semantic dependency correlation",
+          "nugget_type": "TAK",
+          "argument_type": "Aim",
+          "tokens": [
+            "syntactic",
+            "-",
+            "semantic",
+            "dependency",
+            "correlation"
+          ],
+          "offsets": [
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "text": "in semantic role labeling",
+          "nugget_type": "LIM",
+          "argument_type": "Condition",
+          "tokens": [
+            "in",
+            "semantic",
+            "role",
+            "labeling"
+          ],
+          "offsets": [
+            25,
+            26,
+            27,
+            28
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "model",
+        "tokens": [
+          "model"
+        ],
+        "offsets": [
+          18
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "PUR",
+      "trigger": {
+        "text": "model",
+        "tokens": [
+          "model"
+        ],
+        "offsets": [
+          8
+        ]
+      },
+      "arguments": [
+        {
+          "text": "syntactic - semantic dependency correlation",
+          "tokens": [
+            "syntactic",
+            "-",
+            "semantic",
+            "dependency",
+            "correlation"
+          ],
+          "offsets": [
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "argument_type": "Aim"
+        },
+        {
+          "text": "in semantic role labeling",
+          "tokens": [
+            "in",
+            "semantic",
+            "role",
+            "labeling"
+          ],
+          "offsets": [
+            25,
+            26,
+            27,
+            28
+          ],
+          "argument_type": "Condition"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Sorted1",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 8,
+      "prediction_index": 7,
+      "gold_offsets": [
+        177
+      ],
+      "prediction_offsets": [
+        115
+      ],
+      "text": "using",
+      "gold_type": "WKS",
+      "prediction_type": "WKS",
+      "doc_id": "f77e2f1a711f5545b43b227ec7eee1c7",
+      "gold_sentence": 5,
+      "prediction_sentence": 3
+    },
+    "title": "Translationese as a Language in “Multilingual” NMT",
+    "abstract": "Machine translation has an undesirable propensity to produce “translationese” artifacts, which can lead to higher BLEU scores while being liked less by human raters. Motivated by this, we model translationese and original (i.e. natural) text as separate languages in a multilingual model, and pose the question: can we perform zero-shot translation between original source text and original target text? There is no data with original source and original target, so we train a sentence-level classifier to distinguish translationese from original target text, and use this classifier to tag the training data for an NMT model. Using this technique we bias the model to produce more natural outputs at test time, yielding gains in human evaluation scores on both accuracy and fluency. Additionally, we demonstrate that it is possible to bias the model to produce translationese and game the BLEU score, increasing it while decreasing human-rated quality. We analyze these outputs using metrics measuring the degree of translationese, and present an analysis of the volatility of heuristic-based train-data tagging.",
+    "gold_event": {
+      "event_type": "WKS",
+      "arguments": [
+        {
+          "text": "we",
+          "nugget_type": "OG",
+          "argument_type": "Researcher",
+          "tokens": [
+            "we"
+          ],
+          "offsets": [
+            173
+          ]
+        },
+        {
+          "text": "metrics measuring the degree of translationese",
+          "nugget_type": "APP",
+          "argument_type": "Content",
+          "tokens": [
+            "metrics",
+            "measuring",
+            "the",
+            "degree",
+            "of",
+            "translationese"
+          ],
+          "offsets": [
+            178,
+            179,
+            180,
+            181,
+            182,
+            183
+          ]
+        },
+        {
+          "text": "analyze",
+          "nugget_type": "E-PUR",
+          "argument_type": "Target",
+          "tokens": [
+            "analyze"
+          ],
+          "offsets": [
+            174
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "using",
+        "tokens": [
+          "using"
+        ],
+        "offsets": [
+          177
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "WKS",
+      "trigger": {
+        "text": "using",
+        "tokens": [
+          "using"
+        ],
+        "offsets": [
+          115
+        ]
+      },
+      "arguments": [
+        {
+          "text": "sentence - level classifier",
+          "tokens": [
+            "sentence",
+            "-",
+            "level",
+            "classifier"
+          ],
+          "offsets": [
+            89,
+            90,
+            91,
+            92
+          ],
+          "argument_type": "Content"
+        },
+        {
+          "text": "bias",
+          "tokens": [
+            "bias"
+          ],
+          "offsets": [
+            119
+          ],
+          "argument_type": "Target"
+        },
+        {
+          "text": "produce",
+          "tokens": [
+            "produce"
+          ],
+          "offsets": [
+            123
+          ],
+          "argument_type": "Target"
+        },
+        {
+          "text": "yielding",
+          "tokens": [
+            "yielding"
+          ],
+          "offsets": [
+            131
+          ],
+          "argument_type": "Target"
+        }
+      ]
+    }
+  },
+  {
+    "variant": "Sorted1",
+    "kind": "extra_token_TI_match_at_different_position",
+    "match": {
+      "gold_index": 5,
+      "prediction_index": 7,
+      "gold_offsets": [
+        110
+      ],
+      "prediction_offsets": [
+        100
+      ],
+      "text": "better",
+      "gold_type": "CMP",
+      "prediction_type": "CMP",
+      "doc_id": "be50c5d1339dabd34855cd1eeca4a35c",
+      "gold_sentence": 3,
+      "prediction_sentence": 3
+    },
+    "title": "Rˆ3: Reverse, Retrieve, and Rank for Sarcasm Generation with Commonsense Knowledge",
+    "abstract": "We propose an unsupervised approach for sarcasm generation based on a non-sarcastic input sentence. Our method employs a retrieve-and-edit framework to instantiate two major characteristics of sarcasm: reversal of valence and semantic incongruity with the context, which could include shared commonsense or world knowledge between the speaker and the listener. While prior works on sarcasm generation predominantly focus on context incongruity, we show that combining valence reversal and semantic incongruity based on the commonsense knowledge generates sarcasm of higher quality. Human evaluation shows that our system generates sarcasm better than humans 34% of the time, and better than a reinforced hybrid baseline 90% of the time.",
+    "gold_event": {
+      "event_type": "CMP",
+      "arguments": [
+        {
+          "text": "unsupervised approach",
+          "nugget_type": "APP",
+          "argument_type": "Arg1",
+          "tokens": [
+            "unsupervised",
+            "approach"
+          ],
+          "offsets": [
+            3,
+            4
+          ]
+        },
+        {
+          "text": "reinforced hybrid baseline",
+          "nugget_type": "APP",
+          "argument_type": "Arg2",
+          "tokens": [
+            "reinforced",
+            "hybrid",
+            "baseline"
+          ],
+          "offsets": [
+            113,
+            114,
+            115
+          ]
+        },
+        {
+          "text": "better",
+          "nugget_type": "STR",
+          "argument_type": "Result",
+          "tokens": [
+            "better"
+          ],
+          "offsets": [
+            110
+          ]
+        }
+      ],
+      "trigger": {
+        "text": "better",
+        "tokens": [
+          "better"
+        ],
+        "offsets": [
+          110
+        ]
+      }
+    },
+    "prediction_event": {
+      "event_type": "CMP",
+      "trigger": {
+        "text": "better",
+        "tokens": [
+          "better"
+        ],
+        "offsets": [
+          100
+        ]
+      },
+      "arguments": [
+        {
+          "text": "unsupervised approach",
+          "tokens": [
+            "unsupervised",
+            "approach"
+          ],
+          "offsets": [
+            3,
+            4
+          ],
+          "argument_type": "Arg1"
+        },
+        {
+          "text": "reinforced hybrid baseline",
+          "tokens": [
+            "reinforced",
+            "hybrid",
+            "baseline"
+          ],
+          "offsets": [
+            113,
+            114,
+            115
+          ],
+          "argument_type": "Arg2"
+        },
+        {
+          "text": "better",
+          "tokens": [
+            "better"
+          ],
+          "offsets": [
+            100
+          ],
+          "argument_type": "Result"
+        },
+        {
+          "text": "time",
+          "tokens": [
+            "time"
+          ],
+          "offsets": [
+            107
+          ],
+          "argument_type": "Metrics"
+        },
+        {
+          "text": "90 %",
+          "tokens": [
+            "90",
+            "%"
+          ],
+          "offsets": [
+            116,
+            117
+          ],
+          "argument_type": "Extent"
+        }
+      ]
+    }
+  }
+]

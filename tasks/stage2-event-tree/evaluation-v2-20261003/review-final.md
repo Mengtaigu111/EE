@@ -1,0 +1,3 @@
+No remaining concrete correctness defects found. Read-only checks confirmed that `write_report.py` requires the exact seven complex score keys and parsed verification data, and that `evaluate.py` preserves `sentence_outputs` in `metrics.docs.jsonl`.
+
+The version manifest’s 26 hash entries match the current files. All 13 result records have matching provenance and code hashes; their 3,261 document records retain the corresponding sentence outputs. No files were edited, no GPU was used, and test scores were not used to select checkpoints.

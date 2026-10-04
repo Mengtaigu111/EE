@@ -1,0 +1,105 @@
+{
+  "documents": 250,
+  "scope": "full",
+  "official": {
+    "TI_f1": 0.7519031817294552,
+    "TC_f1": 0.6310035142522452,
+    "AI_f1": 0.44158218381253117,
+    "AC_f1": 0.419810536812365,
+    "EC_I_f1": 0.4819004524886878,
+    "EC_C_f1": 0.4819004524886878,
+    "TI_p": 0.72,
+    "TC_p": 0.6043380703066566,
+    "AI_p": 0.4206110495488365,
+    "AC_p": 0.39987335760645876,
+    "EC_I_p": 0.43917525773195876,
+    "EC_C_p": 0.43917525773195876,
+    "TI_r": 0.7867647058823529,
+    "TC_r": 0.6601307189542484,
+    "AI_r": 0.46475424173517577,
+    "AC_r": 0.4418401259401784,
+    "EC_I_r": 0.5338345864661654,
+    "EC_C_r": 0.5338345864661654
+  },
+  "alignment": {
+    "events": 2671,
+    "aligned_events": 2669,
+    "unaligned_triggers": 2,
+    "arguments": 6343,
+    "aligned_arguments": 6328,
+    "unaligned_arguments": 15,
+    "invalid_documents": 0,
+    "hit_max_new_tokens": 1,
+    "parse_dropped_events": 0,
+    "parse_dropped_args": 4,
+    "parse_unknown_event_types": 0,
+    "parse_unknown_roles": 3,
+    "parse_missing_trigger": 0,
+    "parse_semantic_events": 0,
+    "parse_path_inconsistent": 0,
+    "trigger_method_exact_scope": 2669,
+    "argument_method_exact": 6091,
+    "argument_method_subsequence": 237
+  },
+  "per_event_type": {
+    "PUR": {
+      "gold": 416,
+      "predicted": 456
+    },
+    "PRP": {
+      "gold": 257,
+      "predicted": 257
+    },
+    "WKS": {
+      "gold": 332,
+      "predicted": 337
+    },
+    "ITT": {
+      "gold": 174,
+      "predicted": 200
+    },
+    "RWS": {
+      "gold": 70,
+      "predicted": 64
+    },
+    "RWF": {
+      "gold": 205,
+      "predicted": 212
+    },
+    "MDS": {
+      "gold": 300,
+      "predicted": 372
+    },
+    "FIN": {
+      "gold": 175,
+      "predicted": 227
+    },
+    "CMP": {
+      "gold": 195,
+      "predicted": 199
+    },
+    "FAC": {
+      "gold": 324,
+      "predicted": 342
+    }
+  },
+  "gold_events": 2448,
+  "predicted_events": 2666,
+  "data": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/test.jsonl",
+  "predictions": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/test-checkpoint-2406.merged.jsonl",
+  "oracle": false,
+  "complex": {
+    "exit_code": 0,
+    "scores": {
+      "Consecutive_AC_f1": 0.159,
+      "Overlap_TC_f1": 0.5013000000000001,
+      "Overlap_AC_f1": 0.221,
+      "Reverse_AC_f1": 0.0,
+      "Subevent_TC_f1": 0.5638000000000001,
+      "Subevent_AC_f1": 0.4819,
+      "Subevent_EC_f1": 0.4556
+    },
+    "stdout": "Recieved 1 output files for evaluation.\nScores for the only output:\n--------------------------------\nConsecutive: AC F1=15.90\n--------------------------------\nOverlap: TC F1=50.13\nOverlap: AC F1=22.10\n--------------------------------\nReverse: AC F1=0.00\n--------------------------------\nSubevent: TC F1=56.38\nSubevent: AC F1=48.19\nSubevent: EC F1=45.56\n",
+    "stderr": ""
+  }
+}

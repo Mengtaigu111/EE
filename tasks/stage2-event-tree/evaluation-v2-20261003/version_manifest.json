@@ -1,0 +1,85 @@
+{
+  "version": "evaluation-v2-20261003",
+  "old_locked_sources": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_user_v2_easy2_curriculum.py": {
+      "expected": "5b2f42a8e6d10cab281677839a31d1f1197f54cea8f0ce73792051ede551a08d",
+      "actual": "5b2f42a8e6d10cab281677839a31d1f1197f54cea8f0ce73792051ede551a08d",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_user_v2_phase.py": {
+      "expected": "df94e14c611b01b2a4e2eed3396aaf55f6167cb4dcb8d62e95829a5cdc1ff21d",
+      "actual": "df94e14c611b01b2a4e2eed3396aaf55f6167cb4dcb8d62e95829a5cdc1ff21d",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/curriculum_trainer.py": {
+      "expected": "64169e0ef40d83991b71c3f0ecffe5fe6daf63af7aaa526bc2bf64d8774fe8bf",
+      "actual": "64169e0ef40d83991b71c3f0ecffe5fe6daf63af7aaa526bc2bf64d8774fe8bf",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_c_queue.py": {
+      "expected": "5fd67716b6ccecce945b8139a4c3a78ad4f886dc41b7643a25d3bf61b197986e",
+      "actual": "5fd67716b6ccecce945b8139a4c3a78ad4f886dc41b7643a25d3bf61b197986e",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/model_utils.py": {
+      "expected": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9",
+      "actual": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/predict.py": {
+      "expected": "079f79d59bab4eb7f7ab250998c734f5b246d9dfd75f3bde30db8a38aebc0997",
+      "actual": "079f79d59bab4eb7f7ab250998c734f5b246d9dfd75f3bde30db8a38aebc0997",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/linearize.py": {
+      "expected": "2a25f9b1920beaa94f9a9ade346af42b9a600b30a05508910c44a3751456f3b2",
+      "actual": "2a25f9b1920beaa94f9a9ade346af42b9a600b30a05508910c44a3751456f3b2",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/ontology.py": {
+      "expected": "9c28af9fa075f44f45d9d2fd709da4d828daafd2c423ad7082bcfc4d418384c7",
+      "actual": "9c28af9fa075f44f45d9d2fd709da4d828daafd2c423ad7082bcfc4d418384c7",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/align_events.py": {
+      "expected": "049fa49f0e3f646a586bde87a08b81a1fcc913b8b07f6213139cedb4770f93c9",
+      "actual": "049fa49f0e3f646a586bde87a08b81a1fcc913b8b07f6213139cedb4770f93c9",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/merge_sentence_predictions.py": {
+      "expected": "10e749aeed3f3611ee7f11cc5d887341a3deb10bee4f03f7f2e7606f3c57a68d",
+      "actual": "10e749aeed3f3611ee7f11cc5d887341a3deb10bee4f03f7f2e7606f3c57a68d",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/evaluate.py": {
+      "expected": "a9df78d3ef7c9aca88ab45c8d60bae6acac10a60820abebb8398ab7d740728cd",
+      "actual": "a9df78d3ef7c9aca88ab45c8d60bae6acac10a60820abebb8398ab7d740728cd",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/utils.py": {
+      "expected": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071",
+      "actual": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071",
+      "unchanged": true
+    },
+    "/home/myluo/EE/EXCEEDS/eval_complex_quick_f1.py": {
+      "expected": "befe85e5c24db148cf74a1875ab77b7c5b757759022e6eb57b429e4d26c5384c",
+      "actual": "befe85e5c24db148cf74a1875ab77b7c5b757759022e6eb57b429e4d26c5384c",
+      "unchanged": true
+    }
+  },
+  "v2_files": {
+    "tasks/stage2-event-tree/evaluation-v2-20261003/scripts/align_events.py": "655dcc5e1ed5ed789640a2925f2aad40d2e762a546230a5bd9d6b8fe2b43e0b4",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/scripts/evaluate.py": "b7639d9d8c2dc06d079a28e4c92c8193744c50015e8bfafc2b796c1d6eb468a4",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/scripts/linearize.py": "d9666c76051b19f4f1dd87b6356f4f790667174e07c34ade65432adcbbc07a40",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/scripts/merge_sentence_predictions.py": "5a334d8f242c1e9dbfb563afb73140d5f698cab8babdbc1c265952a4f55fc592",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/scripts/ontology.py": "f52a12ab5c558f463d14abc410f280639ef7b746a3372ff1d9ec31fab9bce943",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/tests/test_regressions.py": "73d5b8375ba19fd3ce1eb3c3bc1dd10365d0461eaff383a975ca512bc28f3b4d",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/run_reassessment.py": "1efa6f2e85be2acca98477c0ce0fa89d29d7751d2b1fa64f22e5d65b7ef35db3",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/verify_results.py": "4160842029e63e0ade517ce480432f7b8d6bbaa4b20ddcafee4ec90736afdb68",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/write_report.py": "0b74557d0b8d8e6279408878d598152ff1393d487bb0258ccc23e9ef3aa34dea",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/run-dev-cpu.sh": "57534e3b234a35425a21f53a31c821d664974c4ae40fe0cba76a77875394d3e1",
+    "tasks/stage2-event-tree/evaluation-v2-20261003/run-test-cpu.sh": "0a3b2af3c3caf5039e979b838fcf536484c307c122793724e59e2dcf602e595a"
+  },
+  "official_scorer_sha256": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071",
+  "complex_scorer_sha256": "befe85e5c24db148cf74a1875ab77b7c5b757759022e6eb57b429e4d26c5384c"
+}

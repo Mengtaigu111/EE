@@ -1,0 +1,84 @@
+{
+  "documents": 251,
+  "scope": "full",
+  "official": {
+    "TI_f1": 0.7434343434343434,
+    "TC_f1": 0.6120550161812297,
+    "AI_f1": 0.41486285163438785,
+    "AC_f1": 0.39169295478443744,
+    "EC_I_f1": 0.47387173396674587,
+    "EC_C_f1": 0.47387173396674587,
+    "TI_p": 0.7345309381237525,
+    "TC_p": 0.6054421768707483,
+    "AI_p": 0.40859658208182287,
+    "AC_p": 0.38574387297204005,
+    "EC_I_p": 0.44831460674157303,
+    "EC_C_p": 0.44831460674157303,
+    "TI_r": 0.7525562372188139,
+    "TC_r": 0.6188139059304704,
+    "AI_r": 0.4213243147027412,
+    "AC_r": 0.39782840868636526,
+    "EC_I_r": 0.5025188916876574,
+    "EC_C_r": 0.5025188916876574
+  },
+  "alignment": {
+    "events": 2486,
+    "aligned_events": 2485,
+    "unaligned_triggers": 1,
+    "arguments": 5779,
+    "aligned_arguments": 5766,
+    "unaligned_arguments": 13,
+    "invalid_documents": 0,
+    "hit_max_new_tokens": 2,
+    "trigger_method_exact_scope": 2485,
+    "argument_method_exact": 5611,
+    "argument_method_subsequence": 155
+  },
+  "per_event_type": {
+    "PUR": {
+      "gold": 395,
+      "predicted": 403
+    },
+    "PRP": {
+      "gold": 235,
+      "predicted": 251
+    },
+    "WKS": {
+      "gold": 354,
+      "predicted": 321
+    },
+    "ITT": {
+      "gold": 190,
+      "predicted": 180
+    },
+    "RWS": {
+      "gold": 70,
+      "predicted": 46
+    },
+    "RWF": {
+      "gold": 201,
+      "predicted": 206
+    },
+    "MDS": {
+      "gold": 303,
+      "predicted": 367
+    },
+    "FIN": {
+      "gold": 192,
+      "predicted": 212
+    },
+    "CMP": {
+      "gold": 192,
+      "predicted": 188
+    },
+    "FAC": {
+      "gold": 313,
+      "predicted": 310
+    }
+  },
+  "gold_events": 2445,
+  "predicted_events": 2484,
+  "data": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/dev.jsonl",
+  "predictions": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-3208.merged.jsonl",
+  "oracle": false
+}

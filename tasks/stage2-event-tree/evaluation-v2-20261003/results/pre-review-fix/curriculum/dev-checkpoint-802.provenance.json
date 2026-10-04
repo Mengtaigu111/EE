@@ -1,0 +1,45 @@
+{
+  "input": {
+    "raw_path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-UserV2-Easy2-42-20261002/checkpoint-eval/dev-checkpoint-802.predictions.jsonl",
+    "raw_sha256": "372cc8d87ef094cdcbe4129b5ada9b3744221dd5f91ff20ecbd2d8078fff510c",
+    "complete_marker_sha256": "c8abfa706c8b1fafa3cbe32458a503317eab9982b7bb223d876b912cac2608ae",
+    "config_sha256": "f11c8525104593701aa7ad76eff570f91338603a36d825e926803f5925be4493",
+    "sentence_data_sha256": "8ba54d4d0eb556987dbbd3a385531d8b991f48bc278e3743e280a35fb2a354b0",
+    "sentence_count": 1593,
+    "id_coverage": "exact_order_and_unique",
+    "checkpoint": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-UserV2-Easy2-42-20261002/stage1/checkpoints/checkpoint-802",
+    "adapter_sha256": "fd94b5c24f6e9dc193f023fc0a480efddc85a4a852b6d6eb94a5d8250484bd03"
+  },
+  "document_data": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/dev.jsonl",
+  "document_data_sha256": "d8e0dd35980600bcba5d3f5b5130c1ee95a008bbc9c607b9f0b0cb1ddfd369c8",
+  "merged_sha256": "2df8353a45bfd906b20038aec2bdb74472150c267882e409ff746e4df34ff26b",
+  "metrics_sha256": "ce19bfc732fc4c57a6b52a59394ac3d155a4be990394f00dd6c2621556f266ae",
+  "official": {
+    "TI_f1": 0.6419393939393939,
+    "TC_f1": 0.5239368165249088,
+    "AI_f1": 0.36438436673523367,
+    "AC_f1": 0.34352341759749166,
+    "EC_I_f1": 0.35445068163592625,
+    "EC_C_f1": 0.35445068163592625,
+    "TI_p": 0.7880952380952381,
+    "TC_p": 0.6455089820359281,
+    "AI_p": 0.40514049226747983,
+    "AC_p": 0.3820836965998256,
+    "EC_I_p": 0.4878587196467991,
+    "EC_C_p": 0.4878587196467991,
+    "TI_r": 0.5415132924335379,
+    "TC_r": 0.4408997955010225,
+    "AI_r": 0.33107867568529725,
+    "AC_r": 0.31203275186899254,
+    "EC_I_r": 0.2783375314861461,
+    "EC_C_r": 0.2783375314861461
+  },
+  "complex": null,
+  "code_sha256": {
+    "align_events.py": "655dcc5e1ed5ed789640a2925f2aad40d2e762a546230a5bd9d6b8fe2b43e0b4",
+    "evaluate.py": "5b020f9046a0ff9d1c32c520bd5fa7636db8434c262704c18ef95e63fc504e3b",
+    "linearize.py": "d9666c76051b19f4f1dd87b6356f4f790667174e07c34ade65432adcbbc07a40",
+    "merge_sentence_predictions.py": "492c6a5ed426846e276c5ee7c2db5336d7cb8ec514f2d9414efddca79d414df5",
+    "ontology.py": "f52a12ab5c558f463d14abc410f280639ef7b746a3372ff1d9ec31fab9bce943"
+  }
+}

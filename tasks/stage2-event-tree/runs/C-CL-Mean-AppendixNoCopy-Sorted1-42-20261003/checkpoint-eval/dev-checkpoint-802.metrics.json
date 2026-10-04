@@ -1,0 +1,92 @@
+{
+  "documents": 251,
+  "scope": "full",
+  "official": {
+    "TI_f1": 0.683402023229674,
+    "TC_f1": 0.5173442745244312,
+    "AI_f1": 0.3434212954419635,
+    "AC_f1": 0.3199926226484692,
+    "EC_I_f1": 0.3599763173475429,
+    "EC_C_f1": 0.35879218472468916,
+    "TI_p": 0.6304873833390944,
+    "TC_p": 0.47548851559821737,
+    "AI_p": 0.35651340996168585,
+    "AC_p": 0.3319938767699962,
+    "EC_I_p": 0.3396648044692737,
+    "EC_C_p": 0.33854748603351953,
+    "TI_r": 0.7460122699386503,
+    "TC_r": 0.567280163599182,
+    "AI_r": 0.3312566749733001,
+    "AC_r": 0.30882876468494125,
+    "EC_I_r": 0.38287153652392947,
+    "EC_C_r": 0.38161209068010077
+  },
+  "alignment": {
+    "events": 3191,
+    "aligned_events": 3186,
+    "unaligned_triggers": 5,
+    "arguments": 5594,
+    "aligned_arguments": 5580,
+    "unaligned_arguments": 14,
+    "invalid_documents": 0,
+    "hit_max_new_tokens": 10,
+    "parse_dropped_events": 7,
+    "parse_dropped_args": 2,
+    "parse_unknown_event_types": 0,
+    "parse_unknown_roles": 0,
+    "parse_missing_trigger": 7,
+    "parse_semantic_events": 0,
+    "parse_path_inconsistent": 0,
+    "trigger_method_exact_scope": 3182,
+    "argument_method_exact": 5410,
+    "argument_method_subsequence": 170,
+    "trigger_method_subsequence_scope": 4
+  },
+  "per_event_type": {
+    "PUR": {
+      "gold": 395,
+      "predicted": 354
+    },
+    "PRP": {
+      "gold": 235,
+      "predicted": 258
+    },
+    "WKS": {
+      "gold": 354,
+      "predicted": 422
+    },
+    "ITT": {
+      "gold": 190,
+      "predicted": 29
+    },
+    "RWS": {
+      "gold": 70,
+      "predicted": 95
+    },
+    "RWF": {
+      "gold": 201,
+      "predicted": 308
+    },
+    "MDS": {
+      "gold": 303,
+      "predicted": 592
+    },
+    "FIN": {
+      "gold": 192,
+      "predicted": 295
+    },
+    "CMP": {
+      "gold": 192,
+      "predicted": 227
+    },
+    "FAC": {
+      "gold": 313,
+      "predicted": 393
+    }
+  },
+  "gold_events": 2445,
+  "predicted_events": 2973,
+  "data": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/dev.jsonl",
+  "predictions": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/checkpoint-eval/dev-checkpoint-802.merged.jsonl",
+  "oracle": false
+}

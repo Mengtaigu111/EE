@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "smoke": true,
+  "training": {
+    "updates": 4,
+    "epochs": 2,
+    "observed_rows": 64,
+    "checkpoints": [
+      2,
+      4
+    ],
+    "sampling_verified": true
+  },
+  "input_hashes_verified": true
+}

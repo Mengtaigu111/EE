@@ -1,0 +1,52 @@
+{
+  "experiment": "C-CL-Mean-AppendixNoCopy-Sorted1",
+  "seed": 42,
+  "baseline_run_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/run.json",
+  "data_dir": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002",
+  "source_train_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/train.jsonl",
+  "sorted_train_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/train-sorted.jsonl",
+  "ordered_ids_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/ordered-ids.txt",
+  "prompt_template_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/prompt.md",
+  "prompt_sha256": "2bcc66773a71904973ae4f85b865e60eddfacf4230515618576d3217e6776b41",
+  "total_optimizer_steps": 4010,
+  "effective_batch_size": 16,
+  "steps_per_epoch": 802,
+  "checkpoint_steps": [
+    802,
+    1604,
+    2406,
+    3208,
+    4010
+  ],
+  "train_count": 12828,
+  "positive_count": 10704,
+  "root_count": 2124,
+  "initialization": "/opt/models/Qwen3-8B",
+  "epochs": 5,
+  "sampling": "epoch0 frozen ascending positive difficulty with seeded ties/ROOT evenly interleaved; epochs1-4 seeded random permutations",
+  "root_policy": "floor((i+0.5)*N/N_ROOT); ROOT IDs shuffled independently using seed42",
+  "difficulty_formula": "0.5*((1-1/N_events)+(1-mean(type-local role-completeness percentile)))",
+  "difficulty_is_proxy": true,
+  "source_hashes": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/train.jsonl": "de6d14f4d57dfdc2abe7d080c0a41c4c210903f374ff8d41c60a88cce4640011",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/difficulty-analysis/mean_percentile_difficulty_assignments.csv": "b33e38dea2157257afa649a4d92f001ee05d9a5b460ab2da6d937715dc9524fa",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/run.json": "8bb96dea33168364c253932f871d022624011605c8d1033ea2e2b22a4aa6c1c5",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/training/config.json": "f29f6ce61dea1652daf155a7c90da3fd89f0e93abd778c0c6855472f38e55df6",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/training/trainer_state.json": "607dd4d86ffff41b28d7dfe3b9708ed85826424fade52a8d5df8491a998869ed",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/prompt_template.txt": "2bcc66773a71904973ae4f85b865e60eddfacf4230515618576d3217e6776b41",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/build_sorted_first_data.py": "0ddfaaf3d8a94b5acd23f3da7a58a97113f949866b472f2e2da547e8fc1976e6",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/dev.jsonl": "2acc33d6ef60abcbc821818d03b89cbca1cb8a76dc7042f733feced70c0aab30",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/test.jsonl": "2d3be766af7e144bfac03f66b82713911c87b8886d6f17b8c4b4c23055dfd1e6"
+  },
+  "output_hashes": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/train-sorted.jsonl": "b589e67d372fba3fdb78d27b8963f0baa3becb82c7ec03e8a641824ed42270f3",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/ordered-ids.txt": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/prompt.md": "2bcc66773a71904973ae4f85b865e60eddfacf4230515618576d3217e6776b41"
+  },
+  "verification": {
+    "all_original_rows_byte_identical": true,
+    "full_id_coverage": true,
+    "positive_score_monotonic": true,
+    "ROOT_no_difficulty": true
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "input": {
+    "raw_path": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-UserV2-Easy2-42-20261002/checkpoint-eval/test-checkpoint-2406.predictions.jsonl",
+    "raw_sha256": "21f72f27f36468ce901295ff47b04e070c6e6fb87bcbcf60bf3cde3208a2f17c",
+    "complete_marker_sha256": "0acbd31d852b292e302fe36a732c54712263234bb584c398c9b58ced6a4e120c",
+    "config_sha256": "9398a756da0a6c13c6e83f4f8dc7e61c361b8f8f6adf7f48fa82643767c3db2b",
+    "sentence_data_sha256": "23e2f9e5a31bca4da378a8b73890b371cc3fcb3ca5787ae7f250ea99584f248a",
+    "sentence_count": 1627,
+    "id_coverage": "exact_order_and_unique",
+    "checkpoint": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-UserV2-Easy2-42-20261002/stage2/checkpoints/checkpoint-2406",
+    "adapter_sha256": "814bb482437d8b16055d0e441c90e0c344e6e440c0fa5b5d0093d62637d8633b"
+  },
+  "document_data": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/test.jsonl",
+  "document_data_sha256": "ed04805e30d5445b9ae59c6b3abd58f7c58294450ba78942ab9703801aad015c",
+  "merged_sha256": "56fbfd5c220903dbce530075486a5307b789167311f434dc50466ab924517de4",
+  "metrics_sha256": "121d648ff87bd8289501dbf0c24e87344b42a69cf15caff50e3d0042c6ab21aa",
+  "official": {
+    "TI_f1": 0.7416267942583732,
+    "TC_f1": 0.6267942583732058,
+    "AI_f1": 0.4311033883579496,
+    "AC_f1": 0.4073333912590147,
+    "EC_I_f1": 0.4844124700239808,
+    "EC_C_f1": 0.4844124700239808,
+    "TI_p": 0.7242990654205608,
+    "TC_p": 0.6121495327102804,
+    "AI_p": 0.4282755049197307,
+    "AC_p": 0.4046961325966851,
+    "EC_I_p": 0.46436781609195404,
+    "EC_C_p": 0.46436781609195404,
+    "TI_r": 0.7598039215686274,
+    "TC_r": 0.6421568627450981,
+    "AI_r": 0.43396886478922514,
+    "AC_r": 0.41000524750743395,
+    "EC_I_r": 0.506265664160401,
+    "EC_C_r": 0.506265664160401
+  },
+  "complex": {
+    "exit_code": 0,
+    "scores": {
+      "Consecutive_AC_f1": 0.1195,
+      "Overlap_TC_f1": 0.5199,
+      "Overlap_AC_f1": 0.18469999999999998,
+      "Reverse_AC_f1": 0.0,
+      "Subevent_TC_f1": 0.5618,
+      "Subevent_AC_f1": 0.4844,
+      "Subevent_EC_f1": 0.4686
+    },
+    "stdout": "Recieved 1 output files for evaluation.\nScores for the only output:\n--------------------------------\nConsecutive: AC F1=11.95\n--------------------------------\nOverlap: TC F1=51.99\nOverlap: AC F1=18.47\n--------------------------------\nReverse: AC F1=0.00\n--------------------------------\nSubevent: TC F1=56.18\nSubevent: AC F1=48.44\nSubevent: EC F1=46.86\n",
+    "stderr": ""
+  },
+  "code_sha256": {
+    "align_events.py": "655dcc5e1ed5ed789640a2925f2aad40d2e762a546230a5bd9d6b8fe2b43e0b4",
+    "evaluate.py": "b7639d9d8c2dc06d079a28e4c92c8193744c50015e8bfafc2b796c1d6eb468a4",
+    "linearize.py": "d9666c76051b19f4f1dd87b6356f4f790667174e07c34ade65432adcbbc07a40",
+    "merge_sentence_predictions.py": "5a334d8f242c1e9dbfb563afb73140d5f698cab8babdbc1c265952a4f55fc592",
+    "ontology.py": "f52a12ab5c558f463d14abc410f280639ef7b746a3372ff1d9ec31fab9bce943"
+  }
+}

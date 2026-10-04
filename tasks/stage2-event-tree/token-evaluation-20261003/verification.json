@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "sources_unchanged": true,
+  "checks": {
+    "baseline": {
+      "official_cli_exit": 0,
+      "five_printed_F1_values_match": true
+    },
+    "curriculum": {
+      "official_cli_exit": 0,
+      "five_printed_F1_values_match": true
+    }
+  }
+}

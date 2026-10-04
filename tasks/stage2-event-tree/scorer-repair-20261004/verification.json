@@ -1,0 +1,16 @@
+{
+  "small_instance_exhaustive_oracle_cases": 1000,
+  "gold_self": {
+    "dev_offset": "all 18 metrics equal 1",
+    "dev_token": "all 18 metrics equal 1",
+    "test_offset": "all 18 metrics equal 1",
+    "test_token": "all 18 metrics equal 1"
+  },
+  "results": {
+    "status": "passed",
+    "records": 19,
+    "test_prediction_artifacts_recomputed": 6,
+    "all_18_records_original_sentence_predictions_rebuilt": true,
+    "historical_and_current_source_hashes_verified": 73
+  }
+}

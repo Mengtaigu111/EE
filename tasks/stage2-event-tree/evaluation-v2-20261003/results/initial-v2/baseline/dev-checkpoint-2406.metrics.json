@@ -1,0 +1,84 @@
+{
+  "documents": 251,
+  "scope": "full",
+  "official": {
+    "TI_f1": 0.7471745500209294,
+    "TC_f1": 0.6233221476510067,
+    "AI_f1": 0.4355311355311356,
+    "AC_f1": 0.4126373626373626,
+    "EC_I_f1": 0.4941176470588235,
+    "EC_C_f1": 0.4941176470588235,
+    "TI_p": 0.7651093013287612,
+    "TC_p": 0.6396900559621179,
+    "AI_p": 0.44850999622783855,
+    "AC_p": 0.4249339871746511,
+    "EC_I_p": 0.48599269183922045,
+    "EC_C_p": 0.48599269183922045,
+    "TI_r": 0.7300613496932515,
+    "TC_r": 0.6077709611451942,
+    "AI_r": 0.4232823068707725,
+    "AC_r": 0.4010323958704165,
+    "EC_I_r": 0.5025188916876574,
+    "EC_C_r": 0.5025188916876574
+  },
+  "alignment": {
+    "events": 2304,
+    "aligned_events": 2304,
+    "unaligned_triggers": 0,
+    "arguments": 5278,
+    "aligned_arguments": 5270,
+    "unaligned_arguments": 8,
+    "invalid_documents": 0,
+    "hit_max_new_tokens": 0,
+    "trigger_method_exact_scope": 2304,
+    "argument_method_exact": 5131,
+    "argument_method_subsequence": 139
+  },
+  "per_event_type": {
+    "PUR": {
+      "gold": 395,
+      "predicted": 369
+    },
+    "PRP": {
+      "gold": 235,
+      "predicted": 236
+    },
+    "WKS": {
+      "gold": 354,
+      "predicted": 315
+    },
+    "ITT": {
+      "gold": 190,
+      "predicted": 175
+    },
+    "RWS": {
+      "gold": 70,
+      "predicted": 33
+    },
+    "RWF": {
+      "gold": 201,
+      "predicted": 199
+    },
+    "MDS": {
+      "gold": 303,
+      "predicted": 314
+    },
+    "FIN": {
+      "gold": 192,
+      "predicted": 199
+    },
+    "CMP": {
+      "gold": 192,
+      "predicted": 168
+    },
+    "FAC": {
+      "gold": 313,
+      "predicted": 296
+    }
+  },
+  "gold_events": 2445,
+  "predicted_events": 2304,
+  "data": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/dev.jsonl",
+  "predictions": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-2406.merged.jsonl",
+  "oracle": false
+}

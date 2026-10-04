@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "all_fields_preserved": true,
+  "all_ids_once": true,
+  "positive_scores_monotonic": true,
+  "ROOT_uniform_gaps": [
+    6,
+    7
+  ],
+  "original_code_hashes_unchanged": true
+}

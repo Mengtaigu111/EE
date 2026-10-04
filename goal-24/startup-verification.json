@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "tmux_session": "goal-24-sorted1-main",
+  "started_at": "2026-10-03T16:04:08.800170+00:00",
+  "observed_rows": 136,
+  "observed_first_epoch_sequential": true,
+  "optimizer_updates_observed_at_least": 8,
+  "GPU_smoke_passed": true,
+  "CPU_tests_passed": 15,
+  "independent_review_passed": true,
+  "training_complete": false
+}

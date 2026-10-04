@@ -1,0 +1,88 @@
+{
+  "mode": "official token, raw parser output, no alignment or deduplication",
+  "source_hashes": {
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/test.json": "6f5ed861c147d5da197a21eaf0802e4399a2529a438d4861510b7780556dba71",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/test.jsonl": "2d3be766af7e144bfac03f66b82713911c87b8886d6f17b8c4b4c23055dfd1e6",
+    "/home/myluo/EE/EXCEEDS/utils.py": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/linearize.py": "d9666c76051b19f4f1dd87b6356f4f790667174e07c34ade65432adcbbc07a40",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/checkpoint-eval/test-checkpoint-2406.predictions.jsonl": "fa48361a44745cdcfdd76658dac666eb24497bc3fdbb800661a9365ded875a66",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Easy2-42-20261003/checkpoint-eval/test-checkpoint-2406.predictions.jsonl": "586bc9938fefca39bfd04f31d73e1fc89180ef37288fb849df02b68694272360"
+  },
+  "variants": {
+    "baseline": {
+      "official": {
+        "TI_f1": 0.7609594706368902,
+        "TC_f1": 0.6331679073614557,
+        "AI_f1": 0.4391728582937965,
+        "AC_f1": 0.4161145926589078,
+        "EC_I_f1": 0.46829268292682924,
+        "EC_C_f1": 0.46829268292682924,
+        "TI_p": 0.7705192629815746,
+        "TC_p": 0.6411222780569514,
+        "AI_p": 0.44976164283094977,
+        "AC_p": 0.42618741976893454,
+        "EC_I_p": 0.45933014354066987,
+        "EC_C_p": 0.45933014354066987,
+        "TI_r": 0.7516339869281046,
+        "TC_r": 0.6254084967320261,
+        "AI_r": 0.4290711911841875,
+        "AC_r": 0.4065069092181214,
+        "EC_I_r": 0.47761194029850745,
+        "EC_C_r": 0.47761194029850745
+      },
+      "diagnostics": {
+        "invalid": 0,
+        "dropped_events": 1,
+        "dropped_args": 4,
+        "unknown_event_types": 0,
+        "unknown_roles": 4,
+        "missing_trigger": 1,
+        "semantic_events": 0,
+        "path_inconsistent": 0,
+        "events": 2371,
+        "arguments": 5440
+      },
+      "sentence_predictions": 1627,
+      "documents": 250,
+      "checkpoint": 2406
+    },
+    "curriculum": {
+      "official": {
+        "TI_f1": 0.7538740189172871,
+        "TC_f1": 0.6244216455441561,
+        "AI_f1": 0.4309675141242938,
+        "AC_f1": 0.4080155367231639,
+        "EC_I_f1": 0.4650880388585307,
+        "EC_C_f1": 0.4650880388585307,
+        "TI_p": 0.742959143197144,
+        "TC_p": 0.6151407055093143,
+        "AI_p": 0.4350383175904473,
+        "AC_p": 0.41186954197112813,
+        "EC_I_p": 0.4543297746144721,
+        "EC_C_p": 0.4543297746144721,
+        "TI_r": 0.7651143790849673,
+        "TC_r": 0.6339869281045751,
+        "AI_r": 0.42697218821059996,
+        "AC_r": 0.40423298933006824,
+        "EC_I_r": 0.4763681592039801,
+        "EC_C_r": 0.4763681592039801
+      },
+      "diagnostics": {
+        "invalid": 0,
+        "dropped_events": 0,
+        "dropped_args": 0,
+        "unknown_event_types": 0,
+        "unknown_roles": 0,
+        "missing_trigger": 0,
+        "semantic_events": 0,
+        "path_inconsistent": 0,
+        "events": 2517,
+        "arguments": 5604
+      },
+      "sentence_predictions": 1627,
+      "documents": 250,
+      "checkpoint": 2406
+    }
+  },
+  "limitation": "Official duplicate trigger text dictionary collisions retained; token/offset deltas are not pure alignment errors."
+}

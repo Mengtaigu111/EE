@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "train_count": 12828,
+  "ROOT_count": 2124,
+  "ROOT_slot_gaps": {
+    "6": 2040,
+    "7": 83
+  },
+  "positive_monotonic": true,
+  "all_samples_byte_identical": true,
+  "first_epoch_updates": 802,
+  "later_epoch_updates": 3208,
+  "prompt_sha256": "2bcc66773a71904973ae4f85b865e60eddfacf4230515618576d3217e6776b41"
+}

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "hashes": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_appendix_easy2_curriculum.py": "bad0f32f87c14057007b2cb891f1ed23b71f912d0bd3145c8ce8bef4baa43167",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_appendix_easy2_phase.py": "884df4c44ae77717646022010d51537cba5013749932d8b43b46adce73824cd5",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/curriculum_trainer.py": "64169e0ef40d83991b71c3f0ecffe5fe6daf63af7aaa526bc2bf64d8774fe8bf",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/predict_appendix_fixed.py": "dbef801267af28edd95e63489b0de3e35e91786030937aa924fe12a12fc37c15",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/appendix_fixed_eval.py": "2a3f42a1d188de1247129d53ee7275b11ae495110eae936a191644a94f766def",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_c_queue.py": "5fd67716b6ccecce945b8139a4c3a78ad4f886dc41b7643a25d3bf61b197986e",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/model_utils.py": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/predict.py": "079f79d59bab4eb7f7ab250998c734f5b246d9dfd75f3bde30db8a38aebc0997",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/ontology.py": "9c28af9fa075f44f45d9d2fd709da4d828daafd2c423ad7082bcfc4d418384c7",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/align_events.py": "655dcc5e1ed5ed789640a2925f2aad40d2e762a546230a5bd9d6b8fe2b43e0b4",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/evaluate.py": "b7639d9d8c2dc06d079a28e4c92c8193744c50015e8bfafc2b796c1d6eb468a4",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/linearize.py": "d9666c76051b19f4f1dd87b6356f4f790667174e07c34ade65432adcbbc07a40",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/merge_sentence_predictions.py": "5a334d8f242c1e9dbfb563afb73140d5f698cab8babdbc1c265952a4f55fc592",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/ontology.py": "f52a12ab5c558f463d14abc410f280639ef7b746a3372ff1d9ec31fab9bce943",
+    "/home/myluo/EE/EXCEEDS/utils.py": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071",
+    "/home/myluo/EE/EXCEEDS/eval_complex_quick_f1.py": "befe85e5c24db148cf74a1875ab77b7c5b757759022e6eb57b429e4d26c5384c",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/dev-checkpoint-2406.metrics.json": "8b128c69ad8d9bb133a630af0c10f06777c6225d4b3f14a8b4f84f5f23e8f4e9",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/baseline/test-checkpoint-2406.metrics.json": "361bc7ad206144d10a07557f5c4dc70afa0ee0b9a41640f3a40a6bf2b41e027b",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/version_manifest.json": "222505f3045411fb9a85520318d1d904f3467f473411e5f3031971db8ac8c7b3",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/dev_selection.json": "b78734b51b0f964a9f5e42294f3bb852aa9e6644b80bc6361141f870fe88307a",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/results/test_selection.json": "991c66575d4e546c31381f3f566c142e7edc3ac44290abcfb869cd382e081e56"
+  }
+}
