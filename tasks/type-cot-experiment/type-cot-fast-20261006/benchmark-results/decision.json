@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "phases": {
+    "cot": {
+      "microbatch": 1,
+      "gradient_accumulation": 16,
+      "time_savings_fraction": null,
+      "stable_candidate": false,
+      "reason": "retain baseline: speed/stability/memory gate not met"
+    },
+    "tree": {
+      "microbatch": 1,
+      "gradient_accumulation": 16,
+      "time_savings_fraction": -0.11624655535011796,
+      "stable_candidate": false,
+      "reason": "retain baseline: speed/stability/memory gate not met"
+    }
+  },
+  "manifest_sha256": "df5bb4aa32f6f14dad5f47a308b804219e7bd91d60eb709e7a3bc8724365dcbc",
+  "benchmark_sha256": "01180cad9438173d2183e2f6dcf65444f794ce36ddbb4752bb5f0477fa04d659"
+}

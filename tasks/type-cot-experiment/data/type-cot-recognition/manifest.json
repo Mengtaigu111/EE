@@ -1,0 +1,77 @@
+{
+  "created_at": "2026-09-27T02:40:55.947754+00:00",
+  "mode": "type-cot-recognition",
+  "cot_train": "/home/myluo/EE/EXCEEDS/task/prompt/runs/prompt-3.10-1-train-full-merged-20260926.jsonl",
+  "cot_train_sha256": "46ddbc0a88d4823fb90171803432bd6c5cd5b3d70614c23f2768f8d42bcb1d8b",
+  "source_dir": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c",
+  "output_dir": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition",
+  "leakage_policy": "prompts exclude gold_event_type_inventory and gold_arguments_by_event",
+  "splits": {
+    "train": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/train.jsonl",
+      "sha256": "b96bf0c60a462e9580b52d153242a7676451960b2a8656d53561a478fd42ab8d",
+      "rows": 12828,
+      "events": 19488,
+      "event_type_counts": {
+        "ITT": 1400,
+        "RWF": 1549,
+        "PRP": 2094,
+        "MDS": 2385,
+        "PUR": 3320,
+        "WKS": 2733,
+        "FIN": 1480,
+        "CMP": 1536,
+        "FAC": 2528,
+        "RWS": 463
+      },
+      "none_rows": 2124,
+      "max_completion_words": 659
+    },
+    "dev": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/dev.jsonl",
+      "sha256": "ed03cf1275778f3369222573ddc9a35f5186a16a5d22a872d89d78eab74d73f6",
+      "rows": 1593,
+      "events": 2445,
+      "event_type_counts": {
+        "ITT": 190,
+        "PRP": 235,
+        "PUR": 395,
+        "MDS": 303,
+        "CMP": 192,
+        "WKS": 354,
+        "FAC": 313,
+        "FIN": 192,
+        "RWS": 70,
+        "RWF": 201
+      },
+      "none_rows": 271,
+      "max_completion_words": 15
+    },
+    "test": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/test.jsonl",
+      "sha256": "fb348daf75e3f4e95f90835bcdcc658d9f1a7bf8c6a0ebc3c9661bde09e39fe7",
+      "rows": 1627,
+      "events": 2448,
+      "event_type_counts": {
+        "PRP": 257,
+        "FAC": 324,
+        "PUR": 416,
+        "RWF": 205,
+        "WKS": 332,
+        "CMP": 195,
+        "ITT": 174,
+        "FIN": 175,
+        "RWS": 70,
+        "MDS": 300
+      },
+      "none_rows": 272,
+      "max_completion_words": 13
+    }
+  },
+  "skipped_train": {},
+  "checks": {
+    "train_rows_match_completed_cot": true,
+    "train_prompt_has_no_gold_inventory_token": true,
+    "all_pass": true
+  }
+}

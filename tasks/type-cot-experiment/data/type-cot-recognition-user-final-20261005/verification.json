@@ -1,0 +1,20 @@
+{
+  "nonprompt_fields_unchanged": true,
+  "all_prompts_verified": true,
+  "counts": {
+    "train": 12828,
+    "dev": 1593,
+    "test": 1627
+  },
+  "train_token_audit": {
+    "count": 12828,
+    "max_len": 4096,
+    "max_tokens": 2163,
+    "mean_tokens": 1329.326395385095,
+    "max_assistant_tokens": 887,
+    "overlength_count": 0,
+    "overlength": [],
+    "prefix_verified": true,
+    "truncation": false
+  }
+}

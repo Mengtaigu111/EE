@@ -1,0 +1,15 @@
+..............................                      [100%]
+=============================== warnings summary ===============================
+tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py::OnlineTrainerTests::test_bad_three_reduces_and_bad_six_stops_during_real_training
+tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py::OnlineTrainerTests::test_incomplete_or_nonfinite_official_metrics_fail_closed
+tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py::OnlineTrainerTests::test_raw_best_including_tie_and_checkpoint_feedback_restore
+  /home/myluo/miniconda3/envs/qwen3meld-run/lib/python3.10/site-packages/peft/tuners/lora/layer.py:2504: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+    warnings.warn(
+
+tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py::OnlineTrainerTests::test_bad_three_reduces_and_bad_six_stops_during_real_training
+tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py::OnlineTrainerTests::test_raw_best_including_tie_and_checkpoint_feedback_restore
+  /home/myluo/miniconda3/envs/qwen3meld-run/lib/python3.10/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in  - will assume that the vocabulary was not modified.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+30 passed, 5 warnings, 21 subtests passed in 9.39s

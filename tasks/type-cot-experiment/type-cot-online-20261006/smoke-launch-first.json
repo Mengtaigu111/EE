@@ -1,0 +1,8 @@
+{
+  "session": "ee-cot1-dense-smoke-20261006-001931",
+  "run": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-42-20261006-001931-smoke",
+  "log": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-42-20261006-001931-smoke.console.log",
+  "exit_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-42-20261006-001931-smoke.exit",
+  "script": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-online-20261006/launch-smoke-20261006-001931.sh",
+  "started_local": "2026-10-06T00:19:31.351801+08:00"
+}

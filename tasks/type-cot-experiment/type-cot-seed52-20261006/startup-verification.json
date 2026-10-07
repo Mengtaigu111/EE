@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "verified_at_local": "2026-10-07T00:03:57.441369+08:00",
+  "run": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051",
+  "session": "ee-cot1-seed52-20261007-000051",
+  "seed": 52,
+  "actual_activity": "cot_train",
+  "observed_rows": 141,
+  "completed_updates_at_least": 8,
+  "actual_sampler_prefix_seed52": true,
+  "fresh_base_and_lora": true,
+  "fresh_optimizer_and_scheduler": true,
+  "all_source_hashes_unchanged": true,
+  "full_train_token_audit": true,
+  "training_microbatch": 1,
+  "gradient_accumulation": 16,
+  "no_liger": true,
+  "cot_dev_diagnostic_omitted": true,
+  "eta_hours": [
+    15,
+    17
+  ],
+  "eta_local": [
+    "2026-10-07T15:01:01.960746+08:00",
+    "2026-10-07T17:01:01.960746+08:00"
+  ],
+  "smoke_verification": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-seed52-20261006/smoke-verification.json"
+}

@@ -1,0 +1,55 @@
+{
+  "status": "completed",
+  "phase": "cot",
+  "microbatch": 1,
+  "kernel_metadata": {
+    "name": "liger",
+    "version": "0.6.2",
+    "vendor": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-fast-20261006/vendor",
+    "fusion_options": {
+      "rope": false,
+      "rms_norm": false,
+      "swiglu": false,
+      "cross_entropy": false,
+      "fused_linear_cross_entropy": true
+    }
+  },
+  "optimizer_updates": 10,
+  "warmup_updates": 2,
+  "measured_updates": 8,
+  "update_seconds": [
+    16.37515871785581,
+    15.468608413822949,
+    11.612710323184729,
+    11.530322924256325,
+    11.801110851112753,
+    11.722137300297618,
+    11.684447447769344,
+    11.442816737573594
+  ],
+  "seconds_per_update": 12.70466408948414,
+  "representative_seconds_per_update": 11.632257597365728,
+  "longest_stress_seconds": [
+    16.37515871785581,
+    15.468608413822949
+  ],
+  "longest_stress_passed": true,
+  "finite_loss": true,
+  "finite_gradients": true,
+  "losses": [
+    2.5168,
+    2.4106,
+    1.6409,
+    1.5107,
+    1.8682,
+    1.73,
+    1.686,
+    1.7051,
+    1.6411,
+    1.577
+  ],
+  "peak_allocated": 18628773376,
+  "peak_reserved": 19572719616,
+  "memory_free_at_peak": 5158404096,
+  "token_normalization": "native num_items_in_batch sums assistant tokens across all accumulated microbatches"
+}

@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "phase": "cot",
+  "microbatch": 1,
+  "optimizer_updates": 10,
+  "warmup_updates": 2,
+  "measured_updates": 8,
+  "update_seconds": [
+    15.795943469274789,
+    14.804253700189292,
+    10.891989938914776,
+    10.913717246148735,
+    11.058315800037235,
+    10.97022017231211,
+    10.779129039030522,
+    11.01148533821106
+  ],
+  "seconds_per_update": 12.028131838014815,
+  "representative_seconds_per_update": 10.93747625577574,
+  "longest_stress_seconds": [
+    15.795943469274789,
+    14.804253700189292
+  ],
+  "longest_stress_passed": true,
+  "finite_loss": true,
+  "finite_gradients": true,
+  "losses": [
+    2.5168,
+    2.4129,
+    1.641,
+    1.51,
+    1.8689,
+    1.7296,
+    1.685,
+    1.7051,
+    1.639,
+    1.574
+  ],
+  "peak_allocated": 21559855616,
+  "peak_reserved": 24406654976,
+  "memory_free_at_peak": 324468736,
+  "token_normalization": "native num_items_in_batch sums assistant tokens across all accumulated microbatches"
+}

@@ -1,0 +1,28 @@
+{
+  "format": "cot-to-tree-handoff-v1",
+  "source_adapter": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051/cot/final-adapter",
+  "source_sha256": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051/cot/config.json": "1e40007aa0d2186f5bd868feeda32eb50697594cc83335f28ddf624e6720560a",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051/cot/train_metrics.json": "3ebc6af9e141635f64ec24da666f8af3025b4c5e5deb9832da56b4439bbf215a",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051/cot/final-adapter/adapter_config.json": "829501e4727f84b31307cafbb5085ea7d5b07686948b8be2fe07e3ebbbb039e9",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051/cot/final-adapter/adapter_model.safetensors": "a89cd4ea160aa27bf249ab3a3c9d28750e024aba26846d8ff304e3c8788cf033"
+  },
+  "cot_initialization": "fresh base + new LoRA",
+  "cot_status": "completed",
+  "model_exact": true,
+  "adapter_tensor_count": 504,
+  "optimizer_state_empty": true,
+  "scheduler_last_epoch": 0,
+  "scheduler_plateau_scale": 1.0,
+  "global_step": 0,
+  "feedback": {
+    "min_delta": 0.001,
+    "best_score": null,
+    "best_step": null,
+    "anchor_score": null,
+    "bad_count": 0,
+    "eval_count": 0,
+    "last_eval_step": null
+  },
+  "resume_from_checkpoint": null
+}

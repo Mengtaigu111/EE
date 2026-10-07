@@ -1,0 +1,6 @@
+{
+  "status": "superseded_by_user",
+  "formal_training_started": false,
+  "replacement": "type-cot-seed52-20261006",
+  "reason": "User chose seed52 replication with native engine; stop supplementary Liger benchmark and preserve results"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "activity": "test_checkpoint_2205",
+  "observed_predictions": 56,
+  "steps": [
+    2205,
+    1804,
+    3208
+  ],
+  "seed": 52,
+  "batch_size": 4,
+  "max_new_tokens": 319,
+  "source_locks": 215,
+  "original_dev_best_unchanged": 2406
+}

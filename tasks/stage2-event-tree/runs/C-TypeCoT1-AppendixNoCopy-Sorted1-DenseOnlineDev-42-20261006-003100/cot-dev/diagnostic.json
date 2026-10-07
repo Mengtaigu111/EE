@@ -1,0 +1,122 @@
+{
+  "rows": 1593,
+  "type_multiset": {
+    "tp": 1641,
+    "fp": 796,
+    "fn": 804,
+    "precision": 0.6733688961838326,
+    "recall": 0.6711656441717792,
+    "f1": 0.6722654649733716
+  },
+  "per_type": {
+    "PUR": {
+      "gold": 395,
+      "pred": 405,
+      "tp": 230,
+      "fp": 175,
+      "fn": 165,
+      "precision": 0.5679012345679012,
+      "recall": 0.5822784810126582,
+      "f1": 0.5750000000000001
+    },
+    "ITT": {
+      "gold": 190,
+      "pred": 197,
+      "tp": 158,
+      "fp": 39,
+      "fn": 32,
+      "precision": 0.8020304568527918,
+      "recall": 0.8315789473684211,
+      "f1": 0.8165374677002584
+    },
+    "RWS": {
+      "gold": 70,
+      "pred": 46,
+      "tp": 24,
+      "fp": 22,
+      "fn": 46,
+      "precision": 0.5217391304347826,
+      "recall": 0.34285714285714286,
+      "f1": 0.4137931034482759
+    },
+    "RWF": {
+      "gold": 201,
+      "pred": 202,
+      "tp": 139,
+      "fp": 63,
+      "fn": 62,
+      "precision": 0.6881188118811881,
+      "recall": 0.6915422885572139,
+      "f1": 0.6898263027295284
+    },
+    "PRP": {
+      "gold": 235,
+      "pred": 257,
+      "tp": 210,
+      "fp": 47,
+      "fn": 25,
+      "precision": 0.8171206225680934,
+      "recall": 0.8936170212765957,
+      "f1": 0.8536585365853658
+    },
+    "WKS": {
+      "gold": 354,
+      "pred": 276,
+      "tp": 191,
+      "fp": 85,
+      "fn": 163,
+      "precision": 0.6920289855072463,
+      "recall": 0.53954802259887,
+      "f1": 0.6063492063492063
+    },
+    "MDS": {
+      "gold": 303,
+      "pred": 285,
+      "tp": 173,
+      "fp": 112,
+      "fn": 130,
+      "precision": 0.6070175438596491,
+      "recall": 0.570957095709571,
+      "f1": 0.5884353741496599
+    },
+    "FIN": {
+      "gold": 192,
+      "pred": 251,
+      "tp": 141,
+      "fp": 110,
+      "fn": 51,
+      "precision": 0.5617529880478087,
+      "recall": 0.734375,
+      "f1": 0.636568848758465
+    },
+    "CMP": {
+      "gold": 192,
+      "pred": 179,
+      "tp": 138,
+      "fp": 41,
+      "fn": 54,
+      "precision": 0.770949720670391,
+      "recall": 0.71875,
+      "f1": 0.7439353099730457
+    },
+    "FAC": {
+      "gold": 313,
+      "pred": 339,
+      "tp": 237,
+      "fp": 102,
+      "fn": 76,
+      "precision": 0.6991150442477876,
+      "recall": 0.7571884984025559,
+      "f1": 0.7269938650306749
+    }
+  },
+  "parser_sources": {
+    "inventory": 1593
+  },
+  "wall_seconds": 5258.226088203024,
+  "diagnostic_only": true,
+  "selection": "fixed final checkpoint",
+  "predictions": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-42-20261006-003100/cot-dev/predictions.jsonl",
+  "data": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition-user-final-20261005/dev.jsonl",
+  "prediction_sha256": "bd6acf8daffbe56958cd7b399b6000598363197fe31f29d0ff7348a486ef1297"
+}

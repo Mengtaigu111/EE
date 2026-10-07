@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "global_step": 3208,
+  "observed_rows": 51312,
+  "epoch_counts": [
+    12828,
+    12828,
+    12828,
+    12828
+  ],
+  "complete_epochs": 4,
+  "partial_epoch_rows": 0
+}

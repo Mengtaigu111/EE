@@ -1,0 +1,114 @@
+You are an expert in scientific event extraction.
+
+TASK
+
+Read the full abstract and identify the scientific events expressed in the
+TARGET SENTENCE. Use the full abstract as context when interpreting each event.
+
+Explain each event using the relevant argument text and semantic roles, then
+identify its event type. Finally, report the number of events of each type.
+
+EVENT TYPE DEFINITIONS
+
+PUR — Purpose
+Expresses what the research or an operation aims to address, accomplish, or
+achieve. Aim represents the intended goal. Distinguish an intended purpose
+from a result or fact that has already been established.
+
+ITT — IntroduceTarget
+Introduces or defines the object, task, or problem that the research focuses
+on. The semantic focus is "what is being studied," rather than PUR's "what is
+intended to be achieved."
+
+RWS — RelatedWorkStep
+Describes how existing methods, procedures, or components work, including
+relationships among the relevant objects, methods, and components.
+
+RWF — RelatedWorkFault
+Describes a shortcoming, difficulty, limitation, or defect in an object,
+method, or practice involved in the research. Concern is the object that has
+the problem, while Fault is the specific problem.
+
+PRP — Propose
+Expresses that the authors propose or introduce a contribution. The semantic
+focus is "what is proposed." Classification should be based on the semantic
+relationship rather than words such as "propose" or "introduce" alone.
+
+WKS — WorkStatement
+States what research work the authors carry out, such as studying,
+constructing, analyzing, or evaluating something. The semantic focus is a
+statement of research work. Content involving a method operation does not
+automatically make the event MDS.
+
+MDS — MethodStep
+Describes how the method presented in the paper operates or is implemented,
+including operational steps, use of components, and functional relationships
+between components. The semantic focus is the method's implementation or
+internal operation, rather than merely reporting work performed by the
+authors.
+
+FIN — Finding
+Expresses what the authors observe, discover, demonstrate, prove, or conclude.
+The semantic focus is the finding relationship. The Content of a FIN event may
+also separately correspond to a FAC or CMP event.
+
+CMP — ExperimentCompare
+Expresses an explicit comparison between two objects in an experiment or
+evaluation. Arg1 and Arg2 are the compared objects. Result represents the
+comparison result, while Metrics and Extent describe the evaluation metric
+and degree.
+
+FAC — OutcomeFact
+States a result-related fact, effect, or property that an object or method
+produces, exhibits, or possesses. The event may involve roles such as Subject,
+Object, Target, Condition, Extent, and Reason.
+
+These definitions describe the semantic focus of each event type. Do not
+classify events solely on the basis of keywords, the subject, tense, or a
+single argument. Not all listed roles are required to appear. A sentence may
+contain multiple events, including multiple event instances of the same type.
+
+EXPLANATION AND OUTPUT
+
+For each event, use the relevant argument text and its semantic roles to
+explain the scientific relationship and why it supports the selected type.
+Ground the explanation in the abstract and keep it concise.
+
+Distinct event instances must be counted separately, even if they share the
+same event type.
+
+Use the following output format:
+
+Reasoning:
+
+1. Event Family Reasoning:
+   <Briefly describe the scientific function or functions of the target sentence.>
+
+2. Event Reasoning:
+   Event 1: <Explain the event using argument text, semantic roles, and their
+   relationship. State why this relationship supports the selected type.>
+   Type: <event type>
+   <Repeat for each additional event.>
+
+Final Answer:
+Event Type Inventory:
+<event type>: <count>
+
+List only event types that occur, with each type appearing once.
+The counts must agree with the events in the explanation.
+
+If the target sentence contains no events, briefly explain why, then output:
+
+Final Answer:
+Event Type Inventory:
+None
+
+Full Abstract:
+[S1] <sentence 1>
+[S2] <sentence 2>
+...
+
+TARGET SENTENCE [S{k}]:
+<target sentence>
+
+Type-COT output:

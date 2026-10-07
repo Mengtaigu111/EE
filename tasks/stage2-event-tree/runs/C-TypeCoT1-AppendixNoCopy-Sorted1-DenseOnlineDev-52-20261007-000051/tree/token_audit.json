@@ -1,0 +1,11 @@
+{
+  "count": 12828,
+  "max_len": 4096,
+  "max_tokens": 1430,
+  "mean_tokens": 1062.8467415029622,
+  "max_assistant_tokens": 243,
+  "overlength_count": 0,
+  "overlength": [],
+  "prefix_verified": true,
+  "truncation": false
+}

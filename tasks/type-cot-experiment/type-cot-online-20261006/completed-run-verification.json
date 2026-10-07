@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "cot": {
+    "passed": true,
+    "updates": 802,
+    "rows": 12828,
+    "shuffled_complete": true
+  },
+  "tree_updates": 3208,
+  "best_step": 2205,
+  "sampling": {
+    "passed": true,
+    "global_step": 3208,
+    "observed_rows": 51312,
+    "epoch_counts": [
+      12828,
+      12828,
+      12828,
+      12828
+    ],
+    "complete_epochs": 4,
+    "partial_epoch_rows": 0
+  },
+  "feedback_replayed": true,
+  "dev_scores_recomputed": [
+    {
+      "step": 401,
+      "AC_f1": 0.22767032154736971
+    },
+    {
+      "step": 802,
+      "AC_f1": 0.3275830760849827
+    },
+    {
+      "step": 1203,
+      "AC_f1": 0.4075378654455794
+    },
+    {
+      "step": 1403,
+      "AC_f1": 0.4044829342842588
+    },
+    {
+      "step": 1604,
+      "AC_f1": 0.40427751695357333
+    },
+    {
+      "step": 1804,
+      "AC_f1": 0.40692640692640697
+    },
+    {
+      "step": 2005,
+      "AC_f1": 0.41019042717447246
+    },
+    {
+      "step": 2205,
+      "AC_f1": 0.4107513303869397
+    },
+    {
+      "step": 2406,
+      "AC_f1": 0.4025874542514256
+    },
+    {
+      "step": 2606,
+      "AC_f1": 0.4022837066315327
+    },
+    {
+      "step": 2807,
+      "AC_f1": 0.4056702835141757
+    },
+    {
+      "step": 3007,
+      "AC_f1": 0.39754385964912287
+    },
+    {
+      "step": 3208,
+      "AC_f1": 0.40840944339134927
+    }
+  ],
+  "test_scores_recomputed": true
+}

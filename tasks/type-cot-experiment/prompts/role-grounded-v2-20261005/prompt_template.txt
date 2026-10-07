@@ -1,0 +1,161 @@
+You are identifying scientific events in research abstracts.
+
+TASK
+Read the full abstract and identify the scientific events whose triggers occur
+in the TARGET SENTENCE. For each event, explain the scientific relation using
+the relevant argument text and its semantic roles, then assign an event type.
+Finish with an inventory of event types and their counts.
+
+The full abstract provides context. An argument may occur in another sentence,
+but an event belongs in the answer only when its trigger is in the target
+sentence. A target sentence may express no events, one event, or multiple
+events, including several events of the same type.
+
+EVENT TYPES AND THEIR ARGUMENT ROLES
+Choose a type from the relation expressed by the event and the functions of
+its participants. The descriptions below explain the annotation schema; they
+are not sentences that the abstract must reproduce word for word. A role may
+be absent. Missing roles do not automatically rule out an event type.
+
+PUR — Purpose
+A research aim or intended objective: what the work seeks to address or
+achieve, possibly in a particular setting or on particular data.
+Roles: Aim, Condition, Dataset.
+Aim expresses the intended goal; Condition describes the relevant setting;
+Dataset identifies the data. Distinguish an intended aim from an observed
+finding or achieved effect.
+
+ITT — IntroduceTarget
+Introduction or characterization of the abstract research target or task:
+what problem, task, or object is being studied.
+Roles: Target, Condition, Dataset.
+Target is the research target; Condition and Dataset specify its setting and
+data. Distinguish introducing the task from stating an aim for addressing it.
+
+RWS — RelatedWorkStep
+A procedure, component, or approach used in prior or existing work.
+Roles: Subject, Target, BaseComponent, TriedComponent, Condition, Dataset.
+Subject is the entity associated with the existing approach; Target is what
+it addresses; BaseComponent and TriedComponent describe the components used;
+Condition and Dataset provide the setting. Distinguish an existing approach
+from an operation within the method presented in this paper.
+
+RWF — RelatedWorkFault
+A limitation, deficiency, or difficulty concerning existing work or the
+research setting, often motivating the current study.
+Roles: Target, Extent, Concern, Fault, Condition, Dataset.
+Target is the goal or target implicated in the difficulty; Concern is the
+entity under discussion; Fault expresses the limitation; Extent its degree;
+Condition and Dataset specify where it applies. Explain the limitation in
+relation to the participants actually supported by the text.
+
+PRP — Propose
+Introduction of a method, model, framework, resource, or other contribution
+as something proposed by the authors.
+Roles: Proposer, Content, Target.
+Proposer introduces Content for a Target. Distinguish presenting a contribution
+from describing one operation performed inside that contribution. The verb
+need not literally be "propose".
+
+WKS — WorkStatement
+A statement of what the researchers do, report, or study, including the
+content, settings, or scope of their work.
+Roles: Researcher, Content, Condition, Dataset, Target.
+Researcher is associated with the reported Content; Condition, Dataset, and
+Target describe its setting, data, and purpose or target. WKS can report an
+action performed by the researchers. Decide whether the relation emphasizes
+the researchers and their work content, the introduction of a contribution,
+the operation of method components, or a finding. Different relations in the
+same clause can support different event types.
+
+MDS — MethodStep
+An operation or component interaction within the method presented in the
+paper, explaining how that method works.
+Roles: BaseComponent, TriedComponent, Condition, Dataset, Target.
+BaseComponent and TriedComponent describe the components involved in the
+operation; Condition, Dataset, and Target specify its setting, data, and
+target. Explain the operation and the functions of the available components.
+Distinguish this from prior work and from proposing the method as a whole.
+
+FIN — Finding
+An observation, finding, or conclusion that the researchers find or
+demonstrate, typically from experiments or analysis.
+Roles: Finder, Content.
+Finder makes or reports the finding; Content is what is found or demonstrated.
+Distinguish reporting a finding from carrying out an experiment or stating an
+intended goal. A clause can express both a finding event and a separate
+comparison or outcome event; classify those relations individually.
+
+CMP — ExperimentCompare
+A comparison of systems, methods, results, or other experimental entities.
+Roles: Metrics, Arg1, Extent, Result, Arg2, Condition, Dataset.
+Arg1 and Arg2 are the compared entities; Result expresses the comparison
+outcome or relation; Extent expresses its degree; Metrics identifies the
+measure; Condition and Dataset provide the evaluation setting. Comparison
+includes superiority, inferiority, or comparable performance. Do not assign
+Dataset to a baseline merely because it is a comparison participant.
+
+FAC — OutcomeFact
+An outcome relation in which a subject provides, enables, or improves an
+object, outcome, or capability for a target.
+Roles: Subject, Extent, Object, Target, Condition, Dataset, Reason.
+Subject provides or enables Object for Target; Extent describes the degree;
+Condition and Dataset specify the setting; Reason gives the stated reason.
+Distinguish the outcome relation from the researchers' act of finding it and
+from a direct comparison between entities.
+
+HOW TO EXPLAIN AND COUNT EVENTS
+For each event, connect the relevant argument text to its role and explain how
+the resulting relation supports the chosen type. Mention the event expression
+so that different events in the same sentence can be distinguished. Use the
+full abstract to resolve context and participants when needed.
+
+Use only argument text and role assignments supported by the abstract. Do not
+invent a participant to complete a schema, and do not turn a schema description
+into an extra event. Classify each event separately; one clause may support
+multiple events when it expresses distinct scientific relations. Different
+events may share a trigger when it introduces different propositions or
+participant relations. Count the event instances, not the unique trigger
+words. Several arguments within one event do not by themselves create extra
+events. Decide from the relation and context rather than from a trigger word
+alone.
+
+Keep explanations concise and tied to the evidence. Role names and argument
+text belong in the explanation; the final inventory contains only event types
+and counts. Do not output an event tree or character/token offsets.
+
+OUTPUT FORMAT
+Reasoning:
+
+1. Event Family Reasoning:
+   Briefly describe the scientific function or functions expressed by the
+   target sentence, such as an aim, background, contribution, method, or result.
+
+2. Event Reasoning:
+   Event 1: <event expression, supported argument/role relation, and why that
+   relation fits the selected type>. Type: <TYPE>
+   Event 2: <include only if another event is present>. Type: <TYPE>
+
+Final Answer:
+Event Type Inventory:
+<TYPE>: <number of events of this type>
+
+List each present type once, in this order:
+PUR, ITT, RWS, RWF, PRP, WKS, MDS, FIN, CMP, FAC.
+Omit types with a zero count. Counts must agree with the events explained above.
+If there are no events, briefly explain why the target sentence expresses no
+event under this schema, then use:
+
+Final Answer:
+Event Type Inventory:
+None
+
+Full Abstract:
+[S1] <sentence 1>
+[S2] <sentence 2>
+...
+
+TARGET SENTENCE [S{k}]:
+<target sentence>
+
+Type-COT output:

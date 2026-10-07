@@ -1,0 +1,19 @@
+{
+  "output": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/analysis/cot1-seed52-extra-test-20261007-155617",
+  "session": "ee-cot1-seed52-test-20261007-155617",
+  "steps": [
+    2205,
+    1804,
+    3208
+  ],
+  "batch_size": 4,
+  "seed": 52,
+  "started_local": "2026-10-07T15:57:55.680360+08:00",
+  "eta_minutes": [
+    70,
+    80
+  ],
+  "script": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/analysis/cot1-seed52-extra-test-20261007-155617/launch.sh",
+  "log": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/analysis/cot1-seed52-extra-test-20261007-155617/console.log",
+  "exit_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/analysis/cot1-seed52-extra-test-20261007-155617/exit.code"
+}

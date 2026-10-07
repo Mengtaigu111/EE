@@ -1,0 +1,52 @@
+{
+  "count": 12828,
+  "max_len": 4096,
+  "max_tokens": 1563,
+  "mean_tokens": 729.3263953850951,
+  "max_assistant_tokens": 887,
+  "overlength_count": 0,
+  "overlength": [],
+  "prefix_verified": true,
+  "truncation": false,
+  "python": "3.10.20",
+  "packages": {
+    "torch": "2.4.1",
+    "transformers": "4.52.3",
+    "peft": "0.19.1",
+    "accelerate": "1.13.0",
+    "safetensors": "0.7.0"
+  },
+  "data_path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/train.jsonl",
+  "data_sha256": "b96bf0c60a462e9580b52d153242a7676451960b2a8656d53561a478fd42ab8d",
+  "model_path": "/opt/models/Qwen3-8B",
+  "script_hashes": {
+    "write_report.py": "65ce75ed539c84d0e7b6c0f25f9ad1caab35ca225ad16d25448cbb959b0a5ba8",
+    "align_events.py": "049fa49f0e3f646a586bde87a08b81a1fcc913b8b07f6213139cedb4770f93c9",
+    "build_dataset.py": "e76d04ee4151e3b3b2034e249b6bd2fe5b787c1ad0c669daf5c24822da547e35",
+    "run_t5_v1_edge.py": "16008ea1d2492d1f9a588cc1790602151c1b57ab2b8f30455a99c53d108f0ad6",
+    "run_c_queue.py": "5fd67716b6ccecce945b8139a4c3a78ad4f886dc41b7643a25d3bf61b197986e",
+    "hints.py": "1287a8f34f436090efa7729efbd7b914e5fda3d93010c108be01576815c8a240",
+    "run_c_warmstart.py": "d81344a51b86109d755678e59a70cbb26a7407d1126b81ed8b55670aeab69013",
+    "evaluate.py": "a9df78d3ef7c9aca88ab45c8d60bae6acac10a60820abebb8398ab7d740728cd",
+    "error_analysis.py": "d2585cb2851affca5cb1a77dca419c87f5b35836f9ef79af007078207b9832e5",
+    "t5_model_utils.py": "507e1d1d4cdb3c071062ff805b0ad5c167fa1b3d4d2c5ae250d08375af553c9b",
+    "predict_t5_edge.py": "bc7488f5f1553a4b8006e5a7d9c105aaf118c42d6568230a459a709b71ac312a",
+    "ontology.py": "9c28af9fa075f44f45d9d2fd709da4d828daafd2c423ad7082bcfc4d418384c7",
+    "train_lora.py": "67af4e772c321cffd8db7264eabacdff5ec3f3d5c1b230d3bc762b74e28cee1c",
+    "merge_sentence_predictions.py": "10e749aeed3f3611ee7f11cc5d887341a3deb10bee4f03f7f2e7606f3c57a68d",
+    "run_t5_c_queue.py": "70a6b31205f2748427967b3c12fda246f09ac67689288bd5c05903e7f63c971c",
+    "linearize.py": "2a25f9b1920beaa94f9a9ade346af42b9a600b30a05508910c44a3751456f3b2",
+    "prompts.py": "5092b9fbce81ae8c62395b40cdd81cf424731b5c7f1cff7bfc19ce645987f285",
+    "build_sentence_dataset.py": "813a5e8c2a516a9f830be061e9a869404b99a86339792e0768b65ae45c2f30e0",
+    "predict.py": "079f79d59bab4eb7f7ab250998c734f5b246d9dfd75f3bde30db8a38aebc0997",
+    "model_utils.py": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9",
+    "predict_t5.py": "890c8be840bb813acc59582085ea6653f60f707e2ca417a2abe6f732dd461590",
+    "run_queue.py": "ea0fb209bbe2074bbe9f3463706a71477c137d7b225774f0e56d8fa40b3b7c02",
+    "train_t5_lora.py": "79bef4396ffb6020c382707d4d9dd4b8de6a7daef6efc4cb33477b9b25efdd17"
+  },
+  "model_files": {
+    "config.json": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "model.safetensors.index.json": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc"
+  }
+}

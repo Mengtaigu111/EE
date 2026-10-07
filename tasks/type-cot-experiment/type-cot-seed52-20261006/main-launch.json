@@ -1,0 +1,14 @@
+{
+  "session": "ee-cot1-seed52-20261007-000051",
+  "run": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051",
+  "log": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051.console.log",
+  "exit_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261007-000051.exit",
+  "script": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-seed52-20261006/launch-main-20261007-000051.sh",
+  "seed": 52,
+  "started_local": "2026-10-07T00:00:51.761043+08:00",
+  "eta_hours": [
+    15,
+    17
+  ],
+  "smoke_run": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-52-20261006-235604-smoke"
+}

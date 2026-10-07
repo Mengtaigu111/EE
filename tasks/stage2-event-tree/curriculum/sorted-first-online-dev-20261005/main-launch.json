@@ -1,0 +1,8 @@
+{
+  "run_dir": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128",
+  "session": "ee-sorted1-online-dev-20261005-072128",
+  "launch": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-online-dev-20261005/launch-main-20261005-072128.sh",
+  "console_log": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128.console.log",
+  "exit_file": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128.exit",
+  "smoke_reference": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-071815-smoke"
+}

@@ -1,0 +1,15 @@
+{
+  "output": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/analysis/cot1-extra-test-20261006-185458",
+  "session": "ee-cot1-extra-test-20261006-185915",
+  "steps": [
+    1804,
+    1604,
+    3208
+  ],
+  "batch_size": 4,
+  "started_local": "2026-10-06T18:59:15.203499+08:00",
+  "eta_minutes": [
+    70,
+    80
+  ]
+}

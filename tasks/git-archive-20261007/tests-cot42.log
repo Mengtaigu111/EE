@@ -1,0 +1,12 @@
+...............                                                          [100%]
+=============================== warnings summary ===============================
+tasks/type-cot-experiment/type-cot-online-20261006/tests/test_dense_trainer.py::test_cpu_trainer_evaluates_only_list_and_retains_stop_checkpoint
+  /home/myluo/miniconda3/envs/qwen3meld-run/lib/python3.10/site-packages/peft/tuners/lora/layer.py:2504: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+    warnings.warn(
+
+tasks/type-cot-experiment/type-cot-online-20261006/tests/test_dense_trainer.py::test_cpu_trainer_evaluates_only_list_and_retains_stop_checkpoint
+  /home/myluo/miniconda3/envs/qwen3meld-run/lib/python3.10/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in  - will assume that the vocabulary was not modified.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 2 warnings in 6.60s

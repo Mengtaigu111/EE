@@ -1,0 +1,229 @@
+{
+  "experiment": "C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev",
+  "status": "completed",
+  "current_activity": "completed",
+  "smoke": false,
+  "started_at": "2026-10-04T23:21:29.831417+00:00",
+  "manifest": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-online-dev-20261005/manifest.json",
+  "manifest_sha256": "3c50fdf3034d98c617d0af09b4ac35e2ace0ae3a56bbd947d954d56c5e1e77f6",
+  "source_hashes": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/online_dev_config.py": "cb0e0ac7a844acc057f0d82805c8ba13cdb1ed363af2465bac291039d256f64d",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/dev_feedback.py": "78be21ff2a380d5e321054284e390742bcd7f4037bf9586ceae04bf90bb539ea",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/online_dev_evaluation.py": "a496ef8b883ab4a75339c7ee63d2d5f2a9ec86bdbf260351a40b748ce35c006e",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/online_dev_trainer.py": "a8a8c6211e7ffa072d003bbc913459ef2da7819a9790052d77430113d494a134",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_sorted_first_online_dev.py": "55ad2d50277e3239820967aede546e09d0ae236f57c64d0a575c3ef8c959e4bc",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_sorted_first_online_dev.py": "f8ae85bbeecca5449f645568f8682c265fb9256db51048e32355fdc7b84d94a6",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/verify_sorted_first_online_dev.py": "32e5507ab52b4fccee949d0310efa80a64054cdd6f529a71ef6a87d05039aa55",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/instance_scorer.py": "1b6e012df5e8e29aa66f927ef683d6702b7e957ae57ec71c17481cc5cfe0adf3"
+  },
+  "initialization": "/opt/models/Qwen3-8B",
+  "init_adapter": null,
+  "total_optimizer_steps": 3208,
+  "eval_steps": 401,
+  "test_controls_training": false,
+  "best_step": 1604,
+  "best_dev_score": 0.4067647317889544,
+  "last_step": 3208,
+  "stop_reason": "budget_exhausted",
+  "best_checkpoint": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128/training/checkpoints/checkpoint-1604",
+  "last_checkpoint": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128/training/checkpoints/checkpoint-3208",
+  "test_prediction": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128/checkpoint-eval/test-checkpoint-1604.predictions.jsonl",
+  "test_merged": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128/checkpoint-eval/test-checkpoint-1604.merged.jsonl",
+  "test_official": {
+    "TI_f1": 0.7556435643564355,
+    "TC_f1": 0.6290577988915281,
+    "AI_f1": 0.4430466999827675,
+    "AC_f1": 0.4180313739010515,
+    "EC_I_f1": 0.486646884272997,
+    "EC_C_f1": 0.486646884272997,
+    "TI_p": 0.7332820906994619,
+    "TC_p": 0.6102150537634409,
+    "AI_p": 0.43657666836474784,
+    "AC_p": 0.41206457094307564,
+    "EC_I_p": 0.46223224351747466,
+    "EC_C_p": 0.46223224351747466,
+    "TI_r": 0.7794117647058824,
+    "TC_r": 0.6491013071895425,
+    "AI_r": 0.44971138709113173,
+    "AC_r": 0.4241735175791499,
+    "EC_I_r": 0.5137844611528822,
+    "EC_C_r": 0.5137844611528822
+  },
+  "test_complex": {
+    "exit_code": 0,
+    "scores": {
+      "Consecutive_AC_f1": 0.1401,
+      "Overlap_TC_f1": 0.5427000000000001,
+      "Overlap_AC_f1": 0.2057,
+      "Reverse_AC_f1": 0.0,
+      "Subevent_TC_f1": 0.5656,
+      "Subevent_AC_f1": 0.4866,
+      "Subevent_EC_f1": 0.46259999999999996
+    },
+    "stdout": "Recieved 1 output files for evaluation.\nScores for the only output:\n--------------------------------\nConsecutive: AC F1=14.01\n--------------------------------\nOverlap: TC F1=54.27\nOverlap: AC F1=20.57\n--------------------------------\nReverse: AC F1=0.00\n--------------------------------\nSubevent: TC F1=56.56\nSubevent: AC F1=48.66\nSubevent: EC F1=46.26\n",
+    "stderr": ""
+  },
+  "test_scores": {
+    "official_offset": {
+      "TI_f1": 0.7556435643564355,
+      "TC_f1": 0.6290577988915281,
+      "AI_f1": 0.4430466999827675,
+      "AC_f1": 0.4180313739010515,
+      "EC_I_f1": 0.486646884272997,
+      "EC_C_f1": 0.486646884272997,
+      "TI_p": 0.7332820906994619,
+      "TC_p": 0.6102150537634409,
+      "AI_p": 0.43657666836474784,
+      "AC_p": 0.41206457094307564,
+      "EC_I_p": 0.46223224351747466,
+      "EC_C_p": 0.46223224351747466,
+      "TI_r": 0.7794117647058824,
+      "TC_r": 0.6491013071895425,
+      "AI_r": 0.44971138709113173,
+      "AC_r": 0.4241735175791499,
+      "EC_I_r": 0.5137844611528822,
+      "EC_C_r": 0.5137844611528822
+    },
+    "official_raw_token": {
+      "TI_f1": 0.761697065820777,
+      "TC_f1": 0.6252227281726391,
+      "AI_f1": 0.43946960564835547,
+      "AC_f1": 0.4147433689286944,
+      "EC_I_f1": 0.46954464813719693,
+      "EC_C_f1": 0.46954464813719693,
+      "TI_p": 0.7399845916795069,
+      "TC_p": 0.6066077602766039,
+      "AI_p": 0.43276242157029,
+      "AC_p": 0.40848176420695503,
+      "EC_I_p": 0.447576099210823,
+      "EC_C_p": 0.447576099210823,
+      "TI_r": 0.7847222222222222,
+      "TC_r": 0.6450163398692811,
+      "AI_r": 0.44638796571628475,
+      "AC_r": 0.4211999300332342,
+      "EC_I_r": 0.4937810945273632,
+      "EC_C_r": 0.4937810945273632
+    },
+    "instance_offset": {
+      "metrics": {
+        "TI_f1": 0.7494544733187861,
+        "TC_f1": 0.6248760166633605,
+        "AI_f1": 0.442451935511682,
+        "AC_f1": 0.4176222088111044,
+        "EC_I_f1": 0.4821428571428572,
+        "EC_C_f1": 0.4821428571428572,
+        "TI_p": 0.7284998071731585,
+        "TC_p": 0.6074045507134593,
+        "AI_p": 0.4362461747704862,
+        "AC_p": 0.4117647058823529,
+        "EC_I_p": 0.45918367346938777,
+        "EC_C_p": 0.45918367346938777,
+        "TI_r": 0.7716503267973857,
+        "TC_r": 0.6433823529411765,
+        "AI_r": 0.4488368025188036,
+        "AC_r": 0.42364876683575303,
+        "EC_I_r": 0.5075187969924813,
+        "EC_C_r": 0.5075187969924813
+      },
+      "counts": {
+        "TI": {
+          "tp": 1889,
+          "fp": 704,
+          "fn": 559
+        },
+        "TC": {
+          "tp": 1575,
+          "fp": 1018,
+          "fn": 873
+        },
+        "AI": {
+          "tp": 2566,
+          "fp": 3316,
+          "fn": 3151
+        },
+        "AC": {
+          "tp": 2422,
+          "fp": 3460,
+          "fn": 3295
+        },
+        "EC_I": {
+          "tp": 405,
+          "fp": 477,
+          "fn": 393
+        },
+        "EC_C": {
+          "tp": 405,
+          "fp": 477,
+          "fn": 393
+        }
+      }
+    },
+    "instance_raw_token": {
+      "metrics": {
+        "TI_f1": 0.7507436049970256,
+        "TC_f1": 0.6262145548284752,
+        "AI_f1": 0.4487510766580534,
+        "AC_f1": 0.42377260981912146,
+        "EC_I_f1": 0.4848844101956135,
+        "EC_C_f1": 0.4848844101956135,
+        "TI_p": 0.7294797687861272,
+        "TC_p": 0.6084778420038536,
+        "AI_p": 0.44204988969964365,
+        "AC_p": 0.4174444255896827,
+        "EC_I_p": 0.46319365798414497,
+        "EC_C_p": 0.46319365798414497,
+        "TI_r": 0.7732843137254902,
+        "TC_r": 0.6450163398692811,
+        "AI_r": 0.4556585621829631,
+        "AC_r": 0.43029560958544694,
+        "EC_I_r": 0.5087064676616916,
+        "EC_C_r": 0.5087064676616916
+      },
+      "counts": {
+        "TI": {
+          "tp": 1893,
+          "fp": 702,
+          "fn": 555
+        },
+        "TC": {
+          "tp": 1579,
+          "fp": 1016,
+          "fn": 869
+        },
+        "AI": {
+          "tp": 2605,
+          "fp": 3288,
+          "fn": 3112
+        },
+        "AC": {
+          "tp": 2460,
+          "fp": 3433,
+          "fn": 3257
+        },
+        "EC_I": {
+          "tp": 409,
+          "fp": 474,
+          "fn": 395
+        },
+        "EC_C": {
+          "tp": 409,
+          "fp": 474,
+          "fn": 395
+        }
+      }
+    },
+    "raw_token_diagnostics": {
+      "invalid": 0,
+      "dropped_events": 0,
+      "dropped_args": 0,
+      "unknown_event_types": 0,
+      "unknown_roles": 0,
+      "missing_trigger": 0,
+      "semantic_events": 0,
+      "path_inconsistent": 0,
+      "events": 2595,
+      "arguments": 5893
+    }
+  },
+  "finished_at": "2026-10-05T10:34:00.113813+00:00"
+}

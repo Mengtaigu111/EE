@@ -1,0 +1,23 @@
+{
+  "status": "running",
+  "checked_at_local": "2026-10-05T07:23:58.332222+08:00",
+  "session": "ee-sorted1-online-dev-20261005-072128",
+  "run_dir": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-OnlineDev-42-20261005-072128",
+  "actual_completed_updates_at_least": 10,
+  "observed_microbatches": 166,
+  "first_epoch_prefix_exact": true,
+  "frozen_inputs_and_source_hashes_verified": true,
+  "configuration_verified": true,
+  "test_not_run": true,
+  "estimated_duration": {
+    "range_hours": [
+      11,
+      13
+    ],
+    "basis": "first actual updates approximately9s/update plus historical full-dev1422s x8 and test1455s; early stop may shorten",
+    "approximate_finish_local_range": [
+      "2026-10-05 18:23 CST",
+      "2026-10-05 20:23 CST"
+    ]
+  }
+}

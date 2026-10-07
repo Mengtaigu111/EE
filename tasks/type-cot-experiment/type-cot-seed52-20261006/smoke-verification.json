@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "cot": {
+    "passed": true,
+    "updates": 2,
+    "rows": 32,
+    "shuffled_complete": true
+  },
+  "tree_updates": 4,
+  "best_step": 4,
+  "sampling": {
+    "passed": true,
+    "global_step": 4,
+    "observed_rows": 64,
+    "epoch_counts": [
+      32,
+      32
+    ],
+    "complete_epochs": 2,
+    "partial_epoch_rows": 0
+  },
+  "feedback_replayed": true,
+  "dev_scores_recomputed": [
+    {
+      "step": 2,
+      "AC_f1": 0.0
+    },
+    {
+      "step": 4,
+      "AC_f1": 0.07142857142857144
+    }
+  ]
+}

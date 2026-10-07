@@ -1,0 +1,106 @@
+{
+  "documents": 250,
+  "scope": "full",
+  "official": {
+    "TI_f1": 0.7555923777961889,
+    "TC_f1": 0.6415406916545868,
+    "AI_f1": 0.4474008810572687,
+    "AC_f1": 0.4246056226315325,
+    "EC_I_f1": 0.4792054624456859,
+    "EC_C_f1": 0.4792054624456859,
+    "TI_p": 0.7663865546218488,
+    "TC_p": 0.6505669886602268,
+    "AI_p": 0.4507367299840227,
+    "AC_p": 0.427886323268206,
+    "EC_I_p": 0.4747847478474785,
+    "EC_C_p": 0.4747847478474785,
+    "TI_r": 0.7450980392156863,
+    "TC_r": 0.6327614379084967,
+    "AI_r": 0.4441140458282316,
+    "AC_r": 0.42137484694769983,
+    "EC_I_r": 0.48370927318295737,
+    "EC_C_r": 0.48370927318295737
+  },
+  "alignment": {
+    "events": 2376,
+    "aligned_events": 2376,
+    "unaligned_triggers": 0,
+    "arguments": 5648,
+    "aligned_arguments": 5644,
+    "unaligned_arguments": 4,
+    "invalid_documents": 0,
+    "hit_max_new_tokens": 0,
+    "parse_dropped_events": 0,
+    "parse_dropped_args": 1,
+    "parse_unknown_event_types": 0,
+    "parse_unknown_roles": 1,
+    "parse_missing_trigger": 0,
+    "parse_semantic_events": 0,
+    "parse_path_inconsistent": 0,
+    "trigger_method_exact_scope": 2375,
+    "argument_method_exact": 5436,
+    "argument_method_subsequence": 208,
+    "trigger_method_subsequence_scope": 1
+  },
+  "per_event_type": {
+    "PUR": {
+      "gold": 416,
+      "predicted": 384
+    },
+    "PRP": {
+      "gold": 257,
+      "predicted": 255
+    },
+    "WKS": {
+      "gold": 332,
+      "predicted": 300
+    },
+    "ITT": {
+      "gold": 174,
+      "predicted": 174
+    },
+    "RWS": {
+      "gold": 70,
+      "predicted": 44
+    },
+    "RWF": {
+      "gold": 205,
+      "predicted": 195
+    },
+    "MDS": {
+      "gold": 300,
+      "predicted": 346
+    },
+    "FIN": {
+      "gold": 175,
+      "predicted": 181
+    },
+    "CMP": {
+      "gold": 195,
+      "predicted": 191
+    },
+    "FAC": {
+      "gold": 324,
+      "predicted": 303
+    }
+  },
+  "gold_events": 2448,
+  "predicted_events": 2373,
+  "data": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/test.jsonl",
+  "predictions": "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-TypeCoT1-AppendixNoCopy-Sorted1-DenseOnlineDev-42-20261006-003100/checkpoint-eval/test-checkpoint-2205.merged.jsonl",
+  "oracle": false,
+  "complex": {
+    "exit_code": 0,
+    "scores": {
+      "Consecutive_AC_f1": 0.1211,
+      "Overlap_TC_f1": 0.5226,
+      "Overlap_AC_f1": 0.2113,
+      "Reverse_AC_f1": 0.0,
+      "Subevent_TC_f1": 0.5477000000000001,
+      "Subevent_AC_f1": 0.4792,
+      "Subevent_EC_f1": 0.4625
+    },
+    "stdout": "Recieved 1 output files for evaluation.\nScores for the only output:\n--------------------------------\nConsecutive: AC F1=12.11\n--------------------------------\nOverlap: TC F1=52.26\nOverlap: AC F1=21.13\n--------------------------------\nReverse: AC F1=0.00\n--------------------------------\nSubevent: TC F1=54.77\nSubevent: AC F1=47.92\nSubevent: EC F1=46.25\n",
+    "stderr": ""
+  }
+}

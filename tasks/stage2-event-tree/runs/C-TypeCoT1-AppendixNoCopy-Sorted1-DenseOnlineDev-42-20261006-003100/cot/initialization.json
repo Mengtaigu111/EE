@@ -1,0 +1,8 @@
+{
+  "fresh_optimizer": true,
+  "optimizer_state_entries": 0,
+  "scheduler_last_epoch": 0,
+  "global_step": 0,
+  "fresh_lora": true,
+  "adapter_source": null
+}

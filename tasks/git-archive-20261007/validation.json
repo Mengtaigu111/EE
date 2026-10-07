@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "suites": {
+    "online": {
+      "passed": 30,
+      "log": "tasks/git-archive-20261007/tests-online.log"
+    },
+    "cot": {
+      "passed": 5,
+      "log": "tasks/git-archive-20261007/tests-cot.log"
+    },
+    "cot42": {
+      "passed": 15,
+      "log": "tasks/git-archive-20261007/tests-cot42.log"
+    },
+    "cot52": {
+      "passed": 7,
+      "log": "tasks/git-archive-20261007/tests-cot52.log"
+    },
+    "fast": {
+      "passed": 34,
+      "log": "tasks/git-archive-20261007/tests-fast.log"
+    }
+  },
+  "tests_passed": 91,
+  "subtests_passed": 21,
+  "scope_review": "review.md",
+  "cuda_visible_devices_for_tests": ""
+}

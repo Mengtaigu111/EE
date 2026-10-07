@@ -1,0 +1,116 @@
+{
+  "rows": 1627,
+  "type_multiset": {
+    "tp": 2448,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "per_type": {
+    "PUR": {
+      "gold": 416,
+      "pred": 416,
+      "tp": 416,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "ITT": {
+      "gold": 174,
+      "pred": 174,
+      "tp": 174,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "RWS": {
+      "gold": 70,
+      "pred": 70,
+      "tp": 70,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "RWF": {
+      "gold": 205,
+      "pred": 205,
+      "tp": 205,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "PRP": {
+      "gold": 257,
+      "pred": 257,
+      "tp": 257,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "WKS": {
+      "gold": 332,
+      "pred": 332,
+      "tp": 332,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "MDS": {
+      "gold": 300,
+      "pred": 300,
+      "tp": 300,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "FIN": {
+      "gold": 175,
+      "pred": 175,
+      "tp": 175,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "CMP": {
+      "gold": 195,
+      "pred": 195,
+      "tp": 195,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "FAC": {
+      "gold": 324,
+      "pred": 324,
+      "tp": 324,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "parser_sources": {
+    "inventory": 1627
+  }
+}

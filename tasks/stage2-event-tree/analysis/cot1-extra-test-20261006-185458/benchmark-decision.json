@@ -1,0 +1,9 @@
+{
+  "batch4_seconds": 48.97440791130066,
+  "batch8_seconds": 45.375606060028076,
+  "speedup": 1.0793113781557357,
+  "raw_differences": 2,
+  "parsed_differences": 2,
+  "selected_batch": 4,
+  "reason": "Only7.35% time saved with2/48 changed trees; retain original generation batch."
+}

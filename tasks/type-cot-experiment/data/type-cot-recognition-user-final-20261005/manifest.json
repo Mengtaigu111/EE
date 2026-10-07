@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-10-05T15:50:43.978322+00:00",
+  "source_dir": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition",
+  "prompt_template": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/prompts/user-final-20261005/prompt_template.txt",
+  "prompt_sha256": "d339a624c93bb4a4aef8d82250a2935dcd219001fa48ff8f9188156d20b3ac23",
+  "audit": {
+    "train_rows": 12828,
+    "positive_rows": 10704,
+    "explained_events": 19488,
+    "no_event_rows": 2124
+  },
+  "splits": {
+    "train": {
+      "rows": 12828,
+      "source_sha256": "b96bf0c60a462e9580b52d153242a7676451960b2a8656d53561a478fd42ab8d",
+      "output_sha256": "db7f9574b0d7750bb87321ddd58aa904cbcd4fa3ee183bfe0c0786568daac869"
+    },
+    "dev": {
+      "rows": 1593,
+      "source_sha256": "ed03cf1275778f3369222573ddc9a35f5186a16a5d22a872d89d78eab74d73f6",
+      "output_sha256": "56cc77c29c76350571a5045daf14df148e4581d1b42794cf71e0939158f9cd3a"
+    },
+    "test": {
+      "rows": 1627,
+      "source_sha256": "fb348daf75e3f4e95f90835bcdcc658d9f1a7bf8c6a0ebc3c9661bde09e39fe7",
+      "output_sha256": "15475aba3eb35bd9233f413b38c690b71841abdba6307e8db07cd1e3531d56c0"
+    }
+  },
+  "policy": "Only prompt is replaced; all other fields, including completion and gold, are unchanged.",
+  "limits": "Full structural/count audit; semantic compatibility reviewed on samples, not exhaustively proven."
+}
