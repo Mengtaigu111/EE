@@ -107,3 +107,17 @@ Experiment C 评估：方向值得做，能直接测试“文档级输入、句�
 ## 结果复盘
 
 待实现和验证后填写；不得把代码完成误写成实验完成。
+
+
+## 2026-10-12 修复模型完整来源锁并Git提交
+
+规格与设计：用户授权修复审查P2并commit。修改当前type-cot-goldorder/config.py，按safetensors index解析全部实际分片；锁config/tokenizer_config/index与实际tokenizer.json/vocab/merges/特殊token/生成配置，不把旧manifest补写成历史已经锁过。新manifest完整校验，旧弱锁manifest由新版runner拒绝，历史run/source_snapshot/manifest均保留，后续需重新生成独立manifest。SHA256流式读取，不缓存文件内容hash，避免替换绕过检查。不训练/推理/运行旧队列，不提交其他已有改动和实验数据。
+
+计划校验与置信度：根因已独立证实；复用现有sha/verify_locks，标准库json/pathlib，无新依赖；完整源文件清单源于本地transformers/AutoTokenizer加载器及权重index，未找到已有完整锁实现；95%。已有review与本次用户授权覆盖方案，无需再次确认。
+
+- [x] 使用小型本地模型文件fixture写权重/tokenizer/生成配置替换失败回归，确认先红。
+- [x] 实现完整模型文件枚举与严格锁校验，补文档和教训。
+- [x] 跑CPU回归、实际5分片完整hash覆盖验证，独立review。
+- [ ] 核查暂存范围，仅提交此次修复相关文件，记录commit及复盘。
+
+验证复盘：新增12项回归在旧实现全部失败，修复后12项通过；完整gold-order CPU套件34项通过（117.26秒），独立review无阻塞。真实Qwen枚举12项输入，覆盖全部5个分片（总16,397,431,693字节）；完整回归构造及验证实际模型manifest通过。此前记录的5份历史manifest/计划/源码快照SHA256复核未变。仅当前config、新回归、迁移说明及本次任务/教训追加进入提交范围，其他已有dirty代码与实验产物保留。
