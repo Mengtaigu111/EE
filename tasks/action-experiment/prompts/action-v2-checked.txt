@@ -1,0 +1,121 @@
+You are an expert in scientific event extraction.
+
+TASK
+
+Read the full abstract as context. Extract only scientific events whose triggers are expressed in the TARGET SENTENCE.
+
+Generate event-construction actions only. Use the action language below.
+The interpreter creates ROOT and renders the final event forest.
+
+
+ACTION LANGUAGE
+
+Write exactly one action per line:
+
+NEW(TYPE)
+TRG("trigger text")
+ARG(ROLE, "argument text")
+END
+STOP
+
+
+ACTION RULES
+
+Each event follows:
+
+NEW(TYPE) → TRG("trigger") → ARG(ROLE,"argument")* → END
+
+After END, generate another event with NEW(TYPE) or finish with STOP.
+
+STOP must be the final action.
+
+If no events exist, output only STOP.
+
+
+BASIC EXTRACTION RULES
+
+- TYPE must be listed in EVENT SCHEMA; ROLE must belong to the current type.
+- Use JSON double-quoted strings; escape embedded quotes and backslashes.
+- Preserve source tokenization, spelling, case, and mention word order.
+- For discontinuous mentions, combine source fragments in their intended order, omit gap words, and emit one string.
+- Order events by trigger occurrence; roles by template appearance; repeated roles by source occurrence.
+- Include only supported arguments. Do not fill unsupported roles.
+
+- Trigger must appear in TARGET SENTENCE.
+- Arguments may come from FULL ABSTRACT.
+- Copy source text without paraphrasing.
+- Preserve separate event instances and repeated roles.
+
+
+APPENDIX F.2 EVENT SCHEMA
+
+PUR (Purpose)
+Template:
+In order to deal with <Aim:arg1> under <Condition:arg2> circumstance on <Dataset:arg3> datasets.
+Roles: Aim, Condition, Dataset
+
+ITT (IntroduceTarget)
+Template:
+<Target:arg1> is the abstract research target under <Condition:arg2> circumstance on <Dataset:arg3> datasets in this paper.
+Roles: Target, Condition, Dataset
+
+RWS (RelatedWorkStep)
+Template:
+Previously <Subject:arg1> on <Target:arg2> are mostly based on <BaseComponent:arg3> with <TriedComponent:arg4> under <Condition:arg5> circumstance on <Dataset:arg6> datasets.
+Roles: Subject, Target, BaseComponent, TriedComponent, Condition, Dataset
+
+RWF (RelatedWorkFault)
+Template:
+Aiming to <Target:arg1>, to <Extent:arg5> degree, <Concern:arg2> has some <Fault:arg6> faults under <Condition:arg3> circumstance on <Dataset:arg4> datasets.
+Roles: Target, Extent, Concern, Fault, Condition, Dataset
+
+PRP (Propose)
+Template:
+In this paper, <Proposer:arg1> propose <Content:arg2> for <Target:arg3>.
+Roles: Proposer, Content, Target
+
+WKS (WorkStatement)
+Template:
+<Researcher:arg1> report <Content:arg2> under <Condition:arg3> circumstance on <Dataset:arg4> datasets for <Target:arg5>.
+Roles: Researcher, Content, Condition, Dataset, Target
+
+MDS (MethodStep)
+Template:
+Our approach adopt <BaseComponent:arg1> with <TriedComponent:arg2> under <Condition:arg3> circumstance on <Dataset:arg4> datasets for <Target:arg5>.
+Roles: BaseComponent, TriedComponent, Condition, Dataset, Target
+
+FIN (Finding)
+Template:
+In experiments, <Finder:arg1> find or demonstrate findings that <Content:arg2>.
+Roles: Finder, Content
+
+CMP (ExperimentCompare)
+Template:
+Experimental results show that the <Metrics:arg6> of <Arg1:arg1> is <Extent:arg2> <Result:arg3> than <Arg2:arg4> under <Condition:arg5> circumstance on <Dataset:arg7> datasets.
+Roles: Metrics, Arg1, Extent, Result, Arg2, Condition, Dataset
+
+FAC (OutcomeFact)
+Template:
+Experimental results show that <Subject:arg1> can <Extent:arg2> provide <Object:arg3> for <Target:arg4> under <Condition:arg5> circumstance on <Dataset:arg6> datasets because <Reason:arg7> reasons.
+Roles: Subject, Extent, Object, Target, Condition, Dataset, Reason
+
+
+EVENT DECISION RULES
+
+- Choose event types using event semantics and participant relationships, not keywords alone.
+- Do not classify events only by trigger words.
+- A sentence may contain multiple event types.
+- Before STOP, check whether another supported event remains to be emitted.
+
+
+FULL ABSTRACT
+
+{ABSTRACT}
+
+
+TARGET SENTENCE
+
+{TARGET_SENTENCE}
+
+
+Actions:

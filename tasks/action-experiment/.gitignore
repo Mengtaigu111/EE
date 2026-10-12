@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+data/
+runs/
+*.log
+*.exit
+exit.code
+pid
+commit.txt
+verification-20261012/qwen-*/

@@ -131,3 +131,9 @@
 - 用户明确要求队列监督每 2 小时检查一次；不要按小时频繁报告。监控器和回复均遵循该频率，除非出现异常或用户主动询问。
 
 - 2026-10-12：模型来源冻结必须覆盖实际权重分片与tokenizer/生成输入，不能仅hash权重index和配置。按index枚举并逐文件内容hash，阶段入口及交接检查；旧manifest保留，不补写成历史已验证完整来源，后续使用重新冻结的新manifest。
+
+- 2026-10-12：Transformers>=4.50在use_model_defaults未显式关闭时，会把GenerationConfig里等于全局默认的显式值（temperature=1/top_p=1/do_sample=False）回填成Qwen模型默认。RL与greedy评测必须传use_model_defaults=False，并用真实HF config解析回归验证；仅构造clean GenerationConfig不够。行为概率直接取生成scores，缓存生成与teacher-force的bf16数值差单独记录。
+
+- 2026-10-12：用户要求正式训练前补三项检查时，先确认训练实际停止并阻止RL派发，再全量独立审计Gold→Action→Tree、非连续/重复文本offset及token截断；不要以已有局部回归替代明确指定验收。暂停信号发出后必须核对进程状态和日志停滞；若无法维持内存暂停，中止并明确当前无optimizer恢复。prompt按内容hash而非文件名判断版本差异，恢复旧来源文件只能来自相同冻结快照，不补改历史manifest。
+
+- 2026-10-12：用户在检查中继续修改prompt时，立即重新读取并按最新内容测量，不沿用之前“同文件内容”的判断；区分用户原稿、兼容建议稿、实际冻结数据模板。用户要求“写代码核实”，交付可重跑的全量脚本与JSON结果，并明确gold截断覆盖与自由生成截断不是同一结论。

@@ -1,0 +1,126 @@
+{
+  "status": "passed",
+  "rows": 16048,
+  "generation_cap": 768,
+  "context": 4096,
+  "assistant_prefix_mask_and_no_truncation_verified": true,
+  "decoded_capped_targets_parse_exactly": true,
+  "splits": {
+    "train": {
+      "rows": 12828,
+      "assistant_max": 295,
+      "assistant_p50": 52,
+      "assistant_p95": 121,
+      "prompt_max": 1527,
+      "full_max": 1680,
+      "above_cap": 0
+    },
+    "dev": {
+      "rows": 1593,
+      "assistant_max": 671,
+      "assistant_p50": 52,
+      "assistant_p95": 120,
+      "prompt_max": 1406,
+      "full_max": 2060,
+      "above_cap": 0
+    },
+    "test": {
+      "rows": 1627,
+      "assistant_max": 520,
+      "assistant_p50": 52,
+      "assistant_p95": 118,
+      "prompt_max": 1563,
+      "full_max": 2083,
+      "above_cap": 0
+    }
+  },
+  "counts_above_candidates": {
+    "319": 2,
+    "384": 2,
+    "512": 2,
+    "640": 1,
+    "671": 0,
+    "768": 0,
+    "1024": 0
+  },
+  "longest": [
+    {
+      "id": "6353b8a9b8a4d09a9b9c9c05f2707351::sentence-5",
+      "split": "dev",
+      "assistant_tokens": 671,
+      "prompt_tokens": 1389,
+      "full_tokens": 2060
+    },
+    {
+      "id": "60fc259ec5fb992a8fac46ee65b161b7::sentence-8",
+      "split": "test",
+      "assistant_tokens": 520,
+      "prompt_tokens": 1563,
+      "full_tokens": 2083
+    },
+    {
+      "id": "45346910869263c09eb48a62be501e0b::sentence-3",
+      "split": "train",
+      "assistant_tokens": 295,
+      "prompt_tokens": 1320,
+      "full_tokens": 1615
+    },
+    {
+      "id": "5393a581f1995c01cfe9e63d5706c159::sentence-1",
+      "split": "dev",
+      "assistant_tokens": 295,
+      "prompt_tokens": 1340,
+      "full_tokens": 1635
+    },
+    {
+      "id": "06007a191b140185a0fac49b7ad67005::sentence-5",
+      "split": "train",
+      "assistant_tokens": 288,
+      "prompt_tokens": 1368,
+      "full_tokens": 1656
+    },
+    {
+      "id": "30e8cbfa6e23d0120e4a3fce8aeccf8b::sentence-2",
+      "split": "train",
+      "assistant_tokens": 288,
+      "prompt_tokens": 1358,
+      "full_tokens": 1646
+    },
+    {
+      "id": "976328f7bf9b0ddff36efe5e2c8f44d9::sentence-2",
+      "split": "test",
+      "assistant_tokens": 287,
+      "prompt_tokens": 1311,
+      "full_tokens": 1598
+    },
+    {
+      "id": "fe261399267fdc0cc55cfe294923bbbb::sentence-7",
+      "split": "train",
+      "assistant_tokens": 283,
+      "prompt_tokens": 1374,
+      "full_tokens": 1657
+    },
+    {
+      "id": "d452ddc0b1a2953f6e308d53b9b3c6e0::sentence-7",
+      "split": "train",
+      "assistant_tokens": 272,
+      "prompt_tokens": 1398,
+      "full_tokens": 1670
+    },
+    {
+      "id": "296f04e4eb0e228328ba71f8f24b1638::sentence-3",
+      "split": "train",
+      "assistant_tokens": 270,
+      "prompt_tokens": 1290,
+      "full_tokens": 1560
+    }
+  ],
+  "v2_equals_frozen_template": false,
+  "v2_sha256": "0bb3ac9f536668ddc71d248d007c54b8ad083715df78bbcd9f8d19046bf34f19",
+  "data_sha256": {
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train.jsonl": "5e4dcd6a10f12da5c43cc1762cdd18950533915e9bd21b4c3624f20911ecb0f3",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/dev.jsonl": "2af669da984b8195ad1b201e5e65125aca439687de12cb444c240d158472e6e2",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/test.jsonl": "c4d05fc9718747baffdfe185f4cc94ff8151430b90b696dfb21069fc18e9411c"
+  },
+  "scope": "Gold target token coverage; arbitrary sampled predictions may still reach cap and are recorded as truncated, not guaranteed complete"
+}

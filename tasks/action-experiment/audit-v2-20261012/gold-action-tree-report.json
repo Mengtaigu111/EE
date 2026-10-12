@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "raw_gold_source": "data/SciEvents/{train,dev,test}.json",
+  "tree_parser": "independent recursive JSON-string grammar reader",
+  "offset_reconstruction_claimed": false,
+  "splits": {
+    "train": {
+      "rows": 12828,
+      "events": 19488,
+      "arguments": 45076,
+      "none_rows": 2124,
+      "duplicate_event_rows": 20,
+      "duplicate_argument_events": 16,
+      "shared_trigger_rows": 316,
+      "passed_rows": 12828,
+      "complete_gold_documents": 2007
+    },
+    "dev": {
+      "rows": 1593,
+      "events": 2445,
+      "arguments": 5618,
+      "none_rows": 271,
+      "duplicate_event_rows": 1,
+      "duplicate_argument_events": 3,
+      "shared_trigger_rows": 35,
+      "passed_rows": 1593,
+      "complete_gold_documents": 251
+    },
+    "test": {
+      "rows": 1627,
+      "events": 2448,
+      "arguments": 5717,
+      "none_rows": 272,
+      "duplicate_event_rows": 1,
+      "duplicate_argument_events": 1,
+      "shared_trigger_rows": 32,
+      "passed_rows": 1627,
+      "complete_gold_documents": 250
+    }
+  },
+  "failures": [],
+  "sha256": {
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/train.json": "09c16f2a9e2407318b28e8a189f7b2f8546f864f2eaf5d6a4d6540db73a6b067",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train.jsonl": "5e4dcd6a10f12da5c43cc1762cdd18950533915e9bd21b4c3624f20911ecb0f3",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/dev.json": "aef95bbda483f90d7516ee0395e0d0ad9c584446c51af308477fa58fc46c4bb9",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/dev.jsonl": "2af669da984b8195ad1b201e5e65125aca439687de12cb444c240d158472e6e2",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/test.json": "6f5ed861c147d5da197a21eaf0802e4399a2529a438d4861510b7780556dba71",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/test.jsonl": "c4d05fc9718747baffdfe185f4cc94ff8151430b90b696dfb21069fc18e9411c",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/audit-v2-20261012/gold_action_tree_audit.py": "01c3d11863be10401b97c2a7031cb430f432ad01fcb58413bf522e20966fd7e0"
+  },
+  "totals": {
+    "rows": 16048,
+    "events": 24381,
+    "arguments": 56411,
+    "none_rows": 2667,
+    "duplicate_event_rows": 22,
+    "duplicate_argument_events": 20,
+    "shared_trigger_rows": 383,
+    "passed_rows": 16048,
+    "complete_gold_documents": 2508
+  }
+}

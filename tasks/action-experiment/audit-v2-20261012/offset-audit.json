@@ -1,0 +1,368 @@
+{
+  "status": "passed",
+  "totals": {
+    "rows": 16048,
+    "events": 24381,
+    "same_role_text_distinct_offset_groups": 14,
+    "triggers": 24381,
+    "trigger_noncontiguous": 0,
+    "trigger_nonmonotonic": 0,
+    "trigger_multiple_contiguous_text_occurrences": 2702,
+    "trigger_gold_ordered_diagnostic_false": 0,
+    "arguments": 56411,
+    "argument_noncontiguous": 2492,
+    "argument_nonmonotonic": 819,
+    "argument_multiple_contiguous_text_occurrences": 12421,
+    "argument_gold_ordered_diagnostic_false": 662,
+    "same_type_trigger_text_distinct_offset_groups": 57
+  },
+  "splits": {
+    "train": {
+      "rows": 12828,
+      "events": 19488,
+      "same_role_text_distinct_offset_groups": 12,
+      "triggers": 19488,
+      "trigger_noncontiguous": 0,
+      "trigger_nonmonotonic": 0,
+      "trigger_multiple_contiguous_text_occurrences": 2167,
+      "trigger_gold_ordered_diagnostic_false": 0,
+      "arguments": 45076,
+      "argument_noncontiguous": 2063,
+      "argument_nonmonotonic": 658,
+      "argument_multiple_contiguous_text_occurrences": 9907,
+      "argument_gold_ordered_diagnostic_false": 529,
+      "same_type_trigger_text_distinct_offset_groups": 50
+    },
+    "dev": {
+      "rows": 1593,
+      "events": 2445,
+      "same_type_trigger_text_distinct_offset_groups": 4,
+      "same_role_text_distinct_offset_groups": 2,
+      "triggers": 2445,
+      "trigger_noncontiguous": 0,
+      "trigger_nonmonotonic": 0,
+      "trigger_multiple_contiguous_text_occurrences": 290,
+      "trigger_gold_ordered_diagnostic_false": 0,
+      "arguments": 5618,
+      "argument_noncontiguous": 192,
+      "argument_nonmonotonic": 66,
+      "argument_multiple_contiguous_text_occurrences": 1272,
+      "argument_gold_ordered_diagnostic_false": 51
+    },
+    "test": {
+      "rows": 1627,
+      "events": 2448,
+      "same_role_text_distinct_offset_groups": 0,
+      "triggers": 2448,
+      "trigger_noncontiguous": 0,
+      "trigger_nonmonotonic": 0,
+      "trigger_multiple_contiguous_text_occurrences": 245,
+      "trigger_gold_ordered_diagnostic_false": 0,
+      "arguments": 5717,
+      "argument_noncontiguous": 237,
+      "argument_nonmonotonic": 95,
+      "argument_multiple_contiguous_text_occurrences": 1242,
+      "argument_gold_ordered_diagnostic_false": 82,
+      "same_type_trigger_text_distinct_offset_groups": 3
+    }
+  },
+  "failures": [],
+  "all_raw_offsets_and_mention_word_order_preserved": true,
+  "action_event_and_role_multiplicity_preserved": true,
+  "immutable_inputs_verified_before_and_after": true,
+  "source_sha256": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/train.jsonl": "a596393695643ae84310991270622310e91593996a65eed676832faef57b9a89",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/dev.jsonl": "c6c15f8468b1d3185f014b812a8f0f027484b0d6b1a89bd7fff11517d0273d21",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/test.jsonl": "ddc7c7fb92bd84c48ce64f868dedfd736b0b8d8654d197eed607cf3b819538b5",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/manifest.json": "986af2a12a2a05b7cfcebf88858023d71bab8c33b7fbc1cc1f4f4a0ce4d8658e",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/prompts/action-v2-checked.txt": "e656eb7abe1e76c1078e87ae803af8f3d8eeb57c9e7f856bee6ab4f8689b6cbb",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-gold-order-20261008/ordered-ids.txt": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/ontology.json": "ed645dc47688cf90cde6112ee9d052c65446e51174e1832f0a02f6607ff55c20",
+    "/home/myluo/EE/EXCEEDS/scripts/build_action_dataset.py": "8bf97461f44cad7128e5d91ffe8c2c1d7cf1ac5bb59bd826b1f551ee01c51104",
+    "/home/myluo/EE/EXCEEDS/scripts/action_language.py": "fa9f3ba4d3b3a1667b9d278d1dc669db04e742f942905320814b93a43d91c61a",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train-sorted.jsonl": "de23816a9a459127bd2d02e3710c595331024811e0a9f259c414a1bf3f515459",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/dev.jsonl": "2af669da984b8195ad1b201e5e65125aca439687de12cb444c240d158472e6e2",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/random15.md": "ce86ecf5512089495651f3dc55a7ff7b8b5e227cda2addf6e94334cd7f0f7ac7",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/token-audit.json": "12a35934d82034aaa4a155b3a186fa8dbad3bde3c4b47875b4e0486ade945929",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train.jsonl": "5e4dcd6a10f12da5c43cc1762cdd18950533915e9bd21b4c3624f20911ecb0f3",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/test.jsonl": "c4d05fc9718747baffdfe185f4cc94ff8151430b90b696dfb21069fc18e9411c",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/random15.jsonl": "01a6736b006832c20a47567cc6a4b44dd94fced4ce5d0809274976e4a3e07df8",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/ordered-ids.txt": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/prompt_template.txt": "e656eb7abe1e76c1078e87ae803af8f3d8eeb57c9e7f856bee6ab4f8689b6cbb",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/train.json": "09c16f2a9e2407318b28e8a189f7b2f8546f864f2eaf5d6a4d6540db73a6b067",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/dev.json": "aef95bbda483f90d7516ee0395e0d0ad9c584446c51af308477fa58fc46c4bb9",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/test.json": "6f5ed861c147d5da197a21eaf0802e4399a2529a438d4861510b7780556dba71"
+  },
+  "examples": {
+    "repeated_text": {
+      "split": "train",
+      "id": "febd573ada9568c635f6d8aeada27ec5::sentence-0",
+      "document_id": "febd573ada9568c635f6d8aeada27ec5",
+      "mention_kind": "argument",
+      "event_type": "ITT",
+      "role": "Target",
+      "offsets": [
+        0,
+        1
+      ],
+      "text": "program induction",
+      "tokens_at_offsets": [
+        "program",
+        "induction"
+      ],
+      "contiguous_candidate_offsets": [
+        [
+          0,
+          1
+        ],
+        [
+          104,
+          105
+        ]
+      ],
+      "ordered_diagnostic": true,
+      "target_sentence": "program induction for answering complex questions over knowledge bases ( kbs ) aims to decompose a question into a multi - step program , whose execution against the kb produces the final answer .",
+      "action": "NEW(ITT)\nTRG(\"decompose\")\nARG(Target, \"program induction\")\nEND\nSTOP"
+    },
+    "nonmonotonic": {
+      "split": "train",
+      "id": "febd573ada9568c635f6d8aeada27ec5::sentence-3",
+      "document_id": "febd573ada9568c635f6d8aeada27ec5",
+      "mention_kind": "argument",
+      "event_type": "MDS",
+      "role": "TriedComponent",
+      "offsets": [
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        7,
+        8
+      ],
+      "text": "valuable program annotations on the rich - resourced knowledge bases",
+      "tokens_at_offsets": [
+        "valuable",
+        "program",
+        "annotations",
+        "on",
+        "the",
+        "rich",
+        "-",
+        "resourced",
+        "knowledge",
+        "bases"
+      ],
+      "contiguous_candidate_offsets": [],
+      "ordered_diagnostic": false,
+      "target_sentence": "in this paper , we propose the approach of program transfer , which aims to leverage the valuable program annotations on the rich - resourced kbs as external supervision signals to aid program induction for the low - resourced kbs that lack program annotations .",
+      "action": "NEW(PRP)\nTRG(\"propose\")\nARG(Proposer, \"we\")\nARG(Content, \"approach of program transfer\")\nEND\nNEW(MDS)\nTRG(\"leverage\")\nARG(TriedComponent, \"valuable program annotations on the rich - resourced knowledge bases\")\nARG(Target, \"aid\")\nEND\nNEW(PUR)\nTRG(\"aid\")\nARG(Aim, \"program induction\")\nEND\nSTOP"
+    },
+    "discontinuous": {
+      "split": "train",
+      "id": "febd573ada9568c635f6d8aeada27ec5::sentence-7",
+      "document_id": "febd573ada9568c635f6d8aeada27ec5",
+      "mention_kind": "argument",
+      "event_type": "WKS",
+      "role": "Content",
+      "offsets": [
+        7,
+        8,
+        191
+      ],
+      "text": "knowledge bases ontology",
+      "tokens_at_offsets": [
+        "knowledge",
+        "bases",
+        "ontology"
+      ],
+      "contiguous_candidate_offsets": [],
+      "ordered_diagnostic": true,
+      "target_sentence": "during the searching , we incorporate the kb ontology to prune the search space .",
+      "action": "NEW(WKS)\nTRG(\"incorporate\")\nARG(Researcher, \"we\")\nARG(Content, \"knowledge bases ontology\")\nARG(Condition, \"during the searching\")\nARG(Target, \"prune\")\nEND\nNEW(PUR)\nTRG(\"prune\")\nARG(Aim, \"search space\")\nEND\nSTOP"
+    },
+    "duplicate_event_text": {
+      "split": "train",
+      "id": "f0836257dd4df8ac15ef193f4376fda5::sentence-7",
+      "gold_events": [
+        {
+          "event_type": "FIN",
+          "arguments": [
+            {
+              "text": "we",
+              "nugget_type": "OG",
+              "argument_type": "Finder",
+              "tokens": [
+                "we"
+              ],
+              "offsets": [
+                230
+              ]
+            },
+            {
+              "text": "yields",
+              "nugget_type": "E-CMP",
+              "argument_type": "Content",
+              "tokens": [
+                "yields"
+              ],
+              "offsets": [
+                239
+              ]
+            }
+          ],
+          "trigger": {
+            "text": "show",
+            "tokens": [
+              "show"
+            ],
+            "offsets": [
+              232
+            ]
+          }
+        },
+        {
+          "event_type": "CMP",
+          "arguments": [
+            {
+              "text": "putting all information sources together",
+              "nugget_type": "APP",
+              "argument_type": "Arg1",
+              "tokens": [
+                "putting",
+                "all",
+                "information",
+                "sources",
+                "together"
+              ],
+              "offsets": [
+                234,
+                235,
+                236,
+                237,
+                238
+              ]
+            },
+            {
+              "text": "current state - of - the - art",
+              "nugget_type": "APP",
+              "argument_type": "Arg2",
+              "tokens": [
+                "current",
+                "state",
+                "-",
+                "of",
+                "-",
+                "the",
+                "-",
+                "art"
+              ],
+              "offsets": [
+                244,
+                245,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251
+              ]
+            },
+            {
+              "text": "huge improvements",
+              "nugget_type": "STR",
+              "argument_type": "Result",
+              "tokens": [
+                "huge",
+                "improvements"
+              ],
+              "offsets": [
+                240,
+                241
+              ]
+            }
+          ],
+          "trigger": {
+            "text": "yields",
+            "tokens": [
+              "yields"
+            ],
+            "offsets": [
+              239
+            ]
+          }
+        },
+        {
+          "event_type": "FIN",
+          "arguments": [
+            {
+              "text": "matters",
+              "nugget_type": "E-FAC",
+              "argument_type": "Content",
+              "tokens": [
+                "matters"
+              ],
+              "offsets": [
+                226
+              ]
+            }
+          ],
+          "trigger": {
+            "text": "show",
+            "tokens": [
+              "show"
+            ],
+            "offsets": [
+              221
+            ]
+          }
+        },
+        {
+          "event_type": "FAC",
+          "arguments": [
+            {
+              "text": "what was written",
+              "nugget_type": "TAK",
+              "argument_type": "Subject",
+              "tokens": [
+                "what",
+                "was",
+                "written"
+              ],
+              "offsets": [
+                223,
+                224,
+                225
+              ]
+            },
+            {
+              "text": "most",
+              "nugget_type": "STR",
+              "argument_type": "Object",
+              "tokens": [
+                "most"
+              ],
+              "offsets": [
+                227
+              ]
+            }
+          ],
+          "trigger": {
+            "text": "matters",
+            "tokens": [
+              "matters"
+            ],
+            "offsets": [
+              226
+            ]
+          }
+        }
+      ],
+      "action": "NEW(FIN)\nTRG(\"show\")\nARG(Content, \"matters\")\nEND\nNEW(FAC)\nTRG(\"matters\")\nARG(Subject, \"what was written\")\nARG(Object, \"most\")\nEND\nNEW(FIN)\nTRG(\"show\")\nARG(Finder, \"we\")\nARG(Content, \"yields\")\nEND\nNEW(CMP)\nTRG(\"yields\")\nARG(Arg1, \"putting all information sources together\")\nARG(Result, \"huge improvements\")\nARG(Arg2, \"current state - of - the - art\")\nEND\nSTOP"
+    }
+  },
+  "limitation": "Text-only Action/Tree does not encode offsets and cannot uniquely reconstruct repeated occurrences or arbitrary nonmonotonic fragments. ordered_match is a subsequence-presence diagnostic, not an offset aligner; it never removes or changes predictions/rewards."
+}

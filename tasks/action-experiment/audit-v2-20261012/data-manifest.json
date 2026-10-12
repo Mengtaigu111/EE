@@ -1,0 +1,237 @@
+{
+  "format": "scievents-action-v1",
+  "created_at": "2026-10-12T15:21:33.547093+00:00",
+  "input_sha256": {
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/train.jsonl": "a596393695643ae84310991270622310e91593996a65eed676832faef57b9a89",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/dev.jsonl": "c6c15f8468b1d3185f014b812a8f0f027484b0d6b1a89bd7fff11517d0273d21",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/test.jsonl": "ddc7c7fb92bd84c48ce64f868dedfd736b0b8d8654d197eed607cf3b819538b5",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/manifest.json": "986af2a12a2a05b7cfcebf88858023d71bab8c33b7fbc1cc1f4f4a0ce4d8658e",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/prompts/action-v2-checked.txt": "e656eb7abe1e76c1078e87ae803af8f3d8eeb57c9e7f856bee6ab4f8689b6cbb",
+    "/home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-gold-order-20261008/ordered-ids.txt": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a",
+    "/home/myluo/EE/EXCEEDS/data/SciEvents/ontology.json": "ed645dc47688cf90cde6112ee9d052c65446e51174e1832f0a02f6607ff55c20",
+    "/home/myluo/EE/EXCEEDS/scripts/build_action_dataset.py": "8bf97461f44cad7128e5d91ffe8c2c1d7cf1ac5bb59bd826b1f551ee01c51104",
+    "/home/myluo/EE/EXCEEDS/scripts/action_language.py": "fa9f3ba4d3b3a1667b9d278d1dc669db04e742f942905320814b93a43d91c61a"
+  },
+  "output_sha256": {
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train-sorted.jsonl": "de23816a9a459127bd2d02e3710c595331024811e0a9f259c414a1bf3f515459",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/dev.jsonl": "2af669da984b8195ad1b201e5e65125aca439687de12cb444c240d158472e6e2",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/random15.md": "ce86ecf5512089495651f3dc55a7ff7b8b5e227cda2addf6e94334cd7f0f7ac7",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/token-audit.json": "12a35934d82034aaa4a155b3a186fa8dbad3bde3c4b47875b4e0486ade945929",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train.jsonl": "5e4dcd6a10f12da5c43cc1762cdd18950533915e9bd21b4c3624f20911ecb0f3",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/test.jsonl": "c4d05fc9718747baffdfe185f4cc94ff8151430b90b696dfb21069fc18e9411c",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/random15.jsonl": "01a6736b006832c20a47567cc6a4b44dd94fced4ce5d0809274976e4a3e07df8",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/ordered-ids.txt": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a",
+    "/home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/prompt_template.txt": "e656eb7abe1e76c1078e87ae803af8f3d8eeb57c9e7f856bee6ab4f8689b6cbb"
+  },
+  "splits": {
+    "train": {
+      "rows": 12828,
+      "events": 19488,
+      "arguments": 45076,
+      "none_rows": 2124,
+      "multiple_event_rows": 5955,
+      "repeated_role_events": 2939,
+      "shared_trigger_rows": 260,
+      "noncontinuous_or_nonmonotonic_arguments": 2063,
+      "types": {
+        "ITT": 1400,
+        "RWF": 1549,
+        "PRP": 2094,
+        "MDS": 2385,
+        "PUR": 3320,
+        "WKS": 2733,
+        "FIN": 1480,
+        "CMP": 1536,
+        "FAC": 2528,
+        "RWS": 463
+      }
+    },
+    "dev": {
+      "rows": 1593,
+      "events": 2445,
+      "arguments": 5618,
+      "none_rows": 271,
+      "multiple_event_rows": 751,
+      "repeated_role_events": 375,
+      "shared_trigger_rows": 31,
+      "noncontinuous_or_nonmonotonic_arguments": 192,
+      "types": {
+        "ITT": 190,
+        "PRP": 235,
+        "PUR": 395,
+        "MDS": 303,
+        "CMP": 192,
+        "WKS": 354,
+        "FAC": 313,
+        "FIN": 192,
+        "RWS": 70,
+        "RWF": 201
+      }
+    },
+    "test": {
+      "rows": 1627,
+      "events": 2448,
+      "arguments": 5717,
+      "none_rows": 272,
+      "multiple_event_rows": 745,
+      "repeated_role_events": 388,
+      "shared_trigger_rows": 29,
+      "noncontinuous_or_nonmonotonic_arguments": 237,
+      "types": {
+        "PRP": 257,
+        "FAC": 324,
+        "PUR": 416,
+        "RWF": 205,
+        "WKS": 332,
+        "CMP": 195,
+        "ITT": 174,
+        "FIN": 175,
+        "RWS": 70,
+        "MDS": 300
+      }
+    }
+  },
+  "role_order": {
+    "PUR": [
+      "Aim",
+      "Condition",
+      "Dataset"
+    ],
+    "ITT": [
+      "Target",
+      "Condition",
+      "Dataset"
+    ],
+    "RWS": [
+      "Subject",
+      "Target",
+      "BaseComponent",
+      "TriedComponent",
+      "Condition",
+      "Dataset"
+    ],
+    "RWF": [
+      "Target",
+      "Extent",
+      "Concern",
+      "Fault",
+      "Condition",
+      "Dataset"
+    ],
+    "PRP": [
+      "Proposer",
+      "Content",
+      "Target"
+    ],
+    "WKS": [
+      "Researcher",
+      "Content",
+      "Condition",
+      "Dataset",
+      "Target"
+    ],
+    "MDS": [
+      "BaseComponent",
+      "TriedComponent",
+      "Condition",
+      "Dataset",
+      "Target"
+    ],
+    "FIN": [
+      "Finder",
+      "Content"
+    ],
+    "CMP": [
+      "Metrics",
+      "Arg1",
+      "Extent",
+      "Result",
+      "Arg2",
+      "Condition",
+      "Dataset"
+    ],
+    "FAC": [
+      "Subject",
+      "Extent",
+      "Object",
+      "Target",
+      "Condition",
+      "Dataset",
+      "Reason"
+    ]
+  },
+  "event_order": "stable ascending min trigger offset; ties retain source order",
+  "argument_order": "prompt schema role order, then stable ascending min offset; internal order unchanged",
+  "sorted1_exact_ids": true,
+  "all_rows_roundtrip_verified": true,
+  "gold_text_offsets_verified": true,
+  "prompt_context_only": true,
+  "random_sample": {
+    "seed": 42,
+    "split": "train",
+    "items": [
+      {
+        "id": "45346910869263c09eb48a62be501e0b::sentence-1",
+        "train_index": 10476
+      },
+      {
+        "id": "9f65ac5f8fa1e376f625846721541a98::sentence-5",
+        "train_index": 1824
+      },
+      {
+        "id": "097a7600508cd9212fb670a91130fa8d::sentence-6",
+        "train_index": 409
+      },
+      {
+        "id": "680bc4f4a7a98d79fd685b878b72b98e::sentence-2",
+        "train_index": 12149
+      },
+      {
+        "id": "090cf3409b965753a4be0d9f79ee115d::sentence-3",
+        "train_index": 4506
+      },
+      {
+        "id": "c560a1da6fb8f734fc72f4bfe1b0defd::sentence-1",
+        "train_index": 4012
+      },
+      {
+        "id": "d9917a660cff9d7aa6c234a4513a7395::sentence-0",
+        "train_index": 3657
+      },
+      {
+        "id": "7a691f990b69bfb6341ed85ea88bb977::sentence-2",
+        "train_index": 2286
+      },
+      {
+        "id": "d264b6603e572fb242cdb66a68bca578::sentence-7",
+        "train_index": 12066
+      },
+      {
+        "id": "572f71043d7e5d60eaf5f17a097d593f::sentence-4",
+        "train_index": 1679
+      },
+      {
+        "id": "0536931d77e8e1635e3cabfce6e6a3fb::sentence-2",
+        "train_index": 11087
+      },
+      {
+        "id": "00e5b4f57e70a9152ec2bb2d411a138c::sentence-0",
+        "train_index": 12135
+      },
+      {
+        "id": "487754b0963cb94bbf865cb42b7df0b0::sentence-6",
+        "train_index": 8935
+      },
+      {
+        "id": "96238aae558577321fcde8c9dc1745cd::sentence-5",
+        "train_index": 1424
+      },
+      {
+        "id": "47ce1c594e3cd90f39d4170d72f8dc99::sentence-5",
+        "train_index": 9674
+      }
+    ]
+  },
+  "token_audit": true,
+  "scoring_note": "compact_tree is the new representation, not input to the legacy Trigger-child tree parser"
+}

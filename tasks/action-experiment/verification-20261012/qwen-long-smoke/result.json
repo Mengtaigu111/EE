@@ -1,0 +1,40 @@
+{
+  "dev_batch_size": 4,
+  "forced_long_completion": true,
+  "status": "passed",
+  "formal_training": false,
+  "model": "/opt/models/Qwen3-8B",
+  "prompt_tokens": 2130,
+  "sft_real_updates": 1,
+  "sft_loss": 0.1851133406162262,
+  "grpo_real_updates": 1,
+  "group_size": 4,
+  "grpo_test_rewards": [
+    0.0,
+    1.0,
+    0.0,
+    1.0
+  ],
+  "generation_cap_for_smoke": 1024,
+  "production_generation_cap": 1024,
+  "initial_policy_reference_max_logprob_difference": 0.0,
+  "eval_train_policy_max_logprob_difference": 11.337984085083008,
+  "reference_unchanged": true,
+  "actual_behavior_probabilities_captured": true,
+  "sampling_vs_teacher_max_difference": 11.337984085083008,
+  "resolved_sampling": {
+    "do_sample": true,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "top_k": 0
+  },
+  "original_cot_adapter_unchanged": true,
+  "finite_grpo_losses": [
+    0.8622022867202759,
+    -0.8521860241889954,
+    0.860908567905426,
+    -0.8561906814575195
+  ],
+  "peak_memory_bytes": 19825944064,
+  "wall_seconds": 211.21738873189315
+}
