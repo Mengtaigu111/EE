@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "splits": {
+    "train": {
+      "rows": 12828,
+      "failures": []
+    },
+    "dev": {
+      "rows": 1593,
+      "failures": []
+    },
+    "test": {
+      "rows": 1627,
+      "failures": []
+    }
+  }
+}

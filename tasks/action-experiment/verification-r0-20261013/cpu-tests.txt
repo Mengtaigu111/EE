@@ -1,0 +1,29 @@
+........................................................................ [ 56%]
+.......................................................                  [100%]
+=============================== warnings summary ===============================
+tasks/action-experiment/tests/test_action_grpo.py::test_frozen_real_peft_reference_survives_switch_and_update
+tasks/action-experiment/tests/test_action_grpo.py::test_exported_named_policy_adapter_reloads_same_distribution
+tasks/action-experiment/tests/test_action_grpo.py::test_real_g4_grpo_update_with_checkpointing_keeps_sft_reference
+tasks/action-experiment/tests/test_action_sft.py::TinyTrainerTests::test_real_peft_update_selection_and_reload
+tasks/action-experiment/rl_v2/tests/test_rl_integration.py::test_real_batch_generation_dual_lora_grpo_update
+tasks/action-experiment/rl_v2/tests/test_rl_integration.py::test_full_padding_and_trimmed_completion_have_same_loss_and_gradients
+  /home/myluo/miniconda3/envs/qwen3meld-run/lib/python3.10/site-packages/peft/tuners/lora/layer.py:2504: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+    warnings.warn(
+
+tasks/action-experiment/tests/test_action_grpo.py::test_frozen_real_peft_reference_survives_switch_and_update
+tasks/action-experiment/tests/test_action_grpo.py::test_exported_named_policy_adapter_reloads_same_distribution
+tasks/action-experiment/tests/test_action_grpo.py::test_real_g4_grpo_update_with_checkpointing_keeps_sft_reference
+tasks/action-experiment/tests/test_action_sft.py::TinyTrainerTests::test_real_peft_update_selection_and_reload
+tasks/action-experiment/rl_v2/tests/test_rl_integration.py::test_real_batch_generation_dual_lora_grpo_update
+tasks/action-experiment/rl_v2/tests/test_rl_integration.py::test_full_padding_and_trimmed_completion_have_same_loss_and_gradients
+  /home/myluo/miniconda3/envs/qwen3meld-run/lib/python3.10/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in  - will assume that the vocabulary was not modified.
+    warnings.warn(
+
+tasks/action-experiment/tests/test_action_grpo.py::test_frozen_real_peft_reference_survives_switch_and_update
+tasks/action-experiment/tests/test_action_grpo.py::test_real_g4_grpo_update_with_checkpointing_keeps_sft_reference
+tasks/action-experiment/rl_v2/tests/test_rl_integration.py::test_real_batch_generation_dual_lora_grpo_update
+  /home/myluo/miniconda3/envs/qwen3meld-run/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+    with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+127 passed, 15 warnings in 2.73s

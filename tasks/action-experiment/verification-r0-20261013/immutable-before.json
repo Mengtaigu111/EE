@@ -1,0 +1,8 @@
+{
+  "tasks/action-experiment/action_evaluation.py": "e0b16f5f053c1837e2a477f3ca3fae04a6688eccb853102a4cf2b967d0ce5c17",
+  "scripts/score_tree_presence.py": "9d3f654e6740c221536cbd409715504494eff3991aab3a134079eee3cfac73a0",
+  "scripts/action_language.py": "fa9f3ba4d3b3a1667b9d278d1dc669db04e742f942905320814b93a43d91c61a",
+  "tasks/action-experiment/grpo_core.py": "ef61d4dca4d08f519242ce8a281ef7826f47a02d76b588d0b8ff983fd888321e",
+  "tasks/action-experiment/action_common.py": "ebf1491bbbcd76ff90127768a1633906e4104b46b21d67e4413fa0c265ff05fa",
+  "tasks/action-experiment/prompts/action-v2-checked.txt": "e656eb7abe1e76c1078e87ae803af8f3d8eeb57c9e7f856bee6ab4f8689b6cbb"
+}

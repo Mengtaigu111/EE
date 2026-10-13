@@ -1,0 +1,81 @@
+{
+  "metrics": {
+    "TI_p": 0.7332838038632986,
+    "TI_r": 0.8063725490196079,
+    "TI_f1": 0.7680933852140078,
+    "TC_p": 0.6032689450222882,
+    "TC_r": 0.6625816993464052,
+    "TC_f1": 0.6315357416516183,
+    "AI_p": 0.4405990016638935,
+    "AI_r": 0.4635298233339164,
+    "AI_f1": 0.4517736228636648,
+    "AC_p": 0.4166389351081531,
+    "AC_r": 0.4386916214797971,
+    "AC_f1": 0.42738098997265866,
+    "EC_I_p": 0.45074946466809424,
+    "EC_I_r": 0.5236318407960199,
+    "EC_I_f1": 0.4844649021864212,
+    "EC_C_p": 0.45074946466809424,
+    "EC_C_r": 0.5236318407960199,
+    "EC_C_f1": 0.4844649021864212
+  },
+  "counts": {
+    "TI": {
+      "gold_total": 2448,
+      "predicted_total": 2692,
+      "gold_matched": 1974,
+      "predicted_matched": 1974,
+      "fn": 474,
+      "fp": 718
+    },
+    "TC": {
+      "gold_total": 2448,
+      "predicted_total": 2692,
+      "gold_matched": 1622,
+      "predicted_matched": 1624,
+      "fn": 826,
+      "fp": 1068
+    },
+    "AI": {
+      "gold_total": 5717,
+      "predicted_total": 6010,
+      "gold_matched": 2650,
+      "predicted_matched": 2648,
+      "fn": 3067,
+      "fp": 3362
+    },
+    "AC": {
+      "gold_total": 5717,
+      "predicted_total": 6010,
+      "gold_matched": 2508,
+      "predicted_matched": 2504,
+      "fn": 3209,
+      "fp": 3506
+    },
+    "EC_I": {
+      "gold_total": 804,
+      "predicted_total": 934,
+      "gold_matched": 421,
+      "predicted_matched": 421,
+      "fn": 383,
+      "fp": 513
+    },
+    "EC_C": {
+      "gold_total": 804,
+      "predicted_total": 934,
+      "gold_matched": 421,
+      "predicted_matched": 421,
+      "fn": 383,
+      "fp": 513
+    }
+  },
+  "diagnostics": {
+    "rows": 1627,
+    "truncated": 1,
+    "predicted_events": 2691,
+    "triggers_without_ordered_target_match": 0,
+    "arguments_without_ordered_abstract_match": 54,
+    "parse_errors": 1
+  },
+  "documents": 250
+}

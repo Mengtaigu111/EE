@@ -1,0 +1,10 @@
+{
+  "tasks/action-experiment/train_grpo.py": "cb669f0e1db7fe819f85e4f33bce05ef6d4dfc53165e16bb50ea80494ac63eb5",
+  "tasks/action-experiment/action_rewards.py": "1d000fdb8c43de9cbbd8e76c32b30e2eb2ccf1c7ecdf5f822ecb9404d463f1f2",
+  "tasks/action-experiment/grpo_diagnostics.py": "e33e89fa1b7b35a5b49fdbc60b8938efed4269fa2bcd974815c1e81c8ce09f7e",
+  "tasks/action-experiment/tests/test_action_rewards.py": "f79b6aca1192325e60c95ab765252a77574335f819c3d8bbec77ba883f24ec5a",
+  "tasks/action-experiment/tests/test_grpo_diagnostics.py": "696682181b02b5d0b426a62d2755fc98d6aa7e938cc2d0947f02d6183106ab26",
+  "tasks/action-experiment/tests/test_r0_wiring.py": "6ed2fa72dda5339ec323481aeddc71a6b3661ea6f926ea139332807c3f071afa",
+  "tasks/action-experiment/tests/test_r0_eval_regression.py": "5e700fe4d0be38cf93a16da3245cbff60209fd839a359a9b40abc0b9d53a0d4c",
+  "tasks/action-experiment/verification-r0-20261013/qwen_probability_smoke.py": "4ea77a49d292116f120ea478b720b34624f585a18d9548b55af6b8f27614f0b2"
+}

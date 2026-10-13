@@ -52,14 +52,18 @@ def main():
                            grpo_loss,initialize_dual_adapters,save_policy,behavior_logprobs)
     from action_common import (DATA_DIR,MODEL_PATH,MAX_NEW_TOKENS,MAX_LENGTH,sha256,read_json,
                                write_json,read_rows,append_jsonl,prepare_run,verify_locks,load_module,ROOT,generation_arguments)
-    from action_evaluation import reward_action,evaluate_model
+    from action_evaluation import evaluate_model,parse_prediction
+    from action_rewards import reward_action_r0 as reward_action,REWARD_VERSION,normalized_structure
+    from grpo_diagnostics import probability_statistics,assert_probability_consistency
     from transformers import AutoModelForCausalLM,AutoTokenizer,GenerationConfig,set_seed
     if args.gradient_accumulation<1 or args.dev_steps<1:
         raise ValueError('Accumulation and dev interval must be positive')
     if 'TMUX' not in os.environ or not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
         raise RuntimeError('Run GPU training inside tmux on a bf16 CUDA device')
     source_metrics=check_sft_source(args.init_adapter,read_json,sha256,args.smoke)
-    configuration=dict(stage='action_grpo',seed=42,group_size=4,gradient_accumulation=args.gradient_accumulation,
+    configuration=dict(probability_guard=dict(max_p99=.15,max_difference=.5,max_outside_clip_fraction=.01),
+        reward_version=REWARD_VERSION,reward_formula='0.5 event_exact_f1 + 0.5 link_exact_f1',
+        generation_mode='original sequential G4',event_reward_enabled=True,stage='action_grpo',seed=42,group_size=4,gradient_accumulation=args.gradient_accumulation,
         learning_rate=1e-5,clip=.2,beta=.01,temperature=1.,top_p=1.,top_k=0,legal_action_mask=False,
         max_new_tokens=MAX_NEW_TOKENS,max_length=MAX_LENGTH,num_train_epochs=1,num_iterations=1,
         optimizer='AdamW',scheduler='constant',max_grad_norm=1.,lora_dropout=0.,
@@ -135,7 +139,7 @@ def main():
         model.eval();activate_adapter(model,'policy')
         prompt=prompt_tokens(tokenizer,row,'cuda')
         prompt_token_cost+=4*prompt.numel()
-        samples=[]
+        samples=[];eval_logprobs=[]
         for sample_index in range(4):
             with torch.no_grad():
                 generated=model.generate(input_ids=prompt,attention_mask=torch.ones_like(prompt),**generation_arguments(generation))
@@ -152,8 +156,9 @@ def main():
                 raise RuntimeError('Policy/reference probabilities differ before the first update')
             text=tokenizer.decode(ids[0][mask[0]],skip_special_tokens=True)
             truncated=not any(int(ids[0,mask[0].sum()-1])==e for e in eos_ids)
-            reward=reward_action(text,row,truncated=truncated)
+            reward=reward_action(text,row,truncated=truncated,has_eos=not truncated)
             samples.append((ids,mask,old,ref,reward,text,sampling_teacher_difference))
+            eval_logprobs.append(policy_teacher)
             del policy_teacher
         rewards=torch.tensor([s[4]['reward'] for s in samples],device='cuda')
         advantages=group_advantages(rewards);active+=int(rewards.std().item()>0)
@@ -162,6 +167,19 @@ def main():
         # Never activate reference between a checkpointed policy forward and backward.
         for sample_index,(ids,mask,old,ref,reward,text,sampling_teacher_difference) in enumerate(samples):
             current=completion_logprobs(model,prompt,ids,mask)
+            probability_diagnostic=probability_statistics(current,old,mask)
+            sampling_vs_eval=probability_statistics(eval_logprobs[sample_index],old,mask)
+            eval_vs_train=probability_statistics(current,eval_logprobs[sample_index],mask)
+            append_jsonl(args.output/'probability-checks.jsonl',dict(group_index=group_index,id=row['id'],
+                sample_index=sample_index,optimizer_step_before=step,
+                cached_vs_no_cache_eval=sampling_vs_eval,eval_vs_train_checkpointing=eval_vs_train,
+                current_update_vs_old_behavior=probability_diagnostic,
+                completion_tokens=ids[0].tolist(),completion_mask=mask[0].tolist(),
+                old_behavior_logprobs=old[0].float().tolist(),
+                current_update_logprobs=current.detach()[0].float().tolist()))
+            assert_probability_consistency(probability_diagnostic)
+            assert_probability_consistency(sampling_vs_eval)
+            assert_probability_consistency(eval_vs_train)
             loss,stats=grpo_loss(current,old,ref,mask,advantages[sample_index:sample_index+1])
             (loss/(4*args.gradient_accumulation)).backward()
             group_loss+=loss.item()/4;group_kl+=stats['kl']/4;clip_fraction+=stats['clip_fraction']/4
@@ -171,9 +189,23 @@ def main():
                 completion_tokens=ids[0].tolist(),completion_mask=mask[0].tolist(),
                 old_logprobs=old[0].float().tolist(),actual_behavior_logprobs=old[0].float().tolist(),
                 sampling_vs_teacher_max_abs_difference=sampling_teacher_difference,reference_logprobs=ref[0].float().tolist(),
+                current_update_logprobs=current.detach()[0].float().tolist(),
+                current_vs_behavior_probability_statistics=probability_diagnostic,
+                sampling_vs_no_cache_eval_probability_statistics=sampling_vs_eval,
+                eval_vs_train_checkpointing_probability_statistics=eval_vs_train,
                 output=text,advantage=float(advantages[sample_index]),**reward))
         pending+=1
+        event_scores=torch.tensor([s[4]['event_exact_f1'] for s in samples])
+        link_scores=torch.tensor([s[4]['link_exact_f1'] for s in samples])
+        structures=[normalized_structure(parse_prediction(s[5])[0]) if s[4]['parse_valid'] else ('INVALID',s[5]) for s in samples]
         append_jsonl(args.output/'groups.jsonl',dict(group_index=group_index,id=row['id'],
+            reward_version=REWARD_VERSION,
+            mean_event_exact_f1=float(event_scores.mean()),event_exact_f1_variance=float(event_scores.var(correction=1)),
+            mean_link_exact_f1=float(link_scores.mean()),link_exact_f1_variance=float(link_scores.var(correction=1)),
+            reward_variance=float(rewards.var(correction=1)),
+            distinct_normalized_structures=len(set(structures)),
+            valid_distinct_normalized_structures=len({structures[i] for i,s in enumerate(samples) if s[4]['parse_valid']}),
+            active_group_fraction=active/(group_index+1),
             loss=group_loss,kl=group_kl,clip_fraction=clip_fraction,active=bool(rewards.std().item()>0),
             mean_reward=float(rewards.mean()),std_reward=float(rewards.std()),sampled_tokens=total_tokens))
         if pending==args.gradient_accumulation or group_index==len(train)-1:
@@ -190,7 +222,7 @@ def main():
     if reference_digest(model)!=frozen_reference:raise RuntimeError('Frozen reference weights changed')
     verify_locks(run['input_sha256'])
     write_json(args.output/'train_metrics.json',dict(stage='action_grpo',status='completed',smoke=args.smoke,
-        global_step=step,observed_groups=len(train),generated_sequences=4*len(train),
+        reward_version=REWARD_VERSION,global_step=step,observed_groups=len(train),generated_sequences=4*len(train),
         active_groups=active,active_group_fraction=active/len(train),sampled_completion_tokens=total_tokens,sampled_prompt_tokens=prompt_token_cost,
         effective_completion_batch=4*args.gradient_accumulation,dev_selection_includes_initial=True,
         loss_completion_tokens=total_tokens,observed_train_ids_verified=True,train_passes=1,

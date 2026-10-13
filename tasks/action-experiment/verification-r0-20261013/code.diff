@@ -1,0 +1,766 @@
+--- a/tasks/action-experiment/train_grpo.py
++++ b/tasks/action-experiment/train_grpo.py
+@@ -52,14 +52,18 @@
+                            grpo_loss,initialize_dual_adapters,save_policy,behavior_logprobs)
+     from action_common import (DATA_DIR,MODEL_PATH,MAX_NEW_TOKENS,MAX_LENGTH,sha256,read_json,
+                                write_json,read_rows,append_jsonl,prepare_run,verify_locks,load_module,ROOT,generation_arguments)
+-    from action_evaluation import reward_action,evaluate_model
++    from action_evaluation import evaluate_model,parse_prediction
++    from action_rewards import reward_action_r0 as reward_action,REWARD_VERSION,normalized_structure
++    from grpo_diagnostics import probability_statistics,assert_probability_consistency
+     from transformers import AutoModelForCausalLM,AutoTokenizer,GenerationConfig,set_seed
+     if args.gradient_accumulation<1 or args.dev_steps<1:
+         raise ValueError('Accumulation and dev interval must be positive')
+     if 'TMUX' not in os.environ or not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
+         raise RuntimeError('Run GPU training inside tmux on a bf16 CUDA device')
+     source_metrics=check_sft_source(args.init_adapter,read_json,sha256,args.smoke)
+-    configuration=dict(stage='action_grpo',seed=42,group_size=4,gradient_accumulation=args.gradient_accumulation,
++    configuration=dict(probability_guard=dict(max_p99=.15,max_difference=.5,max_outside_clip_fraction=.01),
++        reward_version=REWARD_VERSION,reward_formula='0.5 event_exact_f1 + 0.5 link_exact_f1',
++        generation_mode='original sequential G4',event_reward_enabled=True,stage='action_grpo',seed=42,group_size=4,gradient_accumulation=args.gradient_accumulation,
+         learning_rate=1e-5,clip=.2,beta=.01,temperature=1.,top_p=1.,top_k=0,legal_action_mask=False,
+         max_new_tokens=MAX_NEW_TOKENS,max_length=MAX_LENGTH,num_train_epochs=1,num_iterations=1,
+         optimizer='AdamW',scheduler='constant',max_grad_norm=1.,lora_dropout=0.,
+@@ -135,7 +139,7 @@
+         model.eval();activate_adapter(model,'policy')
+         prompt=prompt_tokens(tokenizer,row,'cuda')
+         prompt_token_cost+=4*prompt.numel()
+-        samples=[]
++        samples=[];eval_logprobs=[]
+         for sample_index in range(4):
+             with torch.no_grad():
+                 generated=model.generate(input_ids=prompt,attention_mask=torch.ones_like(prompt),**generation_arguments(generation))
+@@ -152,8 +156,9 @@
+                 raise RuntimeError('Policy/reference probabilities differ before the first update')
+             text=tokenizer.decode(ids[0][mask[0]],skip_special_tokens=True)
+             truncated=not any(int(ids[0,mask[0].sum()-1])==e for e in eos_ids)
+-            reward=reward_action(text,row,truncated=truncated)
++            reward=reward_action(text,row,truncated=truncated,has_eos=not truncated)
+             samples.append((ids,mask,old,ref,reward,text,sampling_teacher_difference))
++            eval_logprobs.append(policy_teacher)
+             del policy_teacher
+         rewards=torch.tensor([s[4]['reward'] for s in samples],device='cuda')
+         advantages=group_advantages(rewards);active+=int(rewards.std().item()>0)
+@@ -162,6 +167,19 @@
+         # Never activate reference between a checkpointed policy forward and backward.
+         for sample_index,(ids,mask,old,ref,reward,text,sampling_teacher_difference) in enumerate(samples):
+             current=completion_logprobs(model,prompt,ids,mask)
++            probability_diagnostic=probability_statistics(current,old,mask)
++            sampling_vs_eval=probability_statistics(eval_logprobs[sample_index],old,mask)
++            eval_vs_train=probability_statistics(current,eval_logprobs[sample_index],mask)
++            append_jsonl(args.output/'probability-checks.jsonl',dict(group_index=group_index,id=row['id'],
++                sample_index=sample_index,optimizer_step_before=step,
++                cached_vs_no_cache_eval=sampling_vs_eval,eval_vs_train_checkpointing=eval_vs_train,
++                current_update_vs_old_behavior=probability_diagnostic,
++                completion_tokens=ids[0].tolist(),completion_mask=mask[0].tolist(),
++                old_behavior_logprobs=old[0].float().tolist(),
++                current_update_logprobs=current.detach()[0].float().tolist()))
++            assert_probability_consistency(probability_diagnostic)
++            assert_probability_consistency(sampling_vs_eval)
++            assert_probability_consistency(eval_vs_train)
+             loss,stats=grpo_loss(current,old,ref,mask,advantages[sample_index:sample_index+1])
+             (loss/(4*args.gradient_accumulation)).backward()
+             group_loss+=loss.item()/4;group_kl+=stats['kl']/4;clip_fraction+=stats['clip_fraction']/4
+@@ -171,9 +189,23 @@
+                 completion_tokens=ids[0].tolist(),completion_mask=mask[0].tolist(),
+                 old_logprobs=old[0].float().tolist(),actual_behavior_logprobs=old[0].float().tolist(),
+                 sampling_vs_teacher_max_abs_difference=sampling_teacher_difference,reference_logprobs=ref[0].float().tolist(),
++                current_update_logprobs=current.detach()[0].float().tolist(),
++                current_vs_behavior_probability_statistics=probability_diagnostic,
++                sampling_vs_no_cache_eval_probability_statistics=sampling_vs_eval,
++                eval_vs_train_checkpointing_probability_statistics=eval_vs_train,
+                 output=text,advantage=float(advantages[sample_index]),**reward))
+         pending+=1
++        event_scores=torch.tensor([s[4]['event_exact_f1'] for s in samples])
++        link_scores=torch.tensor([s[4]['link_exact_f1'] for s in samples])
++        structures=[normalized_structure(parse_prediction(s[5])[0]) if s[4]['parse_valid'] else ('INVALID',s[5]) for s in samples]
+         append_jsonl(args.output/'groups.jsonl',dict(group_index=group_index,id=row['id'],
++            reward_version=REWARD_VERSION,
++            mean_event_exact_f1=float(event_scores.mean()),event_exact_f1_variance=float(event_scores.var(correction=1)),
++            mean_link_exact_f1=float(link_scores.mean()),link_exact_f1_variance=float(link_scores.var(correction=1)),
++            reward_variance=float(rewards.var(correction=1)),
++            distinct_normalized_structures=len(set(structures)),
++            valid_distinct_normalized_structures=len({structures[i] for i,s in enumerate(samples) if s[4]['parse_valid']}),
++            active_group_fraction=active/(group_index+1),
+             loss=group_loss,kl=group_kl,clip_fraction=clip_fraction,active=bool(rewards.std().item()>0),
+             mean_reward=float(rewards.mean()),std_reward=float(rewards.std()),sampled_tokens=total_tokens))
+         if pending==args.gradient_accumulation or group_index==len(train)-1:
+@@ -190,7 +222,7 @@
+     if reference_digest(model)!=frozen_reference:raise RuntimeError('Frozen reference weights changed')
+     verify_locks(run['input_sha256'])
+     write_json(args.output/'train_metrics.json',dict(stage='action_grpo',status='completed',smoke=args.smoke,
+-        global_step=step,observed_groups=len(train),generated_sequences=4*len(train),
++        reward_version=REWARD_VERSION,global_step=step,observed_groups=len(train),generated_sequences=4*len(train),
+         active_groups=active,active_group_fraction=active/len(train),sampled_completion_tokens=total_tokens,sampled_prompt_tokens=prompt_token_cost,
+         effective_completion_batch=4*args.gradient_accumulation,dev_selection_includes_initial=True,
+         loss_completion_tokens=total_tokens,observed_train_ids_verified=True,train_passes=1,
+--- a/tasks/action-experiment/action_rewards.py
++++ b/tasks/action-experiment/action_rewards.py
+@@ -0,0 +1,101 @@
++"""R0 training reward: one-to-one event instances and their exact argument links.
++
++This module reuses the strict Action parser and token conversion. It does not
++change the independent text-presence dev/test evaluator.
++"""
++from collections import Counter, defaultdict
++
++from scipy.optimize import linear_sum_assignment
++
++from action_evaluation import parse_prediction, to_scievents
++
++REWARD_VERSION = 'event_link_token_exact_v1'
++
++
++def event_key(event):
++    """Mention token order is significant; offsets and fallback text are unused."""
++    return event['event_type'], tuple(event['trigger']['tokens'])
++
++
++def argument_links(event):
++    """A multiset within one parent event, including repeated identical links."""
++    return Counter((arg['argument_type'], tuple(arg['tokens']))
++                   for arg in event['arguments'])
++
++
++def match_event_instances(predicted, gold):
++    """Return maximum cardinality exact-key pairs with maximum link overlap.
++
++    Each key forms a complete rectangular candidate graph, so SciPy's rectangular
++    assignment always chooses min(pred_count, gold_count) pairs even with zero
++    weights. Maximizing the weights then breaks cardinality ties by exact link
++    matches. Links from unmatched parents remain in the reward denominator.
++    """
++    pred_groups, gold_groups = defaultdict(list), defaultdict(list)
++    for index, event in enumerate(predicted):
++        pred_groups[event_key(event)].append(index)
++    for index, event in enumerate(gold):
++        gold_groups[event_key(event)].append(index)
++    pred_links = [argument_links(e) for e in predicted]
++    gold_links = [argument_links(e) for e in gold]
++    pairs = []
++    for key, pred_indices in pred_groups.items():
++        gold_indices = gold_groups.get(key, [])
++        if not gold_indices:
++            continue
++        weights = [[sum((pred_links[p] & gold_links[g]).values())
++                    for g in gold_indices] for p in pred_indices]
++        pred_positions, gold_positions = linear_sum_assignment(weights, maximize=True)
++        pairs.extend((pred_indices[p], gold_indices[g], weights[p][g])
++                     for p, g in zip(pred_positions, gold_positions))
++    return pairs
++
++
++def normalized_structure(events):
++    """Hashable parsed Action structure, invariant to event/role output order.
++
++    Sorting preserves every repeated event and argument occurrence; it never
++    sorts tokens within a mention or merges links across parent instances.
++    """
++    return tuple(sorted((event['type'], tuple(event['trigger'].split()),
++                         tuple(sorted((arg['role'], tuple(arg['text'].split()))
++                                      for arg in event['arguments'])))
++                        for event in events))
++
++
++def reward_action_r0(raw_output, row, *, truncated=False, has_eos=None, schema=None):
++    """Score complete valid Actions even if generation stopped without EOS.
++
++    Invalid parses receive zero with an explicit error, rather than being
++    mistaken for a valid empty prediction. Both denominator counts always
++    include unmatched instances. has_eos may be supplied independently of the
++    generation-budget diagnostic; by default it is inferred from truncated.
++    """
++    events, error = parse_prediction(raw_output, schema)
++    gold = row['target_events']
++    pred = to_scievents(events)
++    pred_event_count, gold_event_count = len(pred), len(gold)
++    pred_link_count = sum(len(e['arguments']) for e in pred)
++    gold_link_count = sum(len(e['arguments']) for e in gold)
++    result = dict(reward=0.0, event_exact_f1=0.0, link_exact_f1=0.0,
++                  matched_event_instances=0, pred_event_count=pred_event_count,
++                  gold_event_count=gold_event_count, matched_argument_links=0,
++                  pred_link_count=pred_link_count, gold_link_count=gold_link_count,
++                  parse_valid=error is None, parse_error=error,
++                  predicted_events=len(events), truncated=bool(truncated),
++                  has_eos=not bool(truncated) if has_eos is None else bool(has_eos),
++                  reward_version=REWARD_VERSION)
++    if error is not None:
++        return result
++    pairs = match_event_instances(pred, gold)
++    matched_events = len(pairs)
++    matched_links = sum(weight for _, _, weight in pairs)
++    event_denominator = pred_event_count + gold_event_count
++    event_f1 = 2 * matched_events / event_denominator if event_denominator else 1.0
++    link_denominator = pred_link_count + gold_link_count
++    link_f1 = 2 * matched_links / link_denominator if link_denominator else event_f1
++    result.update(reward=.5 * event_f1 + .5 * link_f1,
++                  event_exact_f1=event_f1, link_exact_f1=link_f1,
++                  matched_event_instances=matched_events,
++                  matched_argument_links=matched_links)
++    return result
+--- a/tasks/action-experiment/grpo_diagnostics.py
++++ b/tasks/action-experiment/grpo_diagnostics.py
+@@ -0,0 +1,49 @@
++"""Same-parameter GRPO probability checks; diagnostic thresholds never alter loss."""
++
++
++def probability_statistics(current, old, mask, clip=.2):
++    """Summarize original, valid completion tokens, including their first EOS.
++
++    The asymmetric log thresholds implied by exp(delta) matter: testing
++    abs(delta) > clip is not equivalent to testing the actual policy ratio.
++    Invalid padding is excluded before finite checks, subtraction and exp.
++    """
++    import torch
++    if current.shape != old.shape or current.shape != mask.shape:
++        raise ValueError('Probability tensors and mask must have equal shapes')
++    if not 0 < clip < 1:
++        raise ValueError('Clip must be between zero and one')
++    selected = mask.bool()
++    a = current.detach()[selected].float()
++    b = old.detach()[selected].float()
++    if not a.numel():
++        raise ValueError('Probability diagnostic needs valid completion tokens')
++    if not torch.isfinite(a).all() or not torch.isfinite(b).all():
++        raise ValueError('Valid token log probabilities must be finite')
++    difference = (a - b).abs()
++    ratio = (a - b).exp()
++    if not torch.isfinite(ratio).all():
++        raise ValueError('Valid token policy ratios must be finite')
++    return dict(valid_tokens=a.numel(), abs_difference_mean=float(difference.mean()),
++                abs_difference_p95=float(torch.quantile(difference, .95)),
++                abs_difference_p99=float(torch.quantile(difference, .99)),
++                abs_difference_max=float(difference.max()), ratio_mean=float(ratio.mean()),
++                ratio_outside_clip_fraction=float(((ratio < 1-clip) | (ratio > 1+clip)).float().mean()))
++
++
++def assert_probability_consistency(stats, *, max_p99=.15, max_difference=.5,
++                                   max_outside_clip_fraction=.01):
++    """Fail closed before updates when cached/teacher paths should agree.
++
++    BF16 cache/full-sequence kernels need not agree bitwise. These explicit
++    bounds allow limited roundoff, while at least 99% of ratios must still
++    lie inside the actual GRPO clip interval. Smoke reports observed values
++    before this guard. Threshold changes must be recorded, not inferred from
++    finite loss or silently increased after a failed check.
++    """
++    checks = [('abs_difference_p99', max_p99),
++              ('abs_difference_max', max_difference),
++              ('ratio_outside_clip_fraction', max_outside_clip_fraction)]
++    violations = [f'{key}={stats[key]:.8g} > {limit:.8g}' for key, limit in checks if stats[key] > limit]
++    if violations:
++        raise RuntimeError('GRPO probability consistency failed: ' + '; '.join(violations))
+--- a/tasks/action-experiment/tests/test_action_rewards.py
++++ b/tasks/action-experiment/tests/test_action_rewards.py
+@@ -0,0 +1,202 @@
++"""R0 matches event instances and argument links without changing presence eval."""
++import json
++from pathlib import Path
++import sys
++
++import pytest
++
++ROOT = Path(__file__).resolve().parents[3]
++sys.path.insert(0, str(ROOT / 'tasks/action-experiment'))
++from action_rewards import match_event_instances, normalized_structure, reward_action_r0
++
++SCHEMA = {'PRP': ('Content', 'Aim'), 'MDS': ('Content', 'Aim')}
++
++
++def event(kind='PRP', trigger='propose', links=()):
++    return {'event_type': kind, 'trigger': {'tokens': trigger.split()},
++            'arguments': [{'argument_type': role, 'tokens': text.split()}
++                          for role, text in links]}
++
++
++def actions(events):
++    lines = []
++    for e in events:
++        lines += [f"NEW({e['event_type']})",
++                  f"TRG({json.dumps(' '.join(e['trigger']['tokens']))})"]
++        lines += [f"ARG({a['argument_type']}, {json.dumps(' '.join(a['tokens']))})"
++                  for a in e['arguments']]
++        lines.append('END')
++    return '\n'.join(lines + ['STOP'])
++
++
++def score(pred, gold, **kwargs):
++    return reward_action_r0(actions(pred), {'target_events': gold}, schema=SCHEMA, **kwargs)
++
++
++def test_complex_exact_and_order_invariance():
++    gold = [event(links=[('Content', 'a b'), ('Content', 'a b'), ('Aim', 'shared')]),
++            event(links=[('Content', 'different'), ('Aim', 'shared')]),
++            event('MDS', links=[('Content', 'shared')])]
++    pred = list(reversed(gold))
++    pred = [dict(e, arguments=list(reversed(e['arguments']))) for e in pred]
++    result = score(pred, gold)
++    assert result['reward'] == result['event_exact_f1'] == result['link_exact_f1'] == 1
++    assert result['matched_event_instances'] == 3
++    assert result['matched_argument_links'] == 6
++    assert result['reward_version'] == 'event_link_token_exact_v1'
++    assert result['parse_valid'] and result['parse_error'] is None
++
++
++def test_assignment_is_global_not_greedy_and_swaps_do_not_change_it():
++    pred = [event(links=[('Content', 'a'), ('Content', 'b')]),
++            event(links=[('Content', 'a')])]
++    gold = [event(links=[('Content', 'a')]), event(links=[('Content', 'b')])]
++    for ps in [pred, list(reversed(pred))]:
++        for gs in [gold, list(reversed(gold))]:
++            result = score(ps, gs)
++            assert result['matched_argument_links'] == 2
++            assert result['matched_event_instances'] == 2
++            assert result['link_exact_f1'] == pytest.approx(4 / 5)
++            assert result['reward'] == pytest.approx(.9)
++
++
++@pytest.mark.parametrize('links', [[], [('Aim', 'a')], [('Content', 'a'), ('Content', 'wrong')],
++                                [('Content', 'a'), ('Content', 'a')]])
++def test_argument_deletion_wrong_role_extra_and_duplicate_reduce_link_score(links):
++    result = score([event(links=links)], [event(links=[('Content', 'a')])])
++    assert result['event_exact_f1'] == 1
++    assert result['link_exact_f1'] < 1 and result['reward'] < 1
++
++
++def test_duplicate_full_event_is_an_extra_instance():
++    e = event(links=[('Content', 'a')])
++    result = score([e, e], [e])
++    assert result['event_exact_f1'] == result['link_exact_f1'] == pytest.approx(2 / 3)
++    assert result['pred_event_count'] == result['pred_link_count'] == 2
++    assert result['gold_event_count'] == result['gold_link_count'] == 1
++
++
++def test_rectangular_assignment_both_directions_and_unmatched_links_counted():
++    short = [event(links=[('Content', 'b')])]
++    long = [event(links=[('Content', 'a')]), event(links=[('Content', 'b')]),
++            event(links=[('Content', 'c')])]
++    for pred, gold in [(short, long), (long, short)]:
++        result = score(pred, gold)
++        assert result['matched_event_instances'] == result['matched_argument_links'] == 1
++        assert result['reward'] == .5
++
++
++def test_merge_and_split_lose_parent_instance_credit():
++    split = [event(links=[('Content', 'a')]), event(links=[('Content', 'b')])]
++    merged = [event(links=[('Content', 'a'), ('Content', 'b')])]
++    for pred, gold in [(split, merged), (merged, split)]:
++        result = score(pred, gold)
++        assert result['event_exact_f1'] == pytest.approx(2 / 3)
++        assert result['matched_argument_links'] == 1
++        assert result['link_exact_f1'] == .5
++
++
++def test_links_cannot_borrow_from_different_parent():
++    gold = [event(trigger='one', links=[('Content', 'a')]),
++            event(trigger='two', links=[('Content', 'b')])]
++    pred = [event(trigger='one', links=[('Content', 'b')]),
++            event(trigger='two', links=[('Content', 'a')])]
++    result = score(pred, gold)
++    assert result['event_exact_f1'] == 1 and result['link_exact_f1'] == 0
++    assert result['reward'] == .5
++
++
++def test_ordered_text_tokens_exact_no_offsets_or_bpe():
++    pred = [event(trigger='b a', links=[('Content', 'b a')])]
++    gold = [event(trigger='a b', links=[('Content', 'a b')])]
++    assert score(pred, gold)['reward'] == 0
++    gold[0]['trigger'].update(text='incorrect fallback', offsets=[987])
++    gold[0]['arguments'][0].update(text='incorrect fallback', offsets=[123])
++    assert score([event(trigger='a b', links=[('Content', 'a b')])], gold)['reward'] == 1
++
++
++def test_no_links_uses_event_f1_not_a_free_bonus():
++    result = score([event(), event('MDS')], [event()])
++    assert result['event_exact_f1'] == result['link_exact_f1'] == pytest.approx(2 / 3)
++    assert score([event('MDS')], [event()])['reward'] == 0
++
++
++@pytest.mark.parametrize('pred,gold,expected', [([], [], 1), ([], [event()], 0),
++                                             ([event()], [], 0)])
++def test_empty_boundary(pred, gold, expected):
++    assert score(pred, gold)['reward'] == expected
++
++
++@pytest.mark.parametrize('raw', ['', 'garbage', 'NEW(PRP)\nTRG("x")\nSTOP',
++                                 'NEW(PRP)\nTRG("x")\nEND',
++                                 'NEW(ZZZ)\nTRG("x")\nEND\nSTOP',
++                                 'NEW(PRP)\nTRG("x")\nARG(Wrong, "a")\nEND\nSTOP',
++                                 'STOP\nSTOP', 'STOP\nNEW(PRP)'])
++def test_invalid_action_never_becomes_valid_empty(raw):
++    result = reward_action_r0(raw, {'target_events': []}, schema=SCHEMA, truncated=True)
++    assert result['reward'] == 0 and not result['parse_valid']
++    assert result['parse_error'] and result['predicted_events'] == 0
++
++
++def test_complete_stop_without_eos_still_scores_and_does_not_repair_incomplete():
++    e = event(links=[('Content', 'a')])
++    result = score([e], [e], truncated=True, has_eos=False)
++    assert result['reward'] == 1 and result['truncated'] and not result['has_eos']
++    assert score([], [], truncated=True, has_eos=False)['reward'] == 1
++    bad = reward_action_r0(actions([e]).removesuffix('\nSTOP'), {'target_events': [e]},
++                           schema=SCHEMA, truncated=True, has_eos=False)
++    assert bad['reward'] == 0 and not bad['parse_valid']
++
++
++def test_normalized_structure_ignores_order_preserves_multiplicity_and_token_order():
++    from action_evaluation import parse_prediction
++    gold = [event(links=[('Content', 'a b'), ('Aim', 'c')]), event(links=[('Content', 'd')])]
++    parsed, _ = parse_prediction(actions(gold), SCHEMA)
++    swapped = [dict(e, arguments=list(reversed(e['arguments']))) for e in reversed(parsed)]
++    assert normalized_structure(parsed) == normalized_structure(swapped)
++    assert hash(normalized_structure(parsed)) == hash(normalized_structure(swapped))
++    assert normalized_structure(parsed) != normalized_structure(parsed + [parsed[0]])
++    duplicate_link = [dict(parsed[0], arguments=parsed[0]['arguments'] + [parsed[0]['arguments'][0]]), parsed[1]]
++    assert normalized_structure(parsed) != normalized_structure(duplicate_link)
++    reverse_tokens = [dict(parsed[0], trigger='propose reversed'), parsed[1]]
++    assert normalized_structure(parsed) != normalized_structure(reverse_tokens)
++
++
++def test_default_schema_real_shared_trigger_types_and_cached_parser():
++    from action_evaluation import schema_from
++    schema_from.cache_clear()
++    gold = [event(links=[('Content', 'our model')]), event('MDS')]
++    first = reward_action_r0(actions(gold), {'target_events': gold})
++    second = reward_action_r0(actions(gold), {'target_events': gold})
++    assert first['reward'] == second['reward'] == 1
++    assert schema_from.cache_info().misses == 1 and schema_from.cache_info().hits == 1
++
++
++def test_rectangular_matching_agrees_with_independent_exhaustive_search():
++    from collections import Counter
++    from itertools import permutations
++    import random
++    rng = random.Random(42)
++    for pred_count, gold_count in [(1, 3), (2, 3), (3, 2), (3, 3)]:
++        for _ in range(20):
++            pred_links = [[rng.randrange(4) for _ in range(rng.randrange(5))]
++                          for _ in range(pred_count)]
++            gold_links = [[rng.randrange(4) for _ in range(rng.randrange(5))]
++                          for _ in range(gold_count)]
++            pred = [event(links=[('Content', str(link)) for link in links])
++                    for links in pred_links]
++            gold = [event(links=[('Content', str(link)) for link in links])
++                    for links in gold_links]
++            weights = [[sum((Counter(p) & Counter(g)).values()) for g in gold_links]
++                       for p in pred_links]
++            if pred_count <= gold_count:
++                best = max(sum(weights[p][g] for p, g in enumerate(choice))
++                           for choice in permutations(range(gold_count), pred_count))
++            else:
++                best = max(sum(weights[p][g] for g, p in enumerate(choice))
++                           for choice in permutations(range(pred_count), gold_count))
++            pairs = match_event_instances(pred, gold)
++            assert len(pairs) == min(pred_count, gold_count)
++            assert sum(weight for _, _, weight in pairs) == best
++            assert len({p for p, _, _ in pairs}) == len(pairs)
++            assert len({g for _, g, _ in pairs}) == len(pairs)
+--- a/tasks/action-experiment/tests/test_grpo_diagnostics.py
++++ b/tasks/action-experiment/tests/test_grpo_diagnostics.py
+@@ -0,0 +1,54 @@
++import sys
++from pathlib import Path
++
++import pytest
++import torch
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++from grpo_diagnostics import probability_statistics, assert_probability_consistency
++
++
++def test_masked_statistics_and_actual_ratio():
++    old = torch.zeros(1, 5)
++    current = torch.tensor([[0., .1, -.3, .3, float('nan')]])
++    mask = torch.tensor([[True, True, True, True, False]])
++    result = probability_statistics(current, old, mask)
++    assert result['valid_tokens'] == 4
++    assert result['abs_difference_mean'] == pytest.approx(.175)
++    assert result['abs_difference_max'] == pytest.approx(.3)
++    assert result['ratio_outside_clip_fraction'] == .5
++    assert result['ratio_mean'] == pytest.approx(float(current[0, :4].exp().mean()))
++
++
++def test_identical_distribution_passes():
++    values = torch.randn(2, 8)
++    result = probability_statistics(values, values, torch.ones_like(values, dtype=torch.bool))
++    assert_probability_consistency(result)
++    assert result['ratio_mean'] == 1.
++
++
++def test_large_distribution_change_is_rejected():
++    values = torch.zeros(1, 100)
++    result = probability_statistics(values + .3, values, torch.ones_like(values, dtype=torch.bool))
++    with pytest.raises(RuntimeError, match='probability consistency'):
++        assert_probability_consistency(result)
++
++
++@pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf')])
++def test_nonfinite_valid_token_rejected(value):
++    with pytest.raises(ValueError, match='finite'):
++        probability_statistics(torch.tensor([[value]]), torch.zeros(1, 1), torch.ones(1, 1, dtype=torch.bool))
++
++
++def test_empty_mask_and_mismatched_shapes_rejected():
++    with pytest.raises(ValueError):
++        probability_statistics(torch.zeros(1, 1), torch.zeros(1, 1), torch.zeros(1, 1, dtype=torch.bool))
++    with pytest.raises(ValueError):
++        probability_statistics(torch.zeros(1, 2), torch.zeros(1, 1), torch.ones(1, 1, dtype=torch.bool))
++
++
++def test_configurable_thresholds_are_not_silent():
++    result = probability_statistics(torch.tensor([[.2]]), torch.zeros(1, 1), torch.ones(1, 1, dtype=torch.bool))
++    with pytest.raises(RuntimeError):
++        assert_probability_consistency(result)
++    assert_probability_consistency(result, max_p99=.25, max_difference=.25, max_outside_clip_fraction=1.)
+--- a/tasks/action-experiment/tests/test_r0_wiring.py
++++ b/tasks/action-experiment/tests/test_r0_wiring.py
+@@ -0,0 +1,24 @@
++"""Ensure R0 changes training without changing the historical eval contract."""
++import ast
++from pathlib import Path
++import sys
++
++HERE=Path(__file__).resolve().parents[1]
++sys.path.insert(0,str(HERE))
++
++
++def test_grpo_imports_r0_and_keeps_evaluator_separate():
++    tree=ast.parse((HERE/'train_grpo.py').read_text())
++    imports=[node for node in ast.walk(tree) if isinstance(node,ast.ImportFrom)]
++    assert any(node.module=='action_rewards' and any(x.name=='reward_action_r0' and x.asname=='reward_action' for x in node.names) for node in imports)
++    assert not any(node.module=='action_evaluation' and any(x.name=='reward_action' for x in node.names) for node in imports)
++    text=(HERE/'train_grpo.py').read_text()
++    assert "reward_version=REWARD_VERSION" in text
++    assert 'probability_statistics(current,old,mask)' in text
++    assert 'normalized_structure' in text
++
++
++def test_r0_reward_source_is_in_default_run_inventory():
++    from action_common import source_files
++    assert HERE/'action_rewards.py' in source_files()
++    assert HERE/'grpo_diagnostics.py' in source_files()
+--- a/tasks/action-experiment/tests/test_r0_eval_regression.py
++++ b/tasks/action-experiment/tests/test_r0_eval_regression.py
+@@ -0,0 +1,30 @@
++"""R0 must not change raw-prediction evaluation or the historical codec."""
++import hashlib
++import json
++from pathlib import Path
++import sys
++import pytest
++
++HERE=Path(__file__).resolve().parents[1]
++sys.path.insert(0,str(HERE))
++
++
++def test_protected_source_bytes_are_unchanged():
++    evidence=HERE/'verification-r0-20261013/immutable-before.json'
++    if not evidence.exists():pytest.skip('Local pre-change inventory unavailable')
++    root=HERE.parents[1]
++    for path,digest in json.loads(evidence.read_text()).items():
++        assert hashlib.sha256((root/path).read_bytes()).hexdigest()==digest,path
++
++
++def test_frozen_1627_raw_predictions_keep_identical_presence_metrics():
++    from action_evaluation import score_predictions
++    from action_common import read_rows
++    predictions=HERE/'runs/action-sft-v2-42-20261012/test-best-20261013/predictions.jsonl'
++    expected=HERE/'verification-r0-20261013/eval-before.json'
++    data=HERE/'data/action-v2-goldorder-20261012/test.jsonl'
++    if not all(p.exists() for p in (predictions,expected,data)):
++        pytest.skip('Full local experiment artifacts unavailable')
++    result=score_predictions(read_rows(data),read_rows(predictions))
++    baseline=json.loads(expected.read_text())
++    assert {k:result[k] for k in baseline}==baseline
+--- a/tasks/action-experiment/verification-r0-20261013/qwen_probability_smoke.py
++++ b/tasks/action-experiment/verification-r0-20261013/qwen_probability_smoke.py
+@@ -0,0 +1,189 @@
++"""Actual Qwen/SFT R0 G=4 probability and backward smoke; never starts formal RL."""
++import argparse
++import hashlib
++import os
++from pathlib import Path
++import random
++import shutil
++import sys
++import time
++
++HERE = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(HERE))
++
++
++def adapter_digest(model, adapter):
++    import torch
++    digest = hashlib.sha256()
++    for name, value in sorted(model.named_parameters()):
++        if f'.{adapter}.' in name:
++            digest.update(name.encode())
++            digest.update(value.detach().cpu().contiguous().view(torch.uint8).numpy().tobytes())
++    return digest.hexdigest()
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--init-adapter', type=Path, required=True)
++    parser.add_argument('--output', type=Path, required=True)
++    args = parser.parse_args()
++    import torch
++    from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, set_seed
++    from action_common import (DATA_DIR, MODEL_PATH, ROOT, MAX_NEW_TOKENS, prepare_run,
++                               read_rows, read_json, sha256, write_json, append_jsonl,
++                               generation_arguments, load_module, verify_locks)
++    from action_rewards import reward_action_r0
++    from grpo_core import (initialize_dual_adapters, activate_adapter, completion_mask,
++                           behavior_logprobs, completion_logprobs, group_advantages, grpo_loss)
++    from grpo_diagnostics import probability_statistics, assert_probability_consistency
++    from train_grpo import prompt_tokens, check_sft_source
++    if 'TMUX' not in os.environ or not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
++        raise RuntimeError('GPU smoke must run inside tmux on a bf16 CUDA GPU')
++    check_sft_source(args.init_adapter, read_json, sha256, False)
++    script_path = Path(__file__).resolve()
++    script_hash = sha256(script_path)
++    configuration = dict(stage='action_grpo', smoke=True, purpose='R0 actual probability/backward validation',
++                         reward_version='event_link_token_exact_v1', seed=42, groups=4, group_size=4,
++                         gradient_accumulation=4, max_new_tokens=MAX_NEW_TOKENS, learning_rate=1e-5,
++                         temperature=1., top_p=1., top_k=0, forced_minimum_tokens=False,
++                         source_sha256={str(script_path): script_hash},
++                         probability_thresholds=dict(max_p99=.15, max_difference=.5,
++                                                     max_outside_clip_fraction=.01))
++    run = prepare_run(args.output, stage='action_grpo', init_adapter=args.init_adapter,
++                      configuration=configuration, model_path=MODEL_PATH, allow_smoke=True)
++    if sha256(script_path) != script_hash:
++        raise RuntimeError('Probability smoke source changed during prepare_run')
++    run['input_sha256'][str(script_path)] = script_hash
++    script_snapshot = args.output/'source_snapshot'/script_path.relative_to(ROOT)
++    script_snapshot.parent.mkdir(parents=True, exist_ok=True)
++    shutil.copy2(script_path, script_snapshot)
++    if sha256(script_snapshot) != script_hash:
++        raise RuntimeError('Probability smoke snapshot hash differs from configuration source hash')
++    write_json(args.output/'provenance.json', run)
++    verify_locks(run['input_sha256'])
++    set_seed(42)
++    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, local_files_only=True)
++    if tokenizer.pad_token_id is None:
++        tokenizer.pad_token_id = tokenizer.eos_token_id
++    rows = read_rows(DATA_DIR/'train.jsonl')
++    random.Random(42).shuffle(rows)
++    rows = rows[:4]
++    model_utils = load_module('_r0_smoke_model_utils', ROOT/'tasks/stage2-event-tree/scripts/model_utils.py')
++    base = AutoModelForCausalLM.from_pretrained(MODEL_PATH, local_files_only=True,
++        config=model_utils.load_model_config(MODEL_PATH), torch_dtype=torch.bfloat16,
++        attn_implementation='sdpa').to('cuda')
++    model = initialize_dual_adapters(base, args.init_adapter)
++    model.config.use_cache = False
++    model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant': False})
++    model.enable_input_require_grads()
++    reference_before = adapter_digest(model, 'reference')
++    policy_before = adapter_digest(model, 'policy')
++    optimizer = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],
++                                 lr=1e-5, betas=(.9, .999), eps=1e-8, weight_decay=0.)
++    eos = model.generation_config.eos_token_id or tokenizer.eos_token_id
++    eos_ids = [eos] if isinstance(eos, int) else list(eos)
++    generation = GenerationConfig(do_sample=True, temperature=1., top_p=1., top_k=0,
++        max_new_tokens=MAX_NEW_TOKENS, eos_token_id=eos, pad_token_id=tokenizer.pad_token_id,
++        bos_token_id=tokenizer.bos_token_id, repetition_penalty=1., use_cache=True,
++        output_scores=True, return_dict_in_generate=True)
++    aggregates = {key: {'current': [], 'old': []} for key in
++                  ('cached_vs_eval', 'eval_vs_train_checkpoint', 'current_update_vs_behavior', 'policy_vs_reference')}
++    failures = []
++    optimizer.zero_grad(set_to_none=True)
++    started = time.monotonic()
++    for group_index, row in enumerate(rows):
++        activate_adapter(model, 'policy')
++        model.eval()
++        prompt = prompt_tokens(tokenizer, row, 'cuda')
++        samples = []
++        for sample_index in range(4):
++            with torch.no_grad():
++                generated = model.generate(input_ids=prompt, attention_mask=torch.ones_like(prompt),
++                                           **generation_arguments(generation))
++                ids = generated.sequences[:, prompt.shape[1]:].detach()
++                mask = completion_mask(ids, eos_ids)
++                old = behavior_logprobs(generated, prompt.shape[1], mask)
++                del generated
++                teacher = completion_logprobs(model, prompt, ids, mask).detach()
++                activate_adapter(model, 'reference')
++                reference = completion_logprobs(model, prompt, ids, mask).detach()
++                activate_adapter(model, 'policy')
++            if not torch.allclose(teacher[mask], reference[mask], atol=1e-5, rtol=1e-5):
++                failures.append(f'Initial policy/reference mismatch group={group_index} sample={sample_index}')
++            text = tokenizer.decode(ids[0][mask[0]], skip_special_tokens=True)
++            has_eos = int(ids[0, int(mask.sum())-1]) in eos_ids
++            reward = reward_action_r0(text, row, truncated=not has_eos, has_eos=has_eos)
++            samples.append((ids, mask, old, teacher, reference, text, reward, has_eos))
++        rewards = torch.tensor([sample[6]['reward'] for sample in samples], device='cuda')
++        advantages = group_advantages(rewards)
++        model.train()
++        activate_adapter(model, 'policy')
++        group_loss = 0.
++        for sample_index, (ids, mask, old, teacher, reference, text, reward, has_eos) in enumerate(samples):
++            current = completion_logprobs(model, prompt, ids, mask)
++            pairs = dict(cached_vs_eval=(teacher, old), eval_vs_train_checkpoint=(current, teacher),
++                         current_update_vs_behavior=(current, old), policy_vs_reference=(teacher, reference))
++            statistics = {}
++            for label, (a, b) in pairs.items():
++                stats = probability_statistics(a, b, mask)
++                statistics[label] = stats
++                aggregates[label]['current'].append(a.detach()[mask].float().cpu())
++                aggregates[label]['old'].append(b.detach()[mask].float().cpu())
++                try:
++                    assert_probability_consistency(stats)
++                except RuntimeError as error:
++                    failures.append(f'{label}, group={group_index}, sample={sample_index}: {error}')
++            loss, loss_stats = grpo_loss(current, old, reference, mask, advantages[sample_index:sample_index+1])
++            (loss/16).backward()
++            group_loss += float(loss.detach())/4
++            append_jsonl(args.output/'rollouts.jsonl', dict(group_index=group_index, sample_index=sample_index,
++                id=row['id'], prompt_tokens=prompt[0].tolist(), completion_tokens=ids[0].tolist(),
++                completion_mask=mask[0].tolist(), actual_behavior_logprobs=old[0].float().tolist(),
++                eval_teacher_logprobs=teacher[0].float().tolist(), current_update_logprobs=current.detach()[0].float().tolist(),
++                reference_logprobs=reference[0].float().tolist(), probability_diagnostics=statistics,
++                output=text, advantage=float(advantages[sample_index]), loss=float(loss.detach()),
++                **loss_stats, **reward))
++            print(f'group={group_index} sample={sample_index} R0={reward["reward"]:.6f} tokens={int(mask.sum())} '
++                  f'update_vs_old={statistics["current_update_vs_behavior"]}', flush=True)
++        append_jsonl(args.output/'groups.jsonl', dict(group_index=group_index, id=row['id'], loss=group_loss,
++            mean_reward=float(rewards.mean()), std_reward=float(rewards.std()), active=bool(rewards.std()>0),
++            mean_event_exact_f1=sum(s[6]['event_exact_f1'] for s in samples)/4,
++            mean_link_exact_f1=sum(s[6]['link_exact_f1'] for s in samples)/4))
++    parameters = [p for p in model.parameters() if p.requires_grad]
++    norm = torch.nn.utils.clip_grad_norm_(parameters, 1.)
++    if not torch.isfinite(norm):
++        raise RuntimeError('Nonfinite smoke gradient norm')
++    optimizer.step()
++    optimizer.zero_grad(set_to_none=True)
++    policy_after = adapter_digest(model, 'policy')
++    reference_after = adapter_digest(model, 'reference')
++    if reference_after != reference_before:
++        failures.append('Frozen reference adapter weights changed')
++    if policy_before == policy_after:
++        failures.append('Policy adapter weights did not change after real R0 update')
++    aggregate_statistics = {}
++    for label, values in aggregates.items():
++        a = torch.cat(values['current'])
++        b = torch.cat(values['old'])
++        aggregate_statistics[label] = probability_statistics(a, b, torch.ones_like(a, dtype=torch.bool))
++        try:
++            assert_probability_consistency(aggregate_statistics[label])
++        except RuntimeError as error:
++            failures.append(f'Aggregate {label}: {error}')
++    verify_locks(run['input_sha256'])
++    result = dict(status='failed' if failures else 'passed', failures=failures, groups=4, generated_sequences=16,
++                  optimizer_updates=1, gradient_norm=float(norm), probability_diagnostics=aggregate_statistics,
++                  policy_before=policy_before, policy_after=policy_after, policy_changed=policy_before!=policy_after,
++                  reference_before=reference_before, reference_after=reference_after,
++                  reference_unchanged=reference_before==reference_after,
++                  peak_cuda_allocated_bytes=torch.cuda.max_memory_allocated(), wall_seconds=time.monotonic()-started,
++                  reward_version='event_link_token_exact_v1', has_forced_minimum_tokens=False,
++                  same_parameters_for_all_diagnostic_samples=True)
++    write_json(args.output/'result.json', result)
++    print(result, flush=True)
++    if failures:
++        raise RuntimeError('Qwen probability smoke failed; formal RL must not start (see result.json)')
++
++
++if __name__ == '__main__':
++    main()

@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "failures": [],
+  "groups": 4,
+  "generated_sequences": 16,
+  "optimizer_updates": 1,
+  "gradient_norm": 0.29046785831451416,
+  "probability_diagnostics": {
+    "cached_vs_eval": {
+      "valid_tokens": 758,
+      "abs_difference_mean": 0.0034400341100990772,
+      "abs_difference_p95": 0.016080809757113457,
+      "abs_difference_p99": 0.09853680431842804,
+      "abs_difference_max": 0.12119865417480469,
+      "ratio_mean": 1.000451683998108,
+      "ratio_outside_clip_fraction": 0.0
+    },
+    "eval_vs_train_checkpoint": {
+      "valid_tokens": 758,
+      "abs_difference_mean": 0.0,
+      "abs_difference_p95": 0.0,
+      "abs_difference_p99": 0.0,
+      "abs_difference_max": 0.0,
+      "ratio_mean": 1.0,
+      "ratio_outside_clip_fraction": 0.0
+    },
+    "current_update_vs_behavior": {
+      "valid_tokens": 758,
+      "abs_difference_mean": 0.0034400341100990772,
+      "abs_difference_p95": 0.016080809757113457,
+      "abs_difference_p99": 0.09853680431842804,
+      "abs_difference_max": 0.12119865417480469,
+      "ratio_mean": 1.000451683998108,
+      "ratio_outside_clip_fraction": 0.0
+    },
+    "policy_vs_reference": {
+      "valid_tokens": 758,
+      "abs_difference_mean": 0.0,
+      "abs_difference_p95": 0.0,
+      "abs_difference_p99": 0.0,
+      "abs_difference_max": 0.0,
+      "ratio_mean": 1.0,
+      "ratio_outside_clip_fraction": 0.0
+    }
+  },
+  "policy_before": "203f16332da1f1af8238e1ca90d31260729baac056d2957716455b6e10dbcd0b",
+  "policy_after": "758ba811a7d60485a068e0a49f55fa306fe6e50bb43bcf150e8c1860b201cdfe",
+  "policy_changed": true,
+  "reference_before": "a3b3f4e3f65a1b5693308d92e7fcb30baa28dcf15e5c22e4ec370ed1b7569c3d",
+  "reference_after": "a3b3f4e3f65a1b5693308d92e7fcb30baa28dcf15e5c22e4ec370ed1b7569c3d",
+  "reference_unchanged": true,
+  "peak_cuda_allocated_bytes": 18182569984,
+  "wall_seconds": 49.91846719896421,
+  "reward_version": "event_link_token_exact_v1",
+  "has_forced_minimum_tokens": false,
+  "same_parameters_for_all_diagnostic_samples": true
+}
