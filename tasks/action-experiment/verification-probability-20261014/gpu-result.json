@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "failures": [],
+  "probability_guard": {
+    "window_responses": 16,
+    "min_valid_tokens": 512,
+    "persistence": 3,
+    "hard_max_difference": 1.0,
+    "warning_p99": 0.15,
+    "max_clip_fraction": 0.01,
+    "guard_ratio_bounds": [
+      0.5,
+      2.0
+    ],
+    "max_guard_ratio_fraction": 0.01,
+    "loss_clip": 0.2
+  },
+  "groups": 16,
+  "generated_sequences": 64,
+  "optimizer_updates": 4,
+  "gradient_norm": 0.3760346472263336,
+  "probability_diagnostics": {
+    "cached_vs_eval": {
+      "valid_tokens": 3675,
+      "abs_difference_mean": 0.0032752903643995523,
+      "abs_difference_p95": 0.0135345458984375,
+      "abs_difference_p99": 0.09295463562011719,
+      "abs_difference_max": 0.2415599822998047,
+      "ratio_mean": 1.0001697540283203,
+      "ratio_min": 0.7854017019271851,
+      "ratio_max": 1.226099967956543,
+      "ratio_outside_clip_fraction": 0.0005442177061922848
+    },
+    "eval_vs_train_checkpoint": {
+      "valid_tokens": 3675,
+      "abs_difference_mean": 0.0,
+      "abs_difference_p95": 0.0,
+      "abs_difference_p99": 0.0,
+      "abs_difference_max": 0.0,
+      "ratio_mean": 1.0,
+      "ratio_min": 1.0,
+      "ratio_max": 1.0,
+      "ratio_outside_clip_fraction": 0.0
+    },
+    "current_update_vs_behavior": {
+      "valid_tokens": 3675,
+      "abs_difference_mean": 0.0032752903643995523,
+      "abs_difference_p95": 0.0135345458984375,
+      "abs_difference_p99": 0.09295463562011719,
+      "abs_difference_max": 0.2415599822998047,
+      "ratio_mean": 1.0001697540283203,
+      "ratio_min": 0.7854017019271851,
+      "ratio_max": 1.226099967956543,
+      "ratio_outside_clip_fraction": 0.0005442177061922848
+    },
+    "policy_vs_reference": {
+      "valid_tokens": 758,
+      "abs_difference_mean": 0.0,
+      "abs_difference_p95": 0.0,
+      "abs_difference_p99": 0.0,
+      "abs_difference_max": 0.0,
+      "ratio_mean": 1.0,
+      "ratio_min": 1.0,
+      "ratio_max": 1.0,
+      "ratio_outside_clip_fraction": 0.0
+    }
+  },
+  "policy_before": "203f16332da1f1af8238e1ca90d31260729baac056d2957716455b6e10dbcd0b",
+  "policy_after": "c418d3c8484283f72f245cd2db9e245b609dc8de59621c6d2ba1638b91b4466b",
+  "policy_changed": true,
+  "reference_before": "a3b3f4e3f65a1b5693308d92e7fcb30baa28dcf15e5c22e4ec370ed1b7569c3d",
+  "reference_after": "a3b3f4e3f65a1b5693308d92e7fcb30baa28dcf15e5c22e4ec370ed1b7569c3d",
+  "reference_unchanged": true,
+  "peak_cuda_allocated_bytes": 21159974912,
+  "wall_seconds": 196.64958923636004,
+  "reward_version": "event_link_token_exact_v1",
+  "has_forced_minimum_tokens": false,
+  "same_parameter_version_within_each_sample": true
+}

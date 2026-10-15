@@ -1,0 +1,74 @@
+{
+  "accelerate": {
+    "distributions": {
+      "accelerate": "1.13.0"
+    },
+    "example_files": [
+      "tasks/stage2-event-tree/curriculum/test_dev_feedback.py"
+    ]
+  },
+  "numpy": {
+    "distributions": {
+      "numpy": "1.24.3"
+    },
+    "example_files": [
+      "tasks/stage2-event-tree/curriculum/curriculum_trainer.py",
+      "tasks/stage2-event-tree/curriculum/online_dev_evaluation.py",
+      "tasks/stage2-event-tree/curriculum/test_curriculum_trainer.py",
+      "tasks/stage2-event-tree/curriculum/test_online_dev_evaluation.py"
+    ]
+  },
+  "peft": {
+    "distributions": {
+      "peft": "0.19.1"
+    },
+    "example_files": [
+      "tasks/action-experiment/evaluate_adapter.py",
+      "tasks/action-experiment/grpo_core.py",
+      "tasks/action-experiment/rl_v2/tests/test_rl_integration.py",
+      "tasks/action-experiment/tests/test_action_grpo.py"
+    ]
+  },
+  "pytest": {
+    "distributions": {
+      "pytest": "9.0.2"
+    },
+    "example_files": [
+      "tasks/action-experiment/rl_v2/tests/test_batched_generation.py",
+      "tasks/action-experiment/rl_v2/tests/test_event_diagnostics.py",
+      "tasks/action-experiment/rl_v2/tests/test_provenance.py",
+      "tasks/action-experiment/rl_v2/tests/test_rl_integration.py"
+    ]
+  },
+  "torch": {
+    "distributions": {
+      "torch": "2.4.1"
+    },
+    "example_files": [
+      "tasks/action-experiment/action_evaluation.py",
+      "tasks/action-experiment/evaluate_adapter.py",
+      "tasks/action-experiment/grpo_core.py",
+      "tasks/action-experiment/grpo_diagnostics.py"
+    ]
+  },
+  "transformers": {
+    "distributions": {
+      "transformers": "4.52.3"
+    },
+    "example_files": [
+      "tasks/action-experiment/action_evaluation.py",
+      "tasks/action-experiment/audit-20261012/prompt_v2_audit.py",
+      "tasks/action-experiment/audit-20261012/token_cap_audit.py",
+      "tasks/action-experiment/audit-v2-20261012/token_cap_audit.py"
+    ]
+  },
+  "scipy": {
+    "distributions": {
+      "scipy": "1.10.1"
+    },
+    "example_files": [
+      "tasks/action-experiment/action_rewards.py"
+    ],
+    "note": "Explicit import scipy.optimize.linear_sum_assignment; missing from packages_distributions mapping."
+  }
+}

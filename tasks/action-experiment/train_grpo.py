@@ -54,14 +54,15 @@ def main():
                                write_json,read_rows,append_jsonl,prepare_run,verify_locks,load_module,ROOT,generation_arguments)
     from action_evaluation import evaluate_model,parse_prediction
     from action_rewards import reward_action_r0 as reward_action,REWARD_VERSION,normalized_structure
-    from grpo_diagnostics import probability_statistics,assert_probability_consistency
+    from grpo_diagnostics import probability_statistics,ProbabilityGuard
     from transformers import AutoModelForCausalLM,AutoTokenizer,GenerationConfig,set_seed
     if args.gradient_accumulation<1 or args.dev_steps<1:
         raise ValueError('Accumulation and dev interval must be positive')
     if 'TMUX' not in os.environ or not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
         raise RuntimeError('Run GPU training inside tmux on a bf16 CUDA device')
     source_metrics=check_sft_source(args.init_adapter,read_json,sha256,args.smoke)
-    configuration=dict(probability_guard=dict(max_p99=.15,max_difference=.5,max_outside_clip_fraction=.01),
+    probability_guards={name:ProbabilityGuard() for name in ('current_vs_old','cached_vs_eval','eval_vs_train')}
+    configuration=dict(probability_guard=probability_guards['current_vs_old'].configuration(),
         reward_version=REWARD_VERSION,reward_formula='0.5 event_exact_f1 + 0.5 link_exact_f1',
         generation_mode='original sequential G4',event_reward_enabled=True,stage='action_grpo',seed=42,group_size=4,gradient_accumulation=args.gradient_accumulation,
         learning_rate=1e-5,clip=.2,beta=.01,temperature=1.,top_p=1.,top_k=0,legal_action_mask=False,
@@ -167,6 +168,11 @@ def main():
         # Never activate reference between a checkpointed policy forward and backward.
         for sample_index,(ids,mask,old,ref,reward,text,sampling_teacher_difference) in enumerate(samples):
             current=completion_logprobs(model,prompt,ids,mask)
+            append_jsonl(args.output/'probability-token-log.jsonl',dict(group_index=group_index,id=row['id'],
+                sample_index=sample_index,optimizer_step_before=step,
+                prompt_tokens=prompt[0].tolist(),completion_tokens=ids[0].tolist(),completion_mask=mask[0].tolist(),
+                old_behavior_logprobs=old[0].float().tolist(),current_update_logprobs=current.detach()[0].float().tolist(),
+                no_cache_eval_logprobs=eval_logprobs[sample_index][0].float().tolist()))
             probability_diagnostic=probability_statistics(current,old,mask)
             sampling_vs_eval=probability_statistics(eval_logprobs[sample_index],old,mask)
             eval_vs_train=probability_statistics(current,eval_logprobs[sample_index],mask)
@@ -177,9 +183,12 @@ def main():
                 completion_tokens=ids[0].tolist(),completion_mask=mask[0].tolist(),
                 old_behavior_logprobs=old[0].float().tolist(),
                 current_update_logprobs=current.detach()[0].float().tolist()))
-            assert_probability_consistency(probability_diagnostic)
-            assert_probability_consistency(sampling_vs_eval)
-            assert_probability_consistency(eval_vs_train)
+            window_diagnostics=dict(
+                current_vs_old=probability_guards['current_vs_old'].observe(current,old,mask),
+                cached_vs_eval=probability_guards['cached_vs_eval'].observe(eval_logprobs[sample_index],old,mask),
+                eval_vs_train=probability_guards['eval_vs_train'].observe(current,eval_logprobs[sample_index],mask))
+            append_jsonl(args.output/'probability-window-checks.jsonl',dict(group_index=group_index,id=row['id'],
+                sample_index=sample_index,optimizer_step_before=step,**window_diagnostics))
             loss,stats=grpo_loss(current,old,ref,mask,advantages[sample_index:sample_index+1])
             (loss/(4*args.gradient_accumulation)).backward()
             group_loss+=loss.item()/4;group_kl+=stats['kl']/4;clip_fraction+=stats['clip_fraction']/4

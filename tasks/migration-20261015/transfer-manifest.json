@@ -1,0 +1,3324 @@
+{
+  "format": 1,
+  "purpose": "No trained adapters/checkpoints; rerun CoT/SFT/RL. Hashes describe current source bytes, not historical provenance validation.",
+  "bytes": 17922499744,
+  "files": [
+    {
+      "path": "home/myluo/EE/EXCEEDS/data/SciEvents/README.md",
+      "bytes": 2163,
+      "sha256": "a2179477787fe845997bd8619e77e055f9144616928f223d9ca47b8e9ebd9617"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/data/SciEvents/dev.json",
+      "bytes": 5518593,
+      "sha256": "aef95bbda483f90d7516ee0395e0d0ad9c584446c51af308477fa58fc46c4bb9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/data/SciEvents/dev_amr.json",
+      "bytes": 33224159,
+      "sha256": "35a00746b1046ff97001295cd14133e52a5519ec004a5f686ca36ba78b0f5ba7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/data/SciEvents/dev_dependency.json",
+      "bytes": 34206524,
+      "sha256": "9930fae94d932a20c5d6fdc66435ff8f99b25c9699a148b95394339fe61b07c6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/data/SciEvents/ontology.json",
+      "bytes": 2666,
+      "sha256": "ed645dc47688cf90cde6112ee9d052c65446e51174e1832f0a02f6607ff55c20"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/data/SciEvents/test.json",
+      "bytes": 5611263,
+      "sha256": "6f5ed861c147d5da197a21eaf0802e4399a2529a438d4861510b7780556dba71"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/data/SciEvents/train.json",
+      "bytes": 44337519,
+      "sha256": "09c16f2a9e2407318b28e8a189f7b2f8546f864f2eaf5d6a4d6540db73a6b067"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/eval_complex_quick_f1.py",
+      "bytes": 37928,
+      "sha256": "befe85e5c24db148cf74a1875ab77b7c5b757759022e6eb57b429e4d26c5384c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/scripts/action_language.py",
+      "bytes": 5403,
+      "sha256": "fa9f3ba4d3b3a1667b9d278d1dc669db04e742f942905320814b93a43d91c61a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/scripts/build_action_dataset.py",
+      "bytes": 11800,
+      "sha256": "8bf97461f44cad7128e5d91ffe8c2c1d7cf1ac5bb59bd826b1f551ee01c51104"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/scripts/build_dependency_cache.py",
+      "bytes": 5650,
+      "sha256": "12723f3e835ae1961c4a955c3a3826e4de399552b8226ab8f2d78fa52b00c289"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/scripts/run_ted_retrieval.py",
+      "bytes": 5632,
+      "sha256": "cffca2e0227027c877c48404da518978a2ddef2bf4026520cfd5f38ea492048e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/scripts/score_event_trees.py",
+      "bytes": 5897,
+      "sha256": "2ce3ae27558329b5302a8405167184f698deb5204bc2c777e4e30ca399622897"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/scripts/score_tree_presence.py",
+      "bytes": 8882,
+      "sha256": "9d3f654e6740c221536cbd409715504494eff3991aab3a134079eee3cfac73a0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/scripts/score_tree_tokens.py",
+      "bytes": 6591,
+      "sha256": "04362201b60fa815df93e9a0fee23a26b3be4f92eff36c173e600df12c3679c1"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/task/prompt/3.10-1.md",
+      "bytes": 6582,
+      "sha256": "2f17d823d99fdb63fc4b2d381dd13205b0d591cde29d6dbf38f1dd4eb17afc05"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/task/prompt/render_gold_events.py",
+      "bytes": 4572,
+      "sha256": "d3119396618016c8c2ed6a693bce42f99f2cd880d8ac0ff7b40026512004d847"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/task/prompt/run_prompt_3_10_full.py",
+      "bytes": 20915,
+      "sha256": "6187e7003f48ebaf771646ab329883df2516a03e7adbe3d5de6945ba31b9e2bf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/task/prompt/runs/prompt-3.10-1-train-full-merged-20260926.jsonl",
+      "bytes": 43693633,
+      "sha256": "46ddbc0a88d4823fb90171803432bd6c5cd5b3d70614c23f2768f8d42bcb1d8b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/task/scievents_appendix_f2_exact_reference_v2.md",
+      "bytes": 4158,
+      "sha256": "d58f4baa80470d29e36851ec65dc74e7863f7fd6a8786c3d6e25f7851875f098"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/action_common.py",
+      "bytes": 7701,
+      "sha256": "ebf1491bbbcd76ff90127768a1633906e4104b46b21d67e4413fa0c265ff05fa"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/action_evaluation.py",
+      "bytes": 7222,
+      "sha256": "e0b16f5f053c1837e2a477f3ca3fae04a6688eccb853102a4cf2b967d0ce5c17"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/action_rewards.py",
+      "bytes": 4812,
+      "sha256": "1d000fdb8c43de9cbbd8e76c32b30e2eb2ccf1c7ecdf5f822ecb9404d463f1f2"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/dev.jsonl",
+      "bytes": 17088481,
+      "sha256": "2af669da984b8195ad1b201e5e65125aca439687de12cb444c240d158472e6e2"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/manifest.json",
+      "bytes": 7832,
+      "sha256": "b6c3e36e54e6e44cd6416dcf612022acf01d442ae59cd3a150135c95e94c2cb5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/ordered-ids.txt",
+      "bytes": 577291,
+      "sha256": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/prompt_template.txt",
+      "bytes": 3944,
+      "sha256": "e656eb7abe1e76c1078e87ae803af8f3d8eeb57c9e7f856bee6ab4f8689b6cbb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/random15.jsonl",
+      "bytes": 155935,
+      "sha256": "01a6736b006832c20a47567cc6a4b44dd94fced4ce5d0809274976e4a3e07df8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/random15.md",
+      "bytes": 103662,
+      "sha256": "ce86ecf5512089495651f3dc55a7ff7b8b5e227cda2addf6e94334cd7f0f7ac7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/test.jsonl",
+      "bytes": 17590521,
+      "sha256": "c4d05fc9718747baffdfe185f4cc94ff8151430b90b696dfb21069fc18e9411c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/token-audit.json",
+      "bytes": 1241,
+      "sha256": "12a35934d82034aaa4a155b3a186fa8dbad3bde3c4b47875b4e0486ade945929"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train-sorted.jsonl",
+      "bytes": 137963401,
+      "sha256": "de23816a9a459127bd2d02e3710c595331024811e0a9f259c414a1bf3f515459"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/data/action-v2-goldorder-20261012/train.jsonl",
+      "bytes": 137963401,
+      "sha256": "5e4dcd6a10f12da5c43cc1762cdd18950533915e9bd21b4c3624f20911ecb0f3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/evaluate_adapter.py",
+      "bytes": 3334,
+      "sha256": "0e4322b0188014b2faaea059471284461521e3ca1c1fbb670e5b90844f157185"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/grpo_core.py",
+      "bytes": 4704,
+      "sha256": "ef61d4dca4d08f519242ce8a281ef7826f47a02d76b588d0b8ff983fd888321e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/grpo_diagnostics.py",
+      "bytes": 8432,
+      "sha256": "c8e2e7172bb3e55e1a4256c786555b8808dd7e0981665a1d430e83d0e0c0f74e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/preflight.py",
+      "bytes": 2507,
+      "sha256": "a4638aa65178bca1093197b2c1f21a24127bbb837e97feab873ea18398da22ab"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/prompts/action-v2-checked.txt",
+      "bytes": 3944,
+      "sha256": "e656eb7abe1e76c1078e87ae803af8f3d8eeb57c9e7f856bee6ab4f8689b6cbb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/README.md",
+      "bytes": 2315,
+      "sha256": "78ad02019ce431a39d2e26692e503df50cdfa4beb2468ad81dc18b98d57db55a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/batched_generation.py",
+      "bytes": 2886,
+      "sha256": "f6d9f308d7bf9b669ec079f0e93ab59cd0a1f900590c95ae47a7a61a4f11da9a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/event_diagnostics.py",
+      "bytes": 3372,
+      "sha256": "36e20051d25e9e9a1b75e45f5ac36ae19f27f650aa9b6b8f180c0ee1e396ce13"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/provenance.py",
+      "bytes": 956,
+      "sha256": "3429b258f096bd254b68a3694e1f5e023a8f21c3d240c6ea27e245809aca6f01"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/qwen_smoke.py",
+      "bytes": 4222,
+      "sha256": "d95a517fe5d1eae6b571e582ab5c250b2e00e28b9ec0fb9170930d42ab2313df"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/tests/test_batched_generation.py",
+      "bytes": 5454,
+      "sha256": "fd6542b98fa60209b416956164d3277bd2d82c1373c7692c10e6a6864da38edb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/tests/test_event_diagnostics.py",
+      "bytes": 5300,
+      "sha256": "cf571997eb5ba1dbcf35a87371d592b74db46d2d9e90a048afd925fba87d2f80"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/tests/test_provenance.py",
+      "bytes": 1465,
+      "sha256": "cd9ce98e6a6cf9c2fb8bdb5cd38fb43b991b1257fd795fcf4eb49c13fe457b70"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/tests/test_rl_integration.py",
+      "bytes": 5696,
+      "sha256": "2b56d81bc18d2a194f2ed9fde3e84ca218af2252293fcd5c4225445a3cdfc675"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/rl_v2/train.py",
+      "bytes": 16438,
+      "sha256": "5859e2453ca5cfad01abc08e1bffc559132ff5ac2abbdadd209a86cb7b069549"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/configuration.json",
+      "bytes": 1999,
+      "sha256": "7afd25817f657636d6e40c62cd44d07b794d3021c89203f26a899dd3edcceef6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev-history.jsonl",
+      "bytes": 1064682,
+      "sha256": "f8d5be14f524a29628fd51dd58f0f3dd0ca31c4d599ed1bfc372919596fcd322"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-0/metrics.json",
+      "bytes": 302801,
+      "sha256": "6f2c8f81f88993ada9330d5c0a1e4a67a79843de8dc3bba9b4544317518f301c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-0/parsed.jsonl",
+      "bytes": 903065,
+      "sha256": "71a577af19ad7ee82ee398e63a434bc1beacafa21b334b6a94fce639602463eb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-0/predictions.jsonl",
+      "bytes": 1151427,
+      "sha256": "1ac6da0a1050a85f279a702b44e9c74536c40c19c247f8556661ab04799b9f02"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-1200/metrics.json",
+      "bytes": 302767,
+      "sha256": "bb192f59f4f3ea79a8807372acb5d618ea17c2d699ea11ce77cc0ca93ee1a32b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-1200/parsed.jsonl",
+      "bytes": 876638,
+      "sha256": "b7abeed968a6fdfd03d0789dc3f7fb9ff80939f96757eda5e89e7767d79943b7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-1200/predictions.jsonl",
+      "bytes": 1125558,
+      "sha256": "131262c643e003bb01b377181e7cee7e0582bb56c73b3e7fab1b35ac03600dfa"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-1600/metrics.json",
+      "bytes": 302690,
+      "sha256": "844c0a6ca7d0f87ef76cebbe345a2237a026a078e76f849862147931f7356c29"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-1600/parsed.jsonl",
+      "bytes": 850537,
+      "sha256": "a4926972cc241fc7d624b5ad17ff786fcb92517a6169c4274ed96ef53152fb9c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-1600/predictions.jsonl",
+      "bytes": 1094851,
+      "sha256": "5ee609c949d702081dbd7aa753dfb98217d6b24125eaf7d7383e6f0fadaf074c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-2000/metrics.json",
+      "bytes": 302685,
+      "sha256": "20734b207495785a43484dd20ed501d377440183422f94d0fa687a60f135b58e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-2000/parsed.jsonl",
+      "bytes": 841273,
+      "sha256": "d6e592075d19c2596471fab2b07d1d4dd0770f0ce2f9deb714468e4a95d32aec"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-2000/predictions.jsonl",
+      "bytes": 1086381,
+      "sha256": "cd4c9e2945334ffb5bf833ea62b9d29054790bf034687436f3ebbe63b27deb1a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-400/metrics.json",
+      "bytes": 302610,
+      "sha256": "423acd8a542d8a00b22c4c777a2a38bc3b7728e9b734d0f55b18d2cecf1bbcaf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-400/parsed.jsonl",
+      "bytes": 814933,
+      "sha256": "198c771fee931e9d0f7e5cc4e6c8f0309bc510bd82f3ccc0438afcc02c96faf5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-400/predictions.jsonl",
+      "bytes": 1054219,
+      "sha256": "980ebfe956270e1d0d0e87943ad9b1316ceba6979eb9f8330f0cc77d6e823c41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-800/metrics.json",
+      "bytes": 302663,
+      "sha256": "da0361743513d73b66702fe133460f5505e8ac1e02fbc6cc67086637a9662180"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-800/parsed.jsonl",
+      "bytes": 836496,
+      "sha256": "7dde27b9e91f2427283e0eb01eb6c3675ce35955c8e59e1d2b84eda9c3f5f078"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/dev/step-800/predictions.jsonl",
+      "bytes": 1078930,
+      "sha256": "bec81426ee5a596c4c3cdd6a78c179ea91d7b40df0d26d3ebdc0df73779eeb35"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/groups.jsonl",
+      "bytes": 5251235,
+      "sha256": "07d3458e3e6575ee130a5501ad52cf4e02667600049095d4685eb0f55acf79bd"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/observed-train-order.json",
+      "bytes": 667192,
+      "sha256": "d0bf7d290936596ac694b913432a5ad74125c9066f0f3b4ec8e0a95843512c07"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+      "bytes": 17827,
+      "sha256": "70ec4de17a8ba3325eef4a1c1bfeb6ca484303c0f5474688eaa95dd137234ff1"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/scripts/action_language.py",
+      "bytes": 5403,
+      "sha256": "fa9f3ba4d3b3a1667b9d278d1dc669db04e742f942905320814b93a43d91c61a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/scripts/build_action_dataset.py",
+      "bytes": 11800,
+      "sha256": "8bf97461f44cad7128e5d91ffe8c2c1d7cf1ac5bb59bd826b1f551ee01c51104"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/scripts/score_tree_presence.py",
+      "bytes": 8882,
+      "sha256": "9d3f654e6740c221536cbd409715504494eff3991aab3a134079eee3cfac73a0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/action_common.py",
+      "bytes": 7701,
+      "sha256": "ebf1491bbbcd76ff90127768a1633906e4104b46b21d67e4413fa0c265ff05fa"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/action_evaluation.py",
+      "bytes": 7222,
+      "sha256": "e0b16f5f053c1837e2a477f3ca3fae04a6688eccb853102a4cf2b967d0ce5c17"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/action_rewards.py",
+      "bytes": 4812,
+      "sha256": "1d000fdb8c43de9cbbd8e76c32b30e2eb2ccf1c7ecdf5f822ecb9404d463f1f2"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/evaluate_adapter.py",
+      "bytes": 3334,
+      "sha256": "0e4322b0188014b2faaea059471284461521e3ca1c1fbb670e5b90844f157185"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/grpo_core.py",
+      "bytes": 4704,
+      "sha256": "ef61d4dca4d08f519242ce8a281ef7826f47a02d76b588d0b8ff983fd888321e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/grpo_diagnostics.py",
+      "bytes": 8432,
+      "sha256": "c8e2e7172bb3e55e1a4256c786555b8808dd7e0981665a1d430e83d0e0c0f74e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/preflight.py",
+      "bytes": 2507,
+      "sha256": "a4638aa65178bca1093197b2c1f21a24127bbb837e97feab873ea18398da22ab"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_action_common.py",
+      "bytes": 3301,
+      "sha256": "ce3b27e9d95e1d376e6cea4a1c3143577f9d903b8b854cd5f9ada6a52c3e7c45"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_action_dataset.py",
+      "bytes": 6811,
+      "sha256": "ead0c56cebd1fd14a8dadde122071182db30b80fd4d1e47681ecf47fa2f9347c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_action_evaluation.py",
+      "bytes": 4549,
+      "sha256": "d5dd61fa2912308048c40cdd31e8de2b8017241078a133e8d61af78f1a4797b1"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_action_grpo.py",
+      "bytes": 10290,
+      "sha256": "a2fd9ce933485539be670ecee0f2d79a4139031a4b5ce6f6d2499f92235bc084"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_action_inference.py",
+      "bytes": 2270,
+      "sha256": "8f18f078a5ae5a03a2f1119aa7e576bd26d61e6adf4c347751ea1f0d8178ecd9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_action_rewards.py",
+      "bytes": 9900,
+      "sha256": "f79b6aca1192325e60c95ab765252a77574335f819c3d8bbec77ba883f24ec5a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_action_sft.py",
+      "bytes": 10754,
+      "sha256": "19c75667a3d7b3926d0621194e157a5bda57685a08b190976cc077ad08df0476"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_grpo_diagnostics.py",
+      "bytes": 5981,
+      "sha256": "5f329432bde0a07a258017298647ddfd6975ea381d3ae9190e42aecacb390837"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_r0_eval_regression.py",
+      "bytes": 1276,
+      "sha256": "5e700fe4d0be38cf93a16da3245cbff60209fd839a359a9b40abc0b9d53a0d4c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/tests/test_r0_wiring.py",
+      "bytes": 1498,
+      "sha256": "de2542f7de9d36c8343744b33abce252eb8cea4fd1dc449b29ea093ba3c60110"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/train_grpo.py",
+      "bytes": 17591,
+      "sha256": "71ffd7fa074703477f71c25c3bd1c00c66ed90cc264a235e49a904bbd6b4066a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/action-experiment/train_sft.py",
+      "bytes": 18222,
+      "sha256": "5d9a69ca49678d0091b58ff107fe57e9d86ead877033325febc9e4f73a927027"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/appendix_fixed_eval.py",
+      "bytes": 2050,
+      "sha256": "2a3f42a1d188de1247129d53ee7275b11ae495110eae936a191644a94f766def"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/build_appendix_easy2_config.py",
+      "bytes": 6834,
+      "sha256": "1014e00c1e6824d0a05eb2f1fbe15e141bd893ff4c36c1d9dacc1fbb7413829e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/build_mean_curriculum_data.py",
+      "bytes": 10935,
+      "sha256": "2947e1dbea29f8b6a9b483891c8192fa8ed9e397dca0dd344ec81f1e94665691"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/build_sorted_first_data.py",
+      "bytes": 6596,
+      "sha256": "0ddfaaf3d8a94b5acd23f3da7a58a97113f949866b472f2e2da547e8fc1976e6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/build_user_v2_curriculum_data.py",
+      "bytes": 9276,
+      "sha256": "bd682864b9c59c549dc9e06667958390c188fe4fb3fd418e665afd5ebe03fa28"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/build_user_v2_easy2_config.py",
+      "bytes": 5459,
+      "sha256": "ba0340dde2f6564a05da04210d6de6e40bab3074992e3e597c18dd41ccdec5c6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/curriculum_trainer.py",
+      "bytes": 11572,
+      "sha256": "64169e0ef40d83991b71c3f0ecffe5fe6daf63af7aaa526bc2bf64d8774fe8bf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/dev_feedback.py",
+      "bytes": 4319,
+      "sha256": "78be21ff2a380d5e321054284e390742bcd7f4037bf9586ceae04bf90bb539ea"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_config.py",
+      "bytes": 6407,
+      "sha256": "cb0e0ac7a844acc057f0d82805c8ba13cdb1ed363af2465bac291039d256f64d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_evaluation.py",
+      "bytes": 7823,
+      "sha256": "a496ef8b883ab4a75339c7ee63d2d5f2a9ec86bdbf260351a40b748ce35c006e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_trainer.py",
+      "bytes": 6564,
+      "sha256": "a8a8c6211e7ffa072d003bbc913459ef2da7819a9790052d77430113d494a134"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/predict_appendix_fixed.py",
+      "bytes": 536,
+      "sha256": "dbef801267af28edd95e63489b0de3e35e91786030937aa924fe12a12fc37c15"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/run_appendix_easy2_curriculum.py",
+      "bytes": 17384,
+      "sha256": "bad0f32f87c14057007b2cb891f1ed23b71f912d0bd3145c8ce8bef4baa43167"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/run_c_mean_curriculum.py",
+      "bytes": 13776,
+      "sha256": "83f86473b96dc4de2cd74ba61472eacba87e8f6c1cda0c2faedbad1b7a6d695c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/run_sorted_first.py",
+      "bytes": 11020,
+      "sha256": "eece629a34dc60239ae4682d2ab4a718c041a65708efaa900d63163de87394bd"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/run_sorted_first_online_dev.py",
+      "bytes": 10657,
+      "sha256": "f8ae85bbeecca5449f645568f8682c265fb9256db51048e32355fdc7b84d94a6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/run_user_v2_curriculum.py",
+      "bytes": 14253,
+      "sha256": "cb5d60aba1b8d8086d7fd0bfab167dcfb0094273ce0c23f2044003a9c599175d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/run_user_v2_easy2_curriculum.py",
+      "bytes": 15098,
+      "sha256": "5b2f42a8e6d10cab281677839a31d1f1197f54cea8f0ce73792051ede551a08d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/sorted_first_sampler.py",
+      "bytes": 6652,
+      "sha256": "2f6f5c1128e61b918c00e6c69b50400b0c856dff4646779f5ef6be4c2c85a5da"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_appendix_easy2_config.py",
+      "bytes": 3104,
+      "sha256": "c675be618a8591557364b09f0abb8ca2bc8ef8e841787d20da48fe7e2abf39b9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_appendix_easy2_runner.py",
+      "bytes": 4883,
+      "sha256": "afa8e334c62731855257896886022ba54ea2601b186384e78b1787751a570204"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_curriculum_data.py",
+      "bytes": 3705,
+      "sha256": "4539d8907451eae3806b76549fae127fd4ecca2902b442734c225b9cbfb79732"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_curriculum_trainer.py",
+      "bytes": 8270,
+      "sha256": "21abc5a68a4defc87917527238d0e4aa7e70796a05e902143dd39378c0a60a47"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_dev_feedback.py",
+      "bytes": 7513,
+      "sha256": "ee87b381553155613a3a5c26a37f27f1d8faca4d3b78e83596846aab551dfb41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_easy2_scratch_schedule.py",
+      "bytes": 3356,
+      "sha256": "6d628a0da5edbe4b463f4956aafe33bcc8fb590f84a24e019a1de0b13335fe51"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_online_dev_evaluation.py",
+      "bytes": 9769,
+      "sha256": "3e14a1a904f74eda9a8ebfb195a42a8911261a9c54c6fd4f7a0c7779f0c797f3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py",
+      "bytes": 6154,
+      "sha256": "a1223bf018fef75f62994ff41fecd0fafd9f549c9fd426f98d3601fbdbf79a5a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_runner.py",
+      "bytes": 2465,
+      "sha256": "7841ca679e4c7b82604369c0e6da03a99c68c78d468eb20545974c54dca3f1f8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_data.py",
+      "bytes": 1102,
+      "sha256": "e503c85aff68ebaca656e38b35e4bf44f27fccedffcee0843b4e90c06b7a6921"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_online_dev.py",
+      "bytes": 6017,
+      "sha256": "bc039cc9a9f8b17af2ce2a975a046a885986e58ce8cc0cfe9f80f8e0d714318f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_runner.py",
+      "bytes": 2689,
+      "sha256": "3494416fe73a6a1447a4809d9f5e44672b49f398de3eb68b080a9189f9c07393"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_sampler.py",
+      "bytes": 5546,
+      "sha256": "4f3a122989b6766aa502d49a9df3a7417ed464d4a9ac8e8e98726bd3a143cf14"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_data.py",
+      "bytes": 4616,
+      "sha256": "7121ec2362b19426e8041eb1d1646ff5208e6258e93693a6cdb41d77f371ed61"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_easy2.py",
+      "bytes": 2768,
+      "sha256": "cf40792c343b24ef00e157f1d85e1ed36694431c654df6ee8b2dcfcbeb3f5ab4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_easy2_runner.py",
+      "bytes": 2438,
+      "sha256": "a6fbcf03df30fd1be20db96338d66c775082b6c64cf16a80afbe96da98c87e06"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_runner.py",
+      "bytes": 2383,
+      "sha256": "d8e9bc23e99cdadab859bb858c274f787493fb281551d0c29499856fdf246106"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/train_appendix_easy2_phase.py",
+      "bytes": 7854,
+      "sha256": "884df4c44ae77717646022010d51537cba5013749932d8b43b46adce73824cd5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/train_curriculum_phase.py",
+      "bytes": 7628,
+      "sha256": "0f49e7f507d90903ad57ccdc439d2ae28242c0c0811f3eeefbaea44bed2a6022"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/train_sorted_first.py",
+      "bytes": 10060,
+      "sha256": "19529494cf7b37a7dc817f201ada866b4963aebcb51fa455ccc35f5b3cc9b82a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/train_sorted_first_online_dev.py",
+      "bytes": 9620,
+      "sha256": "55ad2d50277e3239820967aede546e09d0ae236f57c64d0a575c3ef8c959e4bc"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/train_user_v2_phase.py",
+      "bytes": 7796,
+      "sha256": "df94e14c611b01b2a4e2eed3396aaf55f6167cb4dcb8d62e95829a5cdc1ff21d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/verify_appendix_easy2_run.py",
+      "bytes": 14388,
+      "sha256": "ac64e8a7b3d5d179eebb7ab0f3149724b3ae1d62383c25e13849b695dfb0f0cb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/verify_mean_curriculum_run.py",
+      "bytes": 11924,
+      "sha256": "e793ec4c9a438311f78ed95d0893224db6c2e697bbbb6ee0b1feaee1d7fe68f7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/verify_sorted_first_online_dev.py",
+      "bytes": 14226,
+      "sha256": "32e5507ab52b4fccee949d0310efa80a64054cdd6f529a71ef6a87d05039aa55"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/verify_sorted_first_run.py",
+      "bytes": 13429,
+      "sha256": "e38dc1a80af0ceb397a02bd8bb088022127d8fca2884ec90186548595c7d3b4d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/verify_user_v2_curriculum_run.py",
+      "bytes": 12836,
+      "sha256": "f9360b44c0c62b0b33fcc2197e84a9f3c6278223277da7c4dabcd01b99eca14b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/curriculum/verify_user_v2_easy2_run.py",
+      "bytes": 13487,
+      "sha256": "ec74d8729f5da21a311172143451cc442557a04d4145c2a3352786bf30dfdc87"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/stage2-event-tree/scripts/model_utils.py",
+      "bytes": 4829,
+      "sha256": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/config.py",
+      "bytes": 7253,
+      "sha256": "b293c7872c0b4f9a3f621b6f92b6d3984ffd887118647dda31d170ee7892035d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/sampling.py",
+      "bytes": 1920,
+      "sha256": "01e133620223697f6cfacd3f1cc2f4cc60f09e287d42f3eab1be5cbb595e9fb3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015-inputs.json",
+      "bytes": 2209,
+      "sha256": "09f8c546294fb4d0432d4e4c9d5f0e48f587f4d235fd91b7f52a1a31443d5774"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/metrics.json",
+      "bytes": 301581,
+      "sha256": "f0ac35e897c43f853a9861fb4ea2e74527eaf9d0c11480d3f4ee9705985741d9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/parsed.jsonl",
+      "bytes": 858277,
+      "sha256": "79ce57ac35eefd5b3baba564f70087e0da122f579ae28b1ce516d62b4b7e1919"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/predictions.jsonl",
+      "bytes": 1108338,
+      "sha256": "9336f4fe02487414e55a85be2ffcb1172b42183bd58c906eca40bad40e3f0f5d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/selection-source.json",
+      "bytes": 2209,
+      "sha256": "09f8c546294fb4d0432d4e4c9d5f0e48f587f4d235fd91b7f52a1a31443d5774"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-step1600-stopped-20261015-inputs.json",
+      "bytes": 2083,
+      "sha256": "fc9d0b5690606d92e0e70fc34df3dfbeab63077286adb61e1bfca289bf3725a9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-step800-stopped-20261015-inputs.json",
+      "bytes": 2075,
+      "sha256": "6aa02afb5b208ba8308f6a61b7abfcbbe7a702748b7e87917c7c4fceccc3a572"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best.json",
+      "bytes": 689,
+      "sha256": "479577e189149c255538b1060e448ae220f9c3deb1c2f422812cf70229a459b0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+      "bytes": 18395,
+      "sha256": "e8f9aed69f8da37b48ee7a03b9fda2299ac41b54e22155aee80a2f3124eb761f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/configuration.json",
+      "bytes": 485,
+      "sha256": "10f79baf389a91f19f19f8af3fba45a9224461197a91d390f79a129be009d015"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/handoff_evidence.json",
+      "bytes": 144,
+      "sha256": "1d0ef18a7680e1bdff774bfe5a59cd019444fc861037bc317818341d6f360ea2"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/observed-order.jsonl",
+      "bytes": 5993842,
+      "sha256": "f29a6e5c7771e26d0b5a1e166897be1513f39a647dbe1599367d25e7d76a19c4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+      "bytes": 16915,
+      "sha256": "f53deee307fce0b1bf51cede035916991ba77150edf7158aec50aac1a69aaef2"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/sampling-audit.json",
+      "bytes": 191,
+      "sha256": "febe96ae8884ac2b9697b641d87cdcc9cf159959e9455d2f159123fc63a9c2cf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/scripts/action_language.py",
+      "bytes": 5403,
+      "sha256": "fa9f3ba4d3b3a1667b9d278d1dc669db04e742f942905320814b93a43d91c61a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/scripts/build_action_dataset.py",
+      "bytes": 11800,
+      "sha256": "8bf97461f44cad7128e5d91ffe8c2c1d7cf1ac5bb59bd826b1f551ee01c51104"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/scripts/score_tree_presence.py",
+      "bytes": 8882,
+      "sha256": "9d3f654e6740c221536cbd409715504494eff3991aab3a134079eee3cfac73a0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/action_common.py",
+      "bytes": 7701,
+      "sha256": "ebf1491bbbcd76ff90127768a1633906e4104b46b21d67e4413fa0c265ff05fa"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/action_evaluation.py",
+      "bytes": 7222,
+      "sha256": "e0b16f5f053c1837e2a477f3ca3fae04a6688eccb853102a4cf2b967d0ce5c17"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/evaluate_adapter.py",
+      "bytes": 3334,
+      "sha256": "0e4322b0188014b2faaea059471284461521e3ca1c1fbb670e5b90844f157185"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/grpo_core.py",
+      "bytes": 4704,
+      "sha256": "ef61d4dca4d08f519242ce8a281ef7826f47a02d76b588d0b8ff983fd888321e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/preflight.py",
+      "bytes": 2507,
+      "sha256": "a4638aa65178bca1093197b2c1f21a24127bbb837e97feab873ea18398da22ab"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/tests/test_action_common.py",
+      "bytes": 3301,
+      "sha256": "ce3b27e9d95e1d376e6cea4a1c3143577f9d903b8b854cd5f9ada6a52c3e7c45"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/tests/test_action_dataset.py",
+      "bytes": 6811,
+      "sha256": "ead0c56cebd1fd14a8dadde122071182db30b80fd4d1e47681ecf47fa2f9347c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/tests/test_action_evaluation.py",
+      "bytes": 4549,
+      "sha256": "d5dd61fa2912308048c40cdd31e8de2b8017241078a133e8d61af78f1a4797b1"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/tests/test_action_grpo.py",
+      "bytes": 10290,
+      "sha256": "a2fd9ce933485539be670ecee0f2d79a4139031a4b5ce6f6d2499f92235bc084"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/tests/test_action_inference.py",
+      "bytes": 2270,
+      "sha256": "8f18f078a5ae5a03a2f1119aa7e576bd26d61e6adf4c347751ea1f0d8178ecd9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/tests/test_action_sft.py",
+      "bytes": 10754,
+      "sha256": "19c75667a3d7b3926d0621194e157a5bda57685a08b190976cc077ad08df0476"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/train_grpo.py",
+      "bytes": 13829,
+      "sha256": "e035d16280fa2107b708c808f4e7a18711a9e590c5d00c7dfb5aed4e26ead9c0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/action-experiment/train_sft.py",
+      "bytes": 18222,
+      "sha256": "5d9a69ca49678d0091b58ff107fe57e9d86ead877033325febc9e4f73a927027"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/appendix_fixed_eval.py",
+      "bytes": 2050,
+      "sha256": "2a3f42a1d188de1247129d53ee7275b11ae495110eae936a191644a94f766def"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/build_appendix_easy2_config.py",
+      "bytes": 6834,
+      "sha256": "1014e00c1e6824d0a05eb2f1fbe15e141bd893ff4c36c1d9dacc1fbb7413829e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/build_mean_curriculum_data.py",
+      "bytes": 10935,
+      "sha256": "2947e1dbea29f8b6a9b483891c8192fa8ed9e397dca0dd344ec81f1e94665691"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/build_sorted_first_data.py",
+      "bytes": 6596,
+      "sha256": "0ddfaaf3d8a94b5acd23f3da7a58a97113f949866b472f2e2da547e8fc1976e6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/build_user_v2_curriculum_data.py",
+      "bytes": 9276,
+      "sha256": "bd682864b9c59c549dc9e06667958390c188fe4fb3fd418e665afd5ebe03fa28"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/build_user_v2_easy2_config.py",
+      "bytes": 5459,
+      "sha256": "ba0340dde2f6564a05da04210d6de6e40bab3074992e3e597c18dd41ccdec5c6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/curriculum_trainer.py",
+      "bytes": 11572,
+      "sha256": "64169e0ef40d83991b71c3f0ecffe5fe6daf63af7aaa526bc2bf64d8774fe8bf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/dev_feedback.py",
+      "bytes": 4319,
+      "sha256": "78be21ff2a380d5e321054284e390742bcd7f4037bf9586ceae04bf90bb539ea"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_config.py",
+      "bytes": 6407,
+      "sha256": "cb0e0ac7a844acc057f0d82805c8ba13cdb1ed363af2465bac291039d256f64d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_evaluation.py",
+      "bytes": 7823,
+      "sha256": "a496ef8b883ab4a75339c7ee63d2d5f2a9ec86bdbf260351a40b748ce35c006e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_trainer.py",
+      "bytes": 6564,
+      "sha256": "a8a8c6211e7ffa072d003bbc913459ef2da7819a9790052d77430113d494a134"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/predict_appendix_fixed.py",
+      "bytes": 536,
+      "sha256": "dbef801267af28edd95e63489b0de3e35e91786030937aa924fe12a12fc37c15"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/run_appendix_easy2_curriculum.py",
+      "bytes": 17384,
+      "sha256": "bad0f32f87c14057007b2cb891f1ed23b71f912d0bd3145c8ce8bef4baa43167"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/run_c_mean_curriculum.py",
+      "bytes": 13776,
+      "sha256": "83f86473b96dc4de2cd74ba61472eacba87e8f6c1cda0c2faedbad1b7a6d695c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/run_sorted_first.py",
+      "bytes": 11020,
+      "sha256": "eece629a34dc60239ae4682d2ab4a718c041a65708efaa900d63163de87394bd"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/run_sorted_first_online_dev.py",
+      "bytes": 10657,
+      "sha256": "f8ae85bbeecca5449f645568f8682c265fb9256db51048e32355fdc7b84d94a6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/run_user_v2_curriculum.py",
+      "bytes": 14253,
+      "sha256": "cb5d60aba1b8d8086d7fd0bfab167dcfb0094273ce0c23f2044003a9c599175d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/run_user_v2_easy2_curriculum.py",
+      "bytes": 15098,
+      "sha256": "5b2f42a8e6d10cab281677839a31d1f1197f54cea8f0ce73792051ede551a08d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/sorted_first_sampler.py",
+      "bytes": 6652,
+      "sha256": "2f6f5c1128e61b918c00e6c69b50400b0c856dff4646779f5ef6be4c2c85a5da"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_appendix_easy2_config.py",
+      "bytes": 3104,
+      "sha256": "c675be618a8591557364b09f0abb8ca2bc8ef8e841787d20da48fe7e2abf39b9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_appendix_easy2_runner.py",
+      "bytes": 4883,
+      "sha256": "afa8e334c62731855257896886022ba54ea2601b186384e78b1787751a570204"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_curriculum_data.py",
+      "bytes": 3705,
+      "sha256": "4539d8907451eae3806b76549fae127fd4ecca2902b442734c225b9cbfb79732"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_curriculum_trainer.py",
+      "bytes": 8270,
+      "sha256": "21abc5a68a4defc87917527238d0e4aa7e70796a05e902143dd39378c0a60a47"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_dev_feedback.py",
+      "bytes": 7513,
+      "sha256": "ee87b381553155613a3a5c26a37f27f1d8faca4d3b78e83596846aab551dfb41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_easy2_scratch_schedule.py",
+      "bytes": 3356,
+      "sha256": "6d628a0da5edbe4b463f4956aafe33bcc8fb590f84a24e019a1de0b13335fe51"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_online_dev_evaluation.py",
+      "bytes": 9769,
+      "sha256": "3e14a1a904f74eda9a8ebfb195a42a8911261a9c54c6fd4f7a0c7779f0c797f3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py",
+      "bytes": 6154,
+      "sha256": "a1223bf018fef75f62994ff41fecd0fafd9f549c9fd426f98d3601fbdbf79a5a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_runner.py",
+      "bytes": 2465,
+      "sha256": "7841ca679e4c7b82604369c0e6da03a99c68c78d468eb20545974c54dca3f1f8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_data.py",
+      "bytes": 1102,
+      "sha256": "e503c85aff68ebaca656e38b35e4bf44f27fccedffcee0843b4e90c06b7a6921"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_online_dev.py",
+      "bytes": 6017,
+      "sha256": "bc039cc9a9f8b17af2ce2a975a046a885986e58ce8cc0cfe9f80f8e0d714318f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_runner.py",
+      "bytes": 2689,
+      "sha256": "3494416fe73a6a1447a4809d9f5e44672b49f398de3eb68b080a9189f9c07393"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_sampler.py",
+      "bytes": 5546,
+      "sha256": "4f3a122989b6766aa502d49a9df3a7417ed464d4a9ac8e8e98726bd3a143cf14"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_data.py",
+      "bytes": 4616,
+      "sha256": "7121ec2362b19426e8041eb1d1646ff5208e6258e93693a6cdb41d77f371ed61"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_easy2.py",
+      "bytes": 2768,
+      "sha256": "cf40792c343b24ef00e157f1d85e1ed36694431c654df6ee8b2dcfcbeb3f5ab4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_easy2_runner.py",
+      "bytes": 2438,
+      "sha256": "a6fbcf03df30fd1be20db96338d66c775082b6c64cf16a80afbe96da98c87e06"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_runner.py",
+      "bytes": 2383,
+      "sha256": "d8e9bc23e99cdadab859bb858c274f787493fb281551d0c29499856fdf246106"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/train_appendix_easy2_phase.py",
+      "bytes": 7854,
+      "sha256": "884df4c44ae77717646022010d51537cba5013749932d8b43b46adce73824cd5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/train_curriculum_phase.py",
+      "bytes": 7628,
+      "sha256": "0f49e7f507d90903ad57ccdc439d2ae28242c0c0811f3eeefbaea44bed2a6022"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/train_sorted_first.py",
+      "bytes": 10060,
+      "sha256": "19529494cf7b37a7dc817f201ada866b4963aebcb51fa455ccc35f5b3cc9b82a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/train_sorted_first_online_dev.py",
+      "bytes": 9620,
+      "sha256": "55ad2d50277e3239820967aede546e09d0ae236f57c64d0a575c3ef8c959e4bc"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/train_user_v2_phase.py",
+      "bytes": 7796,
+      "sha256": "df94e14c611b01b2a4e2eed3396aaf55f6167cb4dcb8d62e95829a5cdc1ff21d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/verify_appendix_easy2_run.py",
+      "bytes": 14388,
+      "sha256": "ac64e8a7b3d5d179eebb7ab0f3149724b3ae1d62383c25e13849b695dfb0f0cb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/verify_mean_curriculum_run.py",
+      "bytes": 11924,
+      "sha256": "e793ec4c9a438311f78ed95d0893224db6c2e697bbbb6ee0b1feaee1d7fe68f7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/verify_sorted_first_online_dev.py",
+      "bytes": 14226,
+      "sha256": "32e5507ab52b4fccee949d0310efa80a64054cdd6f529a71ef6a87d05039aa55"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/verify_sorted_first_run.py",
+      "bytes": 13429,
+      "sha256": "e38dc1a80af0ceb397a02bd8bb088022127d8fca2884ec90186548595c7d3b4d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/verify_user_v2_curriculum_run.py",
+      "bytes": 12836,
+      "sha256": "f9360b44c0c62b0b33fcc2197e84a9f3c6278223277da7c4dabcd01b99eca14b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/curriculum/verify_user_v2_easy2_run.py",
+      "bytes": 13487,
+      "sha256": "ec74d8729f5da21a311172143451cc442557a04d4145c2a3352786bf30dfdc87"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/stage2-event-tree/scripts/model_utils.py",
+      "bytes": 4829,
+      "sha256": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/config.py",
+      "bytes": 7253,
+      "sha256": "b293c7872c0b4f9a3f621b6f92b6d3984ffd887118647dda31d170ee7892035d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/sampling.py",
+      "bytes": 1920,
+      "sha256": "01e133620223697f6cfacd3f1cc2f4cc60f09e287d42f3eab1be5cbb595e9fb3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/test-best-20261013/generation-diagnostics.md",
+      "bytes": 13087,
+      "sha256": "11f205ec71d52f30b8c42443d74388fc7190876a8d2575709ad194f2dcd2160e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/test-best-20261013/metrics.json",
+      "bytes": 301692,
+      "sha256": "39c2c4d515b67595ae34aca488a72e9446e6e9e952b9e3483a3b228fd24b25ab"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/test-best-20261013/parsed.jsonl",
+      "bytes": 930824,
+      "sha256": "0dc2ae6e133f8250cf3e9aadefa5fcbd792b271531ab34f44c79c636f50ab490"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/test-best-20261013/predictions.jsonl",
+      "bytes": 1192144,
+      "sha256": "877ddf37b31cd879379dd77f4b13add6ed77c8ac3b117793cc7f96fd4ec5f95f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/test-best-20261013/selection-source.json",
+      "bytes": 388,
+      "sha256": "b8649a04b13f39259ad4333e65aab1a01b7cc1c301c235226616ace9bb0a0e2f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/token_audit.json",
+      "bytes": 225,
+      "sha256": "383c889022ee3b65a9aa38183b53487b990d1bb00ddd76673b4d5a5971e0f68a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/train_metrics.json",
+      "bytes": 1032,
+      "sha256": "8d1ffed146ac6567538dd8ab99f19f74417e61ab6eb08babb9ec9a64e3ba2f48"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/trainer_state.json",
+      "bytes": 447132,
+      "sha256": "35ec258bab28f8cff907379ab9b45a25ba67df14fc584017c5e4603171bc3045"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_action_common.py",
+      "bytes": 3301,
+      "sha256": "ce3b27e9d95e1d376e6cea4a1c3143577f9d903b8b854cd5f9ada6a52c3e7c45"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_action_dataset.py",
+      "bytes": 6811,
+      "sha256": "ead0c56cebd1fd14a8dadde122071182db30b80fd4d1e47681ecf47fa2f9347c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_action_evaluation.py",
+      "bytes": 4549,
+      "sha256": "d5dd61fa2912308048c40cdd31e8de2b8017241078a133e8d61af78f1a4797b1"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_action_grpo.py",
+      "bytes": 10290,
+      "sha256": "a2fd9ce933485539be670ecee0f2d79a4139031a4b5ce6f6d2499f92235bc084"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_action_inference.py",
+      "bytes": 2270,
+      "sha256": "8f18f078a5ae5a03a2f1119aa7e576bd26d61e6adf4c347751ea1f0d8178ecd9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_action_rewards.py",
+      "bytes": 9900,
+      "sha256": "f79b6aca1192325e60c95ab765252a77574335f819c3d8bbec77ba883f24ec5a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_action_sft.py",
+      "bytes": 10754,
+      "sha256": "19c75667a3d7b3926d0621194e157a5bda57685a08b190976cc077ad08df0476"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_grpo_diagnostics.py",
+      "bytes": 5981,
+      "sha256": "5f329432bde0a07a258017298647ddfd6975ea381d3ae9190e42aecacb390837"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_r0_eval_regression.py",
+      "bytes": 1276,
+      "sha256": "5e700fe4d0be38cf93a16da3245cbff60209fd839a359a9b40abc0b9d53a0d4c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/tests/test_r0_wiring.py",
+      "bytes": 1498,
+      "sha256": "de2542f7de9d36c8343744b33abce252eb8cea4fd1dc449b29ea093ba3c60110"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/train_grpo.py",
+      "bytes": 17591,
+      "sha256": "71ffd7fa074703477f71c25c3bd1c00c66ed90cc264a235e49a904bbd6b4066a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/train_sft.py",
+      "bytes": 18222,
+      "sha256": "5d9a69ca49678d0091b58ff107fe57e9d86ead877033325febc9e4f73a927027"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/verification-stopped-test-20261015/evaluate_checkpoint_queued.py",
+      "bytes": 5675,
+      "sha256": "ce49fe76d4bbba62264e273f68d7599be84c3414f2b983d61a1a364a808fe437"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/verification-stopped-test-20261015/evaluate_checkpoint_when_free.py",
+      "bytes": 5486,
+      "sha256": "8546564c8ae4f8c62972a7b5b83ac29b910c3edebf4016c428fa34cb286d67e0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/action-experiment/verification-stopped-test-20261015/evaluate_stopped_run.py",
+      "bytes": 4143,
+      "sha256": "0f9f8528fb228f42e1ca790571d8c18b7b463e4918c515bcb0798edc18abed8a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/argument-order-repair-20261008/build_data.py",
+      "bytes": 7623,
+      "sha256": "7a81838d775ff19c8adcc8a49c66559789f718a846f537a067a42704a2fd4e5e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/argument-order-repair-20261008/test_build_data.py",
+      "bytes": 1873,
+      "sha256": "d72921ff469bdd54a7160343101bfa17e29a729fa2daf804e50dcc6ea9a537df"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/appendix_fixed_eval.py",
+      "bytes": 2050,
+      "sha256": "2a3f42a1d188de1247129d53ee7275b11ae495110eae936a191644a94f766def"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/build_appendix_easy2_config.py",
+      "bytes": 6834,
+      "sha256": "1014e00c1e6824d0a05eb2f1fbe15e141bd893ff4c36c1d9dacc1fbb7413829e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/build_mean_curriculum_data.py",
+      "bytes": 10935,
+      "sha256": "2947e1dbea29f8b6a9b483891c8192fa8ed9e397dca0dd344ec81f1e94665691"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/build_sorted_first_data.py",
+      "bytes": 6596,
+      "sha256": "0ddfaaf3d8a94b5acd23f3da7a58a97113f949866b472f2e2da547e8fc1976e6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/build_user_v2_curriculum_data.py",
+      "bytes": 9276,
+      "sha256": "bd682864b9c59c549dc9e06667958390c188fe4fb3fd418e665afd5ebe03fa28"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/build_user_v2_easy2_config.py",
+      "bytes": 5459,
+      "sha256": "ba0340dde2f6564a05da04210d6de6e40bab3074992e3e597c18dd41ccdec5c6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/curriculum_trainer.py",
+      "bytes": 11572,
+      "sha256": "64169e0ef40d83991b71c3f0ecffe5fe6daf63af7aaa526bc2bf64d8774fe8bf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/dev_feedback.py",
+      "bytes": 4319,
+      "sha256": "78be21ff2a380d5e321054284e390742bcd7f4037bf9586ceae04bf90bb539ea"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/online_dev_config.py",
+      "bytes": 6407,
+      "sha256": "cb0e0ac7a844acc057f0d82805c8ba13cdb1ed363af2465bac291039d256f64d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/online_dev_evaluation.py",
+      "bytes": 7823,
+      "sha256": "a496ef8b883ab4a75339c7ee63d2d5f2a9ec86bdbf260351a40b748ce35c006e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/online_dev_trainer.py",
+      "bytes": 6564,
+      "sha256": "a8a8c6211e7ffa072d003bbc913459ef2da7819a9790052d77430113d494a134"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/predict_appendix_fixed.py",
+      "bytes": 536,
+      "sha256": "dbef801267af28edd95e63489b0de3e35e91786030937aa924fe12a12fc37c15"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/prompt_template.txt",
+      "bytes": 2920,
+      "sha256": "2bcc66773a71904973ae4f85b865e60eddfacf4230515618576d3217e6776b41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_appendix_easy2_curriculum.py",
+      "bytes": 17384,
+      "sha256": "bad0f32f87c14057007b2cb891f1ed23b71f912d0bd3145c8ce8bef4baa43167"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_c_mean_curriculum.py",
+      "bytes": 13776,
+      "sha256": "83f86473b96dc4de2cd74ba61472eacba87e8f6c1cda0c2faedbad1b7a6d695c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_sorted_first.py",
+      "bytes": 11020,
+      "sha256": "eece629a34dc60239ae4682d2ab4a718c041a65708efaa900d63163de87394bd"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_sorted_first_online_dev.py",
+      "bytes": 10657,
+      "sha256": "f8ae85bbeecca5449f645568f8682c265fb9256db51048e32355fdc7b84d94a6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_user_v2_curriculum.py",
+      "bytes": 14253,
+      "sha256": "cb5d60aba1b8d8086d7fd0bfab167dcfb0094273ce0c23f2044003a9c599175d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/run_user_v2_easy2_curriculum.py",
+      "bytes": 15098,
+      "sha256": "5b2f42a8e6d10cab281677839a31d1f1197f54cea8f0ce73792051ede551a08d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/manifest.json",
+      "bytes": 3806,
+      "sha256": "4c95a90ddebe565c82ed7e2fceb39c7e88467a3114dba6e0130db285e96aa3ff"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/ordered-ids.txt",
+      "bytes": 577291,
+      "sha256": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/prompt.md",
+      "bytes": 2920,
+      "sha256": "2bcc66773a71904973ae4f85b865e60eddfacf4230515618576d3217e6776b41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-20261003/train-sorted.jsonl",
+      "bytes": 117359240,
+      "sha256": "b589e67d372fba3fdb78d27b8963f0baa3becb82c7ec03e8a641824ed42270f3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-gold-order-20261008/manifest.json",
+      "bytes": 11765,
+      "sha256": "986af2a12a2a05b7cfcebf88858023d71bab8c33b7fbc1cc1f4f4a0ce4d8658e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-gold-order-20261008/ordered-ids.txt",
+      "bytes": 577291,
+      "sha256": "eff8e6e5eb58a0b055dc90c8ec9e11384f52a1ef2cee757af4941dcb8908607a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-gold-order-20261008/prompt.md",
+      "bytes": 2920,
+      "sha256": "2bcc66773a71904973ae4f85b865e60eddfacf4230515618576d3217e6776b41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-gold-order-20261008/train-sorted.jsonl",
+      "bytes": 117359511,
+      "sha256": "62db66d23606a47db7ac20c241b55575ecd3d414566415fa1fb755fba0f0a479"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted-first-online-dev-20261005/manifest.json",
+      "bytes": 8530,
+      "sha256": "3c50fdf3034d98c617d0af09b4ac35e2ace0ae3a56bbd947d954d56c5e1e77f6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/sorted_first_sampler.py",
+      "bytes": 6652,
+      "sha256": "2f6f5c1128e61b918c00e6c69b50400b0c856dff4646779f5ef6be4c2c85a5da"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_appendix_easy2_config.py",
+      "bytes": 3104,
+      "sha256": "c675be618a8591557364b09f0abb8ca2bc8ef8e841787d20da48fe7e2abf39b9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_appendix_easy2_runner.py",
+      "bytes": 4883,
+      "sha256": "afa8e334c62731855257896886022ba54ea2601b186384e78b1787751a570204"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_curriculum_data.py",
+      "bytes": 3705,
+      "sha256": "4539d8907451eae3806b76549fae127fd4ecca2902b442734c225b9cbfb79732"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_curriculum_trainer.py",
+      "bytes": 8270,
+      "sha256": "21abc5a68a4defc87917527238d0e4aa7e70796a05e902143dd39378c0a60a47"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_dev_feedback.py",
+      "bytes": 7513,
+      "sha256": "ee87b381553155613a3a5c26a37f27f1d8faca4d3b78e83596846aab551dfb41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_easy2_scratch_schedule.py",
+      "bytes": 3356,
+      "sha256": "6d628a0da5edbe4b463f4956aafe33bcc8fb590f84a24e019a1de0b13335fe51"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_online_dev_evaluation.py",
+      "bytes": 9769,
+      "sha256": "3e14a1a904f74eda9a8ebfb195a42a8911261a9c54c6fd4f7a0c7779f0c797f3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py",
+      "bytes": 6154,
+      "sha256": "a1223bf018fef75f62994ff41fecd0fafd9f549c9fd426f98d3601fbdbf79a5a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_runner.py",
+      "bytes": 2465,
+      "sha256": "7841ca679e4c7b82604369c0e6da03a99c68c78d468eb20545974c54dca3f1f8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_sorted_first_data.py",
+      "bytes": 1102,
+      "sha256": "e503c85aff68ebaca656e38b35e4bf44f27fccedffcee0843b4e90c06b7a6921"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_sorted_first_online_dev.py",
+      "bytes": 6017,
+      "sha256": "bc039cc9a9f8b17af2ce2a975a046a885986e58ce8cc0cfe9f80f8e0d714318f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_sorted_first_runner.py",
+      "bytes": 2689,
+      "sha256": "3494416fe73a6a1447a4809d9f5e44672b49f398de3eb68b080a9189f9c07393"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_sorted_first_sampler.py",
+      "bytes": 5546,
+      "sha256": "4f3a122989b6766aa502d49a9df3a7417ed464d4a9ac8e8e98726bd3a143cf14"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_user_v2_data.py",
+      "bytes": 4616,
+      "sha256": "7121ec2362b19426e8041eb1d1646ff5208e6258e93693a6cdb41d77f371ed61"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_user_v2_easy2.py",
+      "bytes": 2768,
+      "sha256": "cf40792c343b24ef00e157f1d85e1ed36694431c654df6ee8b2dcfcbeb3f5ab4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_user_v2_easy2_runner.py",
+      "bytes": 2438,
+      "sha256": "a6fbcf03df30fd1be20db96338d66c775082b6c64cf16a80afbe96da98c87e06"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/test_user_v2_runner.py",
+      "bytes": 2383,
+      "sha256": "d8e9bc23e99cdadab859bb858c274f787493fb281551d0c29499856fdf246106"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_appendix_easy2_phase.py",
+      "bytes": 7854,
+      "sha256": "884df4c44ae77717646022010d51537cba5013749932d8b43b46adce73824cd5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_curriculum_phase.py",
+      "bytes": 7628,
+      "sha256": "0f49e7f507d90903ad57ccdc439d2ae28242c0c0811f3eeefbaea44bed2a6022"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_sorted_first.py",
+      "bytes": 10060,
+      "sha256": "19529494cf7b37a7dc817f201ada866b4963aebcb51fa455ccc35f5b3cc9b82a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_sorted_first_online_dev.py",
+      "bytes": 9620,
+      "sha256": "55ad2d50277e3239820967aede546e09d0ae236f57c64d0a575c3ef8c959e4bc"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/train_user_v2_phase.py",
+      "bytes": 7796,
+      "sha256": "df94e14c611b01b2a4e2eed3396aaf55f6167cb4dcb8d62e95829a5cdc1ff21d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/verify_appendix_easy2_run.py",
+      "bytes": 14388,
+      "sha256": "ac64e8a7b3d5d179eebb7ab0f3149724b3ae1d62383c25e13849b695dfb0f0cb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/verify_mean_curriculum_run.py",
+      "bytes": 11924,
+      "sha256": "e793ec4c9a438311f78ed95d0893224db6c2e697bbbb6ee0b1feaee1d7fe68f7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/verify_sorted_first_online_dev.py",
+      "bytes": 14226,
+      "sha256": "32e5507ab52b4fccee949d0310efa80a64054cdd6f529a71ef6a87d05039aa55"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/verify_sorted_first_run.py",
+      "bytes": 13429,
+      "sha256": "e38dc1a80af0ceb397a02bd8bb088022127d8fca2884ec90186548595c7d3b4d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/verify_user_v2_curriculum_run.py",
+      "bytes": 12836,
+      "sha256": "f9360b44c0c62b0b33fcc2197e84a9f3c6278223277da7c4dabcd01b99eca14b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/curriculum/verify_user_v2_easy2_run.py",
+      "bytes": 13487,
+      "sha256": "ec74d8729f5da21a311172143451cc442557a04d4145c2a3352786bf30dfdc87"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/dev.jsonl",
+      "bytes": 2993265,
+      "sha256": "d8e0dd35980600bcba5d3f5b5130c1ee95a008bbc9c607b9f0b0cb1ddfd369c8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/none/test.jsonl",
+      "bytes": 3030420,
+      "sha256": "ed04805e30d5445b9ae59c6b3abd58f7c58294450ba78942ab9703801aad015c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/dev.jsonl",
+      "bytes": 14527711,
+      "sha256": "2acc33d6ef60abcbc821818d03b89cbca1cb8a76dc7042f733feced70c0aab30"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/test.jsonl",
+      "bytes": 14979014,
+      "sha256": "2d3be766af7e144bfac03f66b82713911c87b8886d6f17b8c4b4c23055dfd1e6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-20261002/train.jsonl",
+      "bytes": 117359240,
+      "sha256": "de6d14f4d57dfdc2abe7d080c0a41c4c210903f374ff8d41c60a88cce4640011"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/dev.jsonl",
+      "bytes": 14527726,
+      "sha256": "c6c15f8468b1d3185f014b812a8f0f027484b0d6b1a89bd7fff11517d0273d21"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/manifest.json",
+      "bytes": 11765,
+      "sha256": "986af2a12a2a05b7cfcebf88858023d71bab8c33b7fbc1cc1f4f4a0ce4d8658e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/test.jsonl",
+      "bytes": 14979048,
+      "sha256": "ddc7c7fb92bd84c48ce64f868dedfd736b0b8d8654d197eed607cf3b819538b5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c-appendix-no-copy-gold-order-20261008/train.jsonl",
+      "bytes": 117359511,
+      "sha256": "a596393695643ae84310991270622310e91593996a65eed676832faef57b9a89"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c/dev.jsonl",
+      "bytes": 12592216,
+      "sha256": "1a0067e6b533b13a19e0c49dd37ef1d662ad8a7286fad4c3a5aaa9cdcaa3ad86"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c/manifest.json",
+      "bytes": 1760,
+      "sha256": "14009da6b5dad47718e3e0e471a7a02b6955f0888aa8f4bac5b3bc5e139a9ed4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c/test.jsonl",
+      "bytes": 13002209,
+      "sha256": "22707cf9896256c0af5a900b4ab4cf504f43bf561e9b8c9449790d98b57f7c94"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/data/sentence-c/train.jsonl",
+      "bytes": 101773220,
+      "sha256": "949d46afd22ed85c1e97a37e2f3978eb5e57a0753ae43fe0d6e84c775be23c73"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/difficulty-analysis/mean_percentile_difficulty_assignments.csv",
+      "bytes": 4036001,
+      "sha256": "b33e38dea2157257afa649a4d92f001ee05d9a5b460ab2da6d937715dc9524fa"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/align_events.py",
+      "bytes": 7794,
+      "sha256": "655dcc5e1ed5ed789640a2925f2aad40d2e762a546230a5bd9d6b8fe2b43e0b4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/evaluate.py",
+      "bytes": 8334,
+      "sha256": "b7639d9d8c2dc06d079a28e4c92c8193744c50015e8bfafc2b796c1d6eb468a4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/linearize.py",
+      "bytes": 7985,
+      "sha256": "d9666c76051b19f4f1dd87b6356f4f790667174e07c34ade65432adcbbc07a40"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/merge_sentence_predictions.py",
+      "bytes": 7072,
+      "sha256": "5a334d8f242c1e9dbfb563afb73140d5f698cab8babdbc1c265952a4f55fc592"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/ontology.py",
+      "bytes": 2870,
+      "sha256": "f52a12ab5c558f463d14abc410f280639ef7b746a3372ff1d9ec31fab9bce943"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/evaluation-v2-20261003/version_manifest.json",
+      "bytes": 5484,
+      "sha256": "222505f3045411fb9a85520318d1d904f3467f473411e5f3031971db8ac8c7b3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/run.json",
+      "bytes": 6929,
+      "sha256": "8bb96dea33168364c253932f871d022624011605c8d1033ea2e2b22a4aa6c1c5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/training/config.json",
+      "bytes": 3804,
+      "sha256": "f29f6ce61dea1652daf155a7c90da3fd89f0e93abd778c0c6855472f38e55df6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-AppendixNoCopy-42-20261002/training/trainer_state.json",
+      "bytes": 696657,
+      "sha256": "607dd4d86ffff41b28d7dfe3b9708ed85826424fade52a8d5df8491a998869ed"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/run.json",
+      "bytes": 12606,
+      "sha256": "e23b67c7cc2d6af2d44e4a752a0895a9cc16366d3a24588388451f2ad9796c67"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/runs/C-CL-Mean-AppendixNoCopy-Sorted1-42-20261003/training/config.json",
+      "bytes": 806177,
+      "sha256": "3a4a21f431c10e96aad2a2a26d5f00019c59309ea87eefc96157d2f138f04e14"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/ambiguity_resolver.py",
+      "bytes": 3954,
+      "sha256": "6a6ba5c5c7039cbeeadc95e6211e99c1a61df19fe5c22937ae776e1fa8fffaab"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/audit_gold_roundtrip.py",
+      "bytes": 23525,
+      "sha256": "f3489071942f9d4f2e3b8ff98d706df99662a819f1c8da0b1cab63cd027e2908"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/instance_scorer.py",
+      "bytes": 7782,
+      "sha256": "1b6e012df5e8e29aa66f927ef683d6702b7e957ae57ec71c17481cc5cfe0adf3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/lossless_forest.py",
+      "bytes": 6766,
+      "sha256": "309e6fc647c8aa9cdbfd62dc7f3069b9d502ccb6939902569abafa928d9d314d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/run_evaluation_audit.py",
+      "bytes": 10691,
+      "sha256": "42e036d005c525a66a0cc4e03186d10a4cf18c34a465fa80725ba74bebf7c29e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/test_ambiguity_resolver.py",
+      "bytes": 4765,
+      "sha256": "2194987cf93b433732dfb6c52d4df5b82b64341ef6ecb8f7efac9c9170350c67"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/test_evaluation_audit.py",
+      "bytes": 1748,
+      "sha256": "53275f145ddbf3edf5e32be12b557e815ac8a04ae855d5c3d4096ab5f1cb7cf0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/test_instance_scorer.py",
+      "bytes": 8399,
+      "sha256": "8f00521825605f6b31af0ccfcf85c6c89cc79959174e9e7f177d32acac42415b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/test_lossless_forest.py",
+      "bytes": 6808,
+      "sha256": "ba615c9ea20950a41fba56bac4a95d415f85abeaf496dab2759265d0ed4e6b35"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scorer-repair-20261004/verify_repair_results.py",
+      "bytes": 10540,
+      "sha256": "e9f5d387cb49f09a733b0e9dc613751190381bb5718524d837489feb3d58b8cf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/align_events.py",
+      "bytes": 7602,
+      "sha256": "049fa49f0e3f646a586bde87a08b81a1fcc913b8b07f6213139cedb4770f93c9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/build_dataset.py",
+      "bytes": 7076,
+      "sha256": "98ae0c302959d0eb8ffecdb0e6aa34515941a1054f0f24bb8d0b44d86e1210ae"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/build_sentence_dataset.py",
+      "bytes": 9325,
+      "sha256": "85e0dd5a2bcc9a12bd6dd4987f1651b2ec82d2875910fb35b777a9a8cd3b76af"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/compare_type_only_runs.py",
+      "bytes": 5645,
+      "sha256": "c8ff58ab62b4ab6ecffbe54cbdf2127d2c89bd95a5c00e35049c295466cc5ab5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/error_analysis.py",
+      "bytes": 5121,
+      "sha256": "d2585cb2851affca5cb1a77dca419c87f5b35836f9ef79af007078207b9832e5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/evaluate.py",
+      "bytes": 7854,
+      "sha256": "a9df78d3ef7c9aca88ab45c8d60bae6acac10a60820abebb8398ab7d740728cd"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/hints.py",
+      "bytes": 6026,
+      "sha256": "1287a8f34f436090efa7729efbd7b914e5fda3d93010c108be01576815c8a240"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/linearize.py",
+      "bytes": 8383,
+      "sha256": "f8d8335fd196e9a9b7f804b077928d3349de0b3ba15576f9db003b74b1b3a5c4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/merge_sentence_predictions.py",
+      "bytes": 6867,
+      "sha256": "10e749aeed3f3611ee7f11cc5d887341a3deb10bee4f03f7f2e7606f3c57a68d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/model_utils.py",
+      "bytes": 4829,
+      "sha256": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/ontology.py",
+      "bytes": 2870,
+      "sha256": "9c28af9fa075f44f45d9d2fd709da4d828daafd2c423ad7082bcfc4d418384c7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/predict.py",
+      "bytes": 4954,
+      "sha256": "079f79d59bab4eb7f7ab250998c734f5b246d9dfd75f3bde30db8a38aebc0997"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/predict_t5.py",
+      "bytes": 4923,
+      "sha256": "890c8be840bb813acc59582085ea6653f60f707e2ca417a2abe6f732dd461590"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/predict_t5_edge.py",
+      "bytes": 5843,
+      "sha256": "bc7488f5f1553a4b8006e5a7d9c105aaf118c42d6568230a459a709b71ac312a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/prompts.py",
+      "bytes": 11929,
+      "sha256": "6c51b90c2f2b59ead6884a0aa14cbda79a4cd97fb259d1dfaba6f8464f3e9223"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_c_queue.py",
+      "bytes": 7625,
+      "sha256": "5fd67716b6ccecce945b8139a4c3a78ad4f886dc41b7643a25d3bf61b197986e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_c_warmstart.py",
+      "bytes": 8274,
+      "sha256": "731cc34048153ec8e2febba762187c3addf6f1c4d46fd74be4050a6d0a749611"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_queue.py",
+      "bytes": 8214,
+      "sha256": "ea0fb209bbe2074bbe9f3463706a71477c137d7b225774f0e56d8fa40b3b7c02"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_t5_c_queue.py",
+      "bytes": 8345,
+      "sha256": "70a6b31205f2748427967b3c12fda246f09ac67689288bd5c05903e7f63c971c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/run_t5_v1_edge.py",
+      "bytes": 9410,
+      "sha256": "16008ea1d2492d1f9a588cc1790602151c1b57ab2b8f30455a99c53d108f0ad6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/schedule_appendix_warmstart.py",
+      "bytes": 8517,
+      "sha256": "4be2bfd3f5af2d82e557e7bcfc3940a18dddb9405ca74ab43ae76ae21aba8961"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/t5_model_utils.py",
+      "bytes": 4120,
+      "sha256": "507e1d1d4cdb3c071062ff805b0ad5c167fa1b3d4d2c5ae250d08375af553c9b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/train_lora.py",
+      "bytes": 5910,
+      "sha256": "67af4e772c321cffd8db7264eabacdff5ec3f3d5c1b230d3bc762b74e28cee1c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/train_t5_lora.py",
+      "bytes": 5844,
+      "sha256": "79bef4396ffb6020c382707d4d9dd4b8de6a7daef6efc4cb33477b9b25efdd17"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/scripts/write_report.py",
+      "bytes": 5041,
+      "sha256": "65ce75ed539c84d0e7b6c0f25f9ad1caab35ca225ad16d25448cbb959b0a5ba8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/token-evaluation-20261003/score_raw_token.py",
+      "bytes": 4276,
+      "sha256": "3bd96cc0568cb798bd5e986e3ecb04ea2e162adbc277bbe3b54beaacbd85e1f6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/stage2-event-tree/token-evaluation-20261003/test_score_raw_token.py",
+      "bytes": 1150,
+      "sha256": "39f01d11596a20bdfdd40494e2779b3482c4926ffcaea958d8809a06fe06bacf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition-user-final-20261005/dev.jsonl",
+      "bytes": 16976443,
+      "sha256": "56cc77c29c76350571a5045daf14df148e4581d1b42794cf71e0939158f9cd3a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition-user-final-20261005/manifest.json",
+      "bytes": 1387,
+      "sha256": "fd540304650f8ed2822a94fb233770e822a36fdd38bc29d1b0ddca31f1b810ba"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition-user-final-20261005/test.jsonl",
+      "bytes": 17488104,
+      "sha256": "15475aba3eb35bd9233f413b38c690b71841abdba6307e8db07cd1e3531d56c0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition-user-final-20261005/train.jsonl",
+      "bytes": 154605891,
+      "sha256": "db7f9574b0d7750bb87321ddd58aa904cbcd4fa3ee183bfe0c0786568daac869"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition-user-final-20261005/verification.json",
+      "bytes": 414,
+      "sha256": "4839439fa747fbb81d816c065e1cca1327783b5985f2d7fde934718d3f3cb25a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/dev.gold-eval.json",
+      "bytes": 1868,
+      "sha256": "f580ee4af8088711d5fb3ac5c8277207b91d9c7a732d116d56295b4c03d61885"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/dev.gold-predictions.jsonl",
+      "bytes": 192166,
+      "sha256": "c8ed415e6b2f347a86c0200897f85b9da7e12075d21a5e4018594254b91ab005"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/dev.jsonl",
+      "bytes": 11689813,
+      "sha256": "ed03cf1275778f3369222573ddc9a35f5186a16a5d22a872d89d78eab74d73f6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/manifest.json",
+      "bytes": 2375,
+      "sha256": "2014be4c1d3d2a13a7a92a08d529401ffc77904baed54a7e28e55851aa61f826"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/test.gold-eval.json",
+      "bytes": 1868,
+      "sha256": "60e144176037a8d7a08db05c7e52cca468dddb75af9b798d9a4b96d52154de90"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/test.gold-predictions.jsonl",
+      "bytes": 196110,
+      "sha256": "fa50b29dd2818de3d5de187bc63ac69d1b9e5e567aeb5b3ae14eb2969099e56b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/test.jsonl",
+      "bytes": 12081663,
+      "sha256": "fb348daf75e3f4e95f90835bcdcc658d9f1a7bf8c6a0ebc3c9661bde09e39fe7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/train.audit.json",
+      "bytes": 3059,
+      "sha256": "a1339f05574015e60b7617293352afa853bdad76f7fb885fa702eee6653db604"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/train.gold-eval.json",
+      "bytes": 1901,
+      "sha256": "82bd71e7abd1a0cbcbfd75a75cae4eb9ca0547d3773f8b696538316d9cc6f793"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/train.gold-predictions.jsonl",
+      "bytes": 15280552,
+      "sha256": "9f7d534de6910e199f155a5c15e169026ce91dd4e71ffb1723cb52c8e3a0b65c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/data/type-cot-recognition/train.jsonl",
+      "bytes": 111746743,
+      "sha256": "b96bf0c60a462e9580b52d153242a7676451960b2a8656d53561a478fd42ab8d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/planned-goldorder-noRE-20261009/manifests/noRE-seed42.json",
+      "bytes": 9398,
+      "sha256": "6ee72eca5d722521a794a0c87b093d0572815ca75d8a04b7f2b40f7e49861652"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/prompts/user-final-20261005/compatibility-report.md",
+      "bytes": 3106,
+      "sha256": "4889eea34d1ad54163f3e659475ab048c3c5badd7a61b6953ca825ad66601263"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/prompts/user-final-20261005/prompt_template.txt",
+      "bytes": 4201,
+      "sha256": "d339a624c93bb4a4aef8d82250a2935dcd219001fa48ff8f9188156d20b3ac23"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot-verification.json",
+      "bytes": 85,
+      "sha256": "24164ef1eabfcddd408edd0888cf0d3400872d12479370a4a20eadc2a4dd81f0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/config.json",
+      "bytes": 797906,
+      "sha256": "2efe20b5c154987cdaea1d37a1ce1bd57d3b304523d187c1a03eb7b2fb8261d9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/initialization.json",
+      "bytes": 159,
+      "sha256": "6c563d4dfeedd8a47c5d7090cae91cad7f11b7e583e266d73103ca078462a676"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/observed-order.jsonl",
+      "bytes": 1695003,
+      "sha256": "90d90553604e9be868bd7880396769ef30c2debab0b2cfd037afa49e52f65a41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/token_audit.json",
+      "bytes": 224,
+      "sha256": "d7bae203dd5e6565f4bc7546e66398bef1b527795522884e53f0d39fd8cb4882"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/train_metrics.json",
+      "bytes": 552,
+      "sha256": "5f797b794b0afc939f22a72a3f8b9bb7dceacef25b51d94e74da41ab5d03dde5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/trainer_state.json",
+      "bytes": 139605,
+      "sha256": "0c9a12ea4630d829f01e52d4101adb6420d443ece41bc2203765af422ea7b530"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/final-verification.json",
+      "bytes": 1369,
+      "sha256": "f3982ef6f1d08a9bc0159e794e74af857cc9ad98a6f9c74934417215e094f6a5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/run.json",
+      "bytes": 785491,
+      "sha256": "eb6364c59e6db0bd6663e05fc72ad82b4a02ac0c7c91f0e13799f77df4395964"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/eval_complex_quick_f1.py",
+      "bytes": 37928,
+      "sha256": "befe85e5c24db148cf74a1875ab77b7c5b757759022e6eb57b429e4d26c5384c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/scripts/score_event_trees.py",
+      "bytes": 5897,
+      "sha256": "2ce3ae27558329b5302a8405167184f698deb5204bc2c777e4e30ca399622897"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/scripts/score_tree_presence.py",
+      "bytes": 8882,
+      "sha256": "9d3f654e6740c221536cbd409715504494eff3991aab3a134079eee3cfac73a0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/appendix_fixed_eval.py",
+      "bytes": 2050,
+      "sha256": "2a3f42a1d188de1247129d53ee7275b11ae495110eae936a191644a94f766def"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/build_appendix_easy2_config.py",
+      "bytes": 6834,
+      "sha256": "1014e00c1e6824d0a05eb2f1fbe15e141bd893ff4c36c1d9dacc1fbb7413829e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/build_mean_curriculum_data.py",
+      "bytes": 10935,
+      "sha256": "2947e1dbea29f8b6a9b483891c8192fa8ed9e397dca0dd344ec81f1e94665691"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/build_sorted_first_data.py",
+      "bytes": 6596,
+      "sha256": "0ddfaaf3d8a94b5acd23f3da7a58a97113f949866b472f2e2da547e8fc1976e6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/build_user_v2_curriculum_data.py",
+      "bytes": 9276,
+      "sha256": "bd682864b9c59c549dc9e06667958390c188fe4fb3fd418e665afd5ebe03fa28"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/build_user_v2_easy2_config.py",
+      "bytes": 5459,
+      "sha256": "ba0340dde2f6564a05da04210d6de6e40bab3074992e3e597c18dd41ccdec5c6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/curriculum_trainer.py",
+      "bytes": 11572,
+      "sha256": "64169e0ef40d83991b71c3f0ecffe5fe6daf63af7aaa526bc2bf64d8774fe8bf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/dev_feedback.py",
+      "bytes": 4319,
+      "sha256": "78be21ff2a380d5e321054284e390742bcd7f4037bf9586ceae04bf90bb539ea"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_config.py",
+      "bytes": 6407,
+      "sha256": "cb0e0ac7a844acc057f0d82805c8ba13cdb1ed363af2465bac291039d256f64d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_evaluation.py",
+      "bytes": 7823,
+      "sha256": "a496ef8b883ab4a75339c7ee63d2d5f2a9ec86bdbf260351a40b748ce35c006e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/online_dev_trainer.py",
+      "bytes": 6564,
+      "sha256": "a8a8c6211e7ffa072d003bbc913459ef2da7819a9790052d77430113d494a134"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/predict_appendix_fixed.py",
+      "bytes": 536,
+      "sha256": "dbef801267af28edd95e63489b0de3e35e91786030937aa924fe12a12fc37c15"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/run_appendix_easy2_curriculum.py",
+      "bytes": 17384,
+      "sha256": "bad0f32f87c14057007b2cb891f1ed23b71f912d0bd3145c8ce8bef4baa43167"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/run_c_mean_curriculum.py",
+      "bytes": 13776,
+      "sha256": "83f86473b96dc4de2cd74ba61472eacba87e8f6c1cda0c2faedbad1b7a6d695c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/run_sorted_first.py",
+      "bytes": 11020,
+      "sha256": "eece629a34dc60239ae4682d2ab4a718c041a65708efaa900d63163de87394bd"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/run_sorted_first_online_dev.py",
+      "bytes": 10657,
+      "sha256": "f8ae85bbeecca5449f645568f8682c265fb9256db51048e32355fdc7b84d94a6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/run_user_v2_curriculum.py",
+      "bytes": 14253,
+      "sha256": "cb5d60aba1b8d8086d7fd0bfab167dcfb0094273ce0c23f2044003a9c599175d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/run_user_v2_easy2_curriculum.py",
+      "bytes": 15098,
+      "sha256": "5b2f42a8e6d10cab281677839a31d1f1197f54cea8f0ce73792051ede551a08d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/sorted_first_sampler.py",
+      "bytes": 6652,
+      "sha256": "2f6f5c1128e61b918c00e6c69b50400b0c856dff4646779f5ef6be4c2c85a5da"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_appendix_easy2_config.py",
+      "bytes": 3104,
+      "sha256": "c675be618a8591557364b09f0abb8ca2bc8ef8e841787d20da48fe7e2abf39b9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_appendix_easy2_runner.py",
+      "bytes": 4883,
+      "sha256": "afa8e334c62731855257896886022ba54ea2601b186384e78b1787751a570204"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_curriculum_data.py",
+      "bytes": 3705,
+      "sha256": "4539d8907451eae3806b76549fae127fd4ecca2902b442734c225b9cbfb79732"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_curriculum_trainer.py",
+      "bytes": 8270,
+      "sha256": "21abc5a68a4defc87917527238d0e4aa7e70796a05e902143dd39378c0a60a47"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_dev_feedback.py",
+      "bytes": 7513,
+      "sha256": "ee87b381553155613a3a5c26a37f27f1d8faca4d3b78e83596846aab551dfb41"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_easy2_scratch_schedule.py",
+      "bytes": 3356,
+      "sha256": "6d628a0da5edbe4b463f4956aafe33bcc8fb590f84a24e019a1de0b13335fe51"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_online_dev_evaluation.py",
+      "bytes": 9769,
+      "sha256": "3e14a1a904f74eda9a8ebfb195a42a8911261a9c54c6fd4f7a0c7779f0c797f3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_online_dev_trainer.py",
+      "bytes": 6154,
+      "sha256": "a1223bf018fef75f62994ff41fecd0fafd9f549c9fd426f98d3601fbdbf79a5a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_runner.py",
+      "bytes": 2465,
+      "sha256": "7841ca679e4c7b82604369c0e6da03a99c68c78d468eb20545974c54dca3f1f8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_data.py",
+      "bytes": 1102,
+      "sha256": "e503c85aff68ebaca656e38b35e4bf44f27fccedffcee0843b4e90c06b7a6921"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_online_dev.py",
+      "bytes": 6017,
+      "sha256": "bc039cc9a9f8b17af2ce2a975a046a885986e58ce8cc0cfe9f80f8e0d714318f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_runner.py",
+      "bytes": 2689,
+      "sha256": "3494416fe73a6a1447a4809d9f5e44672b49f398de3eb68b080a9189f9c07393"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_sorted_first_sampler.py",
+      "bytes": 5546,
+      "sha256": "4f3a122989b6766aa502d49a9df3a7417ed464d4a9ac8e8e98726bd3a143cf14"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_data.py",
+      "bytes": 4616,
+      "sha256": "7121ec2362b19426e8041eb1d1646ff5208e6258e93693a6cdb41d77f371ed61"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_easy2.py",
+      "bytes": 2768,
+      "sha256": "cf40792c343b24ef00e157f1d85e1ed36694431c654df6ee8b2dcfcbeb3f5ab4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_easy2_runner.py",
+      "bytes": 2438,
+      "sha256": "a6fbcf03df30fd1be20db96338d66c775082b6c64cf16a80afbe96da98c87e06"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/test_user_v2_runner.py",
+      "bytes": 2383,
+      "sha256": "d8e9bc23e99cdadab859bb858c274f787493fb281551d0c29499856fdf246106"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/train_appendix_easy2_phase.py",
+      "bytes": 7854,
+      "sha256": "884df4c44ae77717646022010d51537cba5013749932d8b43b46adce73824cd5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/train_curriculum_phase.py",
+      "bytes": 7628,
+      "sha256": "0f49e7f507d90903ad57ccdc439d2ae28242c0c0811f3eeefbaea44bed2a6022"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/train_sorted_first.py",
+      "bytes": 10060,
+      "sha256": "19529494cf7b37a7dc817f201ada866b4963aebcb51fa455ccc35f5b3cc9b82a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/train_sorted_first_online_dev.py",
+      "bytes": 9620,
+      "sha256": "55ad2d50277e3239820967aede546e09d0ae236f57c64d0a575c3ef8c959e4bc"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/train_user_v2_phase.py",
+      "bytes": 7796,
+      "sha256": "df94e14c611b01b2a4e2eed3396aaf55f6167cb4dcb8d62e95829a5cdc1ff21d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/verify_appendix_easy2_run.py",
+      "bytes": 14388,
+      "sha256": "ac64e8a7b3d5d179eebb7ab0f3149724b3ae1d62383c25e13849b695dfb0f0cb"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/verify_mean_curriculum_run.py",
+      "bytes": 11924,
+      "sha256": "e793ec4c9a438311f78ed95d0893224db6c2e697bbbb6ee0b1feaee1d7fe68f7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/verify_sorted_first_online_dev.py",
+      "bytes": 14226,
+      "sha256": "32e5507ab52b4fccee949d0310efa80a64054cdd6f529a71ef6a87d05039aa55"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/verify_sorted_first_run.py",
+      "bytes": 13429,
+      "sha256": "e38dc1a80af0ceb397a02bd8bb088022127d8fca2884ec90186548595c7d3b4d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/verify_user_v2_curriculum_run.py",
+      "bytes": 12836,
+      "sha256": "f9360b44c0c62b0b33fcc2197e84a9f3c6278223277da7c4dabcd01b99eca14b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/curriculum/verify_user_v2_easy2_run.py",
+      "bytes": 13487,
+      "sha256": "ec74d8729f5da21a311172143451cc442557a04d4145c2a3352786bf30dfdc87"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/align_events.py",
+      "bytes": 7794,
+      "sha256": "655dcc5e1ed5ed789640a2925f2aad40d2e762a546230a5bd9d6b8fe2b43e0b4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/evaluate.py",
+      "bytes": 8334,
+      "sha256": "b7639d9d8c2dc06d079a28e4c92c8193744c50015e8bfafc2b796c1d6eb468a4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/linearize.py",
+      "bytes": 7985,
+      "sha256": "d9666c76051b19f4f1dd87b6356f4f790667174e07c34ade65432adcbbc07a40"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/merge_sentence_predictions.py",
+      "bytes": 7072,
+      "sha256": "5a334d8f242c1e9dbfb563afb73140d5f698cab8babdbc1c265952a4f55fc592"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/evaluation-v2-20261003/scripts/ontology.py",
+      "bytes": 2870,
+      "sha256": "f52a12ab5c558f463d14abc410f280639ef7b746a3372ff1d9ec31fab9bce943"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/ambiguity_resolver.py",
+      "bytes": 3954,
+      "sha256": "6a6ba5c5c7039cbeeadc95e6211e99c1a61df19fe5c22937ae776e1fa8fffaab"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/audit_gold_roundtrip.py",
+      "bytes": 23525,
+      "sha256": "f3489071942f9d4f2e3b8ff98d706df99662a819f1c8da0b1cab63cd027e2908"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/instance_scorer.py",
+      "bytes": 7782,
+      "sha256": "1b6e012df5e8e29aa66f927ef683d6702b7e957ae57ec71c17481cc5cfe0adf3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/lossless_forest.py",
+      "bytes": 6766,
+      "sha256": "309e6fc647c8aa9cdbfd62dc7f3069b9d502ccb6939902569abafa928d9d314d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/run_evaluation_audit.py",
+      "bytes": 10691,
+      "sha256": "42e036d005c525a66a0cc4e03186d10a4cf18c34a465fa80725ba74bebf7c29e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/test_ambiguity_resolver.py",
+      "bytes": 4765,
+      "sha256": "2194987cf93b433732dfb6c52d4df5b82b64341ef6ecb8f7efac9c9170350c67"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/test_evaluation_audit.py",
+      "bytes": 1748,
+      "sha256": "53275f145ddbf3edf5e32be12b557e815ac8a04ae855d5c3d4096ab5f1cb7cf0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/test_instance_scorer.py",
+      "bytes": 8399,
+      "sha256": "8f00521825605f6b31af0ccfcf85c6c89cc79959174e9e7f177d32acac42415b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/test_lossless_forest.py",
+      "bytes": 6808,
+      "sha256": "ba615c9ea20950a41fba56bac4a95d415f85abeaf496dab2759265d0ed4e6b35"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scorer-repair-20261004/verify_repair_results.py",
+      "bytes": 10540,
+      "sha256": "e9f5d387cb49f09a733b0e9dc613751190381bb5718524d837489feb3d58b8cf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/align_events.py",
+      "bytes": 7602,
+      "sha256": "049fa49f0e3f646a586bde87a08b81a1fcc913b8b07f6213139cedb4770f93c9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/build_dataset.py",
+      "bytes": 7076,
+      "sha256": "98ae0c302959d0eb8ffecdb0e6aa34515941a1054f0f24bb8d0b44d86e1210ae"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/build_sentence_dataset.py",
+      "bytes": 9325,
+      "sha256": "85e0dd5a2bcc9a12bd6dd4987f1651b2ec82d2875910fb35b777a9a8cd3b76af"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/compare_type_only_runs.py",
+      "bytes": 5645,
+      "sha256": "c8ff58ab62b4ab6ecffbe54cbdf2127d2c89bd95a5c00e35049c295466cc5ab5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/error_analysis.py",
+      "bytes": 5121,
+      "sha256": "d2585cb2851affca5cb1a77dca419c87f5b35836f9ef79af007078207b9832e5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/evaluate.py",
+      "bytes": 7854,
+      "sha256": "a9df78d3ef7c9aca88ab45c8d60bae6acac10a60820abebb8398ab7d740728cd"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/hints.py",
+      "bytes": 6026,
+      "sha256": "1287a8f34f436090efa7729efbd7b914e5fda3d93010c108be01576815c8a240"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/linearize.py",
+      "bytes": 8383,
+      "sha256": "f8d8335fd196e9a9b7f804b077928d3349de0b3ba15576f9db003b74b1b3a5c4"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/merge_sentence_predictions.py",
+      "bytes": 6867,
+      "sha256": "10e749aeed3f3611ee7f11cc5d887341a3deb10bee4f03f7f2e7606f3c57a68d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/model_utils.py",
+      "bytes": 4829,
+      "sha256": "15cc435b1b7dd8a36b12f0916c195fa00e6c9d7192065f419d557e8a23fb4db9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/ontology.py",
+      "bytes": 2870,
+      "sha256": "9c28af9fa075f44f45d9d2fd709da4d828daafd2c423ad7082bcfc4d418384c7"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/predict.py",
+      "bytes": 4954,
+      "sha256": "079f79d59bab4eb7f7ab250998c734f5b246d9dfd75f3bde30db8a38aebc0997"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/predict_t5.py",
+      "bytes": 4923,
+      "sha256": "890c8be840bb813acc59582085ea6653f60f707e2ca417a2abe6f732dd461590"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/predict_t5_edge.py",
+      "bytes": 5843,
+      "sha256": "bc7488f5f1553a4b8006e5a7d9c105aaf118c42d6568230a459a709b71ac312a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/prompts.py",
+      "bytes": 11929,
+      "sha256": "6c51b90c2f2b59ead6884a0aa14cbda79a4cd97fb259d1dfaba6f8464f3e9223"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/run_c_queue.py",
+      "bytes": 7625,
+      "sha256": "5fd67716b6ccecce945b8139a4c3a78ad4f886dc41b7643a25d3bf61b197986e"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/run_c_warmstart.py",
+      "bytes": 8274,
+      "sha256": "731cc34048153ec8e2febba762187c3addf6f1c4d46fd74be4050a6d0a749611"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/run_queue.py",
+      "bytes": 8214,
+      "sha256": "ea0fb209bbe2074bbe9f3463706a71477c137d7b225774f0e56d8fa40b3b7c02"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/run_t5_c_queue.py",
+      "bytes": 8345,
+      "sha256": "70a6b31205f2748427967b3c12fda246f09ac67689288bd5c05903e7f63c971c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/run_t5_v1_edge.py",
+      "bytes": 9410,
+      "sha256": "16008ea1d2492d1f9a588cc1790602151c1b57ab2b8f30455a99c53d108f0ad6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/schedule_appendix_warmstart.py",
+      "bytes": 8517,
+      "sha256": "4be2bfd3f5af2d82e557e7bcfc3940a18dddb9405ca74ab43ae76ae21aba8961"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/t5_model_utils.py",
+      "bytes": 4120,
+      "sha256": "507e1d1d4cdb3c071062ff805b0ad5c167fa1b3d4d2c5ae250d08375af553c9b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/train_lora.py",
+      "bytes": 5910,
+      "sha256": "67af4e772c321cffd8db7264eabacdff5ec3f3d5c1b230d3bc762b74e28cee1c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/train_t5_lora.py",
+      "bytes": 5844,
+      "sha256": "79bef4396ffb6020c382707d4d9dd4b8de6a7daef6efc4cb33477b9b25efdd17"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/scripts/write_report.py",
+      "bytes": 5041,
+      "sha256": "65ce75ed539c84d0e7b6c0f25f9ad1caab35ca225ad16d25448cbb959b0a5ba8"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/token-evaluation-20261003/score_raw_token.py",
+      "bytes": 4276,
+      "sha256": "3bd96cc0568cb798bd5e986e3ecb04ea2e162adbc277bbe3b54beaacbd85e1f6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/stage2-event-tree/token-evaluation-20261003/test_score_raw_token.py",
+      "bytes": 1150,
+      "sha256": "39f01d11596a20bdfdd40494e2779b3482c4926ffcaea958d8809a06fe06bacf"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/scripts/build_dataset.py",
+      "bytes": 9466,
+      "sha256": "04dadf9d8a0138f89ca19810ef7456e64aa5bf1359aed49bfedf6b1963751c35"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/scripts/evaluate.py",
+      "bytes": 4162,
+      "sha256": "501dea9084365a0af1f2925857d8cf0d5be8c5ee733c68bf0054ec65bfde7279"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/scripts/parser.py",
+      "bytes": 2628,
+      "sha256": "7f7582b513e9690edd0cb2404a821ce5d69d939991132d0d40a719f52532a7c0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/scripts/predict.py",
+      "bytes": 4305,
+      "sha256": "1da034d20ed0e7440c257c026fedfcab061ae9557ca7a88e9eb056826ab7958b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/scripts/rewrite_prompt_dataset.py",
+      "bytes": 4264,
+      "sha256": "a043b3a8dbf6b70b3de0f1a0512cacad27a5336ce1c6ac362de5822d0233ff2c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/scripts/run_queue.py",
+      "bytes": 6535,
+      "sha256": "cd1fa10a20a037b0ffa0da221aa9db185b313c770e9e975cd4b9f8ffc55c33e6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/config.py",
+      "bytes": 5946,
+      "sha256": "a571f8c1e268fea429fbd92244b8639506e9b1f92914717dafc742d84ad4b63b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/dense_trainer.py",
+      "bytes": 2131,
+      "sha256": "8a42a1f563e312a56a00578160e293a960c981210863ef87f2ca547801fbd95f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/run.py",
+      "bytes": 8466,
+      "sha256": "6925b1c1282fd502d65e25cb350860840e69409946ffcb90fd1c0dd9d7c2e8b6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/sampling.py",
+      "bytes": 1920,
+      "sha256": "01e133620223697f6cfacd3f1cc2f4cc60f09e287d42f3eab1be5cbb595e9fb3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/tests/test_goldorder_config.py",
+      "bytes": 1951,
+      "sha256": "a867cb2bff952351cedf7fc88dd2b8bf70894ab6da079a1e6b455effee9c1ef9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/tests/test_sampling.py",
+      "bytes": 3425,
+      "sha256": "38f69a865f03cff428c7a28e9ab1dd17ab93a84b3022813f3bda4b4be9413ed5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/train_cot.py",
+      "bytes": 7705,
+      "sha256": "75912f06806ed848dc5920b8add6d22a0fcdae8d209950042cb91ba5a1103ed0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/train_tree.py",
+      "bytes": 13834,
+      "sha256": "94d6850dff2914e47e85db4576e7b426ae4bacce326ba0710555511a60550197"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/tasks/type-cot-experiment/type-cot-goldorder-20261009/verify.py",
+      "bytes": 13779,
+      "sha256": "a917633a4884643592b417452330b8e6170d90156e664870b437d2dc120bf247"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/source_snapshot/utils.py",
+      "bytes": 15944,
+      "sha256": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/training-verification.json",
+      "bytes": 1335,
+      "sha256": "a0b4ebebee2f64ff2560728c3aa84231d33261fb8713216d8c85caddad981efa"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/scripts/build_dataset.py",
+      "bytes": 9466,
+      "sha256": "04dadf9d8a0138f89ca19810ef7456e64aa5bf1359aed49bfedf6b1963751c35"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/scripts/evaluate.py",
+      "bytes": 4162,
+      "sha256": "501dea9084365a0af1f2925857d8cf0d5be8c5ee733c68bf0054ec65bfde7279"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/scripts/parser.py",
+      "bytes": 2628,
+      "sha256": "7f7582b513e9690edd0cb2404a821ce5d69d939991132d0d40a719f52532a7c0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/scripts/predict.py",
+      "bytes": 4305,
+      "sha256": "1da034d20ed0e7440c257c026fedfcab061ae9557ca7a88e9eb056826ab7958b"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/scripts/rewrite_prompt_dataset.py",
+      "bytes": 4264,
+      "sha256": "a043b3a8dbf6b70b3de0f1a0512cacad27a5336ce1c6ac362de5822d0233ff2c"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/scripts/run_queue.py",
+      "bytes": 6535,
+      "sha256": "cd1fa10a20a037b0ffa0da221aa9db185b313c770e9e975cd4b9f8ffc55c33e6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/config.py",
+      "bytes": 7253,
+      "sha256": "b293c7872c0b4f9a3f621b6f92b6d3984ffd887118647dda31d170ee7892035d"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/dense_trainer.py",
+      "bytes": 2131,
+      "sha256": "8a42a1f563e312a56a00578160e293a960c981210863ef87f2ca547801fbd95f"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/run.py",
+      "bytes": 8466,
+      "sha256": "6925b1c1282fd502d65e25cb350860840e69409946ffcb90fd1c0dd9d7c2e8b6"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/sampling.py",
+      "bytes": 1920,
+      "sha256": "01e133620223697f6cfacd3f1cc2f4cc60f09e287d42f3eab1be5cbb595e9fb3"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/tests/test_goldorder_config.py",
+      "bytes": 1951,
+      "sha256": "a867cb2bff952351cedf7fc88dd2b8bf70894ab6da079a1e6b455effee9c1ef9"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/tests/test_model_source_locks.py",
+      "bytes": 3926,
+      "sha256": "3bdcfe3310b38cbbcb4ce00e8290b564b6022b29c9c6b5bb7199b167a3940f4a"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/tests/test_sampling.py",
+      "bytes": 3425,
+      "sha256": "38f69a865f03cff428c7a28e9ab1dd17ab93a84b3022813f3bda4b4be9413ed5"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/train_cot.py",
+      "bytes": 7705,
+      "sha256": "75912f06806ed848dc5920b8add6d22a0fcdae8d209950042cb91ba5a1103ed0"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/train_tree.py",
+      "bytes": 13834,
+      "sha256": "94d6850dff2914e47e85db4576e7b426ae4bacce326ba0710555511a60550197"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/type-cot-goldorder-20261009/verify.py",
+      "bytes": 13779,
+      "sha256": "a917633a4884643592b417452330b8e6170d90156e664870b437d2dc120bf247"
+    },
+    {
+      "path": "home/myluo/EE/EXCEEDS/utils.py",
+      "bytes": 15944,
+      "sha256": "86419a410cccb78f5655b92c83cacb83dd63a7e7b25e6d7e9abd233243492071"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/config.json",
+      "bytes": 728,
+      "sha256": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/generation_config.json",
+      "bytes": 239,
+      "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/merges.txt",
+      "bytes": 1671853,
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/model-00001-of-00005.safetensors",
+      "bytes": 3996250744,
+      "sha256": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/model-00002-of-00005.safetensors",
+      "bytes": 3993160032,
+      "sha256": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/model-00003-of-00005.safetensors",
+      "bytes": 3959604768,
+      "sha256": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/model-00004-of-00005.safetensors",
+      "bytes": 3187841392,
+      "sha256": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/model-00005-of-00005.safetensors",
+      "bytes": 1244659840,
+      "sha256": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/model.safetensors.index.json",
+      "bytes": 32878,
+      "sha256": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/tokenizer.json",
+      "bytes": 11422654,
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/tokenizer_config.json",
+      "bytes": 9732,
+      "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+    },
+    {
+      "path": "opt/models/Qwen3-8B/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  ],
+  "excluded_training_artifacts": [
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/adapter_config.json",
+      "bytes": 1099,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/selection-source.json",
+          "field": "input_sha256"
+        },
+        {
+          "sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582"
+      ],
+      "current_sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/adapter_model.safetensors",
+      "bytes": 174655536,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "f0d0a1d5cf8601073918e9a0fa0d935f54d3f2df47074bb00676436e25b01269",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/selection-source.json",
+          "field": "input_sha256"
+        },
+        {
+          "sha256": "f0d0a1d5cf8601073918e9a0fa0d935f54d3f2df47074bb00676436e25b01269",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "existence and size only; historical hashes inherited, not rehashed in this inventory",
+      "lock_sha256_versions": [
+        "f0d0a1d5cf8601073918e9a0fa0d935f54d3f2df47074bb00676436e25b01269"
+      ],
+      "currenthash_conflict": "not_checked_large_asset"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/added_tokens.json",
+      "bytes": 707,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/chat_template.jinja",
+      "bytes": 4168,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/merges.txt",
+      "bytes": 1671853,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/special_tokens_map.json",
+      "bytes": 613,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/tokenizer.json",
+      "bytes": 11422821,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/tokenizer_config.json",
+      "bytes": 5404,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/best-adapter/vocab.json",
+      "bytes": 2776833,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/README.md",
+      "bytes": 5194,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/adapter_config.json",
+      "bytes": 1099,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-step1600-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582"
+      ],
+      "current_sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/adapter_model.safetensors",
+      "bytes": 174655536,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "f2cd65ba82f6fea1b7890cff5f8039c9a07fc54106634aa4a84df7a6d3a25918",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-step1600-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "existence and size only; historical hashes inherited, not rehashed in this inventory",
+      "lock_sha256_versions": [
+        "f2cd65ba82f6fea1b7890cff5f8039c9a07fc54106634aa4a84df7a6d3a25918"
+      ],
+      "currenthash_conflict": "not_checked_large_asset"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/added_tokens.json",
+      "bytes": 707,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/chat_template.jinja",
+      "bytes": 4168,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/merges.txt",
+      "bytes": 1671853,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/special_tokens_map.json",
+      "bytes": 613,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/tokenizer.json",
+      "bytes": 11422821,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/tokenizer_config.json",
+      "bytes": 5404,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-1600/policy/vocab.json",
+      "bytes": 2776833,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/README.md",
+      "bytes": 5194,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/adapter_config.json",
+      "bytes": 1099,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/selection-source.json",
+          "field": "input_sha256"
+        },
+        {
+          "sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582"
+      ],
+      "current_sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/adapter_model.safetensors",
+      "bytes": 174655536,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "f0d0a1d5cf8601073918e9a0fa0d935f54d3f2df47074bb00676436e25b01269",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015/selection-source.json",
+          "field": "input_sha256"
+        },
+        {
+          "sha256": "f0d0a1d5cf8601073918e9a0fa0d935f54d3f2df47074bb00676436e25b01269",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-best-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "existence and size only; historical hashes inherited, not rehashed in this inventory",
+      "lock_sha256_versions": [
+        "f0d0a1d5cf8601073918e9a0fa0d935f54d3f2df47074bb00676436e25b01269"
+      ],
+      "currenthash_conflict": "not_checked_large_asset"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/added_tokens.json",
+      "bytes": 707,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/chat_template.jinja",
+      "bytes": 4168,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/merges.txt",
+      "bytes": 1671853,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/special_tokens_map.json",
+      "bytes": 613,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/tokenizer.json",
+      "bytes": 11422821,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/tokenizer_config.json",
+      "bytes": 5404,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-2000/policy/vocab.json",
+      "bytes": 2776833,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/README.md",
+      "bytes": 5194,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/adapter_config.json",
+      "bytes": 1099,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-step800-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582"
+      ],
+      "current_sha256": "32b5ced8ddc511aae00c9c21ae644d2fe811c3461b9abf62d69cbb8e39498582",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/adapter_model.safetensors",
+      "bytes": 174655536,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "a1d6d3900acbb67c684d460e291d67c4562e52a1a26ba933dcb4d686f162abc0",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/test-step800-stopped-20261015-inputs.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "existence and size only; historical hashes inherited, not rehashed in this inventory",
+      "lock_sha256_versions": [
+        "a1d6d3900acbb67c684d460e291d67c4562e52a1a26ba933dcb4d686f162abc0"
+      ],
+      "currenthash_conflict": "not_checked_large_asset"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/added_tokens.json",
+      "bytes": 707,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/chat_template.jinja",
+      "bytes": 4168,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/merges.txt",
+      "bytes": 1671853,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/special_tokens_map.json",
+      "bytes": 613,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/tokenizer.json",
+      "bytes": 11422821,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/tokenizer_config.json",
+      "bytes": 5404,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/checkpoints/step-800/policy/vocab.json",
+      "bytes": 2776833,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/README.md",
+      "bytes": 5194,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/adapter_config.json",
+      "bytes": 1099,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "1b7cf711bdb3723aa6021d6fece30bd65edb6ca70a0baefbefebb730905bab64",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "1b7cf711bdb3723aa6021d6fece30bd65edb6ca70a0baefbefebb730905bab64"
+      ],
+      "current_sha256": "1b7cf711bdb3723aa6021d6fece30bd65edb6ca70a0baefbefebb730905bab64",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/adapter_model.safetensors",
+      "bytes": 174655536,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "3638939b987505cf6d09897797368b8adabca4cbcf094a2bb50feaa75f91547c",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "existence and size only; historical hashes inherited, not rehashed in this inventory",
+      "lock_sha256_versions": [
+        "3638939b987505cf6d09897797368b8adabca4cbcf094a2bb50feaa75f91547c"
+      ],
+      "currenthash_conflict": "not_checked_large_asset"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/added_tokens.json",
+      "bytes": 707,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680"
+      ],
+      "current_sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/chat_template.jinja",
+      "bytes": 4168,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/merges.txt",
+      "bytes": 1671853,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/special_tokens_map.json",
+      "bytes": 613,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+      ],
+      "current_sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/tokenizer.json",
+      "bytes": 11422654,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      ],
+      "current_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/tokenizer_config.json",
+      "bytes": 5404,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0"
+      ],
+      "current_sha256": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/training_args.bin",
+      "bytes": 5432,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/best-adapter/vocab.json",
+      "bytes": 2776833,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-grpo-r0-window-dev400-42-20261014/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      ],
+      "current_sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/README.md",
+      "bytes": 5194,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/adapter_config.json",
+      "bytes": 1099,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "e6d16c0992afd9483d7d9d39aae3fca88edf7ee7c24cc9e17da02b38184ad44b",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "e6d16c0992afd9483d7d9d39aae3fca88edf7ee7c24cc9e17da02b38184ad44b",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "e6d16c0992afd9483d7d9d39aae3fca88edf7ee7c24cc9e17da02b38184ad44b",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "e6d16c0992afd9483d7d9d39aae3fca88edf7ee7c24cc9e17da02b38184ad44b"
+      ],
+      "current_sha256": "e6d16c0992afd9483d7d9d39aae3fca88edf7ee7c24cc9e17da02b38184ad44b",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/adapter_model.safetensors",
+      "bytes": 174655536,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "c4882c7ac976eeba23d233277d4bb10ba18169154e416d25559e017b19d26a5f",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "c4882c7ac976eeba23d233277d4bb10ba18169154e416d25559e017b19d26a5f",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "c4882c7ac976eeba23d233277d4bb10ba18169154e416d25559e017b19d26a5f",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "existence and size only; historical hashes inherited, not rehashed in this inventory",
+      "lock_sha256_versions": [
+        "c4882c7ac976eeba23d233277d4bb10ba18169154e416d25559e017b19d26a5f"
+      ],
+      "currenthash_conflict": "not_checked_large_asset"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/added_tokens.json",
+      "bytes": 707,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680"
+      ],
+      "current_sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/chat_template.jinja",
+      "bytes": 4168,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/merges.txt",
+      "bytes": 1671853,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/special_tokens_map.json",
+      "bytes": 613,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+      ],
+      "current_sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/tokenizer.json",
+      "bytes": 11422654,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      ],
+      "current_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/tokenizer_config.json",
+      "bytes": 5404,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0"
+      ],
+      "current_sha256": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0",
+      "currenthash_conflict": false
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/training_args.bin",
+      "bytes": 5496,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot"
+    },
+    {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/type-cot-experiment/runs/C-CoT1-NoRE-GoldOrder-42-20261009/cot/final-adapter/vocab.json",
+      "bytes": 2776833,
+      "reason": "selected CoT/SFT/RL adapter or immutable code snapshot",
+      "recorded_sha256": [
+        {
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/config.json",
+          "field": "source_sha256"
+        },
+        {
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+          "source": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/action-sft-v2-42-20261012/provenance.json",
+          "field": "input_sha256"
+        }
+      ],
+      "verification": "current SHA-256 checked (small locked file only)",
+      "lock_sha256_versions": [
+        "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      ],
+      "current_sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "currenthash_conflict": false
+    }
+  ]
+}
