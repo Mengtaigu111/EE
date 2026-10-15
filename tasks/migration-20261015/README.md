@@ -1,14 +1,14 @@
 # EXCEEDS 新服务器迁移（不搬训练checkpoint）
 
-按最终要求：**所有 CoT/SFT/RL adapter 和 checkpoint 均不迁移；新机已有 Conda，重建环境。** 旧服务器文件和任务保持不变，本轮没有启动训练。
+按最终要求：**所有 CoT/SFT/RL adapter 和 checkpoint 均不迁移；新机已有 Conda 和 Qwen8B，重建环境并核验现有基座。默认只传项目材料。** 旧服务器文件和任务保持不变，本轮没有启动训练。
 
 ## 迁移内容
 
-实际清单 `transfer-manifest.json`：533文件、17,922,499,744字节（约16.69GiB）。其中Qwen3-8B基座12文件、16,397,431,693字节；代码/数据/记录约1.42GiB。没有复制整个19GiB模型目录，也没有Conda环境或训练权重。
+完整校验清单 `transfer-manifest.json`：533文件、17,922,499,744字节（约16.69GiB）。其中Qwen3-8B基座12文件、16,397,431,693字节；代码/数据/记录约1.42GiB。没有复制整个19GiB模型目录，也没有Conda环境或训练权重。
 
 包含：SciEvents原始数据、sentence/document数据、NoRE Type-CoT数据、Action v2数据和完整审计、schema、Sorted1课程顺序、当前源码以及历史来源快照、配置/评测记录。CoT生成材料是 `task/prompt/3.10-1.md`、`run_prompt_3_10_full.py` 和 `runs/prompt-3.10-1-train-full-merged-20260926.jsonl`；当前CoT训练使用 user-final-20261005 模板和数据，详见 `findings-dependencies.md`。Action采用数据清单冻结的短v2 prompt，不用后来手工修改文本冒充历史prompt。
 
-`dependencies.json` 是完整盘点，包含已排除的旧权重；**实际传输只用 files-from-root.txt**，不是完整盘点列表。`files-project-only.txt` 排除基座，仅当新机已有逐文件SHA一致的基座时使用。
+`dependencies.json` 是完整盘点，包含已排除的旧权重；**当前实际传输用 files-project-only.txt**，不是完整盘点列表。`files-project-only.txt` 排除基座，仅当新机已有逐文件SHA一致的基座时使用。
 
 ## GitHub 和 rsync
 
@@ -23,14 +23,14 @@
 
 # 旧机：把 user@new-host 换成真实SSH目标。先预览，再传输；没有 --delete。
  cd /home/myluo/EE/EXCEEDS
- rsync -anR --protect-args --files-from=tasks/migration-20261015/files-from-root.txt / user@new-host:/
+ rsync -anR --protect-args --files-from=tasks/migration-20261015/files-project-only.txt / user@new-host:/
  rsync -aR --partial --info=progress2 --protect-args \
-   --files-from=tasks/migration-20261015/files-from-root.txt / user@new-host:/
+   --files-from=tasks/migration-20261015/files-project-only.txt / user@new-host:/
 ```
 
 rsync会覆盖清单内的同名文件，因此目标应是本次迁移的新检出目录。必要源文件中有历史实验尚未提交的工作区版本；精确清单会将其一并搬过去，GitHub单独clone不能保证与旧机完整工作区一致。不会复制 `.git`、SSH密钥、shell环境、缓存或整个历史run。无需额外制作18GB压缩包。
 
-如果新机已有同版基座，可将两条rsync命令的filelist换成 `files-project-only.txt`；之后仍对完整清单校验，基座hash不匹配不能继续。
+当前两条rsync命令默认使用 `files-project-only.txt`：521文件、1,525,068,051字节（约1.42GiB），不搬基座。新机现有模型须为完全相同版本Qwen3-8B，之后仍对完整清单校验。若基座hash不匹配，先核实模型版本；确需搬旧基座时再将两条命令的filelist换成 `files-from-root.txt`。
 
 ## 新机Conda环境
 
@@ -61,3 +61,22 @@ rsync会覆盖清单内的同名文件，因此目标应是本次迁移的新检
 - Action主线CPU回归：119通过。
 - 当前环境CPU版本/导入验证通过；清单文件本机全量SHA验证结果见progress.md。
 - 尚未提供目标SSH，未跨机传输、未在新机安装或验证GPU，也未启动新训练。
+
+## ZIP 上传G4（最新选择）
+
+可直接使用项目材料ZIP，无需先clone GitHub：包含project-only清单全部文件及迁移工具/环境说明；不含基座、任何训练adapter/checkpoint、旧Conda环境或.git。打包脚本逐项核对原SHA，完成后检查ZIP全量CRC并输出ZIP的SHA256。
+
+```bash
+# 旧机生成；输出文件必须尚不存在
+/home/myluo/miniconda3/envs/qwen3meld-run/bin/python \
+  tasks/migration-20261015/build_zip.py --output /home/myluo/EE/EXCEEDS-migration-20261015.zip
+
+# G4：先上传ZIP和同名.sha256到同一目录，检查后解压到真实旧绝对路径
+sha256sum -c EXCEEDS-migration-20261015.zip.sha256
+mkdir -p /home/myluo/EE
+unzip EXCEEDS-migration-20261015.zip -d /home/myluo/EE
+```
+
+随后按前文Conda固定版本重建，运行environment检查、verify_assets和CPU回归。完整assets验证还会检查G4现有 `/opt/models/Qwen3-8B`，版本或路径不一致会报错；不能绕过。目标目录应为空以免覆盖已有项目。包不是Git仓库，但包含盘点出的必要源码和历史快照；Git历史仍在GitHub分支。
+
+本次旧机到代理和GitHub连接超时，当前本地提交尚未成功push。ZIP可绕过这一步；网络恢复后再同步GitHub。
