@@ -1,0 +1,15 @@
+{
+  "output": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/r0-v2-B-stable-v6-from1490-42-20261021",
+  "checkpoint": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/r0-v2-B-stable-v6-from1490-42-20261021/recovery-checkpoints/periodic-step1950-1792716578401081838",
+  "checkpoint_manifest_sha256": "f4c644ae59405f415ed9f2c32d9bd2382d39cc4f1316746a1bbf75d306023211",
+  "expected_failure_sha256": "6410259e0f5b0bdf0c20275b9ba48e83aec7cf6d8ff4c12045c5d61180020dab",
+  "authorized_unix": 1792730931.880089,
+  "authorization": "User explicitly requested continue B in tmux; continuously idle GPU60s, no foreign, free>=21000MiB, no reservation. Resume complete1950 after disk-full1952; preserve optimizer/RNG, best1200 and early stopping.",
+  "evaluation_effective_cap": 2,
+  "cuda_oom_fallback": 1,
+  "max_new_tokens": 768,
+  "allocator": "expandable_segments:True",
+  "auto_restart": false,
+  "source_resume_implementation": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/restart-B1600-safe-dev-20261022/resume.py",
+  "disk_free_bytes": 31608483840
+}

@@ -1,5 +1,11 @@
 # Action 监督数据
 
+## 当前主线入口（2026-10-23）
+
+最新状态与约束见 [todo](../todo.md)。当前 B 使用 `recovery_v6/` 的完整 optimizer/RNG 恢复与 FP32 主体算术；四字段奖励为 `action_reward_v2.py`，选择性策略更新为 `action_update_mask.py`。本轮恢复入口为 [B1950](restart-B1950-disk-recovery-20261023/README.md)，连续60秒满足无其他计算进程且 free≥21000MiB 才加载，不预留，不自动重试。
+
+下文保留初版实现与历史实验说明；其中“尚未启动”“不支持完整 resume”等描述仅适用于对应旧版本。模型权重、训练数据与实时日志在本机保留，本次 Git 只归档主线实现、测试和小型静态证据。
+
 从已修复 gold 论元内部词序的正式句子数据构造 `NEW/TRG/ARG/END/STOP`，不调用教师 API。输入模板使用 `task/101202_action_prompt_v1.txt`，包括带 `[S1]` 等标记的完整摘要与目标句。监督字段为 `prompt` 与 `completion`，与当前 assistant-only SFT 数据接口一致；其他 gold 字段仅作审计，不能追加进学生输入。
 
 入口：`scripts/build_action_dataset.py`。文法与文本事件转换：`scripts/action_language.py`。输出：`tasks/action-experiment/data/action-v1-goldorder-20261012/`。

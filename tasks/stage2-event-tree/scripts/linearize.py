@@ -5,7 +5,8 @@ Tree grammar (one abstract = one forest under a virtual ROOT):
     (ROOT (PRP (Trigger "propose") (Proposer "we") (Content "a new method")) (CMP ...))
 
 Canonical order: events by (first trigger offset, event type); Trigger first;
-roles in ontology order; same-role arguments by first offset. Nugget types never
+roles in ontology order; same-role arguments by leftmost offset. Span-internal
+token/offset order and repetitions are preserved from gold. Nugget types never
 appear in the tree. Strings escape backslash and double quote.
 """
 import re
@@ -29,7 +30,18 @@ SEMANTIC_LABELS = {label for path in TYPE_PATH.values() for label in path[:-1]}
 
 
 def span_text(tokens, offsets):
-    return ' '.join(tokens[i] for i in sorted(set(offsets)))
+    return ' '.join(tokens[i] for i in offsets)
+
+
+def gold_span_text(tokens, mention):
+    """Validate annotated text against ordered source offsets, without normalizing."""
+    located = [tokens[i] for i in mention['offsets']]
+    if 'tokens' in mention and mention['tokens'] != located:
+        raise ValueError('gold tokens differ from ordered source offsets')
+    text = ' '.join(located)
+    if 'text' in mention and mention['text'] != text:
+        raise ValueError('gold text differs from ordered source offsets')
+    return text
 
 
 def escape(text):
@@ -41,15 +53,15 @@ def canonical_events(doc):
     tokens = doc['document']
     events = []
     for event in doc['events']:
-        trigger = sorted(set(event['trigger']['offsets']))
+        trigger = list(event['trigger']['offsets'])
         args = []
         for arg in event['arguments']:
-            offsets = sorted(set(arg['offsets']))
-            args.append({'role': arg['argument_type'], 'text': span_text(tokens, offsets), 'offsets': offsets})
-        args.sort(key=lambda a: (role_index(event['event_type'], a['role']), a['offsets'][0], a['offsets'][-1]))
-        events.append({'type': event['event_type'], 'trigger': span_text(tokens, trigger),
+            offsets = list(arg['offsets'])
+            args.append({'role': arg['argument_type'], 'text': gold_span_text(tokens, arg), 'offsets': offsets})
+        args.sort(key=lambda a: (role_index(event['event_type'], a['role']), min(a['offsets']), max(a['offsets'])))
+        events.append({'type': event['event_type'], 'trigger': gold_span_text(tokens, event['trigger']),
                        'trigger_offsets': trigger, 'args': args})
-    events.sort(key=lambda e: (e['trigger_offsets'][0], e['trigger_offsets'][-1], e['type']))
+    events.sort(key=lambda e: (min(e['trigger_offsets']), max(e['trigger_offsets']), e['type']))
     return events
 
 

@@ -1,5 +1,6 @@
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
@@ -35,6 +36,19 @@ def example_doc():
 
 
 class SentenceDatasetTests(unittest.TestCase):
+    def test_source_gold_check_catches_self_consistent_corrupted_tree(self):
+        doc = example_doc()
+        corrupted = [
+            {'type': 'PRP', 'trigger': 'propose', 'trigger_offsets': [1],
+             'args': [{'role': 'Content', 'text': 'model a', 'offsets': [3, 2]}]},
+            {'type': 'CMP', 'trigger': 'outperforms', 'trigger_offsets': [7],
+             'args': [{'role': 'Arg1', 'text': 'a model', 'offsets': [2, 3]},
+                      {'role': 'Arg2', 'text': 'a baseline', 'offsets': [8, 9]}]},
+        ]
+        with patch('build_sentence_dataset.canonical_events', return_value=corrupted):
+            with self.assertRaisesRegex(ValueError, 'original gold'):
+                build_rows_for_document(doc, 'train', appendix_schema=True)
+
     def test_rows_partition_events_and_keep_full_context(self):
         rows, stats = build_rows_for_document(example_doc(), 'dev')
         self.assertEqual([row['sentence_index'] for row in rows], [0, 1, 2])

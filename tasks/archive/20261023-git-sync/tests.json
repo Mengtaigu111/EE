@@ -1,0 +1,108 @@
+[
+  {
+    "name": "action",
+    "command": [
+      "/home/myluo/miniconda3/envs/qwen3meld-run/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tasks/action-experiment/tests"
+    ],
+    "exit_code": 0,
+    "seconds": 54.68
+  },
+  {
+    "name": "v6",
+    "command": [
+      "/home/myluo/miniconda3/envs/qwen3meld-run/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tasks/action-experiment/recovery_v6"
+    ],
+    "exit_code": 0,
+    "seconds": 39.35
+  },
+  {
+    "name": "launch-v6",
+    "command": [
+      "/home/myluo/miniconda3/envs/qwen3meld-run/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tasks/action-experiment/launch-stable-B1490-v6-20261021"
+    ],
+    "exit_code": 0,
+    "seconds": 5.29
+  },
+  {
+    "name": "gate60",
+    "command": [
+      "/home/myluo/miniconda3/envs/qwen3meld-run/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tasks/action-experiment/pause-B1507-resume60-20261022"
+    ],
+    "exit_code": 0,
+    "seconds": 0.34
+  },
+  {
+    "name": "restart1600",
+    "command": [
+      "/home/myluo/miniconda3/envs/qwen3meld-run/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tasks/action-experiment/restart-B1600-safe-dev-20261022"
+    ],
+    "exit_code": 0,
+    "seconds": 1.44
+  },
+  {
+    "name": "restart1950",
+    "command": [
+      "/home/myluo/miniconda3/envs/qwen3meld-run/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tasks/action-experiment/restart-B1950-disk-recovery-20261023"
+    ],
+    "exit_code": 0,
+    "seconds": 1.29
+  },
+  {
+    "name": "gold-order",
+    "command": [
+      "/home/myluo/miniconda3/envs/qwen3meld-run/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tasks/stage2-event-tree/tests/test_linearize.py",
+      "tasks/stage2-event-tree/tests/test_sentence_dataset.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.53
+  }
+]

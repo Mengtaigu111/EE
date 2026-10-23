@@ -29,5 +29,9 @@ def test_training_uses_window_guard_without_changing_objective():
     assert 'ProbabilityGuard' in text
     assert 'probability_guards' in text
     assert "probability-window-checks.jsonl" in text
-    assert 'grpo_loss(current,old,ref,mask,advantages[sample_index:sample_index+1])' in text
+    calls=[node for node in ast.walk(ast.parse(text)) if isinstance(node,ast.Call)
+           and isinstance(node.func,ast.Name) and node.func.id=='grpo_loss']
+    assert len(calls)==1
+    assert [ast.unparse(arg) for arg in calls[0].args[:4]]==['current','old','ref','mask']
+    assert any(key.arg=='field_mask' for key in calls[0].keywords)
     assert 'assert_probability_consistency(probability_diagnostic)' not in text

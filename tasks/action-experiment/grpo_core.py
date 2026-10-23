@@ -12,7 +12,7 @@ def group_advantages(rewards, epsilon=1e-4):
     return (rewards-rewards.mean())/(rewards.std(correction=1)+epsilon)
 
 
-def grpo_loss(current, old, reference, mask, advantages, clip=.2, beta=.01):
+def grpo_loss(current, old, reference, mask, advantages, clip=.2, beta=.01, field_mask=None):
     if not (current.shape == old.shape == reference.shape == mask.shape):
         raise ValueError('Log probabilities and mask must have equal shapes')
     if advantages.shape != (current.shape[0],) or (mask.sum(-1)==0).any():
@@ -22,6 +22,10 @@ def grpo_loss(current, old, reference, mask, advantages, clip=.2, beta=.01):
     kl=delta.exp()-delta-1
     a=advantages.detach().unsqueeze(-1)
     surrogate=torch.minimum(ratio*a,ratio.clamp(1-clip,1+clip)*a)
+    if field_mask is not None:
+        if field_mask.shape != current.shape or not torch.isfinite(field_mask).all() or not ((field_mask==0)|(field_mask==1)).all():
+            raise ValueError('Field mask must be binary, finite and match token log probabilities')
+        surrogate=surrogate*field_mask.detach()
     loss=((beta*kl-surrogate)*mask).sum(-1)/mask.sum(-1)
     if not torch.isfinite(loss).all():
         raise ValueError('Nonfinite GRPO objective')

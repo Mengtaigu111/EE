@@ -1,0 +1,229 @@
+{
+  "status": "completed",
+  "arithmetic": {
+    "protocol": "fp32-body-bf16-storage-v1",
+    "base_parameter_storage": "bfloat16",
+    "adapter_parameter_storage": "float32",
+    "activations": "float32",
+    "linear_arithmetic": "float32",
+    "attention_backend": "math",
+    "allow_tf32": false,
+    "completion_projection": "checkpointed_fp32_chunks",
+    "token_chunk": 16
+  },
+  "stages": {
+    "real_forward": [
+      {
+        "run": "A",
+        "group": 7102,
+        "sample": 1,
+        "max_difference": 7.62939453125e-06,
+        "tokens": 121
+      },
+      {
+        "run": "A",
+        "group": 7101,
+        "sample": 0,
+        "max_difference": 0.0,
+        "tokens": 27
+      },
+      {
+        "run": "A",
+        "group": 7100,
+        "sample": 0,
+        "max_difference": 0.0,
+        "tokens": 33
+      },
+      {
+        "run": "B",
+        "group": 5962,
+        "sample": 1,
+        "max_difference": 0.0001049041748046875,
+        "tokens": 127
+      },
+      {
+        "run": "B",
+        "group": 5961,
+        "sample": 0,
+        "max_difference": 3.814697265625e-06,
+        "tokens": 67
+      },
+      {
+        "run": "B",
+        "group": 5960,
+        "sample": 0,
+        "max_difference": 2.288818359375e-05,
+        "tokens": 82
+      }
+    ],
+    "optimizer": {
+      "samples": [
+        {
+          "group": 5960,
+          "sample": 0,
+          "tokens": 82,
+          "loss": -0.9707732796669006,
+          "max_difference": 2.288818359375e-05
+        },
+        {
+          "group": 5960,
+          "sample": 1,
+          "tokens": 72,
+          "loss": -0.357343465089798,
+          "max_difference": 2.6702880859375e-05
+        },
+        {
+          "group": 5960,
+          "sample": 2,
+          "tokens": 30,
+          "loss": 1.1519217491149902,
+          "max_difference": 7.62939453125e-06
+        },
+        {
+          "group": 5960,
+          "sample": 3,
+          "tokens": 74,
+          "loss": -0.03194541111588478,
+          "max_difference": 7.62939453125e-06
+        },
+        {
+          "group": 5961,
+          "sample": 0,
+          "tokens": 67,
+          "loss": 1.8193250070908107e-05,
+          "max_difference": 3.814697265625e-06
+        },
+        {
+          "group": 5961,
+          "sample": 1,
+          "tokens": 67,
+          "loss": 1.8193250070908107e-05,
+          "max_difference": 3.814697265625e-06
+        },
+        {
+          "group": 5961,
+          "sample": 2,
+          "tokens": 67,
+          "loss": 1.8193250070908107e-05,
+          "max_difference": 3.814697265625e-06
+        },
+        {
+          "group": 5961,
+          "sample": 3,
+          "tokens": 67,
+          "loss": 1.8193250070908107e-05,
+          "max_difference": 3.814697265625e-06
+        },
+        {
+          "group": 5962,
+          "sample": 0,
+          "tokens": 173,
+          "loss": -0.6917952299118042,
+          "max_difference": 7.62939453125e-06
+        },
+        {
+          "group": 5962,
+          "sample": 1,
+          "tokens": 127,
+          "loss": 1.0808818340301514,
+          "max_difference": 0.0001049041748046875
+        },
+        {
+          "group": 5962,
+          "sample": 2,
+          "tokens": 173,
+          "loss": -0.6917952299118042,
+          "max_difference": 7.62939453125e-06
+        },
+        {
+          "group": 5962,
+          "sample": 3,
+          "tokens": 166,
+          "loss": 0.22705110907554626,
+          "max_difference": 4.57763671875e-05
+        },
+        {
+          "group": 5963,
+          "sample": 0,
+          "tokens": 53,
+          "loss": -0.7064597606658936,
+          "max_difference": 3.814697265625e-06
+        },
+        {
+          "group": 5963,
+          "sample": 1,
+          "tokens": 67,
+          "loss": 1.2023299932479858,
+          "max_difference": 7.62939453125e-06
+        },
+        {
+          "group": 5963,
+          "sample": 2,
+          "tokens": 44,
+          "loss": 0.0003104196221102029,
+          "max_difference": 1.9073486328125e-05
+        },
+        {
+          "group": 5963,
+          "sample": 3,
+          "tokens": 53,
+          "loss": -0.7064597606658936,
+          "max_difference": 3.814697265625e-06
+        }
+      ],
+      "gradient_norm": 0.6378447413444519,
+      "initial_step": 1490,
+      "final_step": 1491,
+      "policy_changed": true,
+      "reference_unchanged": true
+    },
+    "checkpoint": {
+      "path": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/verification-stable-v6-20261021/checkpoints/verification-step1491-1792599334789614993",
+      "rng_equal": true,
+      "policy_equal": true,
+      "step": 1491
+    },
+    "longest_train": {
+      "prompt_tokens": 1527,
+      "completion_tokens": 768,
+      "total_tokens": 2295,
+      "peak_allocated_bytes": 21492456960,
+      "finite_gradients": true,
+      "caveat": "synthetic EOS labels only for memory stress; no optimizer update or metric"
+    },
+    "dev_batch_benchmark": [
+      {
+        "batch_size": 1,
+        "total_rows": 4,
+        "forced_new_tokens": 64,
+        "status": "passed",
+        "wall_seconds": 23.385480822063982,
+        "peak_allocated_bytes": 20027062272
+      },
+      {
+        "batch_size": 2,
+        "total_rows": 4,
+        "forced_new_tokens": 64,
+        "status": "passed",
+        "wall_seconds": 15.08682953985408,
+        "peak_allocated_bytes": 20466675200
+      },
+      {
+        "batch_size": 4,
+        "total_rows": 4,
+        "forced_new_tokens": 64,
+        "status": "passed",
+        "wall_seconds": 9.857508996967226,
+        "peak_allocated_bytes": 21535531520
+      }
+    ],
+    "longest_dev": {
+      "batch_size": 4,
+      "prompt_tokens": 1406,
+      "forced_generated_tokens": 768,
+      "peak_allocated_bytes": 22159321088
+    }
+  },
+  "wall_seconds": 1683.550344043877,
+  "production_runs_modified": false
+}

@@ -55,7 +55,7 @@ def build_all(project_root, output_dir, stage1_run, seed):
     manifest = {'created_at': datetime.now(timezone.utc).isoformat(), 'seed': seed, 'sources': {}, 'splits': {},
                 'stage1_run': str(stage1_run),
                 'rules': {'tree': 'ROOT -> (EventType (Trigger text) (Role text)*)*; events by trigger offset then type; '
-                                  'roles in ontology order; same-role args by offset; text = tokens in sorted offset order',
+                                  'roles in ontology order; same-role args by leftmost offset; text = tokens in original gold offset order, including repetitions',
                           'train_hints': 'gold hints with calibrated noise (per-type miss, type flip, boundary jitter, spurious spans)',
                           'eval_hints': 'Stage-1 predictions aligned with the Stage-1 aligner, deduplicated by (offsets,type)',
                           'oracle_hints': 'gold hints, same prompt as the noised/predicted variants',

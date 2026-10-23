@@ -55,10 +55,13 @@ def inspect_cot_source(adapter, model_path=None):
 
 class TCFeedbackController:
     """Lexicographic TC/TI ranking; exact ties keep the earlier checkpoint."""
-    def __init__(self, min_delta=.001):
+    def __init__(self, min_delta=.001, patience=6):
         if not isinstance(min_delta, (int, float)) or isinstance(min_delta, bool) or not math.isfinite(min_delta) or min_delta <= 0:
             raise ValueError('min_delta must be a positive finite number')
+        if isinstance(patience, bool) or not isinstance(patience, int) or patience < 1:
+            raise ValueError('patience must be a positive integer')
         self.min_delta = min_delta
+        self.patience = patience
         self.anchor_tc = None
         self.best_score = None
         self.best_step = None
@@ -81,12 +84,14 @@ class TCFeedbackController:
             self.bad_count += 1
         self.last_step = step
         return {**self.state_dict(), 'new_best': new_best,
-                'reduce_lr': self.bad_count == 3, 'stop': self.bad_count >= 6}
+                'reduce_lr': self.bad_count == 3 and self.bad_count < self.patience,
+                'stop': self.bad_count >= self.patience}
 
     def state_dict(self):
         return {'best_score': self.best_score, 'best_step': self.best_step,
                 'bad_count': self.bad_count, 'last_step': self.last_step,
-                'anchor_tc': self.anchor_tc, 'min_delta': self.min_delta}
+                'anchor_tc': self.anchor_tc, 'min_delta': self.min_delta,
+                'patience': self.patience}
 
 
 def assistant_token_loss(outputs, labels, num_items_in_batch=None):
@@ -198,12 +203,16 @@ def parser():
     p.add_argument('--max-len', type=int, default=4096)
     p.add_argument('--max-new-tokens', type=int, default=MAX_NEW_TOKENS)
     p.add_argument('--dev-batch-size', type=int, default=4)
+    p.add_argument('--early-stopping-patience', type=int, default=6,
+                   help='Consecutive dev checks without an effective TC improvement before stopping')
     p.add_argument('--smoke', action='store_true', help='Real Qwen training: 32 rows, 4 optimizer updates, 2 dev checks')
     return p
 
 
 def main():
     args = parser().parse_args()
+    if args.early_stopping_patience < 1:
+        raise ValueError('early-stopping-patience must be a positive integer')
     if 'TMUX' not in os.environ:
         raise ValueError('GPU training must run inside tmux')
     if args.max_len < 1 or args.max_new_tokens < 1 or args.dev_batch_size < 1:
@@ -290,7 +299,8 @@ def main():
             args.output / 'online-dev' / f'dev-checkpoint-{step}',
             batch_size=args.dev_batch_size, max_new_tokens=args.max_new_tokens)
     callback = make_dev_callback(trainer, evaluator, args.output, tokenizer,
-                                 checkpoint_steps, source=source)
+                                 checkpoint_steps, source=source,
+                                 controller=TCFeedbackController(patience=args.early_stopping_patience))
     trainer.add_callback(callback)
     result = trainer.train(resume_from_checkpoint=None)
     torch.cuda.synchronize()
@@ -307,7 +317,7 @@ def main():
     save(args.output / 'sampling-audit.json', sampling)
     if trainer.state.global_step not in checkpoint_steps:
         raise ValueError('Training stopped without a complete scheduled dev evaluation')
-    if callback.feedback.bad_count < 6 and trainer.state.global_step != horizon:
+    if callback.feedback.bad_count < callback.feedback.patience and trainer.state.global_step != horizon:
         raise ValueError('Unexplained premature Action SFT stop')
     losses = [entry['loss'] for entry in trainer.state.log_history if 'loss' in entry]
     if (not losses or not all(math.isfinite(loss) for loss in losses)
@@ -317,12 +327,13 @@ def main():
     metrics = {**result.metrics, 'status': 'completed', 'stage': 'action_sft', 'smoke': args.smoke,
         'global_step': trainer.state.global_step, 'best_step': callback.feedback.best_step,
         'best_score': callback.feedback.best_score, 'feedback': callback.feedback.state_dict(),
+        'early_stopping_patience': callback.feedback.patience,
         'finite_loss': True, 'wall_seconds': time.monotonic() - started,
         'peak_memory_bytes': torch.cuda.max_memory_allocated(),
         'best_adapter_sha256': sha(args.output / 'best-adapter/adapter_model.safetensors'),
         'best_adapter_config_sha256': sha(args.output / 'best-adapter/adapter_config.json'),
         'last_adapter_sha256': sha(args.output / 'last-adapter/adapter_model.safetensors'),
-        'stop_reason': 'early_stop' if callback.feedback.bad_count >= 6 else 'budget_exhausted'}
+        'stop_reason': 'early_stop' if callback.feedback.bad_count >= callback.feedback.patience else 'budget_exhausted'}
     save(args.output / 'train_metrics.json', metrics)
     print(json.dumps(metrics, allow_nan=False), flush=True)
 

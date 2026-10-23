@@ -1,0 +1,1 @@
+Explicit B1950 recovery after known ENOSPC at1952. Copies verified B1600 recovery runtime; only logging labels and policy filename change. Frozen v6 arithmetic, guard, data, G4/accum4, dev cap2→1 and768 budget unchanged. Continuous idle60s, no foreign, free21000MiB, no reservation. Once-only; no automatic retries. Target queue remains launch-stable-B1490-v6-20261021.

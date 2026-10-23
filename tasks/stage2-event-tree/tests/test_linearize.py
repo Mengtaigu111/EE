@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from linearize import canonical_events, linearize, linearize_semantic, linearize_substructures, parse_forest
+from linearize import canonical_events, linearize, linearize_semantic, linearize_substructures, parse_forest, span_text
 
 PROJECT = Path(__file__).resolve().parents[3]
 
@@ -13,6 +13,43 @@ def doc(tokens, events):
 
 
 class LinearizeTests(unittest.TestCase):
+    def test_span_text_preserves_order_and_repeated_offsets(self):
+        self.assertEqual(span_text(['knowledge', 'graph', 'two', 'datasets'], [2, 0, 1, 3]),
+                         'two knowledge graph datasets')
+        self.assertEqual(span_text(['very', 'good'], [0, 0, 1]), 'very very good')
+
+    def test_arguments_preserve_gold_order_but_list_uses_source_position(self):
+        d = doc('knowledge graph propose two datasets', [{
+            'event_type': 'PRP', 'trigger': {'offsets': [2]},
+            'arguments': [
+                {'offsets': [1], 'argument_type': 'Content'},
+                {'offsets': [3, 0, 1, 4], 'tokens': ['two', 'knowledge', 'graph', 'datasets'],
+                 'text': 'two knowledge graph datasets', 'argument_type': 'Content'},
+                {'offsets': [3, 3], 'tokens': ['two', 'two'],
+                 'text': 'two two', 'argument_type': 'Content'}]}])
+        before = json.dumps(d)
+        args = canonical_events(d)[0]['args']
+        self.assertEqual([a['text'] for a in args],
+                         ['two knowledge graph datasets', 'graph', 'two two'])
+        self.assertEqual(args[0]['offsets'], [3, 0, 1, 4])
+        self.assertEqual(args[2]['offsets'], [3, 3])
+        self.assertEqual(json.dumps(d), before)
+
+    def test_inconsistent_gold_text_or_tokens_is_rejected(self):
+        for field, value in [('text', 'graph two'), ('tokens', ['graph', 'two'])]:
+            with self.subTest(field=field):
+                d = doc('graph propose two', [{'event_type': 'PRP', 'trigger': {'offsets': [1]},
+                    'arguments': [{'offsets': [2, 0], 'argument_type': 'Content', field: value}]}])
+                with self.assertRaisesRegex(ValueError, 'gold.*'+field):
+                    canonical_events(d)
+
+    def test_real_nonmonotonic_gold_argument(self):
+        docs = json.loads((PROJECT / 'data/SciEvents/test.json').read_text())
+        d = next(d for d in docs if d['doc_id'] == 'f759023d55386ba9f605e8bc41778619')
+        tree = linearize(canonical_events(d))
+        self.assertIn('(Content "two knowledge graph datasets")', tree)
+        self.assertNotIn('(Content "knowledge graph two datasets")', tree)
+
     def test_canonical_order_and_roundtrip(self):
         d = doc('we propose x and it outperforms y on z',
                 [{'event_type': 'CMP', 'trigger': {'offsets': [5]},

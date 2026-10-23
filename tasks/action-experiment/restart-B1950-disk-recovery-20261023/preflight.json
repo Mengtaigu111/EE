@@ -1,0 +1,53 @@
+{
+  "checked_unix": 1792730981.6762457,
+  "checkpoint": "/home/myluo/EE/EXCEEDS/tasks/action-experiment/runs/r0-v2-B-stable-v6-from1490-42-20261021/recovery-checkpoints/periodic-step1950-1792716578401081838",
+  "checkpoint_manifest_sha256": "f4c644ae59405f415ed9f2c32d9bd2382d39cc4f1316746a1bbf75d306023211",
+  "checkpoint_files_verified": 11,
+  "input_files_verified": 205,
+  "deployment_files_verified": 38,
+  "step": 1950,
+  "next_group": 7800,
+  "pending": 0,
+  "optimizer_rng_present": true,
+  "no_gradients": true,
+  "best_step": 1200,
+  "early_stopping": {
+    "patience": 3,
+    "min_delta": 0.001,
+    "anchor_tc": 0.6348040705662075,
+    "bad_count": 1,
+    "last_step": 1600
+  },
+  "log_offsets_valid": true,
+  "dev1600_output_sha256": {
+    "predictions.jsonl": "28592be9de1aaec833ba7a10640488187ea928412187ae1126b186f3041133f2",
+    "parsed.jsonl": "b61cb164aaf4c5a0d2db1db25ac77b55e608997ee4464232afb6c82a1b94394e",
+    "metrics.json": "27ded575e1428443ebdfc5455baa70c0a83928fb6da573a1372ea32a8d90a598"
+  },
+  "disk_available_bytes": 31607402496,
+  "guard": {
+    "window_responses": 16,
+    "min_valid_tokens": 512,
+    "persistence": 3,
+    "hard_max_difference": 1.0,
+    "warning_p99": 0.15,
+    "max_clip_fraction": 0.01,
+    "guard_ratio_bounds": [
+      0.5,
+      2.0
+    ],
+    "max_guard_ratio_fraction": 0.01,
+    "loss_clip": 0.2
+  },
+  "arithmetic": {
+    "protocol": "fp32-body-bf16-storage-v1",
+    "base_parameter_storage": "bfloat16",
+    "adapter_parameter_storage": "float32",
+    "activations": "float32",
+    "linear_arithmetic": "float32",
+    "attention_backend": "math",
+    "allow_tf32": false,
+    "completion_projection": "checkpointed_fp32_chunks",
+    "token_chunk": 16
+  }
+}

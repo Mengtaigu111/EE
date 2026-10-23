@@ -19,6 +19,18 @@ def _event_in_sentence(event, lo, hi):
     return bool(offsets) and all(lo <= offset < hi for offset in offsets)
 
 
+def _original_gold_signature(tokens, event):
+    """Independent gold comparison; never read canonicalized text or offsets."""
+    def text(mention):
+        if 'tokens' in mention:
+            return ' '.join(mention['tokens'])
+        if 'text' in mention:
+            return mention['text']
+        return ' '.join(tokens[i] for i in mention['offsets'])
+    return (event['event_type'], text(event['trigger']),
+            tuple(sorted((arg['argument_type'], text(arg)) for arg in event['arguments'])))
+
+
 def _mode_name(semantic_path=False, appendix_schema=False):
     if semantic_path and appendix_schema:
         raise ValueError('semantic_path and appendix_schema are mutually exclusive')
@@ -68,6 +80,11 @@ def build_rows_for_document(doc, split, semantic_path=False, appendix_schema=Fal
             raise ValueError(f'{doc["doc_id"]} sentence {sentence_index}: parser/linearizer mismatch')
         target_gold_events = [raw for raw in doc['events']
                              if _event_in_sentence({'trigger_offsets': raw['trigger']['offsets']}, lo, hi)]
+        gold_signatures = Counter(_original_gold_signature(tokens, raw) for raw in target_gold_events)
+        parsed_signatures = Counter((event['type'], event['trigger'],
+            tuple(sorted((arg['role'], arg['text']) for arg in event['args']))) for event in parsed)
+        if parsed_signatures != gold_signatures:
+            raise ValueError(f'{doc["doc_id"]} sentence {sentence_index}: tree differs from original gold')
         rows.append({
             'id': f'{doc["doc_id"]}::sentence-{sentence_index}',
             'document_id': doc['doc_id'],
@@ -126,7 +143,9 @@ def build_all(project_root, output_dir, semantic_path=False, appendix_schema=Fal
                           'tree': 'semantic path' if semantic_path else 'event type root',
                           'schema': 'Appendix F.2 exact' if appendix_schema else (
                               'semantic prototypes' if semantic_path else 'ontology.py gloss'),
-                          'empty_target': '(ROOT)'}, 'sources': {}, 'splits': {}}
+                          'empty_target': '(ROOT)',
+                          'span_text': 'original gold token/offset order, including repetitions',
+                          'validation': 'parsed targets compared directly to original gold'}, 'sources': {}, 'splits': {}}
     for split in ('train', 'dev', 'test'):
         source = project_root / f'data/SciEvents/{split}.json'
         manifest['sources'][str(source.relative_to(project_root))] = hashlib.sha256(source.read_bytes()).hexdigest()
